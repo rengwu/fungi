@@ -1,0 +1,242 @@
+{
+  "recordedAtUTC": "2026-10-20T09:54:11.576878+00:00",
+  "gitRevision": null,
+  "baselineJstack": "7a7c919",
+  "priorDayJstackTip": "32324e47aae7d3ad3f92e6a4aad8966e9451d691",
+  "package": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z",
+  "binarySHA256": "112f115ac7222d1ae6cfd23ba1c9bc2074dd098c6123c7679225dce1ef31236a",
+  "idleHelperSHA256": "7318c24f64106219546dcce64b92ddad3ac42e63a40702d57bdb801120de950f",
+  "environment": {
+    "macOS": "27.0 arm64",
+    "go": "1.26.4",
+    "node": "22.19.0",
+    "electron": "44.9.0",
+    "linux": "arm64 via OrbStack, official golang 1.26.4, network disabled, UID/GID 65534"
+  },
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "bytes": 4599,
+      "sha256": "6a3d058dd0267a1a60f3b88e503824306a06ba67d567749859803c5c83ad2e2a"
+    },
+    {
+      "path": "delivery_test.go",
+      "bytes": 1419,
+      "sha256": "8c7a07dbc95d316a114ba64b3f18a37764f393d8e64c39e85f03c56e23a0fffd"
+    },
+    {
+      "path": "describe.go",
+      "bytes": 4591,
+      "sha256": "72bf2c7eb140095482b4a27493c5a4c9e311bba70521240f280cc1fbfb2b2d39"
+    },
+    {
+      "path": "examples/.DS_Store",
+      "bytes": 6148,
+      "sha256": "a2377d3e25afbb07f201528d80edb2ed0511ef413052a59e8abd7ad4dbaa817a"
+    },
+    {
+      "path": "examples/feedback.json",
+      "bytes": 484,
+      "sha256": "bc9b4b7d02b7a1c6d45d35b79c0e086d8c259c2111879d445adb1f195d21c287"
+    },
+    {
+      "path": "examples/helper/main.go",
+      "bytes": 1819,
+      "sha256": "e40d9e28a32cbb48395a380369b4868371573c6dd0fb3af22299ffe33b4bee0d"
+    },
+    {
+      "path": "examples/review.html",
+      "bytes": 2996,
+      "sha256": "1e715b94f09f43a77d1d298db1f80ab264db4af5d6d5d6f585c85a8c76805d94"
+    },
+    {
+      "path": "go.mod",
+      "bytes": 22,
+      "sha256": "a241c23e00e4857bd9df822064ef8163de76472ac93f348818bef3a742af739c"
+    },
+    {
+      "path": "integration_test.go",
+      "bytes": 6719,
+      "sha256": "0731e8a46dbf64e3a13cafab2d2c2f4da3bfce6103cb55e6b7f9e36cd1f4125b"
+    },
+    {
+      "path": "lock_unix.go",
+      "bytes": 460,
+      "sha256": "16a8f230913ddf081f652b46c809ead8184eb3b4bfbac8511243c3f67d0655ec"
+    },
+    {
+      "path": "lock_windows.go",
+      "bytes": 453,
+      "sha256": "0e3f110d3ba4abcb36ab63581df41ebafd95c8517f448125d283f743e1dd2230"
+    },
+    {
+      "path": "main.go",
+      "bytes": 12520,
+      "sha256": "723f7f08744113e40cc214f403cc36c9e3ad76b1226ba64f7d225010ffd76215"
+    },
+    {
+      "path": "owner.go",
+      "bytes": 5923,
+      "sha256": "8a613ef1285de58b5a991a2adfd89fe5f8cce5da55a98009bb28888324687ba3"
+    },
+    {
+      "path": "process_unix.go",
+      "bytes": 296,
+      "sha256": "9848afc408a55b714055586c5bfd111e39f9d6112b96ae7e681bc0ffc94dd292"
+    },
+    {
+      "path": "process_windows.go",
+      "bytes": 183,
+      "sha256": "23c676f2af31b732a8ff252983f7896f2862374816744c58353a433a7c2851dc"
+    },
+    {
+      "path": "renderer/form.html",
+      "bytes": 2260,
+      "sha256": "861d7c6c3016aa3d55fb238cc7cec0e12dd4fd18d475dfcd0a3c82dd1d0b1b8a"
+    },
+    {
+      "path": "renderer/form.js",
+      "bytes": 5853,
+      "sha256": "7c297b542e83d26b0e20de2304d4f9d96f7d9fcdd1a8c8fdffd8a22b1e20ce03"
+    },
+    {
+      "path": "renderer/main.cjs",
+      "bytes": 8303,
+      "sha256": "918ed981b3a812a7597cc8e5b0cd90739605592cda4078d24b217ed6e6ca4c9b"
+    },
+    {
+      "path": "renderer/package-lock.json",
+      "bytes": 5765,
+      "sha256": "723ecd6748962ef31ed5f168f54cb8e4adef86e465779b525c0ef19b6bd7a7a2"
+    },
+    {
+      "path": "renderer/package.json",
+      "bytes": 147,
+      "sha256": "4787c08ca4594c3e37b404ce1006c2a69dcafa9bab31d41f4cc5bde91f22f253"
+    },
+    {
+      "path": "renderer/preload.cjs",
+      "bytes": 910,
+      "sha256": "1e201ae687db28813663aff08904a1f0283c819474b2c27ba77c836c77e5aabc"
+    },
+    {
+      "path": "scripts/grill-form.test.mjs",
+      "bytes": 2352,
+      "sha256": "57851489df55f95ac058ea2bc2d77c607118f512b09af80def7f39fd7616f437"
+    },
+    {
+      "path": "scripts/idle-helper/main.go",
+      "bytes": 2356,
+      "sha256": "437f6b689a0374ff099ad8c13d15c477c484bd318c296bab47907c8e68a35b88"
+    },
+    {
+      "path": "scripts/package.mjs",
+      "bytes": 2218,
+      "sha256": "5d1341ff3845c41cbd01685b93d99151af7875d6d6e9ddbfbe8bfb41fe77bade"
+    },
+    {
+      "path": "skills/grill-form/SKILL.md",
+      "bytes": 2825,
+      "sha256": "12d5fe69206b7036434bd6d7b1a68162f1ecc9c06505f6b7cbb9b9f2e22879fb"
+    },
+    {
+      "path": "skills/grill-form/assets/description.js",
+      "bytes": 5092,
+      "sha256": "5eef4187ccfd9af3325873ed60a0531a51a4f322ef592e6bd4b192cf1c77bc4a"
+    },
+    {
+      "path": "skills/grill-form/assets/form.html",
+      "bytes": 5914,
+      "sha256": "ecb4e7d8c4c79cc5288b4d4592be41f5698d92700bf8912d805f2f1034720a83"
+    },
+    {
+      "path": "skills/grill-form/assets/form.js",
+      "bytes": 5142,
+      "sha256": "0e7c2809f321fad281448134ef8e516397fbc33043519808a866771e2b501873"
+    },
+    {
+      "path": "skills/grill-form/assets/model.mjs",
+      "bytes": 4280,
+      "sha256": "24dfbfd9f04d64607e21d642e3191f5c7ea34aff4b1dfb17f8f0abed2201b093"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/README.md",
+      "bytes": 1073,
+      "sha256": "6d5c5f54d5fbef2043e8142c5272aa662c8a73fb300c5500af549a17d7fba887"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/dompurify-LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/dompurify-LICENSE-MPL",
+      "bytes": 16726,
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/marked-LICENSE",
+      "bytes": 2942,
+      "sha256": "8e3a3f82f59a60958f56ca08f445647c32a4733dc7ca6c2c46f6eb898471ab9c"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/marked.js",
+      "bytes": 47225,
+      "sha256": "f424dcb508fdf93e0137a970cfce8f3207ea2e3f37eca5f7556a52875683632a"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/mermaid.js",
+      "bytes": 2811019,
+      "sha256": "143c1b9345c45963ff429da4bdcd9051316a43522ea9edd7ccb7a87ff947a804"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/purify.js",
+      "bytes": 28885,
+      "sha256": "2c90a9b46d6463f26038a29b686e82bc91de01fdac9d5229e7cfe3b360134ea2"
+    },
+    {
+      "path": "skills/grill-form/assets/vendor/tiny-LICENSE",
+      "bytes": 1089,
+      "sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80"
+    },
+    {
+      "path": "skills/grill-form/example.json",
+      "bytes": 649,
+      "sha256": "cb8e728845d6a0e1469a50899b2420844d97d333446c85c4bd539c3b53513eb0"
+    },
+    {
+      "path": "skills/grill-form/references/provenance.md",
+      "bytes": 1197,
+      "sha256": "bf3e6369620fbc62f941ac8141f3a93ead0b901251f7882f9a8469b619f15cc0"
+    },
+    {
+      "path": "store.go",
+      "bytes": 12434,
+      "sha256": "f7deb1ab3f7ecd02122efe68dcc8d94519a554110b8ac6bac573e850e78704c7"
+    },
+    {
+      "path": "store_test.go",
+      "bytes": 5267,
+      "sha256": "17d74314469851309155f58925d1022324ba1814c0ef51287b91fdf90cdfd407"
+    }
+  ],
+  "checks": {
+    "questionModel": "4 tests passed",
+    "JavaScriptSyntax": "Passed",
+    "nativeSkillUI": "Passed selected scenarios",
+    "LinuxCore": "Passed race-enabled suite in 37.221 seconds",
+    "twoHourIdle": "Passed: 7200.01478275 helper-measured seconds; 7457.873221-second UTC interval spanning the recorded Mac sleep/wake; exact-origin callback consumed with one collection; timing artifact verified",
+    "skillMetadata": "Passed after final name alignment",
+    "idleHelperStatic": "gofmt produced no diff; go vet passed",
+    "testCleanup": "Native fixtures and Linux test container exited after checks; real interview, sleep/wake fixture and two-hour helper completed; long-run owner/helper exit confirmed; original user-edited demo preserved",
+    "realInterview": "Passed: exact-origin callback received; one collection returned user answers to questions 18–19",
+    "sleepWake": "Passed: one user-controlled macOS lid-close sleep/wake cycle; notes/image survived, post-wake edit and exact-origin callback collected once; system power events confirm sleep/wake"
+  },
+  "limits": [
+    "No Windows runtime or Linux desktop UI test",
+    "No clean-Mac downloaded launch or public signing/notarization",
+    "One short macOS sleep/wake cycle only; no overnight, reboot or arbitrary-duration guarantee",
+    "One two-hour native helper/owner/Codex run; not two hours of Electron UI interaction or arbitrary-duration reliability across harnesses"
+  ],
+  "evidenceUpdatedAtUTC": "2026-10-20T11:48:34.506290+00:00"
+}

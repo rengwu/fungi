@@ -1,0 +1,8 @@
+Observed command: node --test scripts/grill-form.test.mjs
+PASS simple committed question format normalizes stable IDs and rich source
+PASS notes-only answers work; empty answers and Other without notes cannot submit
+PASS reopen preserves partial notes but refuses a mismatched questionnaire
+PASS invalid spec and reserved IDs fail before a usable questionnaire is shown
+TAP totals: tests 4, pass 4, fail 0; duration_ms 69.770666
+JavaScript syntax checks passed for form.js and description.js.
+This file summarizes the observed tool output; it is not a second test run.

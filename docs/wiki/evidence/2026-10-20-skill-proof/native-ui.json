@@ -1,0 +1,262 @@
+{
+  "observations": [
+    "Native packaged launch used PATH=/usr/bin:/bin. Markdown table and Edit \u2192 Preview \u2192 Publish diagram were visible.",
+    "Other selected with empty notes left Submit answers disabled; GRILL-DRAFT-RECOVER enabled submission.",
+    "Native picker selected reference.png; preview and Draft saved were visible.",
+    "Close returned closed; reopening displayed restored notes, Other selection and image preview.",
+    "SIGKILL targeted only PID 12796 after exact _run session command verification; collection returned session_interrupted; reopening restored notes/image again.",
+    "chmod 0500 applied only to the disposable recovered session directory. Submit displayed Answers not submitted and a permission error; result.json did not exist. chmod 0700 restored it; retry submitted successfully.",
+    "Unsupported Mermaid source displayed a fallback with source. Raw <script>alert(1)</script> appeared as literal text. Native Cancel returned cancelled.",
+    "No test answers were submitted to a real interview. Historical user-edited demo preserved."
+  ],
+  "sessions": [
+    {
+      "stage": "closed",
+      "session": "bffd205b7c455e6bcb10c198ad53b8b3",
+      "reopenedFrom": null,
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "bffd205b7c455e6bcb10c198ad53b8b3",
+        "outcome": "closed",
+        "artifacts": []
+      },
+      "draft": {
+        "data": {
+          "schemaVersion": 1,
+          "spec": {
+            "title": "Example questionnaire",
+            "questions": [
+              {
+                "id": "q1",
+                "number": 1,
+                "prompt": "When should a reviewed change be published?",
+                "context": "This is a demonstration, not a project decision.\n\n| Choice | Benefit | Cost |\n| --- | --- | --- |\n| Explicitly | Review before release | One extra action |\n| Automatically | Immediate updates | Mistakes go live immediately |\n\n```mermaid\nflowchart LR\n  Edit --> Preview\n  Preview --> Publish\n```",
+                "recommendation": "Publish explicitly so editors can review changes.",
+                "options": [
+                  {
+                    "id": "option1",
+                    "label": "Publish explicitly"
+                  },
+                  {
+                    "id": "option2",
+                    "label": "Publish automatically"
+                  }
+                ]
+              }
+            ]
+          },
+          "answers": [
+            {
+              "questionId": "q1",
+              "choiceId": "other",
+              "notes": "GRILL-DRAFT-RECOVER"
+            }
+          ]
+        },
+        "artifacts": [
+          {
+            "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "key": "reference",
+            "name": "reference.png",
+            "mediaType": "image/png",
+            "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/ui-sessions/bffd205b7c455e6bcb10c198ad53b8b3/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "bytes": 180,
+            "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "interrupted",
+      "session": "34856b05b81b6488efacb8d709559dba",
+      "reopenedFrom": "bffd205b7c455e6bcb10c198ad53b8b3",
+      "result": {
+        "error": {
+          "code": "session_interrupted",
+          "message": "session owner is unavailable; saved draft can be reopened explicitly"
+        },
+        "kind": "error",
+        "protocol": 1
+      },
+      "draft": {
+        "data": {
+          "schemaVersion": 1,
+          "spec": {
+            "title": "Example questionnaire",
+            "questions": [
+              {
+                "id": "q1",
+                "number": 1,
+                "prompt": "When should a reviewed change be published?",
+                "context": "This is a demonstration, not a project decision.\n\n| Choice | Benefit | Cost |\n| --- | --- | --- |\n| Explicitly | Review before release | One extra action |\n| Automatically | Immediate updates | Mistakes go live immediately |\n\n```mermaid\nflowchart LR\n  Edit --> Preview\n  Preview --> Publish\n```",
+                "recommendation": "Publish explicitly so editors can review changes.",
+                "options": [
+                  {
+                    "id": "option1",
+                    "label": "Publish explicitly"
+                  },
+                  {
+                    "id": "option2",
+                    "label": "Publish automatically"
+                  }
+                ]
+              }
+            ]
+          },
+          "answers": [
+            {
+              "questionId": "q1",
+              "choiceId": "other",
+              "notes": "GRILL-DRAFT-RECOVER"
+            }
+          ]
+        },
+        "artifacts": [
+          {
+            "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "key": "reference",
+            "name": "reference.png",
+            "mediaType": "image/png",
+            "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/ui-sessions/34856b05b81b6488efacb8d709559dba/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "bytes": 180,
+            "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "submitted",
+      "session": "1878f9ca52ac2381490a6e343d5f82f8",
+      "reopenedFrom": "34856b05b81b6488efacb8d709559dba",
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "1878f9ca52ac2381490a6e343d5f82f8",
+        "outcome": "submitted",
+        "data": {
+          "schemaVersion": 1,
+          "projectName": "Fungi",
+          "title": "Example questionnaire",
+          "answers": [
+            {
+              "questionId": "q1",
+              "number": 1,
+              "question": "When should a reviewed change be published?",
+              "choiceId": "other",
+              "choice": "Something else",
+              "notes": "GRILL-DRAFT-RECOVER"
+            }
+          ],
+          "reference": {
+            "artifact": "reference"
+          }
+        },
+        "artifacts": [
+          {
+            "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "key": "reference",
+            "name": "reference.png",
+            "mediaType": "image/png",
+            "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/ui-sessions/1878f9ca52ac2381490a6e343d5f82f8/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "bytes": 180,
+            "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+          }
+        ]
+      },
+      "draft": {
+        "data": {
+          "schemaVersion": 1,
+          "spec": {
+            "title": "Example questionnaire",
+            "questions": [
+              {
+                "id": "q1",
+                "number": 1,
+                "prompt": "When should a reviewed change be published?",
+                "context": "This is a demonstration, not a project decision.\n\n| Choice | Benefit | Cost |\n| --- | --- | --- |\n| Explicitly | Review before release | One extra action |\n| Automatically | Immediate updates | Mistakes go live immediately |\n\n```mermaid\nflowchart LR\n  Edit --> Preview\n  Preview --> Publish\n```",
+                "recommendation": "Publish explicitly so editors can review changes.",
+                "options": [
+                  {
+                    "id": "option1",
+                    "label": "Publish explicitly"
+                  },
+                  {
+                    "id": "option2",
+                    "label": "Publish automatically"
+                  }
+                ]
+              }
+            ]
+          },
+          "answers": [
+            {
+              "questionId": "q1",
+              "choiceId": "other",
+              "notes": "GRILL-DRAFT-RECOVER"
+            }
+          ]
+        },
+        "artifacts": [
+          {
+            "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "key": "reference",
+            "name": "reference.png",
+            "mediaType": "image/png",
+            "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/ui-sessions/1878f9ca52ac2381490a6e343d5f82f8/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+            "bytes": 180,
+            "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "cancelled",
+      "session": "d4782b4be791502ba394fbdee1ee8fae",
+      "reopenedFrom": null,
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "d4782b4be791502ba394fbdee1ee8fae",
+        "outcome": "cancelled",
+        "artifacts": []
+      },
+      "draft": {
+        "data": {
+          "schemaVersion": 1,
+          "spec": {
+            "title": "Cancel and description fallback",
+            "questions": [
+              {
+                "id": "q1",
+                "number": 1,
+                "prompt": "This fixture will be cancelled.",
+                "context": "Raw HTML must remain text: <script>alert(1)</script>\n\n```mermaid\nnot a supported diagram\n```",
+                "recommendation": "Cancel this test.",
+                "options": [
+                  {
+                    "id": "option1",
+                    "label": "First"
+                  },
+                  {
+                    "id": "option2",
+                    "label": "Second"
+                  }
+                ]
+              }
+            ]
+          },
+          "answers": [
+            {
+              "questionId": "q1",
+              "choiceId": null,
+              "notes": ""
+            }
+          ]
+        },
+        "artifacts": []
+      }
+    }
+  ],
+  "fixtureImageSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+}

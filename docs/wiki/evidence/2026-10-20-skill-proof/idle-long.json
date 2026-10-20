@@ -1,0 +1,33 @@
+{
+  "status": "completed; exact-origin callback consumed once",
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "622f59b42e05840dd408622f23c8416a",
+    "delivery": {
+      "mode": "callback",
+      "adapter": "codex",
+      "state": "armed"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/fungi",
+      "collect",
+      "622f59b42e05840dd408622f23c8416a"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/idle-long-sessions"
+    }
+  },
+  "acknowledgedDraft": {
+    "data": {
+      "marker": "TWO-HOUR-IDLE-CALLBACK",
+      "requestedSeconds": 7200,
+      "startedAt": "2026-10-20T09:41:51.107501Z"
+    },
+    "artifacts": []
+  },
+  "fixture": "scripts/idle-helper/main.go",
+  "durationSeconds": 7200,
+  "observation": "Original launch receipt and acknowledged draft retained. Completion notice arrived and one collection returned the submitted result; see idle-long-result.json for timings, artifact validation and limits.",
+  "completionEvidence": "idle-long-result.json"
+}

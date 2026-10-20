@@ -1,0 +1,43 @@
+{
+  "recordedAtUTC": "2026-10-20T07:59:26.224057+00:00",
+  "session": "f2b35d71fb650809ac354bdd593df8fd",
+  "observation": "Corrected completion notice reached the originating conversation with all required collection arguments and environment. Exactly one collect used those supplied values and returned the saved closed result. No waiting/status polls.",
+  "noticeCollect": {
+    "argv": [
+      "/Users/rengwu/Desktop/Projects/fungi/fungi",
+      "collect",
+      "f2b35d71fb650809ac354bdd593df8fd"
+    ],
+    "env": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions"
+    }
+  },
+  "collect": {
+    "argv": [
+      "/Users/rengwu/Desktop/Projects/fungi/fungi",
+      "collect",
+      "f2b35d71fb650809ac354bdd593df8fd"
+    ],
+    "env": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions"
+    },
+    "exitCode": 0
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "f2b35d71fb650809ac354bdd593df8fd",
+    "outcome": "closed",
+    "artifacts": []
+  },
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "accepted"
+  },
+  "limits": [
+    "Verifies closed native-form outcome, not a new submitted human answer.",
+    "Notice was queued during earlier active work and consumed on a later turn.",
+    "Does not establish long AFK, sleep/wake or restart reliability."
+  ]
+}

@@ -1,0 +1,1067 @@
+{
+  "observedOn": "2026-10-19",
+  "sources": [
+    "https://api.github.com/repos/{owner}/{repo}",
+    "https://api.github.com/repos/{owner}/{repo}/commits?per_page=100&since=2026-07-21T00:00:00Z",
+    "https://api.github.com/repos/{owner}/{repo}/releases?per_page=15",
+    "https://cef-builds.spotifycdn.com/index.json"
+  ],
+  "method": "Public unauthenticated APIs. Default-branch commit samples capped at 100 since 2026-07-21 UTC. Distinct authors count only GitHub-linked non-Bot author accounts. Follow-up files use latest 12 default-branch commits without a date filter. CEF feed entries are sampled stable-channel builds, not proof of the latest supported release on every platform.",
+  "limits": [
+    "Stars are cumulative interest, not deployment counts.",
+    "Commit samples span different durations and are not normalized productivity/team-size metrics.",
+    "Unlinked authors, coauthors, reviewers, downstream work and other repositories are not counted.",
+    "The API license field is automated metadata, not a legal assessment of the full distribution.",
+    "A recent push is not the same as a default-branch commit or a published release.",
+    "No runtime compatibility, performance or installation testing was performed."
+  ],
+  "snapshots": {
+    "CzarekTomczak_cef2go": {
+      "repo": "CzarekTomczak/cef2go",
+      "url": "https://github.com/cztomczak/cef2go",
+      "stars": 912,
+      "forks": 125,
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2020-12-12T03:01:47Z",
+      "created_at": "2013-12-16T00:39:20Z",
+      "license": "NOASSERTION",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 0,
+      "sample_is_capped": false,
+      "distinct_nonbot_github_authors_in_sample": 0,
+      "latest_commits": [],
+      "releases": [
+        {
+          "tag": "v0.12",
+          "published": "2014-02-14T21:35:57Z",
+          "prerelease": false,
+          "url": "https://github.com/cztomczak/cef2go/releases/tag/v0.12"
+        },
+        {
+          "tag": "v0.11",
+          "published": "2014-02-10T07:12:36Z",
+          "prerelease": false,
+          "url": "https://github.com/cztomczak/cef2go/releases/tag/v0.11"
+        },
+        {
+          "tag": "cef3-b1750-r1604",
+          "published": "2014-02-09T23:26:31Z",
+          "prerelease": false,
+          "url": "https://github.com/cztomczak/cef2go/releases/tag/cef3-b1750-r1604"
+        },
+        {
+          "tag": "v0.10",
+          "published": "2014-02-06T13:00:49Z",
+          "prerelease": false,
+          "url": "https://github.com/cztomczak/cef2go/releases/tag/v0.10"
+        },
+        {
+          "tag": "cef3-b1750-r1590",
+          "published": "2014-02-06T12:48:11Z",
+          "prerelease": false,
+          "url": "https://github.com/cztomczak/cef2go/releases/tag/cef3-b1750-r1590"
+        }
+      ],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    },
+    "DioxusLabs_blitz": {
+      "repo": "DioxusLabs/blitz",
+      "url": "https://github.com/DioxusLabs/blitz",
+      "stars": 4277,
+      "forks": 232,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-18T22:44:33Z",
+      "created_at": "2022-02-28T04:42:02Z",
+      "license": "Apache-2.0",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 100,
+      "sample_is_capped": true,
+      "distinct_nonbot_github_authors_in_sample": 5,
+      "latest_commits": [
+        {
+          "sha": "17de049b11",
+          "date": "2026-10-18T22:44:33Z",
+          "subject": "Bump WPT pin to 9d8acee (#1228)",
+          "author": "nicoburns",
+          "type": "User"
+        },
+        {
+          "sha": "38ca4e7775",
+          "date": "2026-10-18T15:23:59Z",
+          "subject": "Support the :focus-within pseudo-class (#1226)",
+          "author": "nicoburns",
+          "type": "User"
+        },
+        {
+          "sha": "fb8d6c15e9",
+          "date": "2026-10-17T13:08:25Z",
+          "subject": "Show the default cursor when the pointer is over no box (#1220)",
+          "author": "nicoburns",
+          "type": "User"
+        },
+        {
+          "sha": "1e5479ae62",
+          "date": "2026-10-17T01:47:09Z",
+          "subject": "Bump Taffy to main (ea07c4c3) (#1219)",
+          "author": "nicoburns",
+          "type": "User"
+        },
+        {
+          "sha": "510b592ab1",
+          "date": "2026-10-17T01:05:03Z",
+          "subject": "Bump Taffy to main (1cb4b02a) (#1216)",
+          "author": "nicoburns",
+          "type": "User"
+        },
+        {
+          "sha": "4a5ab9cc99",
+          "date": "2026-10-16T23:35:07Z",
+          "subject": "Pin Taffy to main (9f9b7365) (#1218)",
+          "author": "nicoburns",
+          "type": "User"
+        }
+      ],
+      "releases": [],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    },
+    "cef_build_feed": {
+      "linux64": [
+        {
+          "cef_version": "152.0.14+g8a0b5b9+chromium-152.0.7977.167",
+          "chromium_version": "152.0.7977.167",
+          "channel": "stable",
+          "files": [
+            {
+              "type": "tools",
+              "date": "2026-10-17T03:50:55.575000Z",
+              "size": 410311711
+            },
+            {
+              "type": "client",
+              "date": "2026-10-17T03:50:39.243000Z",
+              "size": 321269460
+            }
+          ]
+        },
+        {
+          "cef_version": "150.0.22+gc1a097e+chromium-150.0.7871.256",
+          "chromium_version": "150.0.7871.256",
+          "channel": "stable",
+          "files": [
+            {
+              "type": "minimal",
+              "date": "2026-10-09T04:31:37.307000Z",
+              "size": 314890058
+            },
+            {
+              "type": "standard",
+              "date": "2026-10-09T04:31:12.359000Z",
+              "size": 668026266
+            }
+          ]
+        }
+      ],
+      "windows64": [
+        {
+          "cef_version": "152.0.14+g8a0b5b9+chromium-152.0.7977.167",
+          "chromium_version": "152.0.7977.167",
+          "channel": "stable",
+          "files": [
+            {
+              "type": "signed",
+              "date": "2026-10-17T04:47:39.805000Z",
+              "size": 136019836
+            },
+            {
+              "type": "tools",
+              "date": "2026-10-17T04:47:32.905000Z",
+              "size": 213096483
+            }
+          ]
+        },
+        {
+          "cef_version": "150.0.22+gc1a097e+chromium-150.0.7871.256",
+          "chromium_version": "150.0.7871.256",
+          "channel": "stable",
+          "files": [
+            {
+              "type": "signed",
+              "date": "2026-10-09T04:54:19.859000Z",
+              "size": 130081868
+            },
+            {
+              "type": "tools",
+              "date": "2026-10-09T04:54:10.087000Z",
+              "size": 197752027
+            }
+          ]
+        }
+      ],
+      "macosarm64": [
+        {
+          "cef_version": "154.0.34+g14c5a08+chromium-154.0.8037.98",
+          "chromium_version": "154.0.8037.98",
+          "channel": "stable",
+          "files": [
+            {
+              "type": "minimal",
+              "date": "2026-10-05T06:45:53.807000Z",
+              "size": 132210884
+            },
+            {
+              "type": "standard",
+              "date": "2026-10-05T06:45:43.932000Z",
+              "size": 307056359
+            }
+          ]
+        },
+        {
+          "cef_version": "152.0.12+ge1f344f+chromium-152.0.7977.152",
+          "chromium_version": "152.0.7977.152",
+          "channel": "stable",
+          "files": [
+            {
+              "type": "standard",
+              "date": "2026-10-05T04:07:46.265000Z",
+              "size": 301964868
+            },
+            {
+              "type": "minimal",
+              "date": "2026-10-05T04:07:28.338000Z",
+              "size": 131103946
+            }
+          ]
+        }
+      ]
+    },
+    "chromiumembedded_cef": {
+      "repo": "chromiumembedded/cef",
+      "url": "https://github.com/chromiumembedded/cef",
+      "stars": 4837,
+      "forks": 671,
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-10-16T13:00:25Z",
+      "created_at": "2017-04-02T18:19:23Z",
+      "license": "NOASSERTION",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 100,
+      "sample_is_capped": true,
+      "distinct_nonbot_github_authors_in_sample": 12,
+      "latest_commits": [
+        {
+          "sha": "a875f407e3",
+          "date": "2026-10-10T17:48:48Z",
+          "subject": "docs: Fix CefAudioHandler behavior descriptions (fixes #3010)",
+          "author": "magreenblatt",
+          "type": "User"
+        },
+        {
+          "sha": "aa619989d4",
+          "date": "2026-10-10T17:43:37Z",
+          "subject": "docs: Improve OnContextReleased example (fixes #3669)",
+          "author": "magreenblatt",
+          "type": "User"
+        },
+        {
+          "sha": "5728c5dff3",
+          "date": "2026-10-10T17:40:20Z",
+          "subject": "docs: Fix CefDragHandler::OnDragEnter description (fixes #1235)",
+          "author": "magreenblatt",
+          "type": "User"
+        },
+        {
+          "sha": "48b59bede5",
+          "date": "2026-10-10T17:32:15Z",
+          "subject": "docs: Add code signing & notarization (fixes #2744)",
+          "author": "magreenblatt",
+          "type": "User"
+        },
+        {
+          "sha": "8446999d61",
+          "date": "2026-10-10T16:31:15Z",
+          "subject": "docs: Add Security Updates section to README.md (fixes #3584)",
+          "author": "magreenblatt",
+          "type": "User"
+        },
+        {
+          "sha": "5c57234740",
+          "date": "2026-10-10T16:23:18Z",
+          "subject": "docs: Improve external-message-pump guidance (fixes #2968)",
+          "author": "magreenblatt",
+          "type": "User"
+        }
+      ],
+      "releases": [],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    },
+    "electron_electron": {
+      "repo": "electron/electron",
+      "url": "https://github.com/electron/electron",
+      "stars": 123403,
+      "forks": 17638,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-19T08:25:43Z",
+      "created_at": "2013-04-12T01:47:36Z",
+      "license": "MIT",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 100,
+      "sample_is_capped": true,
+      "distinct_nonbot_github_authors_in_sample": 16,
+      "latest_commits": [
+        {
+          "sha": "bcc5c510df",
+          "date": "2026-10-18T04:16:40Z",
+          "subject": "test: re-enable Node.js tests that now pass with BoringSSL (#55071)",
+          "author": "claude[bot]",
+          "type": "Bot"
+        },
+        {
+          "sha": "85825e962e",
+          "date": "2026-10-18T04:15:29Z",
+          "subject": "ci: ignore runner lost communication errors in audit (#55079)",
+          "author": "dsanders11",
+          "type": "User"
+        },
+        {
+          "sha": "baccc3ffd0",
+          "date": "2026-10-16T21:31:07Z",
+          "subject": "refactor: remove about 90 unnecessary pass-through methods (#55010)",
+          "author": "ckerr",
+          "type": "User"
+        },
+        {
+          "sha": "0edcdc47c0",
+          "date": "2026-10-16T21:03:19Z",
+          "subject": "feat: add app shims on macOS (#54932)",
+          "author": "MarshallOfSound",
+          "type": "User"
+        },
+        {
+          "sha": "d3c6c8495c",
+          "date": "2026-10-16T20:41:24Z",
+          "subject": "ci: optionally run analyze_includes.py on builds (#51659)",
+          "author": "dsanders11",
+          "type": "User"
+        },
+        {
+          "sha": "03461bac82",
+          "date": "2026-10-16T17:18:56Z",
+          "subject": "build: stop overriding node GN declare_args defaults in patch (#55042)",
+          "author": "dsanders11",
+          "type": "User"
+        }
+      ],
+      "releases": [
+        {
+          "tag": "v44.9.0",
+          "published": "2026-10-17T04:57:22Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v44.9.0"
+        },
+        {
+          "tag": "v45.0.0-beta.5",
+          "published": "2026-10-16T05:26:24Z",
+          "prerelease": true,
+          "url": "https://github.com/electron/electron/releases/tag/v45.0.0-beta.5"
+        },
+        {
+          "tag": "v43.8.0",
+          "published": "2026-10-16T05:53:53Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v43.8.0"
+        },
+        {
+          "tag": "v45.0.0-beta.4",
+          "published": "2026-10-15T22:21:21Z",
+          "prerelease": true,
+          "url": "https://github.com/electron/electron/releases/tag/v45.0.0-beta.4"
+        },
+        {
+          "tag": "v44.8.0",
+          "published": "2026-10-16T01:50:20Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v44.8.0"
+        },
+        {
+          "tag": "v42.11.15",
+          "published": "2026-10-16T01:53:00Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v42.11.15"
+        },
+        {
+          "tag": "v45.0.0-beta.3",
+          "published": "2026-10-14T05:37:43Z",
+          "prerelease": true,
+          "url": "https://github.com/electron/electron/releases/tag/v45.0.0-beta.3"
+        },
+        {
+          "tag": "v42.11.14",
+          "published": "2026-10-14T03:01:23Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v42.11.14"
+        },
+        {
+          "tag": "v44.7.2",
+          "published": "2026-10-14T01:27:06Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v44.7.2"
+        },
+        {
+          "tag": "v44.7.1",
+          "published": "2026-10-13T17:54:22Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v44.7.1"
+        },
+        {
+          "tag": "v43.7.11",
+          "published": "2026-10-14T01:17:09Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v43.7.11"
+        },
+        {
+          "tag": "v43.7.10",
+          "published": "2026-10-13T17:41:48Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v43.7.10"
+        },
+        {
+          "tag": "v42.11.13",
+          "published": "2026-10-13T17:54:53Z",
+          "prerelease": false,
+          "url": "https://github.com/electron/electron/releases/tag/v42.11.13"
+        },
+        {
+          "tag": "v45.0.0-beta.2",
+          "published": "2026-10-12T23:12:42Z",
+          "prerelease": true,
+          "url": "https://github.com/electron/electron/releases/tag/v45.0.0-beta.2"
+        },
+        {
+          "tag": "v45.0.0-beta.1",
+          "published": "2026-10-09T02:01:21Z",
+          "prerelease": true,
+          "url": "https://github.com/electron/electron/releases/tag/v45.0.0-beta.1"
+        }
+      ],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    },
+    "energye_cef-followup": {
+      "repo": "energye/cef",
+      "url": "https://github.com/energye/cef",
+      "stars": 16,
+      "archived": false,
+      "pushed_at": "2026-06-28T13:01:04Z",
+      "latest_commits": [
+        {
+          "date": "2026-06-28T13:00:49Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-28T10:33:37Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-24T05:47:55Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-16T11:11:29Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-14T12:47:07Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-14T08:27:02Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-11T07:38:12Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-11T05:51:57Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-09T15:14:35Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-09T14:50:59Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-08T05:12:06Z",
+          "subject": "CEF \u4ee5\u5305\u6a21\u5f0f\u533a\u5206\u7248\u672c: 109 127 147",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-07T14:18:09Z",
+          "subject": "CEF \u4ee5\u5305\u6a21\u5f0f\u533a\u5206\u7248\u672c 109 127 147",
+          "author": "sxmxta"
+        }
+      ]
+    },
+    "energye_energy-followup": {
+      "repo": "energye/energy",
+      "url": "https://github.com/energye/energy",
+      "stars": 618,
+      "archived": false,
+      "pushed_at": "2026-07-12T11:36:30Z",
+      "latest_commits": [
+        {
+          "date": "2026-06-05T11:53:02Z",
+          "subject": "logger_test",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T11:49:51Z",
+          "subject": "v3.0 Add and Fix: CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T11:44:01Z",
+          "subject": "v3.0 Add and Fix: CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T11:29:58Z",
+          "subject": "v3.0 Add and Fix: CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T03:21:05Z",
+          "subject": "build-test.yml",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T03:09:25Z",
+          "subject": "build-test.yml",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T02:07:59Z",
+          "subject": "v3.0 README",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T02:07:31Z",
+          "subject": "v3.0 README",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T01:30:47Z",
+          "subject": "v3.0 README",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T00:55:04Z",
+          "subject": "v3.0 Add and Fix: CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-05T00:05:34Z",
+          "subject": "v3.0 Add and Fix: CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-04T23:56:12Z",
+          "subject": "v3.0 Add and Fix: CEF for energy",
+          "author": "sxmxta"
+        }
+      ]
+    },
+    "energye_energy": {
+      "repo": "energye/energy",
+      "url": "https://github.com/energye/energy",
+      "stars": 618,
+      "forks": 49,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-07-12T11:36:30Z",
+      "created_at": "2022-10-03T16:30:08Z",
+      "license": "Apache-2.0",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 0,
+      "sample_is_capped": false,
+      "distinct_nonbot_github_authors_in_sample": 0,
+      "latest_commits": [],
+      "releases": [
+        {
+          "tag": "v2.5.6",
+          "published": "2025-06-17T07:26:30Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.5.6"
+        },
+        {
+          "tag": "v2.5.5",
+          "published": "2025-06-06T07:47:34Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.5.5"
+        },
+        {
+          "tag": "v2.5.4",
+          "published": "2025-02-27T03:06:08Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.5.4"
+        },
+        {
+          "tag": "v2.5.3",
+          "published": "2025-01-15T04:09:08Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.5.3"
+        },
+        {
+          "tag": "v2.5.2",
+          "published": "2025-01-02T03:17:51Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.5.2"
+        },
+        {
+          "tag": "v2.5.1",
+          "published": "2024-12-24T02:39:33Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.5.1"
+        },
+        {
+          "tag": "v2.5.0",
+          "published": "2024-12-11T04:26:17Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.5.0"
+        },
+        {
+          "tag": "v2.4.6",
+          "published": "2024-11-14T11:24:43Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.4.6"
+        },
+        {
+          "tag": "v2.4.5",
+          "published": "2024-11-04T13:24:32Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.4.5"
+        },
+        {
+          "tag": "v2.4.4",
+          "published": "2024-09-29T15:41:49Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.4.4"
+        },
+        {
+          "tag": "v2.4.3",
+          "published": "2024-08-12T08:56:40Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.4.3"
+        },
+        {
+          "tag": "v2.4.2",
+          "published": "2024-05-15T05:40:15Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.4.2"
+        },
+        {
+          "tag": "v2.4.1",
+          "published": "2024-05-06T10:04:55Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.4.1"
+        },
+        {
+          "tag": "v2.4.0",
+          "published": "2024-04-26T06:26:34Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.4.0"
+        },
+        {
+          "tag": "v2.3.8",
+          "published": "2024-04-08T06:18:42Z",
+          "prerelease": false,
+          "url": "https://github.com/energye/energy/releases/tag/v2.3.8"
+        }
+      ],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    },
+    "energye_lcl-followup": {
+      "repo": "energye/lcl",
+      "url": "https://github.com/energye/lcl",
+      "stars": 35,
+      "archived": false,
+      "pushed_at": "2026-07-01T00:31:55Z",
+      "latest_commits": [
+        {
+          "date": "2026-07-01T00:31:40Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-28T02:10:54Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-21T10:29:07Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-19T23:45:45Z",
+          "subject": "v3.0: Add CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-03T05:09:25Z",
+          "subject": "Add and Fix: CEF for energy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-01T00:37:27Z",
+          "subject": "runtime libenergy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-06-01T00:33:55Z",
+          "subject": "runtime libenergy",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-05-29T14:02:10Z",
+          "subject": "\u56fd\u9645\u5316\u793a\u4f8b",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-05-29T11:40:39Z",
+          "subject": "\u56fd\u9645\u5316\u4f18\u5316\uff0c\u66f4\u65b9\u4fbf\u7684\u4f7f\u7528",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-05-27T01:20:57Z",
+          "subject": "command out stderr",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-05-25T23:44:02Z",
+          "subject": "command add context",
+          "author": "sxmxta"
+        },
+        {
+          "date": "2026-05-22T03:10:14Z",
+          "subject": "remove: package os",
+          "author": "sxmxta"
+        }
+      ]
+    },
+    "nwjs_nw.js": {
+      "repo": "nwjs/nw.js",
+      "url": "https://github.com/nwjs/nw.js",
+      "stars": 41140,
+      "forks": 3850,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-17T23:02:32Z",
+      "created_at": "2012-01-04T06:21:10Z",
+      "license": "MIT",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 65,
+      "sample_is_capped": false,
+      "distinct_nonbot_github_authors_in_sample": 1,
+      "latest_commits": [
+        {
+          "sha": "a8dd19958f",
+          "date": "2026-10-17T22:51:04Z",
+          "subject": "bump version: 0.119.0",
+          "author": "GnorTech",
+          "type": "User"
+        },
+        {
+          "sha": "40e0c20dac",
+          "date": "2026-10-17T22:51:03Z",
+          "subject": "update to Chromium 156.0.8078.36",
+          "author": "GnorTech",
+          "type": "User"
+        },
+        {
+          "sha": "bcb257f51d",
+          "date": "2026-10-17T20:27:31Z",
+          "subject": "update blink ScriptState CppHeapPointerTag to 29186 for the node dom context",
+          "author": "GnorTech",
+          "type": "User"
+        },
+        {
+          "sha": "97eaac7a0d",
+          "date": "2026-10-17T20:27:31Z",
+          "subject": "[test] use kFullDesktopScreenId in NWJSDesktopCaptureApiTest.CrossDomain",
+          "author": "GnorTech",
+          "type": "User"
+        },
+        {
+          "sha": "90bf85f41c",
+          "date": "2026-10-17T20:27:31Z",
+          "subject": "[test] update Elements tree query for latest devtools UI",
+          "author": "GnorTech",
+          "type": "User"
+        },
+        {
+          "sha": "7217259fca",
+          "date": "2026-10-17T20:27:31Z",
+          "subject": "fixup! update devtools.patch for current devtools-frontend",
+          "author": "GnorTech",
+          "type": "User"
+        }
+      ],
+      "releases": [],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    },
+    "qt_qtwebengine": {
+      "repo": "qt/qtwebengine",
+      "url": "https://github.com/qt/qtwebengine",
+      "stars": 442,
+      "forks": 178,
+      "archived": false,
+      "default_branch": "dev",
+      "pushed_at": "2026-10-19T01:08:16Z",
+      "created_at": "2013-06-26T12:07:41Z",
+      "license": "BSD-3-Clause",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 100,
+      "sample_is_capped": true,
+      "distinct_nonbot_github_authors_in_sample": 13,
+      "latest_commits": [
+        {
+          "sha": "c7c79e81d2",
+          "date": "2026-10-16T11:48:18Z",
+          "subject": "Fix crash in DisplaySoftwareOutputSurface::Device::swapFrame()",
+          "author": "VladimirBelyavsky",
+          "type": "User"
+        },
+        {
+          "sha": "7ca697815a",
+          "date": "2026-10-15T12:35:47Z",
+          "subject": "Quick: Allow touch input to dismiss <select> dialogs",
+          "author": null,
+          "type": null
+        },
+        {
+          "sha": "dcffe19b58",
+          "date": "2026-10-15T08:14:28Z",
+          "subject": "Update dependencies on 'dev' in qt/qtwebengine",
+          "author": null,
+          "type": null
+        },
+        {
+          "sha": "e203f1b28c",
+          "date": "2026-10-15T04:58:12Z",
+          "subject": "QPdfView: scroll to a search result, not only to its page",
+          "author": "ec1oud",
+          "type": "User"
+        },
+        {
+          "sha": "50f167e65d",
+          "date": "2026-10-15T04:58:07Z",
+          "subject": "Allow pdf widget autotests to use PDF files in the license checker",
+          "author": "ec1oud",
+          "type": "User"
+        },
+        {
+          "sha": "e640b37e8e",
+          "date": "2026-10-14T21:58:07Z",
+          "subject": "Add an autotest for PdfScrollablePageView",
+          "author": "ec1oud",
+          "type": "User"
+        }
+      ],
+      "releases": [],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    },
+    "servo_servo": {
+      "repo": "servo/servo",
+      "url": "https://github.com/servo/servo",
+      "stars": 38186,
+      "forks": 3830,
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-19T09:28:03Z",
+      "created_at": "2012-02-08T19:07:25Z",
+      "license": "MPL-2.0",
+      "commits_since": "2026-07-21T00:00:00Z",
+      "recent_commit_sample_count": 100,
+      "sample_is_capped": true,
+      "distinct_nonbot_github_authors_in_sample": 31,
+      "latest_commits": [
+        {
+          "sha": "4e33631583",
+          "date": "2026-10-19T07:33:11Z",
+          "subject": "script: use encoding-parse algorithm in HTMLImageElement (#49020)",
+          "author": "Siddhi-sahu",
+          "type": "User"
+        },
+        {
+          "sha": "fbe96d4b86",
+          "date": "2026-10-19T07:18:45Z",
+          "subject": "ci: Remove `release` profile check for `perf-analysis` as default run passes `checked-release` (#48807)",
+          "author": "shubhamg13",
+          "type": "User"
+        },
+        {
+          "sha": "a5ee46d3c7",
+          "date": "2026-10-19T06:50:55Z",
+          "subject": "script: migrate more borrow_mut calls to safe_borrow_mut (#49019)",
+          "author": "gabrielecabrini",
+          "type": "User"
+        },
+        {
+          "sha": "54d8e3d274",
+          "date": "2026-10-19T06:09:38Z",
+          "subject": "script/devtools: Drop some extra clone  (#49028)",
+          "author": "yezhizhen",
+          "type": "User"
+        },
+        {
+          "sha": "5cc307ebbd",
+          "date": "2026-10-19T06:06:52Z",
+          "subject": "script: Add getter/setter for cite and datetime in HTMLModELement (#49017)",
+          "author": "evuez",
+          "type": "User"
+        },
+        {
+          "sha": "134c4b97fb",
+          "date": "2026-10-19T03:55:07Z",
+          "subject": "Update ml-kem and de-duplicate sha3 (#49027)",
+          "author": "atouchet",
+          "type": "User"
+        }
+      ],
+      "releases": [
+        {
+          "tag": "v0.7.0",
+          "published": "2026-10-05T18:32:02Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.7.0"
+        },
+        {
+          "tag": "v0.6.0",
+          "published": "2026-09-29T15:33:02Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.6.0"
+        },
+        {
+          "tag": "v0.1.3",
+          "published": "2026-08-22T16:43:00Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.1.3"
+        },
+        {
+          "tag": "v0.5.0",
+          "published": "2026-08-31T10:20:07Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.5.0"
+        },
+        {
+          "tag": "v0.4.0",
+          "published": "2026-08-04T18:09:39Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.4.0"
+        },
+        {
+          "tag": "0.4.0",
+          "published": "2026-07-31T10:36:55Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/0.4.0"
+        },
+        {
+          "tag": "v0.1.2",
+          "published": "2026-07-06T12:13:24Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.1.2"
+        },
+        {
+          "tag": "v0.3.0",
+          "published": "2026-06-25T15:09:42Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.3.0"
+        },
+        {
+          "tag": "v0.2.0",
+          "published": "2026-05-31T09:08:51Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.2.0"
+        },
+        {
+          "tag": "v0.1.1",
+          "published": "2026-06-25T13:04:30Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.1.1"
+        },
+        {
+          "tag": "v0.1.0",
+          "published": "2026-04-13T11:27:39Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.1.0"
+        },
+        {
+          "tag": "v0.0.6",
+          "published": "2026-03-31T11:18:37Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.0.6"
+        },
+        {
+          "tag": "v0.0.5",
+          "published": "2026-02-28T11:28:02Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.0.5"
+        },
+        {
+          "tag": "v0.0.4",
+          "published": "2026-01-23T06:31:26Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.0.4"
+        },
+        {
+          "tag": "v0.0.3",
+          "published": "2025-12-16T08:44:43Z",
+          "prerelease": false,
+          "url": "https://github.com/servo/servo/releases/tag/v0.0.3"
+        }
+      ],
+      "errors": {
+        "commits": null,
+        "releases": null
+      }
+    }
+  }
+}

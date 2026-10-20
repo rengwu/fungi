@@ -1,0 +1,18 @@
+{
+  "protocol": 1,
+  "kind": "opened",
+  "session": "1897358a56ceff72064a252004170716",
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "armed"
+  },
+  "collect": [
+    "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/fungi",
+    "collect",
+    "1897358a56ceff72064a252004170716"
+  ],
+  "collectEnv": {
+    "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/sleep-wake-sessions"
+  }
+}

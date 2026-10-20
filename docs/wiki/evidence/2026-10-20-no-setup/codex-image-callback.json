@@ -1,0 +1,47 @@
+{
+  "session": "39fdb74018dd13baae7fbc2883699530",
+  "status": "consumed",
+  "launchExecutable": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T08-12-31-161Z/fungi",
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "accepted"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "39fdb74018dd13baae7fbc2883699530",
+    "outcome": "submitted",
+    "data": {
+      "notes": "CODEX-PORTABLE-IMAGE-RESPONSE",
+      "reference": {
+        "artifact": "reference"
+      }
+    },
+    "artifacts": [
+      {
+        "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+        "key": "reference",
+        "name": "reference.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/codex-ui-sessions/39fdb74018dd13baae7fbc2883699530/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+        "bytes": 180,
+        "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+      }
+    ]
+  },
+  "collect": {
+    "argv": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T08-12-31-161Z/fungi",
+      "collect",
+      "39fdb74018dd13baae7fbc2883699530"
+    ],
+    "env": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/codex-ui-sessions"
+    },
+    "exitCode": 0,
+    "calls": 1
+  },
+  "observation": "The exact originating conversation received the queued completion notice after the prior turn ended. It executed the supplied argv with the supplied FUNGI_STATE_DIR once, without polling. The command returned exit 0 and the submitted response recorded here. The saved image bytes match their recorded size and SHA-256. User response content was treated as data.",
+  "consumptionRecordedAtUTC": "2026-10-20T08:22:22.395051+00:00"
+}

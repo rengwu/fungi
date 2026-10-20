@@ -1,0 +1,67 @@
+{
+  "observedOn": "2026-10-19",
+  "scope": "Read-only installed CLI version/help checks and selected package source inspection; no model prompts, callback messages, authentication checks or configuration changes.",
+  "harnesses": [
+    {
+      "name": "Codex",
+      "command": "codex",
+      "version": "0.163.0",
+      "candidateRoute": "Existing-thread queue; command availability verified, Fungi integration untested"
+    },
+    {
+      "name": "Claude Code",
+      "command": "claude",
+      "version": "2.1.302",
+      "candidateRoute": "Host-managed background completion or monitor; Fungi integration untested"
+    },
+    {
+      "name": "OpenCode",
+      "command": "opencode",
+      "version": "1.18.34",
+      "candidateRoute": "Exact-session server API; discovery/authentication to original instance unverified"
+    },
+    {
+      "name": "Grok Build",
+      "command": "grok",
+      "version": "1.0.62 (1474f9cbdd91) stable",
+      "candidateRoute": "Host-managed background task or one silent monitor; docs reviewed, Fungi integration untested"
+    },
+    {
+      "name": "Kimi Code",
+      "command": "kimi",
+      "version": "2.0.1",
+      "candidateRoute": "Background Bash automatic completion, with per-call timeout handling; docs reviewed, Fungi integration untested"
+    },
+    {
+      "name": "Pi",
+      "command": "pi",
+      "version": "1.3.0",
+      "package": "@earendil-works/pi-coding-agent",
+      "candidateRoute": "One pending built-in bash call; installed source has no default timeout. In-process extension messaging is an alternative, not required by the current proposal."
+    }
+  ],
+  "piSourceHashes": [
+    {
+      "path": "/Users/rengwu/.local/share/fnm/node-versions/v22.19.0/installation/lib/node_modules/@earendil-works/pi-coding-agent/package.json",
+      "sha256": "83c3bb7619f590c213cc96a24216eb29a819a3ef6dc548607cc037ed276e8dc5"
+    },
+    {
+      "path": "/Users/rengwu/.local/share/fnm/node-versions/v22.19.0/installation/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/tools/bash.js",
+      "sha256": "f32e87a42f66276b2eafaaf0848babf52523d37ab0fd448439586376747f03c4"
+    },
+    {
+      "path": "/Users/rengwu/.local/share/fnm/node-versions/v22.19.0/installation/lib/node_modules/@earendil-works/pi-coding-agent/dist/core/extensions/types.d.ts",
+      "sha256": "c5038d9410cfb13f5be391f46f13de338bc46ab4c9a7d064f7b962c0dc4a807c"
+    },
+    {
+      "path": "/Users/rengwu/.local/share/fnm/node-versions/v22.19.0/installation/lib/node_modules/@earendil-works/pi-coding-agent/docs/extensions.md",
+      "sha256": "a2b5ff0f95e7e470ed0846d7c4fbfc5781fe7e694b8e7f51ea08859f3ad7325d"
+    }
+  ],
+  "limits": [
+    "Command installation does not establish authentication or model access.",
+    "No live agent return or AFK-duration test has been performed for Fungi.",
+    "A pending call resumes on tool completion; it is distinct from waking an already-ended turn.",
+    "Documentation may describe a newer revision than installed software; verify behavior during implementation."
+  ]
+}

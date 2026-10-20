@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-19",
+  "revision": "18d47968a560693b5286fa54995149991a480f6f",
+  "releaseCommitTitle": "6.0.5.3",
+  "source": "https://gitlab.com/sciter-engine/sciter-js-sdk",
+  "method": "Downloaded pinned upstream Linux x64 artifacts; parsed ELF64 little-endian section and dynamic tables as data. Did not execute or install artifacts.",
+  "artifacts": [
+    {
+      "path": "bin/linux/x64/scapp",
+      "bytes": 18888792,
+      "sha256": "7bce210e86f29d17edab95f78c0e184cf3601a3c00c9ef96981827e40c78ae27"
+    },
+    {
+      "path": "bin/linux/x64/libsciter.so",
+      "bytes": 25052768,
+      "sha256": "68c790d340a33c7eb670d51d6cead0e5d0dd7d6d457ad38d768937f731e2252e"
+    }
+  ],
+  "directDependenciesInBoth": ["libuuid.so.1", "libfontconfig.so.1", "libfreetype.so.6", "libGLESv2.so.2", "libEGL.so.1", "libstdc++.so.6", "libm.so.6", "libgcc_s.so.1", "libc.so.6", "ld-linux-x86-64.so.2"],
+  "limits": ["No runtime or clean-machine test", "No transitive dependency enumeration", "No dynamically loaded dependency enumeration", "No full version-need analysis", "Not a fungi binary-size measurement"]
+}

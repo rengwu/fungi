@@ -1,0 +1,91 @@
+{
+  "upstream": {
+    "created_at": "2026-10-05T23:32:40Z",
+    "pushed_at": "2026-10-19T20:33:37Z",
+    "stargazers_count": 2553,
+    "forks_count": 77,
+    "archived": false,
+    "contributors": [
+      {
+        "login": "kepano",
+        "contributions": 195
+      },
+      {
+        "login": "uzuraDev",
+        "contributions": 1
+      }
+    ],
+    "npm": {
+      "version": "1.7.0",
+      "license": "MIT",
+      "dependencies": null,
+      "dist": {
+        "shasum": "194cf43160b29a9ad214c251395623abd28d4729",
+        "tarball": "https://registry.npmjs.org/pele/-/pele-1.7.0.tgz",
+        "fileCount": 416,
+        "integrity": "sha512-nkYb5VnxsTgwD4NThF6j4pJEC4AhGLJ9ptiL4q/vIzGr9q6ZtoRE3hFr94LgHpZ/xy56d1pw42UAQGaZkjM5XA==",
+        "signatures": [
+          {
+            "sig": "MEUCIQDuep5rsfeIUt/Xqx7ZdvSjI18sr3BKFFzNk0tmQj+tVQIgI0uDFTk6aqRzB7juhpSygrqitkTgMOb6hAMYZ5lGeM0=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCQTrI+0DOFS4zP1TPg7jc+c+3vRdgNxjYEMTOJMch0yQIhAMlif1yk5tDibAdJh/CraLIDuywFw1BUhypTMfc/AMnT",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/pele@1.7.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 2246970
+      }
+    }
+  },
+  "probe": {
+    "version": "1.7.0",
+    "environment": "Node 22.19.0; no browser; three simple fixtures only",
+    "results": [
+      {
+        "case": "flowchart",
+        "type": "flowchart",
+        "width": 357,
+        "height": 64,
+        "svgBytes": 2001,
+        "passed": true
+      },
+      {
+        "case": "sequence",
+        "type": "sequence",
+        "width": 214,
+        "height": 204,
+        "svgBytes": 2695,
+        "passed": true
+      },
+      {
+        "case": "state",
+        "type": "state",
+        "width": 121,
+        "height": 206,
+        "svgBytes": 1783,
+        "passed": true
+      }
+    ],
+    "invalidSyntaxRejected": true,
+    "sourceLimitEnforced": true,
+    "sizes": [
+      {
+        "path": "verification-output/skill-proof/pele/pele.global.js",
+        "bytes": 683259,
+        "gzipBytes": 254846
+      },
+      {
+        "path": "skills/grill-form/assets/vendor/mermaid.js",
+        "bytes": 2811019,
+        "gzipBytes": 752544
+      }
+    ]
+  }
+}

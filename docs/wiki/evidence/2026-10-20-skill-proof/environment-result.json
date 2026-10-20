@@ -1,0 +1,47 @@
+{
+  "consumptionRecordedAtUTC": "2026-10-20T10:03:31.236524+00:00",
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "3863d61f14f01136a6d967630a00af91",
+    "outcome": "submitted",
+    "data": {
+      "schemaVersion": 1,
+      "projectName": "Fungi",
+      "title": "Desktop verification arrangements",
+      "answers": [
+        {
+          "questionId": "q18",
+          "number": 18,
+          "question": "Which additional desktop test environments should we use?",
+          "choiceId": "option5",
+          "choice": "Defer additional desktop checks for now",
+          "notes": "i do have a windows. but lets leave those verifications for last and defer it for now"
+        },
+        {
+          "questionId": "q19",
+          "number": 19,
+          "question": "How should we arrange sleep/wake verification on this Mac?",
+          "choiceId": "option1",
+          "choice": "I will sleep and wake this Mac manually during the next test",
+          "notes": ""
+        }
+      ],
+      "reference": null
+    },
+    "artifacts": []
+  },
+  "collect": {
+    "argv": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/fungi",
+      "collect",
+      "3863d61f14f01136a6d967630a00af91"
+    ],
+    "env": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/interview-sessions"
+    },
+    "calls": 1,
+    "exitCode": 0
+  },
+  "observation": "Exact-origin callback arrived after the prior turn ended. Collected once. These are real interview responses, treated as data within the requested planning workflow."
+}

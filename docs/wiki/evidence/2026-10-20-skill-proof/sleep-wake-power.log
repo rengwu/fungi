@@ -1,0 +1,9 @@
+Source: pmset -g log
+Filtered: timestamped Sleep, Wake and DarkWake event rows only
+Start (UTC): 2026-10-20T10:05:39.016616+00:00
+End (UTC): 2026-10-20T10:17:17.849383+00:00
+
+2026-10-20 18:09:06 +0800 Sleep               	Entering Sleep state due to 'Clamshell Sleep':TCPKeepAlive=active Using Batt (Charge:100%) 153 secs
+2026-10-20 18:11:39 +0800 DarkWake            	DarkWake from Deep Idle [CDNP] : due to smc.sysState.Wake(0x70070000) wifibt SMC.OutboxNotEmpty/ Using BATT (Charge:100%) 10 secs
+2026-10-20 18:11:49 +0800 Sleep               	Entering Sleep state due to 'Maintenance Sleep':TCPKeepAlive=active Using Batt (Charge:100%) 109 secs
+2026-10-20 18:13:38 +0800 Wake                	Wake from Deep Idle [CDNVA] : due to smc.sysState.Wake(0x70070000) lid SMC.OutboxNotEmpty/HID Activity Using BATT (Charge:100%)

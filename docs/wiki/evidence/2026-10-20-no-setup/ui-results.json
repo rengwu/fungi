@@ -1,0 +1,387 @@
+[
+  {
+    "fixtureRoot": "claude-ui-sessions",
+    "launch": {
+      "protocol": 1,
+      "session": "5ec81a50bb9ac7c1c70ae1562f58ce67",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/claude.json",
+      "input": null,
+      "delivery": {
+        "mode": "wait",
+        "reason": "one pending command; caller must supply a suitable host wait/background mechanism"
+      }
+    },
+    "draft": {
+      "data": {
+        "notes": "CLAUDE-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/claude-ui-sessions/5ec81a50bb9ac7c1c70ae1562f58ce67/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    },
+    "result": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "5ec81a50bb9ac7c1c70ae1562f58ce67",
+      "outcome": "submitted",
+      "data": {
+        "notes": "CLAUDE-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/claude-ui-sessions/5ec81a50bb9ac7c1c70ae1562f58ce67/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "verifiedSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  },
+  {
+    "fixtureRoot": "codex-ui-sessions",
+    "launch": {
+      "protocol": 1,
+      "session": "39fdb74018dd13baae7fbc2883699530",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/codex.json",
+      "input": null,
+      "delivery": {
+        "mode": "callback",
+        "adapter": "codex",
+        "state": "armed",
+        "thread": "01a1531e-6309-7ff1-8397-013991181ac6",
+        "command": "/Users/rengwu/.local/share/fnm/node-versions/v22.19.0/installation/bin/codex"
+      }
+    },
+    "draft": {
+      "data": {
+        "notes": "CODEX-PORTABLE-IMAGE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/codex-ui-sessions/39fdb74018dd13baae7fbc2883699530/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    },
+    "result": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "39fdb74018dd13baae7fbc2883699530",
+      "outcome": "submitted",
+      "data": {
+        "notes": "CODEX-PORTABLE-IMAGE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/codex-ui-sessions/39fdb74018dd13baae7fbc2883699530/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "verifiedSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  },
+  {
+    "fixtureRoot": "grok-ui-sessions",
+    "launch": {
+      "protocol": 1,
+      "session": "58af25e4e0038d8d2868c475d25cf29a",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/grok.json",
+      "input": null,
+      "delivery": {
+        "mode": "wait",
+        "reason": "one pending command; caller must supply a suitable host wait/background mechanism"
+      }
+    },
+    "draft": {
+      "data": {
+        "notes": "GROK-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/grok-ui-sessions/58af25e4e0038d8d2868c475d25cf29a/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    },
+    "result": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "58af25e4e0038d8d2868c475d25cf29a",
+      "outcome": "submitted",
+      "data": {
+        "notes": "GROK-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/grok-ui-sessions/58af25e4e0038d8d2868c475d25cf29a/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "verifiedSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  },
+  {
+    "fixtureRoot": "kimi-sessions",
+    "launch": {
+      "protocol": 1,
+      "session": "dc88c14d4ea59b5c6361e28960b30134",
+      "exec": "/Users/rengwu/Desktop/Projects/fungi/verification-output/helper",
+      "args": [
+        "wait",
+        "180"
+      ],
+      "input": null,
+      "delivery": {
+        "mode": "wait",
+        "reason": "one pending command; caller must supply a suitable host wait/background mechanism"
+      }
+    },
+    "draft": {
+      "data": {
+        "notes": "Native draft"
+      },
+      "artifacts": []
+    },
+    "result": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "dc88c14d4ea59b5c6361e28960b30134",
+      "outcome": "submitted",
+      "data": {
+        "input": null,
+        "notes": "Native response",
+        "restoredDraft": null
+      },
+      "artifacts": [
+        {
+          "id": "ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce",
+          "key": "note",
+          "name": "note.txt",
+          "mediaType": "text/plain",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/kimi-sessions/dc88c14d4ea59b5c6361e28960b30134/artifacts/ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce",
+          "bytes": 51,
+          "sha256": "ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce",
+          "verifiedSHA256": "ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce"
+        }
+      ]
+    }
+  },
+  {
+    "fixtureRoot": "kimi-ui-sessions",
+    "launch": {
+      "protocol": 1,
+      "session": "80874f5ebadd5b8a8c700bfb7311881c",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/kimi.json",
+      "input": null,
+      "delivery": {
+        "mode": "wait",
+        "reason": "one pending command; caller must supply a suitable host wait/background mechanism"
+      }
+    },
+    "draft": {
+      "data": {
+        "notes": "KIMI-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/kimi-ui-sessions/80874f5ebadd5b8a8c700bfb7311881c/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    },
+    "result": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "80874f5ebadd5b8a8c700bfb7311881c",
+      "outcome": "submitted",
+      "data": {
+        "notes": "KIMI-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/kimi-ui-sessions/80874f5ebadd5b8a8c700bfb7311881c/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "verifiedSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  },
+  {
+    "fixtureRoot": "opencode-ui-sessions",
+    "launch": {
+      "protocol": 1,
+      "session": "0c3246e290bd06df827ac0c672da7718",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/opencode-form.json",
+      "input": null,
+      "delivery": {
+        "mode": "manual",
+        "reason": "requested manual delivery; say done, then collect once"
+      }
+    },
+    "draft": {
+      "data": {
+        "notes": "OPENCODE-MANUAL-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/opencode-ui-sessions/0c3246e290bd06df827ac0c672da7718/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    },
+    "result": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "0c3246e290bd06df827ac0c672da7718",
+      "outcome": "submitted",
+      "data": {
+        "notes": "OPENCODE-MANUAL-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/opencode-ui-sessions/0c3246e290bd06df827ac0c672da7718/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "verifiedSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  },
+  {
+    "fixtureRoot": "pi-ui-sessions",
+    "launch": {
+      "protocol": 1,
+      "session": "5a714c94b3722fc03c7af722f93b41e7",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/pi.json",
+      "input": null,
+      "delivery": {
+        "mode": "wait",
+        "reason": "one pending command; caller must supply a suitable host wait/background mechanism"
+      }
+    },
+    "draft": {
+      "data": {
+        "notes": "PI-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/pi-ui-sessions/5a714c94b3722fc03c7af722f93b41e7/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    },
+    "result": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "5a714c94b3722fc03c7af722f93b41e7",
+      "outcome": "submitted",
+      "data": {
+        "notes": "PI-NATIVE-RESPONSE",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/no-setup-verification/pi-ui-sessions/5a714c94b3722fc03c7af722f93b41e7/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "verifiedSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  }
+]

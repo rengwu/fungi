@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fungi</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui,sans-serif;background:#18191c;color:#f0f0f2}
+*{box-sizing:border-box}body{margin:0}main{max-width:720px;margin:auto;padding:36px}
+[hidden]{display:none!important}
+small{color:#a7a9b2;letter-spacing:.12em}h1{font-size:28px;line-height:1.2;margin:12px 0 18px}
+#context{white-space:pre-wrap;color:#b9bbc5}form{display:grid;gap:24px}
+label{display:block;font-weight:600;margin-bottom:8px}input:not([type=range]),textarea{width:100%;background:#22242a;color:inherit;border:1px solid #454852;border-radius:8px;padding:12px;font:inherit}
+textarea{min-height:110px;resize:vertical}input[type=range]{width:100%;accent-color:#b8a5ff}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid #b8a5ff;outline-offset:3px}
+output{float:right;font-variant-numeric:tabular-nums;color:#c8baff}.image{border:1px dashed #666976;border-radius:10px;padding:16px}
+.image p{font-size:14px;color:#b9bbc5;margin-top:0}.image img{display:block;max-width:100%;max-height:230px;margin:12px auto;border-radius:6px}
+.paste-area{padding:12px;margin-top:10px;border:1px solid #454852;border-radius:8px;color:#b9bbc5;font-size:14px;cursor:text}.paste-area:focus{outline:3px solid #b8a5ff;outline-offset:3px}
+footer{display:flex;align-items:center;gap:12px;padding-top:12px}button{font:inherit;border:1px solid #555966;border-radius:8px;background:transparent;color:inherit;padding:10px 20px;cursor:pointer}
+button[type=submit]{background:#c4b4ff;border-color:#c4b4ff;color:#20183b;font-weight:650}button:disabled{opacity:.5;cursor:wait}
+#status{font-size:13px;color:#afb3bf;flex:1}#error{color:#ffb4bc;white-space:pre-wrap}button.remove{font-size:13px;padding:4px 10px}
+</style>
+<main>
+<small>FUNGI · FEEDBACK</small><h1 id="title">Loading…</h1><p id="context"></p><p id="delivery"></p>
+<form id="form"><div id="fields"></div><p id="error" role="alert"></p><footer><span id="status" aria-live="polite"></span><button id="cancel" type="button">Cancel</button><button type="submit">Send response</button></footer></form>
+</main>
+<script src="form.js"></script></html>

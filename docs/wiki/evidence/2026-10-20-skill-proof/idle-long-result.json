@@ -1,0 +1,65 @@
+{
+  "consumptionRecordedAtUTC": "2026-10-20T11:47:09.704772+00:00",
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "622f59b42e05840dd408622f23c8416a",
+    "outcome": "submitted",
+    "data": {
+      "elapsedSeconds": 7200.01478275,
+      "finishedAt": "2026-10-20T11:46:08.980722Z",
+      "marker": "TWO-HOUR-IDLE-CALLBACK",
+      "requestedSeconds": 7200,
+      "restoredDraft": null,
+      "session": "622f59b42e05840dd408622f23c8416a",
+      "startedAt": "2026-10-20T09:41:51.107501Z"
+    },
+    "artifacts": [
+      {
+        "id": "2a8c5a13db37e81205254dcbd69a067fdebb27d963e8471ca31e34bd91dc2138",
+        "key": "timing",
+        "name": "idle.json",
+        "mediaType": "application/json",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/idle-long-sessions/622f59b42e05840dd408622f23c8416a/artifacts/2a8c5a13db37e81205254dcbd69a067fdebb27d963e8471ca31e34bd91dc2138",
+        "bytes": 271,
+        "sha256": "2a8c5a13db37e81205254dcbd69a067fdebb27d963e8471ca31e34bd91dc2138"
+      }
+    ]
+  },
+  "collect": {
+    "argv": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/fungi",
+      "collect",
+      "622f59b42e05840dd408622f23c8416a"
+    ],
+    "env": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/idle-long-sessions"
+    },
+    "calls": 1,
+    "exitCode": 0
+  },
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "accepted"
+  },
+  "validation": {
+    "sameSession": true,
+    "matchesAcknowledgedStartAndMarker": true,
+    "elapsedSecondsFromHelper": 7200.01478275,
+    "UTCIntervalSeconds": 7457.873221,
+    "artifactBytes": 271,
+    "artifactSHA256": "2a8c5a13db37e81205254dcbd69a067fdebb27d963e8471ca31e34bd91dc2138",
+    "artifactJSONMatchesResultData": true,
+    "recordedSleepWakeEventsWithinInterval": true,
+    "ownerAndHelperExited": true
+  },
+  "observation": "One completion notice reached the originating conversation after the previous turn ended. One collect invocation returned the submitted result. A read-only inspection then confirmed the persisted envelope, accepted delivery state and artifact bytes. The development helper uses one local time.Sleep and no status loop or heartbeat. No model polling or additional waiter was used for this probe. Returned data was treated as fixture data, not instructions.",
+  "timingNote": "The helper reports time.Since(start) separately from its UTC timestamps: 7200.01478275 seconds versus a 7457.873221-second UTC interval. The independently verified manual Mac sleep/wake cycle occurred within that interval. These are distinct measurements; the UTC interval is not exactly two hours.",
+  "sleepWakeEvidence": "sleep-wake-power.log",
+  "limits": [
+    "One two-hour native helper/owner/Codex callback run on macOS; not two hours of Electron UI interaction or proof across all harnesses",
+    "No overnight, arbitrary-duration, reboot or power-loss guarantee",
+    "Additional desktop checks remain deferred by the user"
+  ]
+}

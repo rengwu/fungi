@@ -1,0 +1,30 @@
+=== RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+--- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.03s)
+=== RUN   TestNativeRoundTripAndConcurrentIsolation
+--- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+=== RUN   TestManualOwnerSurvivesLauncherAndCollects
+--- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.03s)
+=== RUN   TestInterruptedSessionReopenPreservesOldRecord
+--- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.05s)
+=== RUN   TestWaitConnectionHasNoHumanTimeout
+--- PASS: TestWaitConnectionHasNoHumanTimeout (10.06s)
+=== RUN   TestDisconnectedWaiterDoesNotCancel
+--- PASS: TestDisconnectedWaiterDoesNotCancel (12.03s)
+=== RUN   TestHelperExitAndStdoutDrain
+--- PASS: TestHelperExitAndStdoutDrain (0.06s)
+=== RUN   TestDurableSubmissionAndDuplicate
+--- PASS: TestDurableSubmissionAndDuplicate (0.02s)
+=== RUN   TestFailedCommitPreservesPreviousDraft
+--- PASS: TestFailedCommitPreservesPreviousDraft (0.02s)
+=== RUN   TestArtifactConfinementAndLimits
+--- PASS: TestArtifactConfinementAndLimits (0.01s)
+=== RUN   TestDraftImageSurvivesClose
+--- PASS: TestDraftImageSurvivesClose (0.01s)
+=== RUN   TestMalformedProtocolAndForms
+--- PASS: TestMalformedProtocolAndForms (0.01s)
+=== RUN   TestLockRejectsSecondOwner
+--- PASS: TestLockRejectsSecondOwner (0.00s)
+PASS
+ok  	fungi	37.221s
+?   	fungi/examples/helper	[no test files]
+?   	fungi/scripts/idle-helper	[no test files]

@@ -1,0 +1,349 @@
+[
+  {
+    "session": "0e7d9f449b4952f61a9a469407f1e989",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "0e7d9f449b4952f61a9a469407f1e989",
+      "outcome": "closed",
+      "artifacts": []
+    }
+  },
+  {
+    "session": "2eef26a2924f3ea5d33bc6a70406ead1",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "2eef26a2924f3ea5d33bc6a70406ead1",
+      "outcome": "closed",
+      "artifacts": []
+    },
+    "draft.json": {
+      "data": {
+        "name": "yoouoyoyo",
+        "duration": 350,
+        "notes": "",
+        "reference": null
+      },
+      "artifacts": []
+    }
+  },
+  {
+    "session": "c83a2daed914e5701b3198490480858c",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "c83a2daed914e5701b3198490480858c",
+      "outcome": "closed",
+      "artifacts": []
+    },
+    "draft.json": {
+      "data": {
+        "name": "yoouoyoyo",
+        "duration": 350,
+        "notes": "Verification fixture: preserve an image through close and reopen.",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/c83a2daed914e5701b3198490480858c/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  },
+  {
+    "session": "34d59ff5b50bb1a512574c32edb2a005",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "34d59ff5b50bb1a512574c32edb2a005",
+      "outcome": "submitted",
+      "data": {
+        "name": "yoouoyoyo",
+        "duration": 350,
+        "notes": "Verification fixture: preserve an image through close and reopen.",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/34d59ff5b50bb1a512574c32edb2a005/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "verifiedSHA256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    },
+    "draft.json": {
+      "data": {
+        "name": "yoouoyoyo",
+        "duration": 350,
+        "notes": "Verification fixture: preserve an image through close and reopen.",
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "key": "reference",
+          "name": "reference.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/34d59ff5b50bb1a512574c32edb2a005/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+          "bytes": 180,
+          "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+        }
+      ]
+    }
+  },
+  {
+    "session": "a4e20e6a9ce120f2ccf7461a5ae22b0a",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "a4e20e6a9ce120f2ccf7461a5ae22b0a",
+      "outcome": "submitted",
+      "data": {
+        "input": null,
+        "notes": "Native response",
+        "restoredDraft": null
+      },
+      "artifacts": [
+        {
+          "id": "ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce",
+          "key": "note",
+          "name": "note.txt",
+          "mediaType": "text/plain",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/a4e20e6a9ce120f2ccf7461a5ae22b0a/artifacts/ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce",
+          "bytes": 51,
+          "sha256": "ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce",
+          "verifiedSHA256": "ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce"
+        }
+      ]
+    },
+    "draft.json": {
+      "data": {
+        "notes": "Native draft"
+      },
+      "artifacts": []
+    },
+    "delivery.json": {
+      "mode": "callback",
+      "adapter": "codex",
+      "state": "accepted"
+    }
+  },
+  {
+    "session": "f2b35d71fb650809ac354bdd593df8fd",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "f2b35d71fb650809ac354bdd593df8fd",
+      "outcome": "closed",
+      "artifacts": []
+    },
+    "draft.json": {
+      "data": {
+        "name": "Card entrance",
+        "duration": 300,
+        "notes": "",
+        "reference": null
+      },
+      "artifacts": []
+    },
+    "delivery.json": {
+      "mode": "callback",
+      "adapter": "codex",
+      "state": "accepted"
+    }
+  },
+  {
+    "session": "59876a6c5ade6f7b6b375aa891e495ea",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "59876a6c5ade6f7b6b375aa891e495ea",
+      "outcome": "failed",
+      "artifacts": [],
+      "error": {
+        "code": "renderer_crashed",
+        "message": "Page renderer stopped"
+      }
+    }
+  },
+  {
+    "session": "bb72e81cd5cc78d743b68c1595707e82",
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "bb72e81cd5cc78d743b68c1595707e82",
+      "outcome": "submitted",
+      "data": {
+        "duration": 120,
+        "notes": "Portable HTML fixture: save failure must keep this text.",
+        "reference": null
+      },
+      "artifacts": []
+    },
+    "draft.json": {
+      "data": {
+        "duration": 120,
+        "notes": "Portable HTML fixture: save failure must keep this text.",
+        "reference": null
+      },
+      "artifacts": []
+    }
+  },
+  {
+    "session": "1171ef2ec1e60955d65572c76eb46dfb",
+    "scenario": "Native image paste from Preview, draft and submission",
+    "launch.json": {
+      "protocol": 1,
+      "session": "1171ef2ec1e60955d65572c76eb46dfb",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/paste.json",
+      "input": null,
+      "delivery": {
+        "mode": "manual",
+        "reason": "requested manual delivery; say done, then collect once"
+      }
+    },
+    "draft.json": {
+      "data": {
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9",
+          "key": "reference",
+          "name": "image.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/final-sessions/1171ef2ec1e60955d65572c76eb46dfb/artifacts/83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9",
+          "bytes": 401,
+          "sha256": "83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9"
+        }
+      ]
+    },
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "1171ef2ec1e60955d65572c76eb46dfb",
+      "outcome": "submitted",
+      "data": {
+        "reference": {
+          "artifact": "reference"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9",
+          "key": "reference",
+          "name": "image.png",
+          "mediaType": "image/png",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/final-sessions/1171ef2ec1e60955d65572c76eb46dfb/artifacts/83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9",
+          "bytes": 401,
+          "sha256": "83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9",
+          "verifiedSHA256": "83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9"
+        }
+      ]
+    }
+  },
+  {
+    "session": "b388abc950bf9e05cf42eb92f16cb42a",
+    "scenario": "Native explicit cancellation",
+    "launch.json": {
+      "protocol": 1,
+      "session": "b388abc950bf9e05cf42eb92f16cb42a",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/cancel.json",
+      "input": null,
+      "delivery": {
+        "mode": "manual",
+        "reason": "requested manual delivery; say done, then collect once"
+      }
+    },
+    "draft.json": {
+      "data": {},
+      "artifacts": []
+    },
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "b388abc950bf9e05cf42eb92f16cb42a",
+      "outcome": "cancelled",
+      "artifacts": []
+    }
+  },
+  {
+    "session": "37b0d9116aafa660e78fcbd1377de5ee",
+    "scenario": "Page renderer killed after acknowledged draft",
+    "launch.json": {
+      "protocol": 1,
+      "session": "37b0d9116aafa660e78fcbd1377de5ee",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/crash.json",
+      "input": null,
+      "delivery": {
+        "mode": "manual",
+        "reason": "requested manual delivery; say done, then collect once"
+      }
+    },
+    "draft.json": {
+      "data": {
+        "notes": "DRAFT-CRASH-RECOVER"
+      },
+      "artifacts": []
+    },
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "37b0d9116aafa660e78fcbd1377de5ee",
+      "outcome": "failed",
+      "artifacts": [],
+      "error": {
+        "code": "renderer_crashed",
+        "message": "Page renderer stopped"
+      }
+    }
+  },
+  {
+    "session": "c77bd307c7fbcf7fe9619e67852a56bb",
+    "scenario": "Reopened crashed session restores draft, then closes",
+    "launch.json": {
+      "protocol": 1,
+      "session": "c77bd307c7fbcf7fe9619e67852a56bb",
+      "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/crash.json",
+      "input": null,
+      "reopenedFrom": "37b0d9116aafa660e78fcbd1377de5ee",
+      "delivery": {
+        "mode": "manual",
+        "reason": "requested manual delivery; say done, then collect once"
+      }
+    },
+    "draft.json": {
+      "data": {
+        "notes": "DRAFT-CRASH-RECOVER"
+      },
+      "artifacts": []
+    },
+    "result.json": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "c77bd307c7fbcf7fe9619e67852a56bb",
+      "outcome": "closed",
+      "artifacts": []
+    }
+  }
+]

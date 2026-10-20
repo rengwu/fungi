@@ -1,0 +1,30 @@
+{
+  "projectName": "Fungi",
+  "title": "Desktop verification arrangements",
+  "questions": [
+    {
+      "number": 18,
+      "prompt": "Which additional desktop test environments should we use?",
+      "context": "The simpler grill-form now passes native macOS checks, and the core passes Linux arm64 tests in OrbStack. The connected UI is this Mac; no Windows desktop or separate clean Mac is connected. To verify portable launches, we need a Windows desktop and a Mac that does not already have the development setup. Linux desktop UI is also still unverified. Creating local OS VMs would require additional downloads, disk space and any applicable OS licensing.",
+      "recommendation": "Use existing test machines you can make available. They provide more representative desktop checks without building a new VM setup. Notes can identify the platform and access method; do not include passwords or tokens.",
+      "options": [
+        "I can provide Windows and another Mac",
+        "I can provide a Windows environment",
+        "I can provide another Mac",
+        "Prepare disposable local VMs",
+        "Defer additional desktop checks for now"
+      ]
+    },
+    {
+      "number": 19,
+      "prompt": "How should we arrange sleep/wake verification on this Mac?",
+      "context": "The two-hour native-helper probe is already running silently with one completion callback. It does not put the Mac to sleep and does not establish Electron window recovery across sleep. A separate visible questionnaire should preserve an acknowledged draft through an actual sleep/wake cycle. Suspending this Mac would interrupt your current use, so its timing needs your input.",
+      "recommendation": "Perform sleep/wake yourself during the next prepared verification session. I can set up the questionnaire and inspect the result after you return.",
+      "options": [
+        "I will sleep and wake this Mac manually during the next test",
+        "Arrange a later time for agent-triggered sleep",
+        "Defer sleep/wake verification for now"
+      ]
+    }
+  ]
+}

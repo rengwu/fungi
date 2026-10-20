@@ -1,0 +1,43 @@
+{
+  "timeUTC": "2026-10-20T07:54:51.304686+00:00",
+  "session": "2d70c8221a4f8f51b30a863dfcc60653",
+  "method": "One ps RSS/CPU sample of the already-open demo and its descendants; not a benchmark or peak measurement. Renderer may still be actively edited by user.",
+  "processes": [
+    {
+      "pid": 1011,
+      "ppid": 1,
+      "rssKiB": 5984,
+      "cpuPercent": 0.0,
+      "command": "/Users/rengwu/Desktop/Projects/fungi/fungi _run 2d70c8221a4f8f51b30a863dfcc60653"
+    },
+    {
+      "pid": 1012,
+      "ppid": 1011,
+      "rssKiB": 109904,
+      "cpuPercent": 0.0,
+      "command": "/Users/rengwu/Desktop/Projects/fungi/renderer/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron /Users/rengwu/Desktop/Projects/fungi/renderer --fungi-data=/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/2d70c8221a4f8f51b30a863dfcc60653/browser"
+    },
+    {
+      "pid": 1013,
+      "ppid": 1012,
+      "rssKiB": 52512,
+      "cpuPercent": 0.0,
+      "command": "/Users/rengwu/Desktop/Projects/fungi/renderer/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper.app/Contents/MacOS/Electron Helper --type=gpu-process --user-data-dir=/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/2d70c8221a4f8f51b30a863dfcc60653/browser --gpu-preferences=WAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAADAAAAAEAAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --shared-files --field-trial-handle=1718379636,r,16916218158859716993,8371667206487953051,262144 --enable-features=PdfUseShowSaveFilePicker,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=1935764596,r,11552119539243902851,15918122298554746826,4 --trace-process-track-uuid=3190708988185955192 --seatbelt-client=32"
+    },
+    {
+      "pid": 1014,
+      "ppid": 1012,
+      "rssKiB": 32976,
+      "cpuPercent": 0.0,
+      "command": "/Users/rengwu/Desktop/Projects/fungi/renderer/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper.app/Contents/MacOS/Electron Helper --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=network --user-data-dir=/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/2d70c8221a4f8f51b30a863dfcc60653/browser --standard-schemes=fungi --secure-schemes=fungi --cors-schemes=fungi --fetch-schemes=fungi --shared-files --field-trial-handle=1718379636,r,16916218158859716993,8371667206487953051,262144 --enable-features=PdfUseShowSaveFilePicker,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=1935764596,r,11552119539243902851,15918122298554746826,4 --trace-process-track-uuid=3190708989122997041 --seatbelt-client=32"
+    },
+    {
+      "pid": 1015,
+      "ppid": 1012,
+      "rssKiB": 73552,
+      "cpuPercent": 0.0,
+      "command": "/Users/rengwu/Desktop/Projects/fungi/renderer/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper (Renderer).app/Contents/MacOS/Electron Helper (Renderer) --type=renderer --user-data-dir=/Users/rengwu/Desktop/Projects/fungi/verification-output/sessions/2d70c8221a4f8f51b30a863dfcc60653/browser --standard-schemes=fungi --secure-schemes=fungi --cors-schemes=fungi --fetch-schemes=fungi --app-path=/Users/rengwu/Desktop/Projects/fungi/renderer --enable-sandbox --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=113022280492 --shared-files --field-trial-handle=1718379636,r,16916218158859716993,8371667206487953051,262144 --enable-features=PdfUseShowSaveFilePicker,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=1935764596,r,11552119539243902851,15918122298554746826,4 --trace-process-track-uuid=3190708990060038890 --seatbelt-client=54"
+    }
+  ],
+  "totalRSSKiB": 274928
+}

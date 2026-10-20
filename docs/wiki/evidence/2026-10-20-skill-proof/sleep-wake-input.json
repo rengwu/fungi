@@ -1,0 +1,16 @@
+{
+  "projectName": "Fungi verification",
+  "title": "Sleep and wake check",
+  "questions": [
+    {
+      "number": 1,
+      "prompt": "After waking the Mac, is this questionnaire still intact and usable?",
+      "context": "This is a verification fixture, not another project decision. Wait until the agent says the window is ready. Leave it open, put your Mac to sleep normally, then wake it. Check that the BEFORE-SLEEP note and purple reference image remain. Append AFTER-WAKE to the notes, select the outcome you observed, and submit. If something failed, describe it in notes or return to the conversation.",
+      "recommendation": "Report what actually happened. Keep the original note so we can compare it with the acknowledged draft.",
+      "options": [
+        "The note and image remained; I could edit and submit",
+        "Something disappeared or stopped working"
+      ]
+    }
+  ]
+}

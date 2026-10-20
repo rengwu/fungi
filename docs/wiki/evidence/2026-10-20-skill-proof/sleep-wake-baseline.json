@@ -1,0 +1,81 @@
+{
+  "status": "prepared; awaiting user-controlled sleep/wake and submission",
+  "preparedAtUTC": "2026-10-20T10:05:39.016616+00:00",
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "1897358a56ceff72064a252004170716",
+    "delivery": {
+      "mode": "callback",
+      "adapter": "codex",
+      "state": "armed"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/fungi",
+      "collect",
+      "1897358a56ceff72064a252004170716"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/sleep-wake-sessions"
+    }
+  },
+  "draftBeforeSleep": {
+    "data": {
+      "schemaVersion": 1,
+      "spec": {
+        "title": "Sleep and wake check",
+        "questions": [
+          {
+            "id": "q1",
+            "number": 1,
+            "prompt": "After waking the Mac, is this questionnaire still intact and usable?",
+            "context": "This is a verification fixture, not another project decision. Wait until the agent says the window is ready. Leave it open, put your Mac to sleep normally, then wake it. Check that the BEFORE-SLEEP note and purple reference image remain. Append AFTER-WAKE to the notes, select the outcome you observed, and submit. If something failed, describe it in notes or return to the conversation.",
+            "recommendation": "Report what actually happened. Keep the original note so we can compare it with the acknowledged draft.",
+            "options": [
+              {
+                "id": "option1",
+                "label": "The note and image remained; I could edit and submit"
+              },
+              {
+                "id": "option2",
+                "label": "Something disappeared or stopped working"
+              }
+            ]
+          }
+        ]
+      },
+      "answers": [
+        {
+          "questionId": "q1",
+          "choiceId": null,
+          "notes": "BEFORE-SLEEP \u2014 keep this line"
+        }
+      ]
+    },
+    "artifacts": [
+      {
+        "id": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+        "key": "reference",
+        "name": "reference.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/sleep-wake-sessions/1897358a56ceff72064a252004170716/artifacts/1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a",
+        "bytes": 180,
+        "sha256": "1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a"
+      }
+    ]
+  },
+  "processesBeforeSleep": [
+    {
+      "pid": 17812,
+      "ppid": 1,
+      "command": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/fungi _run 1897358a56ceff72064a252004170716"
+    },
+    {
+      "pid": 17813,
+      "ppid": 17812,
+      "command": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/renderer/runtime/Electron.app/Contents/MacOS/Electron /Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z/renderer --fungi-data=/Users/rengwu/Desktop/Projects/fungi/verification-output/skill-proof/sleep-wake-sessions/1897358a56ceff72064a252004170716/browser"
+    }
+  ],
+  "observation": "Native window visibly showed the BEFORE-SLEEP note, reference.png preview and Draft saved. No answer option was selected; no result submitted. The user will perform actual sleep/wake and complete the check.",
+  "next": "Collect once on the exact completion notice, compare preserved note/image plus AFTER-WAKE edit, inspect only sleep/wake power-log events since preparedAtUTC, and record actual observed coverage."
+}

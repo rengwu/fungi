@@ -1,0 +1,426 @@
+[
+  {
+    "harness": "pi",
+    "exit": 0,
+    "timedOut": false,
+    "seconds": 4.37,
+    "log": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/pi.jsonl",
+    "calls": [],
+    "assistantText": [],
+    "nativeEvents": [],
+    "blocker": "gpt-5.5 is not supported when using Codex with a ChatGPT account",
+    "name": "pi"
+  },
+  {
+    "harness": "kimi",
+    "exit": 1,
+    "timedOut": false,
+    "seconds": 1.8,
+    "log": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/kimi.jsonl",
+    "calls": [],
+    "assistantText": [],
+    "nativeEvents": [],
+    "blocker": "provider managed:kimi-code has no credential configured",
+    "name": "kimi"
+  },
+  {
+    "harness": "claude",
+    "exit": 0,
+    "timedOut": false,
+    "seconds": 17.17,
+    "log": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/claude.jsonl",
+    "calls": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "node /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/wait.mjs",
+          "description": "Run the wait probe script"
+        }
+      }
+    ],
+    "assistantText": [
+      "FUNGI_RETURN_7e94b"
+    ],
+    "nativeEvents": [
+      {
+        "subtype": "task_started",
+        "task_id": "b2fles9rt",
+        "is_backgrounded": false
+      },
+      {
+        "subtype": "task_notification",
+        "task_id": "b2fles9rt",
+        "status": "completed"
+      }
+    ],
+    "name": "claude"
+  },
+  {
+    "name": "codex",
+    "exit": 0,
+    "seconds": 22.83,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc 'node /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/wait.mjs'"
+      }
+    ],
+    "assistantText": [
+      "I\u2019ll run the command once and wait for its output.\n",
+      "FUNGI_RETURN_7e94b"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "opencode",
+    "exit": 0,
+    "seconds": 17.12,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "bash",
+        "input": {
+          "command": "node /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/wait.mjs",
+          "timeout": 120000,
+          "workdir": "/Users/rengwu/Desktop/Projects/fungi"
+        },
+        "status": "completed"
+      }
+    ],
+    "assistantText": [
+      "FUNGI_RETURN_7e94b"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "grok",
+    "exit": 0,
+    "seconds": 19.62,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "run_terminal_command",
+        "input": {
+          "command": "node /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/wait.mjs",
+          "description": "Run wait.mjs once and await marker",
+          "block_until_ms": 20000
+        }
+      }
+    ],
+    "assistantText": [
+      "I'll run that exact command once and wait for it to finish.FUNGI_RETURN_7e94b"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "pi-supported",
+    "exit": 0,
+    "seconds": 18.5,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "bash",
+        "input": {
+          "command": "node /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/wait.mjs",
+          "timeout": 30
+        }
+      }
+    ],
+    "assistantText": [
+      "FUNGI_RETURN_7e94b"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "fungi-codex",
+    "exit": 0,
+    "seconds": 19.49,
+    "timedOut": false,
+    "calls": [],
+    "assistantText": [
+      "I\u2019ll run the command once and wait for its result.\n",
+      "{\"session\":null,\"outcome\":null,\"artifactCount\":null,\"error\":{\"code\":\"operation_failed\",\"message\":\"Directory creation was denied: operation not permitted. The returned envelope contained no session, outcome, or artifactCount fields.\"}}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "fungi-opencode",
+    "exit": 0,
+    "seconds": 4.36,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "bash",
+        "input": {
+          "command": "bash /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/run-fungi.sh",
+          "workdir": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz",
+          "timeout": 120000
+        },
+        "status": "error"
+      }
+    ],
+    "assistantText": [],
+    "nativeEvents": []
+  },
+  {
+    "name": "fungi-pi",
+    "exit": 0,
+    "seconds": 22.33,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "bash",
+        "input": {
+          "command": "bash /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/run-fungi.sh . is not?",
+          "timeout": null
+        }
+      }
+    ],
+    "assistantText": [
+      "{\"session\":\"031bb20482a4e96c041f920559f1ddeb\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "fungi-claude-background",
+    "exit": 0,
+    "seconds": 25.32,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "bash /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/run-fungi.sh",
+          "description": "Run the Fungi integration probe script",
+          "run_in_background": true
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "cat /private/tmp/claude-501/-private-var-folders-00-h-k67s0j5dq0qvg6ylqysk2w0000gn-T-fungi-harness-probe-9lvr25zz/1b53e12d-b83f-4b4b-abb4-85d0f4edf3b9/tasks/blvcoh159.output",
+          "description": "Show the background command's output"
+        }
+      }
+    ],
+    "assistantText": [
+      "WAITING",
+      "{\"session\":\"8d4546e20baa3114326d5dff6987818b\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": [
+      {
+        "subtype": "task_started",
+        "task_id": "blvcoh159",
+        "is_backgrounded": true
+      },
+      {
+        "subtype": "task_notification",
+        "task_id": "blvcoh159",
+        "status": "completed"
+      }
+    ]
+  },
+  {
+    "name": "fungi-grok-background",
+    "exit": 0,
+    "seconds": 31.76,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "read_file",
+        "input": {
+          "target_file": "/Users/rengwu/.grok/bundled/skills/long-running-background-tasks/SKILL.md"
+        }
+      },
+      {
+        "tool": "run_terminal_command",
+        "input": {
+          "command": "bash /var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/run-fungi.sh",
+          "description": "Launch fungi harness probe once",
+          "block_until_ms": 0
+        }
+      },
+      {
+        "tool": "get_command_or_subagent_output",
+        "input": {
+          "task_ids": [
+            "01a15827-422c-7d62-a39a-561e131dfc41"
+          ]
+        }
+      }
+    ],
+    "assistantText": [
+      "I'll launch the fungi script in the background with native completion, then end this turn with WAITING.WAITINGRetrieving the completed command output now.{\"session\":\"b0cda430599da32eed0b8624425c8a17\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "fungi-codex-writable",
+    "exit": 0,
+    "seconds": 17.41,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc 'bash /private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/run-fungi.sh'"
+      }
+    ],
+    "assistantText": [
+      "I\u2019ll run the command once and wait for its result.\n",
+      "{\"session\":\"efe9da8029b5bd91e2f8568c98d68d38\",\"outcome\":\"startup_failed\",\"artifactCount\":null}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "fungi-opencode-canonical",
+    "exit": 0,
+    "seconds": 16.9,
+    "timedOut": false,
+    "calls": [
+      {
+        "tool": "bash",
+        "input": {
+          "command": "bash /private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/run-fungi.sh",
+          "workdir": "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz",
+          "timeout": 20000
+        },
+        "status": "completed"
+      }
+    ],
+    "assistantText": [
+      "{\"session\":\"8f83ec644408dbaf7eb2d125becb416b\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "pipe-codex",
+    "exit": 0,
+    "seconds": 29.32,
+    "timedOut": false,
+    "binarySHA256": "b52f2fd7cb5e28f981d2653495b2998c0a7aa882dfda1a2e8889e051350512ec",
+    "calls": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc 'bash /private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/short-fungi.sh'"
+      }
+    ],
+    "assistantText": [
+      "I\u2019ll run the command once and wait for its result.",
+      "{\"session\":\"66a3284f72c7f7636bcab7808f47af75\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "pipe-opencode",
+    "exit": 0,
+    "seconds": 18.03,
+    "timedOut": false,
+    "binarySHA256": "b52f2fd7cb5e28f981d2653495b2998c0a7aa882dfda1a2e8889e051350512ec",
+    "calls": [
+      {
+        "tool": "bash",
+        "input": {
+          "command": "bash /private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/short-fungi.sh",
+          "workdir": "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz",
+          "timeout": 120000
+        },
+        "status": "completed"
+      }
+    ],
+    "assistantText": [
+      "{\"session\":\"d929cc04dbb6eaf25ddc05bbd6a50ee2\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "pipe-pi-long",
+    "exit": 0,
+    "seconds": 190.04,
+    "timedOut": false,
+    "binarySHA256": "b52f2fd7cb5e28f981d2653495b2998c0a7aa882dfda1a2e8889e051350512ec",
+    "calls": [
+      {
+        "tool": "bash",
+        "input": {
+          "command": "bash /private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/long-fungi.sh",
+          "timeout": null
+        }
+      }
+    ],
+    "assistantText": [
+      "{\"session\":\"4dc6459afe70a6e7247ef57aa4d97347\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": []
+  },
+  {
+    "name": "pipe-claude-long",
+    "exit": 0,
+    "seconds": 192.93,
+    "timedOut": false,
+    "binarySHA256": "b52f2fd7cb5e28f981d2653495b2998c0a7aa882dfda1a2e8889e051350512ec",
+    "calls": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "bash /private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/long-fungi.sh",
+          "description": "Run long fungi fixture script",
+          "timeout": 600000,
+          "run_in_background": true
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "cat /private/tmp/claude-501/-private-var-folders-00-h-k67s0j5dq0qvg6ylqysk2w0000gn-T-fungi-harness-probe-9lvr25zz/6fd9e287-b0f0-426e-8aa5-1f434283f8bc/tasks/byhoi3d1h.output",
+          "description": "Show the background command's output"
+        }
+      }
+    ],
+    "assistantText": [
+      "WAITING",
+      "{\"session\":\"b714c824d9b49da6c2d0b860c1433a29\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": [
+      {
+        "subtype": "task_started",
+        "task_id": "byhoi3d1h",
+        "is_backgrounded": true
+      },
+      {
+        "subtype": "task_notification",
+        "task_id": "byhoi3d1h",
+        "status": "completed"
+      }
+    ]
+  },
+  {
+    "name": "pipe-grok-long",
+    "exit": 0,
+    "seconds": 193.58,
+    "timedOut": false,
+    "binarySHA256": "b52f2fd7cb5e28f981d2653495b2998c0a7aa882dfda1a2e8889e051350512ec",
+    "calls": [
+      {
+        "tool": "run_terminal_command",
+        "input": {
+          "command": "bash /private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-harness-probe-9lvr25zz/long-fungi.sh",
+          "description": "Run long-fungi.sh fixture once",
+          "block_until_ms": 0
+        }
+      },
+      {
+        "tool": "get_command_or_subagent_output",
+        "input": {
+          "task_ids": [
+            "01a15832-9259-7e43-bfee-7d0b4693aa5b"
+          ]
+        }
+      }
+    ],
+    "assistantText": [
+      "Starting the fungi fixture in the background now.WAITING{\"session\":\"1ee4923f8daf2a9331da307ec8ffc5e9\",\"outcome\":\"submitted\",\"artifactCount\":1}"
+    ],
+    "nativeEvents": []
+  }
+]

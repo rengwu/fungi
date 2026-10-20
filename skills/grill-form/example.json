@@ -1,0 +1,13 @@
+{
+  "projectName": "Fungi",
+  "title": "Example questionnaire",
+  "questions": [
+    {
+      "number": 1,
+      "prompt": "When should a reviewed change be published?",
+      "context": "This is a demonstration, not a project decision.\n\n| Choice | Benefit | Cost |\n| --- | --- | --- |\n| Explicitly | Review before release | One extra action |\n| Automatically | Immediate updates | Mistakes go live immediately |\n\n```mermaid\nflowchart LR\n  Edit --> Preview\n  Preview --> Publish\n```",
+      "recommendation": "Publish explicitly so editors can review changes.",
+      "options": ["Publish explicitly", "Publish automatically"]
+    }
+  ]
+}
