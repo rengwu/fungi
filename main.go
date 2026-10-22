@@ -423,9 +423,14 @@ func scanMessages(r io.Reader, consume func(message) error) error {
 	scanner := bufio.NewScanner(r)
 	scanner.Buffer(make([]byte, 4096), maxJSON)
 	for scanner.Scan() {
+		// Empty NDJSON lines carry no message. GUI runtimes may emit these
+		// before their application script starts; reject other malformed data.
+		if strings.TrimSpace(scanner.Text()) == "" {
+			continue
+		}
 		var m message
 		if err := json.Unmarshal(scanner.Bytes(), &m); err != nil {
-			return fail("invalid_protocol", err.Error())
+			return fail("invalid_protocol", fmt.Sprintf("invalid helper JSON (%d bytes): %v", len(scanner.Bytes()), err))
 		}
 		if err := consume(m); err != nil {
 			return err

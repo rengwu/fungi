@@ -130,6 +130,16 @@ func TestDraftImageSurvivesClose(t *testing.T) {
 	}
 }
 func TestMalformedProtocolAndForms(t *testing.T) {
+	count := 0
+	if err := scanMessages(strings.NewReader("\r\n \t\n{\"type\":\"ready\"}\r\n\n"), func(m message) error {
+		if m.Type != "ready" {
+			t.Fatal("unexpected message", m)
+		}
+		count++
+		return nil
+	}); err != nil || count != 1 {
+		t.Fatal("empty lines changed protocol messages", count, err)
+	}
 	for _, raw := range []string{`no json`, strings.Repeat("x", maxJSON+1)} {
 		if err := scanMessages(strings.NewReader(raw), func(message) error { return nil }); err == nil {
 			t.Fatal("accepted invalid protocol")
