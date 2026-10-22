@@ -6,8 +6,10 @@ updated: 2026-10-22
 
 Run on the target desktop after copying/extracting the **whole** portable
 directory. Go, Node, npm and a separately installed browser are unnecessary.
-This recipe is prepared for Windows and Linux; those desktop paths remain
-unvalidated until executed there. Record the OS/version/architecture and
+Hosted macOS and Windows renderer fixtures pass; physical input and
+clean-machine journeys still need this separate check. The Ubuntu 24.04
+portable renderer currently fails at sandbox startup; the bundled wiki's
+hosted-platform report records the failure. Record the OS/version/architecture and
 `BUILD.json` with the results. Do not bypass OS security protections or disable
 Chromium's sandbox if startup fails; record the actual error.
 

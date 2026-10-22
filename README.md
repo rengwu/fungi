@@ -1,6 +1,6 @@
 # Fungi
 
-A small Go session engine with an Electron window for skill-authored human interaction. This is an initial macOS prototype. The [compatibility record](docs/wiki/verification/runs/2026-10-20-no-setup.md) covers tested native return paths and manual fallback. The [skill proof](docs/wiki/verification/runs/2026-10-20-skill-proof.md) adds Linux arm64 core execution, one macOS sleep/wake cycle and a two-hour helper wait with automatic Codex return. Arbitrary-duration reliability, Windows execution and Linux desktop UI remain unverified.
+A small Go session engine with an Electron window for skill-authored human interaction. This is a development preview. The [compatibility record](docs/wiki/verification/runs/2026-10-20-no-setup.md) covers tested native return paths and manual fallback. The [skill proof](docs/wiki/verification/runs/2026-10-20-skill-proof.md) adds one macOS sleep/wake cycle and a two-hour helper wait with automatic Codex return. The [foundation run](docs/wiki/verification/runs/2026-10-22-platform.md) verifies broader rendering and recovery. [Hosted platform checks](docs/wiki/verification/runs/2026-10-22-hosted.md) exercise Windows and Linux and record current failures. Arbitrary-duration reliability and clean-machine distribution remain unverified.
 
 Run a local HTML file or a flat JSON form. A native executable can implement the same lifecycle without using Electron. No registration, plugin SDK or frontend framework is required.
 

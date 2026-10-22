@@ -99,6 +99,11 @@ ordinary trusted programs with OS access. This is not a promise to host every
 website, codec or desktop API. The [rendering verification](verification/runs/2026-10-22-platform.md)
 lists the exact exercised features and platform.
 
+Feature-detect graphics and codec capabilities. For example, WebGL context
+creation may return null on a virtual display or unsupported GPU; provide an
+appropriate alternative or explain that the interface needs that capability.
+The Electron runtime does not guarantee every graphics feature on every host.
+
 Discover limits from `ready().limits`: currently 1 MiB JSON envelopes, 20 MiB
 per attachment and 100 MiB across retained draft/result artifacts. Metadata
 uses part of the JSON limit. Errors keep the interface open for correction or

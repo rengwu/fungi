@@ -1,0 +1,22 @@
+[
+  {
+    "target": "windows-latest",
+    "result": "success",
+    "platform": "##[group]Operating System\n2026-10-22T09:09:01.5201837Z Microsoft Windows Server 2025\n2026-10-22T09:09:01.5202841Z 10.0.26100\n2026-10-22T09:09:01.5203751Z Datacenter\n2026-10-22T09:09:01.5204589Z ##[endgroup]\n2026-10-22T09:09:01.5205510Z ##[group]Runner Image\n2026-10-22T09:09:01.5206507Z Image: windows-2025-vs2026\n2026-10-22T09:09:01.5207470Z Version: 20261007.264.1\n2026-10-22T09:09:01.5209835Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261007.264/images/windows/Windows2025-VS2026-Readme.md\n2026-10-22T09:09:01.5212686Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261007.264\n2026-10-22T09:09:01.5214778Z ##[endgroup]\n2026-10-22T09:09:01.5216592Z "
+  },
+  {
+    "target": "ubuntu-22.04",
+    "result": "failure",
+    "platform": "##[group]Operating System\n2026-10-22T09:09:01.1640388Z Ubuntu\n2026-10-22T09:09:01.1641303Z 22.04.5\n2026-10-22T09:09:01.1642251Z LTS\n2026-10-22T09:09:01.1643146Z ##[endgroup]\n2026-10-22T09:09:01.1644278Z ##[group]Runner Image\n2026-10-22T09:09:01.1645333Z Image: ubuntu-22.04\n2026-10-22T09:09:01.1646633Z Version: 20261018.327.1\n2026-10-22T09:09:01.1648927Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261018.327/images/ubuntu/Ubuntu2204-Readme.md\n2026-10-22T09:09:01.1651802Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261018.327\n2026-10-22T09:09:01.1653564Z ##[endgroup]\n2026-10-22T09:09:01.1655455Z "
+  },
+  {
+    "target": "ubuntu-24.04",
+    "result": "failure",
+    "platform": "##[group]Operating System\n2026-10-22T09:09:01.5354652Z Ubuntu\n2026-10-22T09:09:01.5356083Z 24.04.5\n2026-10-22T09:09:01.5356980Z LTS\n2026-10-22T09:09:01.5358453Z ##[endgroup]\n2026-10-22T09:09:01.5359475Z ##[group]Runner Image\n2026-10-22T09:09:01.5360463Z Image: ubuntu-24.04\n2026-10-22T09:09:01.5361515Z Version: 20261012.334.1\n2026-10-22T09:09:01.5363759Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md\n2026-10-22T09:09:01.5366899Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334\n2026-10-22T09:09:01.5368611Z ##[endgroup]\n2026-10-22T09:09:01.5370634Z "
+  },
+  {
+    "target": "macos-latest",
+    "result": "success",
+    "platform": "##[group]Operating System\n2026-10-22T09:09:00.9717200Z macOS\n2026-10-22T09:09:00.9717580Z 26.6.2\n2026-10-22T09:09:00.9718010Z 25G83\n2026-10-22T09:09:00.9718340Z ##[endgroup]\n2026-10-22T09:09:00.9718690Z ##[group]Runner Image\n2026-10-22T09:09:00.9719050Z Image: macos-26-arm64\n2026-10-22T09:09:00.9719410Z Version: 20261013.0424.1\n2026-10-22T09:09:00.9720440Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20261013.0424/images/macos/macos-26-arm64-Readme.md\n2026-10-22T09:09:00.9721400Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20261013.0424\n2026-10-22T09:09:00.9722020Z ##[endgroup]\n2026-10-22T09:09:00.9722740Z "
+  }
+]

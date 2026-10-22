@@ -1,0 +1,214 @@
+##[group]Run go version
+2026-10-22T09:09:22.5183835Z go version
+2026-10-22T09:09:22.6032050Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:09:22.6032474Z env:
+2026-10-22T09:09:22.6032789Z   GOTOOLCHAIN: local
+2026-10-22T09:09:22.6033141Z ##[endgroup]
+2026-10-22T09:09:22.6199718Z go version go1.26.4 linux/amd64
+2026-10-22T09:09:22.6243579Z ##[group]Run go vet ./...
+2026-10-22T09:09:22.6243970Z go vet ./...
+2026-10-22T09:09:22.6312393Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:09:22.6312688Z env:
+2026-10-22T09:09:22.6312929Z   GOTOOLCHAIN: local
+2026-10-22T09:09:22.6313187Z ##[endgroup]
+2026-10-22T09:09:35.3236712Z ##[group]Run go test -race -v ./...
+2026-10-22T09:09:35.3237147Z go test -race -v ./...
+2026-10-22T09:09:35.3303790Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:09:35.3304143Z env:
+2026-10-22T09:09:35.3304415Z   GOTOOLCHAIN: local
+2026-10-22T09:09:35.3304753Z ##[endgroup]
+2026-10-22T09:10:33.4783478Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+2026-10-22T09:10:33.4785317Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.01s)
+2026-10-22T09:10:33.4787334Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+2026-10-22T09:10:33.4788655Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+2026-10-22T09:10:33.4790017Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+2026-10-22T09:10:33.4791441Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.01s)
+2026-10-22T09:10:33.4793380Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+2026-10-22T09:10:33.4794700Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.01s)
+2026-10-22T09:10:33.4796516Z === RUN   TestWaitConnectionHasNoHumanTimeout
+2026-10-22T09:10:33.4797907Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.02s)
+2026-10-22T09:10:33.4799334Z === RUN   TestDisconnectedWaiterDoesNotCancel
+2026-10-22T09:10:33.4800612Z --- PASS: TestDisconnectedWaiterDoesNotCancel (12.00s)
+2026-10-22T09:10:33.4801939Z === RUN   TestHelperExitAndStdoutDrain
+2026-10-22T09:10:33.4803218Z --- PASS: TestHelperExitAndStdoutDrain (0.02s)
+2026-10-22T09:10:33.4804607Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+2026-10-22T09:10:33.4806064Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+2026-10-22T09:10:33.4807704Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+2026-10-22T09:10:33.4809339Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.02s)
+2026-10-22T09:10:33.4810629Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.01s)
+2026-10-22T09:10:33.4812006Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.01s)
+2026-10-22T09:10:33.4813664Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+2026-10-22T09:10:33.4815353Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.01s)
+2026-10-22T09:10:33.4816735Z === RUN   TestDurableSubmissionAndDuplicate
+2026-10-22T09:10:33.4817958Z --- PASS: TestDurableSubmissionAndDuplicate (0.01s)
+2026-10-22T09:10:33.4819344Z === RUN   TestFailedCommitPreservesPreviousDraft
+2026-10-22T09:10:33.4821230Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.01s)
+2026-10-22T09:10:33.4822458Z === RUN   TestArtifactConfinementAndLimits
+2026-10-22T09:10:33.4823648Z --- PASS: TestArtifactConfinementAndLimits (0.00s)
+2026-10-22T09:10:33.4824780Z === RUN   TestDraftImageSurvivesClose
+2026-10-22T09:10:33.4826181Z --- PASS: TestDraftImageSurvivesClose (0.00s)
+2026-10-22T09:10:33.4827323Z === RUN   TestMalformedProtocolAndForms
+2026-10-22T09:10:33.4828419Z --- PASS: TestMalformedProtocolAndForms (0.01s)
+2026-10-22T09:10:33.4829346Z === RUN   TestLockRejectsSecondOwner
+2026-10-22T09:10:33.4830317Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+2026-10-22T09:10:33.4831305Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+2026-10-22T09:10:33.4832443Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+2026-10-22T09:10:33.4833573Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+2026-10-22T09:10:33.4835372Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.15s)
+2026-10-22T09:10:33.4836371Z PASS
+2026-10-22T09:10:33.4836998Z ok  	fungi	40.189s
+2026-10-22T09:10:33.4837940Z ?   	fungi/examples/helper	[no test files]
+2026-10-22T09:10:33.4838911Z ?   	fungi/scripts/idle-helper	[no test files]
+2026-10-22T09:10:33.4839877Z ?   	fungi/scripts/protocol-fixture	[no test files]
+2026-10-22T09:10:33.5556515Z ##[group]Run node --test
+2026-10-22T09:10:33.5556819Z node --test
+2026-10-22T09:10:33.5620061Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:33.5620339Z env:
+2026-10-22T09:10:33.5620549Z   GOTOOLCHAIN: local
+2026-10-22T09:10:33.5620790Z ##[endgroup]
+2026-10-22T09:10:33.6566702Z TAP version 13
+2026-10-22T09:10:33.7498151Z # Subtest: local assets stream, seek and reject escapes or special routes
+2026-10-22T09:10:33.7499752Z ok 1 - local assets stream, seek and reject escapes or special routes
+2026-10-22T09:10:33.7500843Z   ---
+2026-10-22T09:10:33.7501392Z   duration_ms: 55.756379
+2026-10-22T09:10:33.7501984Z   type: 'test'
+2026-10-22T09:10:33.7502480Z   ...
+2026-10-22T09:10:33.8388211Z # Subtest: simple committed question format normalizes stable IDs and rich source
+2026-10-22T09:10:33.8406517Z ok 2 - simple committed question format normalizes stable IDs and rich source
+2026-10-22T09:10:33.8422859Z   ---
+2026-10-22T09:10:33.8426684Z   duration_ms: 1.851456
+2026-10-22T09:10:33.8427580Z   type: 'test'
+2026-10-22T09:10:33.8428256Z   ...
+2026-10-22T09:10:33.8429459Z # Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+2026-10-22T09:10:33.8431130Z ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+2026-10-22T09:10:33.8432198Z   ---
+2026-10-22T09:10:33.8433080Z   duration_ms: 0.61423
+2026-10-22T09:10:33.8433892Z   type: 'test'
+2026-10-22T09:10:33.8434538Z   ...
+2026-10-22T09:10:33.8435988Z # Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+2026-10-22T09:10:33.8437545Z ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+2026-10-22T09:10:33.8438622Z   ---
+2026-10-22T09:10:33.8439309Z   duration_ms: 1.366707
+2026-10-22T09:10:33.8440061Z   type: 'test'
+2026-10-22T09:10:33.8440698Z   ...
+2026-10-22T09:10:33.8441878Z # Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+2026-10-22T09:10:33.8443498Z ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+2026-10-22T09:10:33.8444596Z   ---
+2026-10-22T09:10:33.8445564Z   duration_ms: 0.333849
+2026-10-22T09:10:33.8446625Z   type: 'test'
+2026-10-22T09:10:33.8447420Z   ...
+2026-10-22T09:10:33.8994522Z # Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+2026-10-22T09:10:33.9016447Z ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+2026-10-22T09:10:33.9017657Z   ---
+2026-10-22T09:10:33.9036096Z   duration_ms: 6.829094
+2026-10-22T09:10:33.9036933Z   type: 'test'
+2026-10-22T09:10:33.9037489Z   ...
+2026-10-22T09:10:33.9038299Z # Subtest: rejected save does not poison a later submit retry
+2026-10-22T09:10:33.9039367Z ok 7 - rejected save does not poison a later submit retry
+2026-10-22T09:10:33.9040555Z   ---
+2026-10-22T09:10:33.9041113Z   duration_ms: 1.397894
+2026-10-22T09:10:33.9041695Z   type: 'test'
+2026-10-22T09:10:33.9042187Z   ...
+2026-10-22T09:10:33.9116102Z 1..7
+2026-10-22T09:10:33.9116878Z # tests 7
+2026-10-22T09:10:33.9117625Z # suites 0
+2026-10-22T09:10:33.9118186Z # pass 7
+2026-10-22T09:10:33.9118749Z # fail 0
+2026-10-22T09:10:33.9119419Z # cancelled 0
+2026-10-22T09:10:33.9120151Z # skipped 0
+2026-10-22T09:10:33.9120813Z # todo 0
+2026-10-22T09:10:33.9121450Z # duration_ms 314.239033
+2026-10-22T09:10:33.9214546Z ##[group]Run node docs/wiki/_build.mjs --check
+2026-10-22T09:10:33.9215629Z node docs/wiki/_build.mjs --check
+2026-10-22T09:10:33.9309615Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:33.9310043Z env:
+2026-10-22T09:10:33.9310470Z   GOTOOLCHAIN: local
+2026-10-22T09:10:33.9310863Z ##[endgroup]
+2026-10-22T09:10:34.2850330Z Checked 29 pages and internal links; index.html is current.
+2026-10-22T09:10:34.2962682Z ##[group]Run npm ci --prefix renderer
+2026-10-22T09:10:34.2963327Z npm ci --prefix renderer
+2026-10-22T09:10:34.3047563Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:34.3047840Z env:
+2026-10-22T09:10:34.3048042Z   GOTOOLCHAIN: local
+2026-10-22T09:10:34.3048270Z ##[endgroup]
+2026-10-22T09:10:35.2928183Z
+2026-10-22T09:10:35.2929294Z added 13 packages, and audited 14 packages in 918ms
+2026-10-22T09:10:35.2930339Z
+2026-10-22T09:10:35.2930988Z 1 package is looking for funding
+2026-10-22T09:10:35.2935826Z   run `npm fund` for details
+2026-10-22T09:10:35.2939615Z
+2026-10-22T09:10:35.2940128Z found 0 vulnerabilities
+2026-10-22T09:10:35.3396397Z ##[group]Run node renderer/node_modules/electron/install.js
+2026-10-22T09:10:35.3396941Z node renderer/node_modules/electron/install.js
+2026-10-22T09:10:35.3462913Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:35.3463258Z env:
+2026-10-22T09:10:35.3463522Z   GOTOOLCHAIN: local
+2026-10-22T09:10:35.3463827Z ##[endgroup]
+2026-10-22T09:10:37.5043167Z ##[group]Run go build -o fungi .
+2026-10-22T09:10:37.5043503Z go build -o fungi .
+2026-10-22T09:10:37.5108958Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:37.5109376Z env:
+2026-10-22T09:10:37.5109601Z   GOTOOLCHAIN: local
+2026-10-22T09:10:37.5109860Z ##[endgroup]
+2026-10-22T09:10:37.7873573Z ##[group]Run cat /proc/sys/kernel/unprivileged_userns_clone
+2026-10-22T09:10:37.7874407Z cat /proc/sys/kernel/unprivileged_userns_clone
+2026-10-22T09:10:37.7875720Z if [[ -f /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]]; then
+2026-10-22T09:10:37.7876617Z   cat /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+2026-10-22T09:10:37.7877279Z fi
+2026-10-22T09:10:37.7877730Z unshare --user --map-root-user true || true
+2026-10-22T09:10:37.7970681Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:37.7971295Z env:
+2026-10-22T09:10:37.7971643Z   GOTOOLCHAIN: local
+2026-10-22T09:10:37.7972035Z ##[endgroup]
+2026-10-22T09:10:37.8111725Z 1
+2026-10-22T09:10:37.8133285Z 1
+2026-10-22T09:10:37.8149369Z unshare: write failed /proc/self/uid_map: Operation not permitted
+2026-10-22T09:10:37.8203506Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+2026-10-22T09:10:37.8222722Z if [[ "$RUNNER_OS" == "Linux" ]]; then
+2026-10-22T09:10:37.8223411Z   xvfb-run -a node scripts/renderer-smoke.mjs ./fungi
+2026-10-22T09:10:37.8224086Z elif [[ "$RUNNER_OS" == "Windows" ]]; then
+2026-10-22T09:10:37.8224734Z   node scripts/renderer-smoke.mjs ./fungi.exe
+2026-10-22T09:10:37.8225651Z else
+2026-10-22T09:10:37.8226121Z   node scripts/renderer-smoke.mjs ./fungi
+2026-10-22T09:10:37.8226678Z fi
+2026-10-22T09:10:37.8317929Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:37.8318531Z env:
+2026-10-22T09:10:37.8318850Z   GOTOOLCHAIN: local
+2026-10-22T09:10:37.8319225Z ##[endgroup]
+2026-10-22T09:10:38.7049305Z [5451:1022/091038.469126:FATAL:sandbox/linux/suid/client/setuid_sandbox_host.cc:166] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /home/runner/work/fungi/fungi/renderer/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.
+2026-10-22T09:10:38.7052777Z
+2026-10-22T09:10:38.7055813Z node:internal/errors:983
+2026-10-22T09:10:38.7076014Z   const err = new Error(message);
+2026-10-22T09:10:38.7086332Z               ^
+2026-10-22T09:10:38.7096652Z
+2026-10-22T09:10:38.7106848Z Error: Command failed: /home/runner/work/fungi/fungi/fungi open /home/runner/work/fungi/fungi/verification-output/renderer-smoke-WzlPUb/assets/index.html --delivery wait
+2026-10-22T09:10:38.7126076Z
+2026-10-22T09:10:38.7132068Z     at genericNodeError (node:internal/errors:983:15)
+2026-10-22T09:10:38.7133237Z     at wrappedFn (node:internal/errors:537:14)
+2026-10-22T09:10:38.7156153Z     at ChildProcess.exithandler (node:child_process:417:12)
+2026-10-22T09:10:38.7161050Z     at ChildProcess.emit (node:events:519:28)
+2026-10-22T09:10:38.7162282Z     at maybeClose (node:internal/child_process:1101:16)
+2026-10-22T09:10:38.7163515Z     at Socket.<anonymous> (node:internal/child_process:456:11)
+2026-10-22T09:10:38.7164558Z     at Socket.emit (node:events:519:28)
+2026-10-22T09:10:38.7166093Z     at Pipe.<anonymous> (node:net:346:12) {
+2026-10-22T09:10:38.7166868Z   code: 1,
+2026-10-22T09:10:38.7167509Z   killed: false,
+2026-10-22T09:10:38.7168168Z   signal: null,
+2026-10-22T09:10:38.7170144Z   cmd: '/home/runner/work/fungi/fungi/fungi open /home/runner/work/fungi/fungi/verification-output/renderer-smoke-WzlPUb/assets/index.html --delivery wait',
+2026-10-22T09:10:38.7179585Z   stdout: '{"protocol":1,"kind":"result","session":"3c19aabdd3d419a23d4b29802cef93e9","outcome":"failed","artifacts":[],"error":{"code":"helper_exited","message":"signal: trace/breakpoint trap (core dumped)"}}\n',
+2026-10-22T09:10:38.7181287Z   stderr: ''
+2026-10-22T09:10:38.7181785Z }
+2026-10-22T09:10:38.7182120Z
+2026-10-22T09:10:38.7182415Z Node.js v22.19.0
+2026-10-22T09:10:38.7204299Z ##[error]Process completed with exit code 1.
+2026-10-22T09:10:38.7283365Z ##[group]Run if [[ -d verification-output ]]; then
+2026-10-22T09:10:38.7284052Z if [[ -d verification-output ]]; then
+2026-10-22T09:10:38.7285338Z   find verification-output -type f \( -name result.json -o -name worker.log -o -name evidence.json \) -exec cat {} \;
+2026-10-22T09:10:38.7286346Z fi
+2026-10-22T09:10:38.7376323Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:38.7376932Z env:
+2026-10-22T09:10:38.7377262Z   GOTOOLCHAIN: local
+2026-10-22T09:10:38.7377636Z ##[endgroup]
+2026-10-22T09:10:38.7538807Z [5451:1022/091038.469126:FATAL:sandbox/linux/suid/client/setuid_sandbox_host.cc:166] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /home/runner/work/fungi/fungi/renderer/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.
+2026-10-22T09:10:38.7550460Z {"protocol":1,"kind":"result","session":"3c19aabdd3d419a23d4b29802cef93e9","outcome":"failed","artifacts":[],"error":{"code":"helper_exited","message":"signal: trace/breakpoint trap (core dumped)"}}
+2026-10-22T09:10:38.7729746Z

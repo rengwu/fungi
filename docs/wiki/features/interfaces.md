@@ -42,9 +42,11 @@ For renderer recovery, save a distinctive draft in a disposable session, termina
 
 ## Coverage and limitations
 
-File selection, image paste, image draft recovery, submission, cancellation, local HTML controls and actual write-failure recovery were observed through the native UI. Killing the isolated page renderer produced `failed` with `renderer_crashed`; explicit reopen restored `DRAFT-CRASH-RECOVER`, and closing that new window produced `closed`. The app uses a minimal native menu without development reload. No screenshot, canvas, nested JSON components or external live-update mechanism is implemented.
+File selection, image paste, image draft recovery, submission, cancellation, local HTML controls and actual write-failure recovery were observed through the native UI. Killing the isolated page renderer produced `failed` with `renderer_crashed`; explicit reopen restored `DRAFT-CRASH-RECOVER`, and closing that new window produced `closed`. The app uses a minimal native menu without development reload. The comparison example exports a custom canvas; a drawing editor, screenshot capture, nested JSON components and external live updates remain deferred. Feature-detect GPU and codec capabilities; hosted rendering results vary by platform.
 
 ## Verification history
+
+- [2026-10-22 hosted checks](../verification/runs/2026-10-22-hosted.md) — real Electron execution, Windows pipe repair and Linux sandbox/graphics limits.
 
 - [2026-10-22 platform verification](../verification/runs/2026-10-22-platform.md) — call ordering, rendering primitives, saved/exported images, rich-form retry and a separate comparison example.
 

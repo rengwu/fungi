@@ -1,0 +1,74 @@
+Core and authoring (windows-latest)	Exercise actual renderer	﻿2026-10-22T08:59:42.1977377Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1977784Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1978100Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs ./fungi^[[0m
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1978407Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1978686Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi.exe^[[0m
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1978919Z ^[[36;1melse^[[0m
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1979113Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi^[[0m
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1979347Z ^[[36;1mfi^[[0m
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1992038Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1992403Z env:
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1992562Z   GOTOOLCHAIN: local
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:42.1992735Z ##[endgroup]
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8924488Z node:internal/errors:983
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8925226Z   const err = new Error(message);
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8925656Z               ^
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8926278Z
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8927051Z Error: Command failed: D:\a\fungi\fungi\fungi.exe open D:\a\fungi\fungi\verification-output\renderer-smoke-IzBRI7\assets\index.html --delivery wait
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8927640Z
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8927939Z     at genericNodeError (node:internal/errors:983:15)
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8928384Z     at wrappedFn (node:internal/errors:537:14)
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8928850Z     at ChildProcess.exithandler (node:child_process:417:12)
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8929307Z     at ChildProcess.emit (node:events:519:28)
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8929745Z     at maybeClose (node:internal/child_process:1101:16)
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8930260Z     at Socket.<anonymous> (node:internal/child_process:456:11)
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8930701Z     at Socket.emit (node:events:519:28)
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8931097Z     at Pipe.<anonymous> (node:net:346:12) {
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8931439Z   code: 1,
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8931701Z   killed: false,
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8931967Z   signal: null,
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8932676Z   cmd: 'D:\\a\\fungi\\fungi\\fungi.exe open D:\\a\\fungi\\fungi\\verification-output\\renderer-smoke-IzBRI7\\assets\\index.html --delivery wait',
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8933864Z   stdout: '{"protocol":1,"kind":"result","session":"e652425a0577ce98935c70ede4107c0f","outcome":"failed","artifacts":[],"error":{"code":"helper_exited","message":"unexpected end of JSON input"}}\n',
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8934570Z   stderr: ''
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8936943Z }
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8937239Z
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.8937423Z Node.js v22.19.0
+Core and authoring (windows-latest)	Exercise actual renderer	2026-10-22T08:59:44.9031484Z ##[error]Process completed with exit code 1.
+Core and authoring (ubuntu-latest)	Exercise actual renderer	﻿2026-10-22T08:59:31.6584326Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6584986Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6585649Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs ./fungi^[[0m
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6586336Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6598406Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi.exe^[[0m
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6599114Z ^[[36;1melse^[[0m
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6599589Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi^[[0m
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6600174Z ^[[36;1mfi^[[0m
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6685054Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6685796Z env:
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6686193Z   GOTOOLCHAIN: local
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:31.6686653Z ##[endgroup]
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6580251Z [5453:1022/085932.356617:FATAL:sandbox/linux/suid/client/setuid_sandbox_host.cc:166] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /home/runner/work/fungi/fungi/renderer/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6600355Z
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6633341Z node:internal/errors:983
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6667315Z   const err = new Error(message);
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6681250Z               ^
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6722192Z
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6738132Z Error: Command failed: /home/runner/work/fungi/fungi/fungi open /home/runner/work/fungi/fungi/verification-output/renderer-smoke-sNtlK8/assets/index.html --delivery wait
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6739088Z
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6739513Z     at genericNodeError (node:internal/errors:983:15)
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6740299Z     at wrappedFn (node:internal/errors:537:14)
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6741275Z     at ChildProcess.exithandler (node:child_process:417:12)
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6742029Z     at ChildProcess.emit (node:events:519:28)
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6742850Z     at maybeClose (node:internal/child_process:1101:16)
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6743694Z     at Socket.<anonymous> (node:internal/child_process:456:11)
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6744407Z     at Socket.emit (node:events:519:28)
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6745116Z     at Pipe.<anonymous> (node:net:346:12) {
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6745657Z   code: 1,
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6746150Z   killed: false,
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6746573Z   signal: null,
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6754575Z   cmd: '/home/runner/work/fungi/fungi/fungi open /home/runner/work/fungi/fungi/verification-output/renderer-smoke-sNtlK8/assets/index.html --delivery wait',
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6767404Z   stdout: '{"protocol":1,"kind":"result","session":"b514fcaf6402524bd61140500c6942fd","outcome":"failed","artifacts":[],"error":{"code":"helper_exited","message":"signal: trace/breakpoint trap (core dumped)"}}\n',
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6770770Z   stderr: ''
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6771139Z }
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6771293Z
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6771490Z Node.js v22.19.0
+Core and authoring (ubuntu-latest)	Exercise actual renderer	2026-10-22T08:59:32.6820259Z ##[error]Process completed with exit code 1.

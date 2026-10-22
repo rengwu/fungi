@@ -1,0 +1,73 @@
+{
+  "productRevision": "df4da9f230ba446828e5ae33a07f027bb3154b32",
+  "documentationDirty": true,
+  "sources": {
+    "delivery_test.go": "2839526a852c671afd86d18facb750420c747afa154c192dccbf1a11e8190e1e",
+    "describe.go": "6d460a5088890380dfca4f62785e1b6f45639bd840409a551d133eddc3653829",
+    "examples/helper/main.go": "e40d9e28a32cbb48395a380369b4868371573c6dd0fb3af22299ffe33b4bee0d",
+    "integration_test.go": "e227cc61a935d61a00b17e4702e098383a303caf6c29138873acff0257d7458b",
+    "lock_unix.go": "3d8de1ebee752fcdd55412a66474c3993a2a6cf7a6ad765f283ae217710dbdb4",
+    "lock_windows.go": "96f19e7dba84640864cc7c4f224de68889813fe5b438f8a263a1df7d8220b652",
+    "main.go": "bd3434d132b6666d2e8f515a9613096243358a82875e4e5d776d2caaeb0c86f2",
+    "owner.go": "542253133953dffd7ac46c86bf2a2a2e69c99ba2a2c3128ba6ed3aed0b9152fe",
+    "process_unix.go": "9848afc408a55b714055586c5bfd111e39f9d6112b96ae7e681bc0ffc94dd292",
+    "process_windows.go": "23c676f2af31b732a8ff252983f7896f2862374816744c58353a433a7c2851dc",
+    "renderer/assets.cjs": "94dfa28eb94e1f43376aa2774cbd7d205aedfc464a02d164ff32a8824f790e0a",
+    "renderer/form.html": "861d7c6c3016aa3d55fb238cc7cec0e12dd4fd18d475dfcd0a3c82dd1d0b1b8a",
+    "renderer/form.js": "54d704a80450c943ebd1ddd201fa5f5767294f4f4e3ed4e02b966d6b8673f081",
+    "renderer/main.cjs": "1c6d75869ef5d651724e0a17d93303c377273ce6e1bdc7ad13a17f6b4b2bf63a",
+    "renderer/package-lock.json": "723ecd6748962ef31ed5f168f54cb8e4adef86e465779b525c0ef19b6bd7a7a2",
+    "renderer/package.json": "4787c08ca4594c3e37b404ce1006c2a69dcafa9bab31d41f4cc5bde91f22f253",
+    "renderer/preload.cjs": "9ce703d718bb7c962edfb63067468b7039216624f3258ebdc0261f1301c66f22",
+    "scripts/idle-helper/main.go": "437f6b689a0374ff099ad8c13d15c477c484bd318c296bab47907c8e68a35b88",
+    "scripts/package.mjs": "7e1e8409d6ea2a6cd4a96091a85b43b3947edca697e194202c48f793b90b7949",
+    "scripts/protocol-fixture/main.go": "d3632df972694d9754a1183aca1c336c219ba96bc8fb18536dd9c4d005f58dfe",
+    "scripts/renderer-smoke.mjs": "808f37299913b7f3399aa4153e3e0ed70a7d9cd84d2bcbc05e2a02d1a82d9dff",
+    "store.go": "99168764ff0d3fa0f80a48217f5a670d3870001b3c03340f7761c17d09282bd3",
+    "store_test.go": "6ab362e76bfcd3140aed770f23eda612e149685188c422a2b43d3754e5d2be3d",
+    "sync_unix.go": "265202155789626910c9106109266a60e5a16c83aaf177ef0574e7566ef0086a",
+    "sync_windows.go": "440e4bcf8432067f4afda6c6c2986448be075ea586a5523dd35aa7452f3c5644"
+  },
+  "packages": {
+    "mac": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-22T09-13-00-267Z",
+      "build": {
+        "created": "2026-10-22T09-13-00-267Z",
+        "platform": "darwin",
+        "arch": "arm64",
+        "electron": "44.9.0",
+        "binarySHA256": "d46b1a3199f5b2f1349f9913d3afe27829f76df6c27faa5b6f7f0457131be4be",
+        "runtimeArchiveSHA256": null,
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    },
+    "windows": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-win32-x64-2026-10-22T09-13-00-267Z",
+      "build": {
+        "created": "2026-10-22T09-13-00-267Z",
+        "platform": "win32",
+        "arch": "x64",
+        "electron": "44.9.0",
+        "binarySHA256": "61298b90414fa10ae009c8e50b70d25f8a61c6d0ad03632f9b2b12a4fb57168a",
+        "runtimeArchiveSHA256": "88e08039d0ef359bab9f674e8051fa103bd8628ea7c5a5e1daaa610a8a0c6931",
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    },
+    "linux": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-linux-x64-2026-10-22T09-13-00-267Z",
+      "build": {
+        "created": "2026-10-22T09-13-00-267Z",
+        "platform": "linux",
+        "arch": "x64",
+        "electron": "44.9.0",
+        "binarySHA256": "915993fafcd10eb565aae1f89ae31d72f139605bafff62aca928a27855b4e7cb",
+        "runtimeArchiveSHA256": "ecced7ecb55697f92ca870939c5988557faa8acd8c222c232cae5913d318c8b9",
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    }
+  },
+  "note": "Hosted tests exercise this product source. These rebuilt portable packages need separate physical target testing; the macOS package passed the actual 21-check renderer fixture."
+}

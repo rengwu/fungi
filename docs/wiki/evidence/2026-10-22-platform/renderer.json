@@ -1,17 +1,17 @@
 {
   "binary": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-22T08-33-53-221Z/fungi",
-  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/renderer-smoke-ehzXKP",
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/renderer-smoke-H2t3yZ",
   "closed": {
     "protocol": 1,
     "kind": "result",
-    "session": "241947288108e7d0a9597b8d1cb8b7f7",
+    "session": "92c706d04ad0a14fd08afb89eb955c18",
     "outcome": "cancelled",
     "artifacts": []
   },
   "result": {
     "protocol": 1,
     "kind": "result",
-    "session": "7d9a71d203ce93b4ed6f48576a8ec6fe",
+    "session": "8b40939b3050de9f16ae42c016321622",
     "outcome": "submitted",
     "data": {
       "checks": [
@@ -108,11 +108,12 @@
         "key": "canvas",
         "name": "canvas.png",
         "mediaType": "image/png",
-        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/renderer-smoke-ehzXKP/sessions/7d9a71d203ce93b4ed6f48576a8ec6fe/artifacts/c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/renderer-smoke-H2t3yZ/sessions/8b40939b3050de9f16ae42c016321622/artifacts/c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d",
         "bytes": 134,
         "sha256": "c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d"
       }
     ]
   },
-  "artifactVerified": true
+  "artifactVerified": true,
+  "childPathEmpty": true
 }

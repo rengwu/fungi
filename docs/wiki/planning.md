@@ -169,3 +169,20 @@ are prepared using pinned Electron downloads. Windows file handling has a
 separate directory-sync policy, and lock errors no longer masquerade as live
 owners. Actual desktop validation is the next unresolved acceptance boundary;
 compiled bundles are not a platform-support claim.
+
+Hosted follow-up testing now exercises the real Electron renderer. macOS and
+Windows Server 2025 pass the 21 rendering assertions with an empty child PATH.
+Windows required direct access to its inherited input pipe, suppression of
+Electron console attachment and tolerance of blank NDJSON lines. The four
+page methods and native-helper contract remain unchanged.
+
+All hosted core suites pass. Ubuntu 22.04 completes the renderer workflow and
+20 checks, but its virtual display cannot provide WebGL. Ubuntu 24.04 aborts
+at Chromium sandbox startup under its default namespace policy. No sandbox
+bypass or machine policy change was made. The
+[hosted report](verification/runs/2026-10-22-hosted.md) remains **Failed** overall.
+The consequential open choice is whether to keep no-install distribution with
+explicit supported Linux environments, allow an optional Linux installation
+path, or defer Linux UI. Prepare that one decision through grill-form; none
+of these alternatives is accepted yet. Full jstack authoring integration
+remains deferred.

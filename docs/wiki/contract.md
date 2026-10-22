@@ -140,7 +140,7 @@ Nested layouts, custom JSON components, expressions and external live updates re
 
 ## Native helper contract
 
-Use newline-delimited JSON on stdin/stdout and diagnostics on stderr. The owner sends one launch message containing `protocol`, `session`, `input`, `draft`, and a private `outputDir`. The helper emits `ready`, then optional draft messages and one result message:
+Use newline-delimited JSON on stdin/stdout and diagnostics on stderr. Empty lines are ignored; other malformed records fail the session. The owner sends one launch message containing `protocol`, `session`, `input`, `draft`, and a private `outputDir`. The helper emits `ready`, then optional draft messages and one result message:
 
 ```jsonl
 {"type":"ready"}

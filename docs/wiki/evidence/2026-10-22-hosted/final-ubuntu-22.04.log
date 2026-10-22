@@ -1,0 +1,539 @@
+##[group]Run go version
+2026-10-22T09:09:19.9634087Z go version
+2026-10-22T09:09:19.9674110Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:09:19.9674368Z env:
+2026-10-22T09:09:19.9674558Z   GOTOOLCHAIN: local
+2026-10-22T09:09:19.9674772Z ##[endgroup]
+2026-10-22T09:09:19.9804986Z go version go1.26.4 linux/amd64
+2026-10-22T09:09:19.9849070Z ##[group]Run go vet ./...
+2026-10-22T09:09:19.9849370Z go vet ./...
+2026-10-22T09:09:19.9885521Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:09:19.9885767Z env:
+2026-10-22T09:09:19.9885950Z   GOTOOLCHAIN: local
+2026-10-22T09:09:19.9886504Z ##[endgroup]
+2026-10-22T09:09:34.8729114Z ##[group]Run go test -race -v ./...
+2026-10-22T09:09:34.8729462Z go test -race -v ./...
+2026-10-22T09:09:34.8764221Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:09:34.8764476Z env:
+2026-10-22T09:09:34.8764670Z   GOTOOLCHAIN: local
+2026-10-22T09:09:34.8764899Z ##[endgroup]
+2026-10-22T09:10:34.7844771Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+2026-10-22T09:10:34.7846658Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.01s)
+2026-10-22T09:10:34.7848720Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+2026-10-22T09:10:34.7855922Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+2026-10-22T09:10:34.7858217Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+2026-10-22T09:10:34.7862043Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.02s)
+2026-10-22T09:10:34.7863614Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+2026-10-22T09:10:34.7867395Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.02s)
+2026-10-22T09:10:34.7869266Z === RUN   TestWaitConnectionHasNoHumanTimeout
+2026-10-22T09:10:34.7870423Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.01s)
+2026-10-22T09:10:34.7901015Z === RUN   TestDisconnectedWaiterDoesNotCancel
+2026-10-22T09:10:34.7901805Z --- PASS: TestDisconnectedWaiterDoesNotCancel (12.01s)
+2026-10-22T09:10:34.7902502Z === RUN   TestHelperExitAndStdoutDrain
+2026-10-22T09:10:34.7903176Z --- PASS: TestHelperExitAndStdoutDrain (0.02s)
+2026-10-22T09:10:34.7903862Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+2026-10-22T09:10:34.7904596Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+2026-10-22T09:10:34.7905639Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+2026-10-22T09:10:34.7906964Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.02s)
+2026-10-22T09:10:34.7909755Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.01s)
+2026-10-22T09:10:34.7911360Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.01s)
+2026-10-22T09:10:34.7912520Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+2026-10-22T09:10:34.7917727Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.02s)
+2026-10-22T09:10:34.7918576Z === RUN   TestDurableSubmissionAndDuplicate
+2026-10-22T09:10:34.7919315Z --- PASS: TestDurableSubmissionAndDuplicate (0.01s)
+2026-10-22T09:10:34.7919942Z === RUN   TestFailedCommitPreservesPreviousDraft
+2026-10-22T09:10:34.7920787Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.01s)
+2026-10-22T09:10:34.7921241Z === RUN   TestArtifactConfinementAndLimits
+2026-10-22T09:10:34.7921667Z --- PASS: TestArtifactConfinementAndLimits (0.00s)
+2026-10-22T09:10:34.7922063Z === RUN   TestDraftImageSurvivesClose
+2026-10-22T09:10:34.7922508Z --- PASS: TestDraftImageSurvivesClose (0.01s)
+2026-10-22T09:10:34.7922892Z === RUN   TestMalformedProtocolAndForms
+2026-10-22T09:10:34.7923273Z --- PASS: TestMalformedProtocolAndForms (0.01s)
+2026-10-22T09:10:34.7923641Z === RUN   TestLockRejectsSecondOwner
+2026-10-22T09:10:34.7924016Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+2026-10-22T09:10:34.7924407Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+2026-10-22T09:10:34.7924850Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+2026-10-22T09:10:34.7925329Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+2026-10-22T09:10:34.7925851Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.17s)
+2026-10-22T09:10:34.7927879Z PASS
+2026-10-22T09:10:34.7928152Z ok  	fungi	40.464s
+2026-10-22T09:10:34.7928474Z ?   	fungi/examples/helper	[no test files]
+2026-10-22T09:10:34.7928864Z ?   	fungi/scripts/idle-helper	[no test files]
+2026-10-22T09:10:34.7929272Z ?   	fungi/scripts/protocol-fixture	[no test files]
+2026-10-22T09:10:34.8694429Z ##[group]Run node --test
+2026-10-22T09:10:34.8694724Z node --test
+2026-10-22T09:10:34.8730378Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:34.8730642Z env:
+2026-10-22T09:10:34.8730842Z   GOTOOLCHAIN: local
+2026-10-22T09:10:34.8731064Z ##[endgroup]
+2026-10-22T09:10:34.9667620Z TAP version 13
+2026-10-22T09:10:35.0976455Z # Subtest: local assets stream, seek and reject escapes or special routes
+2026-10-22T09:10:35.0991377Z ok 1 - local assets stream, seek and reject escapes or special routes
+2026-10-22T09:10:35.1016877Z   ---
+2026-10-22T09:10:35.1017870Z   duration_ms: 81.648725
+2026-10-22T09:10:35.1019913Z   type: 'test'
+2026-10-22T09:10:35.1020821Z   ...
+2026-10-22T09:10:35.1738103Z # Subtest: simple committed question format normalizes stable IDs and rich source
+2026-10-22T09:10:35.1747353Z ok 2 - simple committed question format normalizes stable IDs and rich source
+2026-10-22T09:10:35.1748516Z   ---
+2026-10-22T09:10:35.1749213Z   duration_ms: 1.878366
+2026-10-22T09:10:35.1750006Z   type: 'test'
+2026-10-22T09:10:35.1750687Z   ...
+2026-10-22T09:10:35.1751807Z # Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+2026-10-22T09:10:35.1753389Z ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+2026-10-22T09:10:35.1754394Z   ---
+2026-10-22T09:10:35.1755029Z   duration_ms: 0.63204
+2026-10-22T09:10:35.1755688Z   type: 'test'
+2026-10-22T09:10:35.1756533Z   ...
+2026-10-22T09:10:35.1757658Z # Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+2026-10-22T09:10:35.1759113Z ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+2026-10-22T09:10:35.1760078Z   ---
+2026-10-22T09:10:35.1760658Z   duration_ms: 1.453373
+2026-10-22T09:10:35.1761302Z   type: 'test'
+2026-10-22T09:10:35.1761852Z   ...
+2026-10-22T09:10:35.1762919Z # Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+2026-10-22T09:10:35.1764528Z ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+2026-10-22T09:10:35.1765517Z   ---
+2026-10-22T09:10:35.1766399Z   duration_ms: 0.318705
+2026-10-22T09:10:35.1767103Z   type: 'test'
+2026-10-22T09:10:35.1767944Z   ...
+2026-10-22T09:10:35.2366722Z # Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+2026-10-22T09:10:35.2382032Z ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+2026-10-22T09:10:35.2383091Z   ---
+2026-10-22T09:10:35.2383772Z   duration_ms: 7.097348
+2026-10-22T09:10:35.2384497Z   type: 'test'
+2026-10-22T09:10:35.2385131Z   ...
+2026-10-22T09:10:35.2386353Z # Subtest: rejected save does not poison a later submit retry
+2026-10-22T09:10:35.2387604Z ok 7 - rejected save does not poison a later submit retry
+2026-10-22T09:10:35.2389047Z   ---
+2026-10-22T09:10:35.2389664Z   duration_ms: 1.551025
+2026-10-22T09:10:35.2390379Z   type: 'test'
+2026-10-22T09:10:35.2390993Z   ...
+2026-10-22T09:10:35.2479072Z 1..7
+2026-10-22T09:10:35.2479751Z # tests 7
+2026-10-22T09:10:35.2480466Z # suites 0
+2026-10-22T09:10:35.2481185Z # pass 7
+2026-10-22T09:10:35.2481823Z # fail 0
+2026-10-22T09:10:35.2482433Z # cancelled 0
+2026-10-22T09:10:35.2483084Z # skipped 0
+2026-10-22T09:10:35.2483709Z # todo 0
+2026-10-22T09:10:35.2484387Z # duration_ms 340.264603
+2026-10-22T09:10:35.2594818Z ##[group]Run node docs/wiki/_build.mjs --check
+2026-10-22T09:10:35.2595232Z node docs/wiki/_build.mjs --check
+2026-10-22T09:10:35.2633284Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:35.2633536Z env:
+2026-10-22T09:10:35.2633725Z   GOTOOLCHAIN: local
+2026-10-22T09:10:35.2633947Z ##[endgroup]
+2026-10-22T09:10:35.6546441Z Checked 29 pages and internal links; index.html is current.
+2026-10-22T09:10:35.6668100Z ##[group]Run npm ci --prefix renderer
+2026-10-22T09:10:35.6668618Z npm ci --prefix renderer
+2026-10-22T09:10:35.6717822Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:35.6718227Z env:
+2026-10-22T09:10:35.6718506Z   GOTOOLCHAIN: local
+2026-10-22T09:10:35.6718839Z ##[endgroup]
+2026-10-22T09:10:36.7786664Z
+2026-10-22T09:10:36.7807147Z added 13 packages, and audited 14 packages in 1s
+2026-10-22T09:10:36.7807635Z
+2026-10-22T09:10:36.7826700Z 1 package is looking for funding
+2026-10-22T09:10:36.7846749Z   run `npm fund` for details
+2026-10-22T09:10:36.7886685Z
+2026-10-22T09:10:36.7906759Z found 0 vulnerabilities
+2026-10-22T09:10:36.8415933Z ##[group]Run node renderer/node_modules/electron/install.js
+2026-10-22T09:10:36.8417920Z node renderer/node_modules/electron/install.js
+2026-10-22T09:10:36.8464901Z shell: /usr/bin/bash -e {0}
+2026-10-22T09:10:36.8465390Z env:
+2026-10-22T09:10:36.8465728Z   GOTOOLCHAIN: local
+2026-10-22T09:10:36.8466543Z ##[endgroup]
+2026-10-22T09:10:39.7851950Z ##[group]Run go build -o fungi .
+2026-10-22T09:10:39.7852468Z go build -o fungi .
+2026-10-22T09:10:39.7900589Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:39.7901152Z env:
+2026-10-22T09:10:39.7901453Z   GOTOOLCHAIN: local
+2026-10-22T09:10:39.7901793Z ##[endgroup]
+2026-10-22T09:10:40.2689997Z ##[group]Run cat /proc/sys/kernel/unprivileged_userns_clone
+2026-10-22T09:10:40.2690740Z cat /proc/sys/kernel/unprivileged_userns_clone
+2026-10-22T09:10:40.2691533Z if [[ -f /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]]; then
+2026-10-22T09:10:40.2692387Z   cat /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+2026-10-22T09:10:40.2692988Z fi
+2026-10-22T09:10:40.2693384Z unshare --user --map-root-user true || true
+2026-10-22T09:10:40.2778195Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:40.2778779Z env:
+2026-10-22T09:10:40.2779087Z   GOTOOLCHAIN: local
+2026-10-22T09:10:40.2779438Z ##[endgroup]
+2026-10-22T09:10:40.2896951Z 1
+2026-10-22T09:10:40.2936872Z 0
+2026-10-22T09:10:40.3110817Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+2026-10-22T09:10:40.3111446Z if [[ "$RUNNER_OS" == "Linux" ]]; then
+2026-10-22T09:10:40.3112064Z   xvfb-run -a node scripts/renderer-smoke.mjs ./fungi
+2026-10-22T09:10:40.3112682Z elif [[ "$RUNNER_OS" == "Windows" ]]; then
+2026-10-22T09:10:40.3113254Z   node scripts/renderer-smoke.mjs ./fungi.exe
+2026-10-22T09:10:40.3113760Z else
+2026-10-22T09:10:40.3114290Z   node scripts/renderer-smoke.mjs ./fungi
+2026-10-22T09:10:40.3114885Z fi
+2026-10-22T09:10:40.3164513Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:40.3165223Z env:
+2026-10-22T09:10:40.3165927Z   GOTOOLCHAIN: local
+2026-10-22T09:10:40.3166853Z ##[endgroup]
+2026-10-22T09:10:46.9957432Z {
+2026-10-22T09:10:46.9969610Z   "evidence": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-4w0nRo/evidence.json",
+2026-10-22T09:10:46.9990810Z   "checks": [
+2026-10-22T09:10:46.9994831Z     {
+2026-10-22T09:10:47.0017569Z       "name": "ES modules and dynamic import",
+2026-10-22T09:10:47.0037548Z       "passed": true
+2026-10-22T09:10:47.0043671Z     },
+2026-10-22T09:10:47.0044373Z     {
+2026-10-22T09:10:47.0045199Z       "name": "custom elements and shadow DOM",
+2026-10-22T09:10:47.0046254Z       "passed": true
+2026-10-22T09:10:47.0046861Z     },
+2026-10-22T09:10:47.0047389Z     {
+2026-10-22T09:10:47.0048113Z       "name": "Canvas 2D and PNG export",
+2026-10-22T09:10:47.0048890Z       "passed": true
+2026-10-22T09:10:47.0049480Z     },
+2026-10-22T09:10:47.0049995Z     {
+2026-10-22T09:10:47.0050677Z       "name": "SVG image rendering",
+2026-10-22T09:10:47.0051421Z       "passed": true
+2026-10-22T09:10:47.0051966Z     },
+2026-10-22T09:10:47.0052433Z     {
+2026-10-22T09:10:47.0053097Z       "name": "WebGL rendering context",
+2026-10-22T09:10:47.0053793Z       "passed": false,
+2026-10-22T09:10:47.0054479Z       "error": "Assertion failed"
+2026-10-22T09:10:47.0055085Z     },
+2026-10-22T09:10:47.0055564Z     {
+2026-10-22T09:10:47.0056444Z       "name": "local module worker",
+2026-10-22T09:10:47.0057210Z       "passed": true
+2026-10-22T09:10:47.0058838Z     },
+2026-10-22T09:10:47.0059415Z     {
+2026-10-22T09:10:47.0060087Z       "name": "Blob worker",
+2026-10-22T09:10:47.0060911Z       "passed": true
+2026-10-22T09:10:47.0061540Z     },
+2026-10-22T09:10:47.0062094Z     {
+2026-10-22T09:10:47.0062891Z       "name": "WebAssembly streaming compile",
+2026-10-22T09:10:47.0063719Z       "passed": true
+2026-10-22T09:10:47.0064331Z     },
+2026-10-22T09:10:47.0064871Z     {
+2026-10-22T09:10:47.0065596Z       "name": "local JSON fetch",
+2026-10-22T09:10:47.0066735Z       "passed": true
+2026-10-22T09:10:47.0067456Z     },
+2026-10-22T09:10:47.0067998Z     {
+2026-10-22T09:10:47.0068644Z       "name": "Blob fetch",
+2026-10-22T09:10:47.0069346Z       "passed": true
+2026-10-22T09:10:47.0069928Z     },
+2026-10-22T09:10:47.0070443Z     {
+2026-10-22T09:10:47.0071174Z       "name": "media metadata and seek",
+2026-10-22T09:10:47.0072024Z       "passed": true
+2026-10-22T09:10:47.0072622Z     },
+2026-10-22T09:10:47.0073159Z     {
+2026-10-22T09:10:47.0073859Z       "name": "asset byte ranges",
+2026-10-22T09:10:47.0074593Z       "passed": true
+2026-10-22T09:10:47.0075153Z     },
+2026-10-22T09:10:47.0075646Z     {
+2026-10-22T09:10:47.0076614Z       "name": "sandboxed inline preview",
+2026-10-22T09:10:47.0077368Z       "passed": true
+2026-10-22T09:10:47.0077899Z     },
+2026-10-22T09:10:47.0078401Z     {
+2026-10-22T09:10:47.0079169Z       "name": "page has no Node or IPC",
+2026-10-22T09:10:47.0079865Z       "passed": true
+2026-10-22T09:10:47.0080393Z     },
+2026-10-22T09:10:47.0080879Z     {
+2026-10-22T09:10:47.0081656Z       "name": "external and file requests denied",
+2026-10-22T09:10:47.0082435Z       "passed": true
+2026-10-22T09:10:47.0082994Z     },
+2026-10-22T09:10:47.0083479Z     {
+2026-10-22T09:10:47.0084344Z       "name": "asset symlink escape denied",
+2026-10-22T09:10:47.0085144Z       "passed": true
+2026-10-22T09:10:47.0086667Z     },
+2026-10-22T09:10:47.0087259Z     {
+2026-10-22T09:10:47.0088105Z       "name": "oversized JSON rejected without closing",
+2026-10-22T09:10:47.0088909Z       "passed": true
+2026-10-22T09:10:47.0089480Z     },
+2026-10-22T09:10:47.0089964Z     {
+2026-10-22T09:10:47.0090874Z       "name": "envelope overhead rejected without killing owner",
+2026-10-22T09:10:47.0091730Z       "passed": true
+2026-10-22T09:10:47.0092286Z     },
+2026-10-22T09:10:47.0092774Z     {
+2026-10-22T09:10:47.0093510Z       "name": "oversized attachment rejected",
+2026-10-22T09:10:47.0094276Z       "passed": true
+2026-10-22T09:10:47.0094852Z     },
+2026-10-22T09:10:47.0095594Z     {
+2026-10-22T09:10:47.0110054Z       "name": "draft data restored",
+2026-10-22T09:10:47.0110831Z       "passed": true
+2026-10-22T09:10:47.0111403Z     },
+2026-10-22T09:10:47.0111911Z     {
+2026-10-22T09:10:47.0112722Z       "name": "draft attachment restored as Blob",
+2026-10-22T09:10:47.0113548Z       "passed": true
+2026-10-22T09:10:47.0114429Z     }
+2026-10-22T09:10:47.0114937Z   ]
+2026-10-22T09:10:47.0115459Z }
+2026-10-22T09:10:47.0116592Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0117563Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0118789Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0119893Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0120982Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0122039Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0122957Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0123888Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0124901Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0125933Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0127316Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0128407Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0130504Z [5229:1022/091045.555228:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0140223Z [5229:1022/091045.569671:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0143855Z [5229:1022/091045.569978:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0147086Z [5229:1022/091045.573391:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0149967Z [5229:1022/091045.684392:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0152819Z [5229:1022/091045.717645:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0155595Z [5275:1022/091045.991446:ERROR:gpu/ipc/client/command_buffer_proxy_impl.cc:285] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+2026-10-22T09:10:47.0158612Z [5261:1022/091046.005634:ERROR:gpu/command_buffer/service/context_group.cc:148] ContextResult::kFatalFailure: WebGL2 blocklisted
+2026-10-22T09:10:47.0160134Z ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+2026-10-22T09:10:47.0161644Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+2026-10-22T09:10:47.0163095Z ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+2026-10-22T09:10:47.0164877Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+2026-10-22T09:10:47.0166690Z ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+2026-10-22T09:10:47.0168235Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+2026-10-22T09:10:47.0169780Z ALSA lib conf.c:5705:(snd_config_expand) Evaluate error: No such file or directory
+2026-10-22T09:10:47.0171019Z ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+2026-10-22T09:10:47.0172504Z [5312:1022/091046.140801:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: default,No such file or directory
+2026-10-22T09:10:47.0173857Z ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+2026-10-22T09:10:47.0175341Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+2026-10-22T09:10:47.0177457Z ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+2026-10-22T09:10:47.0179003Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+2026-10-22T09:10:47.0180689Z ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+2026-10-22T09:10:47.0182176Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+2026-10-22T09:10:47.0183705Z ALSA lib conf.c:5705:(snd_config_expand) Evaluate error: No such file or directory
+2026-10-22T09:10:47.0184921Z ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+2026-10-22T09:10:47.0186780Z [5312:1022/091046.146145:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: plug:default,No such file or directory
+2026-10-22T09:10:47.0188373Z Error occurred in handler for 'fungi:save': Error: Response JSON exceeds 1 MiB
+2026-10-22T09:10:47.0189701Z     at persist (/home/runner/work/fungi/fungi/renderer/main.cjs:77:86)
+2026-10-22T09:10:47.0190968Z     at /home/runner/work/fungi/fungi/renderer/main.cjs:121:27
+2026-10-22T09:10:47.0192347Z Error occurred in handler for 'fungi:save': Error: Response envelope exceeds the JSON limit
+2026-10-22T09:10:47.0193810Z     at request (/home/runner/work/fungi/fungi/renderer/main.cjs:24:60)
+2026-10-22T09:10:47.0195023Z     at persist (/home/runner/work/fungi/fungi/renderer/main.cjs:79:22)
+2026-10-22T09:10:47.0195723Z
+2026-10-22T09:10:47.0196427Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0197412Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0198383Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0199370Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0200391Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0201410Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0202312Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0203171Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0204112Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0205092Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0206491Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0207521Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0209503Z [5339:1022/091046.611979:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0212238Z [5339:1022/091046.635790:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0214989Z [5339:1022/091046.636376:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0218169Z [5339:1022/091046.645980:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0220948Z [5339:1022/091046.726151:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0223725Z [5339:1022/091046.745440:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0225076Z
+2026-10-22T09:10:47.0225551Z node:internal/modules/run_main:123
+2026-10-22T09:10:47.0226498Z     triggerUncaughtException(
+2026-10-22T09:10:47.0227119Z     ^
+2026-10-22T09:10:47.0227505Z
+2026-10-22T09:10:47.0228079Z AssertionError [ERR_ASSERTION]: renderer checks failed
+2026-10-22T09:10:47.0229303Z     at file:///home/runner/work/fungi/fungi/scripts/renderer-smoke.mjs:45:8 {
+2026-10-22T09:10:47.0230245Z   generatedMessage: false,
+2026-10-22T09:10:47.0230883Z   code: 'ERR_ASSERTION',
+2026-10-22T09:10:47.0231735Z   actual: false,
+2026-10-22T09:10:47.0232310Z   expected: true,
+2026-10-22T09:10:47.0232876Z   operator: '==',
+2026-10-22T09:10:47.0233430Z   diff: 'simple'
+2026-10-22T09:10:47.0233965Z }
+2026-10-22T09:10:47.0234317Z
+2026-10-22T09:10:47.0234673Z Node.js v22.19.0
+2026-10-22T09:10:47.0250127Z ##[error]Process completed with exit code 1.
+2026-10-22T09:10:47.0317505Z ##[group]Run if [[ -d verification-output ]]; then
+2026-10-22T09:10:47.0317929Z if [[ -d verification-output ]]; then
+2026-10-22T09:10:47.0318517Z   find verification-output -type f \( -name result.json -o -name worker.log -o -name evidence.json \) -exec cat {} \;
+2026-10-22T09:10:47.0319076Z fi
+2026-10-22T09:10:47.0354542Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:10:47.0354889Z env:
+2026-10-22T09:10:47.0355081Z   GOTOOLCHAIN: local
+2026-10-22T09:10:47.0355300Z ##[endgroup]
+2026-10-22T09:10:47.0454326Z {"protocol":1,"kind":"result","session":"e4dac3b4df0e235b2b80c1959707e385","outcome":"submitted","data":{"checks":[{"name":"ES modules and dynamic import","passed":true},{"name":"custom elements and shadow DOM","passed":true},{"name":"Canvas 2D and PNG export","passed":true},{"name":"SVG image rendering","passed":true},{"name":"WebGL rendering context","passed":false,"error":"Assertion failed"},{"name":"local module worker","passed":true},{"name":"Blob worker","passed":true},{"name":"WebAssembly streaming compile","passed":true},{"name":"local JSON fetch","passed":true},{"name":"Blob fetch","passed":true},{"name":"media metadata and seek","passed":true},{"name":"asset byte ranges","passed":true},{"name":"sandboxed inline preview","passed":true},{"name":"page has no Node or IPC","passed":true},{"name":"external and file requests denied","passed":true},{"name":"asset symlink escape denied","passed":true},{"name":"oversized JSON rejected without closing","passed":true},{"name":"envelope overhead rejected without killing owner","passed":true},{"name":"oversized attachment rejected","passed":true},{"name":"draft data restored","passed":true},{"name":"draft attachment restored as Blob","passed":true}],"version":2},"artifacts":[{"id":"c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d","key":"canvas","name":"canvas.png","mediaType":"image/png","path":"/home/runner/work/fungi/fungi/verification-output/renderer-smoke-4w0nRo/sessions/e4dac3b4df0e235b2b80c1959707e385/artifacts/c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d","bytes":134,"sha256":"c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d"}]}
+2026-10-22T09:10:47.0477603Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0480803Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0481962Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0483029Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0484146Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0485382Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0486898Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0487865Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0488926Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0490029Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0491157Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0492292Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0494457Z [5339:1022/091046.611979:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0497561Z [5339:1022/091046.635790:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0500412Z [5339:1022/091046.636376:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0503567Z [5339:1022/091046.645980:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0506896Z [5339:1022/091046.726151:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0509905Z [5339:1022/091046.745440:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0512463Z {"protocol":1,"kind":"result","session":"1ddb419107a7041aca6615776755ea5c","outcome":"cancelled","artifacts":[]}
+2026-10-22T09:10:47.0519110Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0520027Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0521298Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0522401Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0523460Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0524520Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0525440Z Unable to revert mtime: /usr/share/fonts
+2026-10-22T09:10:47.0526853Z Unable to revert mtime: /usr/share/fonts/truetype
+2026-10-22T09:10:47.0527926Z Unable to revert mtime: /usr/share/fonts/truetype/dejavu
+2026-10-22T09:10:47.0529014Z Unable to revert mtime: /usr/share/fonts/truetype/lato
+2026-10-22T09:10:47.0530112Z Unable to revert mtime: /usr/share/fonts/truetype/liberation
+2026-10-22T09:10:47.0531207Z Unable to revert mtime: /usr/share/fonts/truetype/noto
+2026-10-22T09:10:47.0533330Z [5229:1022/091045.555228:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0536446Z [5229:1022/091045.569671:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0539301Z [5229:1022/091045.569978:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0546205Z [5229:1022/091045.573391:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type:
+2026-10-22T09:10:47.0549887Z [5229:1022/091045.684392:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0552442Z [5229:1022/091045.717645:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2026-10-22T09:10:47.0554947Z [5275:1022/091045.991446:ERROR:gpu/ipc/client/command_buffer_proxy_impl.cc:285] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+2026-10-22T09:10:47.0557660Z [5261:1022/091046.005634:ERROR:gpu/command_buffer/service/context_group.cc:148] ContextResult::kFatalFailure: WebGL2 blocklisted
+2026-10-22T09:10:47.0558823Z ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+2026-10-22T09:10:47.0559574Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+2026-10-22T09:10:47.0560274Z ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+2026-10-22T09:10:47.0561013Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+2026-10-22T09:10:47.0561680Z ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+2026-10-22T09:10:47.0562609Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+2026-10-22T09:10:47.0563337Z ALSA lib conf.c:5705:(snd_config_expand) Evaluate error: No such file or directory
+2026-10-22T09:10:47.0563905Z ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+2026-10-22T09:10:47.0564774Z [5312:1022/091046.140801:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: default,No such file or directory
+2026-10-22T09:10:47.0565416Z ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+2026-10-22T09:10:47.0566706Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+2026-10-22T09:10:47.0567436Z ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+2026-10-22T09:10:47.0568169Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+2026-10-22T09:10:47.0568828Z ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+2026-10-22T09:10:47.0569539Z ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+2026-10-22T09:10:47.0570265Z ALSA lib conf.c:5705:(snd_config_expand) Evaluate error: No such file or directory
+2026-10-22T09:10:47.0570819Z ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+2026-10-22T09:10:47.0571546Z [5312:1022/091046.146145:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: plug:default,No such file or directory
+2026-10-22T09:10:47.0572283Z Error occurred in handler for 'fungi:save': Error: Response JSON exceeds 1 MiB
+2026-10-22T09:10:47.0572899Z     at persist (/home/runner/work/fungi/fungi/renderer/main.cjs:77:86)
+2026-10-22T09:10:47.0573433Z     at /home/runner/work/fungi/fungi/renderer/main.cjs:121:27
+2026-10-22T09:10:47.0574039Z Error occurred in handler for 'fungi:save': Error: Response envelope exceeds the JSON limit
+2026-10-22T09:10:47.0574682Z     at request (/home/runner/work/fungi/fungi/renderer/main.cjs:24:60)
+2026-10-22T09:10:47.0575233Z     at persist (/home/runner/work/fungi/fungi/renderer/main.cjs:79:22)
+2026-10-22T09:10:47.0575582Z {
+2026-10-22T09:10:47.0575871Z   "binary": "/home/runner/work/fungi/fungi/fungi",
+2026-10-22T09:10:47.0576754Z   "directory": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-4w0nRo",
+2026-10-22T09:10:47.0577216Z   "closed": {
+2026-10-22T09:10:47.0577442Z     "protocol": 1,
+2026-10-22T09:10:47.0577674Z     "kind": "result",
+2026-10-22T09:10:47.0578004Z     "session": "1ddb419107a7041aca6615776755ea5c",
+2026-10-22T09:10:47.0578336Z     "outcome": "cancelled",
+2026-10-22T09:10:47.0578586Z     "artifacts": []
+2026-10-22T09:10:47.0578788Z   },
+2026-10-22T09:10:47.0578975Z   "result": {
+2026-10-22T09:10:47.0579186Z     "protocol": 1,
+2026-10-22T09:10:47.0579407Z     "kind": "result",
+2026-10-22T09:10:47.0579731Z     "session": "e4dac3b4df0e235b2b80c1959707e385",
+2026-10-22T09:10:47.0580058Z     "outcome": "submitted",
+2026-10-22T09:10:47.0580295Z     "data": {
+2026-10-22T09:10:47.0580515Z       "checks": [
+2026-10-22T09:10:47.0580733Z         {
+2026-10-22T09:10:47.0581096Z           "name": "ES modules and dynamic import",
+2026-10-22T09:10:47.0581446Z           "passed": true
+2026-10-22T09:10:47.0581683Z         },
+2026-10-22T09:10:47.0581886Z         {
+2026-10-22T09:10:47.0582256Z           "name": "custom elements and shadow DOM",
+2026-10-22T09:10:47.0582612Z           "passed": true
+2026-10-22T09:10:47.0582847Z         },
+2026-10-22T09:10:47.0583036Z         {
+2026-10-22T09:10:47.0583372Z           "name": "Canvas 2D and PNG export",
+2026-10-22T09:10:47.0583718Z           "passed": true
+2026-10-22T09:10:47.0583947Z         },
+2026-10-22T09:10:47.0584134Z         {
+2026-10-22T09:10:47.0584443Z           "name": "SVG image rendering",
+2026-10-22T09:10:47.0584760Z           "passed": true
+2026-10-22T09:10:47.0584985Z         },
+2026-10-22T09:10:47.0585172Z         {
+2026-10-22T09:10:47.0585505Z           "name": "WebGL rendering context",
+2026-10-22T09:10:47.0585834Z           "passed": false,
+2026-10-22T09:10:47.0586736Z           "error": "Assertion failed"
+2026-10-22T09:10:47.0587015Z         },
+2026-10-22T09:10:47.0587208Z         {
+2026-10-22T09:10:47.0587525Z           "name": "local module worker",
+2026-10-22T09:10:47.0587852Z           "passed": true
+2026-10-22T09:10:47.0588080Z         },
+2026-10-22T09:10:47.0588264Z         {
+2026-10-22T09:10:47.0588679Z           "name": "Blob worker",
+2026-10-22T09:10:47.0588981Z           "passed": true
+2026-10-22T09:10:47.0589202Z         },
+2026-10-22T09:10:47.0589389Z         {
+2026-10-22T09:10:47.0589744Z           "name": "WebAssembly streaming compile",
+2026-10-22T09:10:47.0590084Z           "passed": true
+2026-10-22T09:10:47.0590304Z         },
+2026-10-22T09:10:47.0590486Z         {
+2026-10-22T09:10:47.0590776Z           "name": "local JSON fetch",
+2026-10-22T09:10:47.0591087Z           "passed": true
+2026-10-22T09:10:47.0591306Z         },
+2026-10-22T09:10:47.0591491Z         {
+2026-10-22T09:10:47.0591762Z           "name": "Blob fetch",
+2026-10-22T09:10:47.0592051Z           "passed": true
+2026-10-22T09:10:47.0592282Z         },
+2026-10-22T09:10:47.0592470Z         {
+2026-10-22T09:10:47.0592790Z           "name": "media metadata and seek",
+2026-10-22T09:10:47.0593113Z           "passed": true
+2026-10-22T09:10:47.0593338Z         },
+2026-10-22T09:10:47.0593525Z         {
+2026-10-22T09:10:47.0593827Z           "name": "asset byte ranges",
+2026-10-22T09:10:47.0594140Z           "passed": true
+2026-10-22T09:10:47.0594365Z         },
+2026-10-22T09:10:47.0594548Z         {
+2026-10-22T09:10:47.0594881Z           "name": "sandboxed inline preview",
+2026-10-22T09:10:47.0595213Z           "passed": true
+2026-10-22T09:10:47.0595433Z         },
+2026-10-22T09:10:47.0595620Z         {
+2026-10-22T09:10:47.0596255Z           "name": "page has no Node or IPC",
+2026-10-22T09:10:47.0596693Z           "passed": true
+2026-10-22T09:10:47.0596928Z         },
+2026-10-22T09:10:47.0597119Z         {
+2026-10-22T09:10:47.0597487Z           "name": "external and file requests denied",
+2026-10-22T09:10:47.0597839Z           "passed": true
+2026-10-22T09:10:47.0598064Z         },
+2026-10-22T09:10:47.0598245Z         {
+2026-10-22T09:10:47.0598585Z           "name": "asset symlink escape denied",
+2026-10-22T09:10:47.0598914Z           "passed": true
+2026-10-22T09:10:47.0599133Z         },
+2026-10-22T09:10:47.0599319Z         {
+2026-10-22T09:10:47.0599933Z           "name": "oversized JSON rejected without closing",
+2026-10-22T09:10:47.0600531Z           "passed": true
+2026-10-22T09:10:47.0600902Z         },
+2026-10-22T09:10:47.0601215Z         {
+2026-10-22T09:10:47.0602006Z           "name": "envelope overhead rejected without killing owner",
+2026-10-22T09:10:47.0602706Z           "passed": true
+2026-10-22T09:10:47.0603096Z         },
+2026-10-22T09:10:47.0603403Z         {
+2026-10-22T09:10:47.0604001Z           "name": "oversized attachment rejected",
+2026-10-22T09:10:47.0604570Z           "passed": true
+2026-10-22T09:10:47.0604937Z         },
+2026-10-22T09:10:47.0605247Z         {
+2026-10-22T09:10:47.0605769Z           "name": "draft data restored",
+2026-10-22T09:10:47.0606520Z           "passed": true
+2026-10-22T09:10:47.0606934Z         },
+2026-10-22T09:10:47.0607267Z         {
+2026-10-22T09:10:47.0607903Z           "name": "draft attachment restored as Blob",
+2026-10-22T09:10:47.0608501Z           "passed": true
+2026-10-22T09:10:47.0608888Z         }
+2026-10-22T09:10:47.0609179Z       ],
+2026-10-22T09:10:47.0609509Z       "version": 2
+2026-10-22T09:10:47.0609820Z     },
+2026-10-22T09:10:47.0610164Z     "artifacts": [
+2026-10-22T09:10:47.0610490Z       {
+2026-10-22T09:10:47.0611381Z         "id": "c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d",
+2026-10-22T09:10:47.0612135Z         "key": "canvas",
+2026-10-22T09:10:47.0612586Z         "name": "canvas.png",
+2026-10-22T09:10:47.0613145Z         "mediaType": "image/png",
+2026-10-22T09:10:47.0615672Z         "path": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-4w0nRo/sessions/e4dac3b4df0e235b2b80c1959707e385/artifacts/c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d",
+2026-10-22T09:10:47.0617699Z         "bytes": 134,
+2026-10-22T09:10:47.0618701Z         "sha256": "c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d"
+2026-10-22T09:10:47.0619416Z       }
+2026-10-22T09:10:47.0619698Z     ]
+2026-10-22T09:10:47.0619975Z   },
+2026-10-22T09:10:47.0620547Z   "artifactVerified": true,
+2026-10-22T09:10:47.0621010Z   "childPathEmpty": true
+2026-10-22T09:10:47.0621376Z }
+2026-10-22T09:10:47.0734727Z

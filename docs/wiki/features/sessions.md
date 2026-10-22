@@ -38,9 +38,11 @@ Read the returned artifact path. Run `collect` with the exact returned session a
 
 ## Coverage and limitations
 
-The macOS and Linux arm64 race-enabled suites passed. Failure injection covers publication before acknowledgement; the UI separately exercised an actual filesystem permission error. One user-controlled macOS sleep/wake cycle preserved the note and image, accepted a new edit and returned the result. These tests do not establish power-loss or storage-hardware durability. Windows builds do not establish runtime behavior, particularly file replacement and directory syncing; Linux desktop UI remains untested.
+The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also passed on Windows and Linux x64; the follow-up report records target-specific failures and repairs. Failure injection covers publication before acknowledgement; the UI separately exercised an actual filesystem permission error. One user-controlled macOS sleep/wake cycle preserved the note and image, accepted a new edit and returned the result. These tests do not establish power-loss or storage-hardware durability. Windows skips directory flushing after flushing and renaming each file; no directory-entry durability across power loss is promised.
 
 ## Verification history
+
+- [2026-10-22 hosted checks](../verification/runs/2026-10-22-hosted.md) — Windows/Linux/macOS core execution and target-specific renderer findings.
 
 - [2026-10-22 platform verification](../verification/runs/2026-10-22-platform.md) — malformed/closed helper output and exact JSON-limit regressions, plus the macOS core race suite.
 

@@ -1,0 +1,254 @@
+##[group]Run go version
+2026-10-22T09:09:47.5529447Z go version
+2026-10-22T09:09:47.6154830Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T09:09:47.6155248Z env:
+2026-10-22T09:09:47.6155447Z   GOTOOLCHAIN: local
+2026-10-22T09:09:47.6155663Z ##[endgroup]
+2026-10-22T09:09:48.0300259Z go version go1.26.4 windows/amd64
+2026-10-22T09:09:48.1478844Z ##[group]Run go vet ./...
+2026-10-22T09:09:48.1479156Z go vet ./...
+2026-10-22T09:09:48.1552943Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T09:09:48.1553509Z env:
+2026-10-22T09:09:48.1553748Z   GOTOOLCHAIN: local
+2026-10-22T09:09:48.1554042Z ##[endgroup]
+2026-10-22T09:10:08.8006510Z ##[group]Run go test -v ./...
+2026-10-22T09:10:08.8006845Z go test -v ./...
+2026-10-22T09:10:08.8079695Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T09:10:08.8080045Z env:
+2026-10-22T09:10:08.8080218Z   GOTOOLCHAIN: local
+2026-10-22T09:10:08.8080427Z ##[endgroup]
+2026-10-22T09:11:04.3916493Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+2026-10-22T09:11:04.3917996Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.09s)
+2026-10-22T09:11:04.3920323Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+2026-10-22T09:11:04.3922254Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.72s)
+2026-10-22T09:11:04.3924833Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+2026-10-22T09:11:04.3939337Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.36s)
+2026-10-22T09:11:04.3940901Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+2026-10-22T09:11:04.3942632Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.32s)
+2026-10-22T09:11:04.3944455Z === RUN   TestWaitConnectionHasNoHumanTimeout
+2026-10-22T09:11:04.3946269Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.31s)
+2026-10-22T09:11:04.3952671Z === RUN   TestDisconnectedWaiterDoesNotCancel
+2026-10-22T09:11:04.3954365Z --- PASS: TestDisconnectedWaiterDoesNotCancel (12.01s)
+2026-10-22T09:11:04.3955357Z === RUN   TestHelperExitAndStdoutDrain
+2026-10-22T09:11:04.3956261Z --- PASS: TestHelperExitAndStdoutDrain (0.62s)
+2026-10-22T09:11:04.3957550Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+2026-10-22T09:11:04.3959230Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+2026-10-22T09:11:04.3961042Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+2026-10-22T09:11:04.3962480Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (3.65s)
+2026-10-22T09:11:04.3963672Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.33s)
+2026-10-22T09:11:04.3966041Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (3.32s)
+2026-10-22T09:11:04.3968191Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+2026-10-22T09:11:04.3969367Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.12s)
+2026-10-22T09:11:04.3970839Z === RUN   TestDurableSubmissionAndDuplicate
+2026-10-22T09:11:04.3993604Z --- PASS: TestDurableSubmissionAndDuplicate (0.05s)
+2026-10-22T09:11:04.4007873Z === RUN   TestFailedCommitPreservesPreviousDraft
+2026-10-22T09:11:04.4009392Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.04s)
+2026-10-22T09:11:04.4010167Z === RUN   TestArtifactConfinementAndLimits
+2026-10-22T09:11:04.4010868Z --- PASS: TestArtifactConfinementAndLimits (0.02s)
+2026-10-22T09:11:04.4011823Z === RUN   TestDraftImageSurvivesClose
+2026-10-22T09:11:04.4013334Z --- PASS: TestDraftImageSurvivesClose (0.03s)
+2026-10-22T09:11:04.4014050Z === RUN   TestMalformedProtocolAndForms
+2026-10-22T09:11:04.4015408Z --- PASS: TestMalformedProtocolAndForms (0.00s)
+2026-10-22T09:11:04.4016131Z === RUN   TestLockRejectsSecondOwner
+2026-10-22T09:11:04.4016781Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+2026-10-22T09:11:04.4017778Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+2026-10-22T09:11:04.4018598Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+2026-10-22T09:11:04.4019780Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+2026-10-22T09:11:04.4021029Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.03s)
+2026-10-22T09:11:04.4021720Z PASS
+2026-10-22T09:11:04.4022088Z ok  	fungi	48.262s
+2026-10-22T09:11:04.4022882Z ?   	fungi/examples/helper	[no test files]
+2026-10-22T09:11:04.4023523Z ?   	fungi/scripts/idle-helper	[no test files]
+2026-10-22T09:11:04.4024215Z ?   	fungi/scripts/protocol-fixture	[no test files]
+2026-10-22T09:11:04.6317661Z ##[group]Run node --test
+2026-10-22T09:11:04.6318120Z node --test
+2026-10-22T09:11:04.6480146Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T09:11:04.6480516Z env:
+2026-10-22T09:11:04.6480697Z   GOTOOLCHAIN: local
+2026-10-22T09:11:04.6480903Z ##[endgroup]
+2026-10-22T09:11:05.1284117Z TAP version 13
+2026-10-22T09:11:05.3414728Z # Subtest: local assets stream, seek and reject escapes or special routes
+2026-10-22T09:11:05.3416523Z ok 1 - local assets stream, seek and reject escapes or special routes
+2026-10-22T09:11:05.3419423Z   ---
+2026-10-22T09:11:05.3419811Z   duration_ms: 133.4756
+2026-10-22T09:11:05.3433511Z   type: 'test'
+2026-10-22T09:11:05.3493509Z   ...
+2026-10-22T09:11:05.4487140Z # Subtest: simple committed question format normalizes stable IDs and rich source
+2026-10-22T09:11:05.4537643Z ok 2 - simple committed question format normalizes stable IDs and rich source
+2026-10-22T09:11:05.4538743Z   ---
+2026-10-22T09:11:05.4580323Z   duration_ms: 3.1731
+2026-10-22T09:11:05.4626972Z   type: 'test'
+2026-10-22T09:11:05.4628652Z   ...
+2026-10-22T09:11:05.4630448Z # Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+2026-10-22T09:11:05.4691313Z ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+2026-10-22T09:11:05.4709372Z   ---
+2026-10-22T09:11:05.4711305Z   duration_ms: 0.8997
+2026-10-22T09:11:05.4878514Z   type: 'test'
+2026-10-22T09:11:05.4880332Z   ...
+2026-10-22T09:11:05.4881886Z # Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+2026-10-22T09:11:05.4883316Z ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+2026-10-22T09:11:05.4885568Z   ---
+2026-10-22T09:11:05.4923101Z   duration_ms: 2.3044
+2026-10-22T09:11:05.4929515Z   type: 'test'
+2026-10-22T09:11:05.4931197Z   ...
+2026-10-22T09:11:05.4932290Z # Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+2026-10-22T09:11:05.4934167Z ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+2026-10-22T09:11:05.4940915Z   ---
+2026-10-22T09:11:05.4943077Z   duration_ms: 0.5674
+2026-10-22T09:11:05.4943960Z   type: 'test'
+2026-10-22T09:11:05.4968617Z   ...
+2026-10-22T09:11:05.5647446Z # Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+2026-10-22T09:11:05.5690105Z ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+2026-10-22T09:11:05.5712142Z   ---
+2026-10-22T09:11:05.5736727Z   duration_ms: 9.0378
+2026-10-22T09:11:05.5783684Z   type: 'test'
+2026-10-22T09:11:05.5785338Z   ...
+2026-10-22T09:11:05.5845222Z # Subtest: rejected save does not poison a later submit retry
+2026-10-22T09:11:05.5868389Z ok 7 - rejected save does not poison a later submit retry
+2026-10-22T09:11:05.5870878Z   ---
+2026-10-22T09:11:05.5937840Z   duration_ms: 2.1705
+2026-10-22T09:11:05.5946685Z   type: 'test'
+2026-10-22T09:11:05.5948089Z   ...
+2026-10-22T09:11:05.5949294Z 1..7
+2026-10-22T09:11:05.5949869Z # tests 7
+2026-10-22T09:11:05.5954366Z # suites 0
+2026-10-22T09:11:05.6273342Z # pass 7
+2026-10-22T09:11:05.6273884Z # fail 0
+2026-10-22T09:11:05.6274701Z # cancelled 0
+2026-10-22T09:11:05.6275407Z # skipped 0
+2026-10-22T09:11:05.6275991Z # todo 0
+2026-10-22T09:11:05.6277023Z # duration_ms 530.0213
+2026-10-22T09:11:05.7976684Z ##[group]Run node docs/wiki/_build.mjs --check
+2026-10-22T09:11:05.7977297Z node docs/wiki/_build.mjs --check
+2026-10-22T09:11:05.8074505Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T09:11:05.8075070Z env:
+2026-10-22T09:11:05.8075345Z   GOTOOLCHAIN: local
+2026-10-22T09:11:05.8075665Z ##[endgroup]
+2026-10-22T09:11:06.8927698Z Checked 29 pages and internal links; index.html is current.
+2026-10-22T09:11:07.1267902Z ##[group]Run npm ci --prefix renderer
+2026-10-22T09:11:07.1268446Z npm ci --prefix renderer
+2026-10-22T09:11:07.1365819Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T09:11:07.1366396Z env:
+2026-10-22T09:11:07.1366670Z   GOTOOLCHAIN: local
+2026-10-22T09:11:07.1366985Z ##[endgroup]
+2026-10-22T09:11:10.1288424Z
+2026-10-22T09:11:10.1295597Z added 13 packages, and audited 14 packages in 2s
+2026-10-22T09:11:10.1296107Z
+2026-10-22T09:11:10.1296345Z 1 package is looking for funding
+2026-10-22T09:11:10.1296832Z   run `npm fund` for details
+2026-10-22T09:11:10.1297094Z
+2026-10-22T09:11:10.1297267Z found 0 vulnerabilities
+2026-10-22T09:11:12.1236304Z ##[group]Run node renderer/node_modules/electron/install.js
+2026-10-22T09:11:12.1237066Z node renderer/node_modules/electron/install.js
+2026-10-22T09:11:12.1313945Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T09:11:12.1314284Z env:
+2026-10-22T09:11:12.1314451Z   GOTOOLCHAIN: local
+2026-10-22T09:11:12.1314648Z ##[endgroup]
+2026-10-22T09:11:17.4055179Z ##[group]Run go build -o fungi.exe .
+2026-10-22T09:11:17.4055543Z go build -o fungi.exe .
+2026-10-22T09:11:17.4074206Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:11:17.4074590Z env:
+2026-10-22T09:11:17.4074897Z   GOTOOLCHAIN: local
+2026-10-22T09:11:17.4075227Z ##[endgroup]
+2026-10-22T09:11:18.4843139Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+2026-10-22T09:11:18.4843786Z if [[ "$RUNNER_OS" == "Linux" ]]; then
+2026-10-22T09:11:18.4844401Z   xvfb-run -a node scripts/renderer-smoke.mjs ./fungi
+2026-10-22T09:11:18.4845015Z elif [[ "$RUNNER_OS" == "Windows" ]]; then
+2026-10-22T09:11:18.4845599Z   node scripts/renderer-smoke.mjs ./fungi.exe
+2026-10-22T09:11:18.4846096Z else
+2026-10-22T09:11:18.4846452Z   node scripts/renderer-smoke.mjs ./fungi
+2026-10-22T09:11:18.4846925Z fi
+2026-10-22T09:11:18.4875302Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-22T09:11:18.4875960Z env:
+2026-10-22T09:11:18.4876232Z   GOTOOLCHAIN: local
+2026-10-22T09:11:18.4876557Z ##[endgroup]
+2026-10-22T09:11:25.8787998Z {
+2026-10-22T09:11:25.8789198Z   "evidence": "D:\\a\\fungi\\fungi\\verification-output\\renderer-smoke-sQo9B6\\evidence.json",
+2026-10-22T09:11:25.8790707Z   "checks": [
+2026-10-22T09:11:25.8791163Z     {
+2026-10-22T09:11:25.8791789Z       "name": "ES modules and dynamic import",
+2026-10-22T09:11:25.8792480Z       "passed": true
+2026-10-22T09:11:25.8792958Z     },
+2026-10-22T09:11:25.8793359Z     {
+2026-10-22T09:11:25.8793913Z       "name": "custom elements and shadow DOM",
+2026-10-22T09:11:25.8794667Z       "passed": true
+2026-10-22T09:11:25.8795068Z     },
+2026-10-22T09:11:25.8795385Z     {
+2026-10-22T09:11:25.8795884Z       "name": "Canvas 2D and PNG export",
+2026-10-22T09:11:25.8796436Z       "passed": true
+2026-10-22T09:11:25.8796822Z     },
+2026-10-22T09:11:25.8797163Z     {
+2026-10-22T09:11:25.8797636Z       "name": "SVG image rendering",
+2026-10-22T09:11:25.8798483Z       "passed": true
+2026-10-22T09:11:25.8798888Z     },
+2026-10-22T09:11:25.8799217Z     {
+2026-10-22T09:11:25.8799707Z       "name": "WebGL rendering context",
+2026-10-22T09:11:25.8800244Z       "passed": true
+2026-10-22T09:11:25.8800647Z     },
+2026-10-22T09:11:25.8801005Z     {
+2026-10-22T09:11:25.8801476Z       "name": "local module worker",
+2026-10-22T09:11:25.8801997Z       "passed": true
+2026-10-22T09:11:25.8802401Z     },
+2026-10-22T09:11:25.8802727Z     {
+2026-10-22T09:11:25.8803134Z       "name": "Blob worker",
+2026-10-22T09:11:25.8803617Z       "passed": true
+2026-10-22T09:11:25.8803997Z     },
+2026-10-22T09:11:25.8804331Z     {
+2026-10-22T09:11:25.8804866Z       "name": "WebAssembly streaming compile",
+2026-10-22T09:11:25.8805463Z       "passed": true
+2026-10-22T09:11:25.8805849Z     },
+2026-10-22T09:11:25.8806170Z     {
+2026-10-22T09:11:25.8806611Z       "name": "local JSON fetch",
+2026-10-22T09:11:25.8807101Z       "passed": true
+2026-10-22T09:11:25.8807495Z     },
+2026-10-22T09:11:25.8807820Z     {
+2026-10-22T09:11:25.8808219Z       "name": "Blob fetch",
+2026-10-22T09:11:25.8808693Z       "passed": true
+2026-10-22T09:11:25.8809077Z     },
+2026-10-22T09:11:25.8809420Z     {
+2026-10-22T09:11:25.8809921Z       "name": "media metadata and seek",
+2026-10-22T09:11:25.8810465Z       "passed": true
+2026-10-22T09:11:25.8810892Z     },
+2026-10-22T09:11:25.8811225Z     {
+2026-10-22T09:11:25.8811694Z       "name": "asset byte ranges",
+2026-10-22T09:11:25.8812181Z       "passed": true
+2026-10-22T09:11:25.8812571Z     },
+2026-10-22T09:11:25.8812901Z     {
+2026-10-22T09:11:25.8817453Z       "name": "sandboxed inline preview",
+2026-10-22T09:11:25.8820190Z       "passed": true
+2026-10-22T09:11:25.8820925Z     },
+2026-10-22T09:11:25.8822146Z     {
+2026-10-22T09:11:25.8822720Z       "name": "page has no Node or IPC",
+2026-10-22T09:11:25.8823308Z       "passed": true
+2026-10-22T09:11:25.8823791Z     },
+2026-10-22T09:11:25.8824196Z     {
+2026-10-22T09:11:25.8824784Z       "name": "external and file requests denied",
+2026-10-22T09:11:25.8825398Z       "passed": true
+2026-10-22T09:11:25.8825831Z     },
+2026-10-22T09:11:25.8826224Z     {
+2026-10-22T09:11:25.8826765Z       "name": "asset symlink escape denied",
+2026-10-22T09:11:25.8831691Z       "passed": true
+2026-10-22T09:11:25.8835222Z     },
+2026-10-22T09:11:25.8835691Z     {
+2026-10-22T09:11:25.8836389Z       "name": "oversized JSON rejected without closing",
+2026-10-22T09:11:25.8837136Z       "passed": true
+2026-10-22T09:11:25.8837601Z     },
+2026-10-22T09:11:25.8838011Z     {
+2026-10-22T09:11:25.8839046Z       "name": "envelope overhead rejected without killing owner",
+2026-10-22T09:11:25.8839848Z       "passed": true
+2026-10-22T09:11:25.8840655Z     },
+2026-10-22T09:11:25.8841093Z     {
+2026-10-22T09:11:25.8841709Z       "name": "oversized attachment rejected",
+2026-10-22T09:11:25.8843261Z       "passed": true
+2026-10-22T09:11:25.8845180Z     },
+2026-10-22T09:11:25.8846380Z     {
+2026-10-22T09:11:25.8847012Z       "name": "draft data restored",
+2026-10-22T09:11:25.8847637Z       "passed": true
+2026-10-22T09:11:25.8848120Z     },
+2026-10-22T09:11:25.8848571Z     {
+2026-10-22T09:11:25.8849198Z       "name": "draft attachment restored as Blob",
+2026-10-22T09:11:25.8850177Z       "passed": true
+2026-10-22T09:11:25.8850634Z     }
+2026-10-22T09:11:25.8851030Z   ]
+2026-10-22T09:11:25.8851420Z }
+2026-10-22T09:11:25.9270562Z

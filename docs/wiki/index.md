@@ -18,6 +18,7 @@ Electron + Go is the accepted direction. The [first end-to-end proof](proposal.m
 - [Current no-setup compatibility verification](verification/runs/2026-10-20-no-setup.md)
 - [Skill authoring, recovery and longer-idle verification](verification/runs/2026-10-20-skill-proof.md)
 - [Renderer flexibility and reliability verification](verification/runs/2026-10-22-platform.md)
+- [Hosted platform checks and remaining failures](verification/runs/2026-10-22-hosted.md)
 - [Verification setup](verification/setup.md)
 - [Research findings and recommendation](research/index.md)
 - [Proposed small authoring interface](proposal.md)

@@ -104,6 +104,14 @@ opens only its disposable fixture, checks browser features, cancels, reopens
 and submits. It uses one pending CLI call per interaction; it does not invoke
 a model callback or poll a person. `evidence.json` records results and artifact
 hashes. Its 45-second process bound is a test timeout, not a product wait limit.
+It clears the child executable search path, preserves worker diagnostics on
+failure, and does not turn unavailable WebGL into a passing rendering check.
+
+`.github/workflows/verify.yml` runs the core, Node and wiki checks before the
+actual Electron fixture on hosted macOS, Windows, Ubuntu 22.04 and Ubuntu
+24.04. The renderer sandbox stays enabled. Linux uses the runner's existing
+Xvfb; diagnostic namespace checks do not change its security policy. See the
+[hosted report](runs/2026-10-22-hosted.md) for failures and tested revisions.
 
 The portable core test fixture replaces shell-only helpers. Desktop execution
 uses the [handoff recipe](desktop.md). The packaging command can download a
