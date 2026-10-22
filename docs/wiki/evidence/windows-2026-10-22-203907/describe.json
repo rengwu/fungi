@@ -1,0 +1,1 @@
+{"commands":["describe","open","collect","reopen"],"limits":{"artifactBytes":20971520,"jsonBytes":1048576,"totalArtifactBytes":104857600},"next":"fungi describe html","outcomes":["submitted","cancelled","closed","failed"],"protocol":1,"topics":["html","form","helper","delivery"],"version":"0.1.0-dev"}

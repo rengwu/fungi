@@ -1,0 +1,9 @@
+node.exe : index.html is missing or stale; run this script without --check.
+At line:2 char:232
++ ... ($false); $output = & $node docs/wiki/_build.mjs --check 2>&1; $code  ...
++                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (index.html is m...ithout --check.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+exitCode: 1

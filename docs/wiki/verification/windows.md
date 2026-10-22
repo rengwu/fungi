@@ -1,6 +1,6 @@
 ---
 title: Windows agent handoff
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 # Windows agent handoff
 
@@ -10,8 +10,14 @@ after pulling. No earlier conversation, Mac-local files, or sibling jstack
 checkout is needed. [Their response](../journal/2026-10-22-grill-b8ce5a10-7261-48c1-9d80-ee54e103ec5e.md)
 requests these instructions; it does **not** report a passing Windows test.
 
-Hosted Windows Server already passes the core and renderer fixture. What
-remains is the portable package's behavior on this actual desktop: launch,
+The [2026-10-22/23 execution](runs/windows-2026-10-22-203907.md) passed the
+visible journey on Windows 11 Pro x64 build 26200. Its aggregate remains
+**Untested** because symlink-dependent automated scenarios could not execute
+under that account. Clean-machine and downloaded-archive acceptance remain
+unverified. Use the steps below for a new run; retain that report as evidence.
+
+Hosted Windows Server already passes the core and renderer fixture. This
+handoff checks the portable package's behavior on the actual desktop: launch,
 visible input, acknowledged drafts, close/reopen, PNG submission and cancel.
 Read [the verified baselines](runs/2026-10-22-baselines.md) and
 [platform limits](../platforms.md) for context. Keep Go + Electron, the four

@@ -1,6 +1,6 @@
 ---
 title: Sessions, results and recovery
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 # Sessions, results and recovery
 
@@ -41,6 +41,8 @@ Read the returned artifact path. Run `collect` with the exact returned session a
 The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also passed on Windows and Linux x64; the follow-up report records target-specific failures and repairs. Failure injection covers publication before acknowledgement; the UI separately exercised an actual filesystem permission error. One user-controlled macOS sleep/wake cycle preserved the note and image, accepted a new edit and returned the result. These tests do not establish power-loss or storage-hardware durability. Windows skips directory flushing after flushing and renaming each file; no directory-entry durability across power loss is promised.
 
 ## Verification history
+
+- [2026-10-22/23 Windows desktop handoff](../verification/runs/windows-2026-10-22-203907.md) — native draft/close/reopen/submission/cancellation passed on Windows 11 x64; 17 core tests passed, one confinement fixture could not create its symlink. Aggregate Untested.
 
 - [2026-10-22 verified baselines](../verification/runs/2026-10-22-baselines.md) — saved renderer startup failure and identical collection, plus 18 core tests on four hosted targets.
 

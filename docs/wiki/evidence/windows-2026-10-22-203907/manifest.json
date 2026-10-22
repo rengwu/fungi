@@ -1,0 +1,198 @@
+{
+  "runId": "windows-2026-10-22-203907",
+  "revision": "73eb9ad2a87cbd0ff274f2c9d99618c36839496e",
+  "binarySHA256": "6274b25d37ea37c280751f11141ec372bb402a2fd2b61dc3ad95f485eb5e66a5",
+  "sanitization": "Personal path prefixes replaced with <repo>, <temp> and <user>; line endings and trailing whitespace normalized. Original evidence and sessions retained in the ignored local run directory. Screenshots contain only the synthetic Fungi window.",
+  "files": [
+    {
+      "name": "BUILD.json",
+      "bytes": 280,
+      "sha256": "7591fd657713f33a87bc66db420000a02497b6e5a39bc255b2da239dc1a7aece"
+    },
+    {
+      "name": "cancel-open.json",
+      "bytes": 396,
+      "sha256": "99b6f90623adf8ac78577ed73ae20a39c8330c473e6af8a922b36c20740f9d7a"
+    },
+    {
+      "name": "checkout-normalization.json",
+      "bytes": 4301,
+      "sha256": "b2b4e189161d6597f880e091cfbdea07dfe0ae6685c4d74b764289cf5461e65b"
+    },
+    {
+      "name": "cleanup.json",
+      "bytes": 128,
+      "sha256": "17f3bc21020571e2fcc403ee039c78476ca088c1421009bcb5f3d8fc7b33cd54"
+    },
+    {
+      "name": "commands.json",
+      "bytes": 7473,
+      "sha256": "f00f4d6727933c7f4d5e7554c7edd496d0fd30055909e433831004795f17791f"
+    },
+    {
+      "name": "comparison.png",
+      "bytes": 45731,
+      "sha256": "919a27da3ac5bb14c1efa3997d19d6ebb8512c7f42e36bc58e1ce3de9c181868"
+    },
+    {
+      "name": "describe.json",
+      "bytes": 303,
+      "sha256": "9b25610ca705a43b3e808bdeb7915a2923c491d3d16823d87422647a7243fb33"
+    },
+    {
+      "name": "desktop-before-cancel.png",
+      "bytes": 51216,
+      "sha256": "771914719ad5f2b64e34c482a9ea1a876ec75caa7abbef7a70816354c34b2f0e"
+    },
+    {
+      "name": "desktop-cancel-completed-ui.json",
+      "bytes": 73,
+      "sha256": "e97d9a65003761fba79773623188e7fd3cfc908002f393078f574be7cd3aef31"
+    },
+    {
+      "name": "desktop-cancelled.json",
+      "bytes": 113,
+      "sha256": "fb29d94327ef83a6317960a1649840019467d862deccf3e5d49ef9092174a9c1"
+    },
+    {
+      "name": "desktop-closed.json",
+      "bytes": 110,
+      "sha256": "8c42375c518efc3d75fdd9bdfa26151e125727d0df4a7ea0e5984b0a3dc85caa"
+    },
+    {
+      "name": "desktop-draft-saved-ui.json",
+      "bytes": 2334,
+      "sha256": "bae81c5481b9651f18cbfd4b274e20e161040996222ded39b8dee7c53dd88974"
+    },
+    {
+      "name": "desktop-draft-saved.png",
+      "bytes": 53891,
+      "sha256": "cf8ac9b268b7bde8e38845a054ee0debcfbc1b78ca7ffb2b2195f13620c06e79"
+    },
+    {
+      "name": "desktop-input.json",
+      "bytes": 206,
+      "sha256": "ec677f2e090ca9b6daf062e7c9f458ed61852408c98dcb6e05ed9ce15e1ea0d1"
+    },
+    {
+      "name": "desktop-open.json",
+      "bytes": 396,
+      "sha256": "c87e18d7f008338a5e4db13a8522805b4c8c49c287f597b99a47952aa78bb7d1"
+    },
+    {
+      "name": "desktop-reopened.json",
+      "bytes": 396,
+      "sha256": "8bcb20ff05211657d4cdc55c3a1fa55f3fb9948a0ad4f6774c52a54537de3c60"
+    },
+    {
+      "name": "desktop-restored-top.png",
+      "bytes": 59277,
+      "sha256": "5e58a307958865c75e9b1d425f9005a853ed2138fc360342ce997c07070e46c7"
+    },
+    {
+      "name": "desktop-restored-ui.json",
+      "bytes": 2953,
+      "sha256": "dfed544731bb51dc1028889355ff4f6220a7037fe01465ac44319a531ef61d5b"
+    },
+    {
+      "name": "desktop-restored.png",
+      "bytes": 51346,
+      "sha256": "06568c172faa02003138439e1661854dbfe5eeac0b4a4d3bd7ddb19650ed3de5"
+    },
+    {
+      "name": "desktop-submit-completed-ui.json",
+      "bytes": 73,
+      "sha256": "b957c48b10c74be1eb0930b9d48cfdfa4f90a0ccb634fb7796b77de9fe6ec168"
+    },
+    {
+      "name": "desktop-submitted.json",
+      "bytes": 657,
+      "sha256": "d0b35d9d47a7b91ffc7e53eaf0175fe12daae1e0bbd01f68bcc7ecaa4883df9e"
+    },
+    {
+      "name": "electron-install.log",
+      "bytes": 13,
+      "sha256": "852ec5cd256681350843af4595936cc5bbdf21b06010d242f0b56d01c7ab54ef"
+    },
+    {
+      "name": "environment.json",
+      "bytes": 1512,
+      "sha256": "c3f7388dd0ba630f566a8491478156e000e5efd8aca8c6be4d251eae576ae422"
+    },
+    {
+      "name": "go-test.log",
+      "bytes": 2557,
+      "sha256": "920ba53f1402ad8fd49499a388e1726aec4d8a6fb50cecb97d65078049b4851e"
+    },
+    {
+      "name": "go-vet.log",
+      "bytes": 13,
+      "sha256": "852ec5cd256681350843af4595936cc5bbdf21b06010d242f0b56d01c7ab54ef"
+    },
+    {
+      "name": "helper-note.txt",
+      "bytes": 51,
+      "sha256": "ef1b84da5133290bc7dfc017dbd2286b810edb1b655e9485caabc6343499a2ce"
+    },
+    {
+      "name": "helper.json",
+      "bytes": 583,
+      "sha256": "8b3463e62a99d06c202ef1e8c8d0f8d0c8d9bb297a94db0683efa87aa9677751"
+    },
+    {
+      "name": "node-test.log",
+      "bytes": 2075,
+      "sha256": "792383263b225187d171140f2858963f66c6de55c159215dbb5473f124641e27"
+    },
+    {
+      "name": "npm-ci.log",
+      "bytes": 151,
+      "sha256": "f53a16cb808fb52f78af55bac851af354d8552991235e613eca238a9d0008fab"
+    },
+    {
+      "name": "observations.json",
+      "bytes": 2432,
+      "sha256": "d76d120e7f226eb928d8b5c53bc014bda80311394c0521a96be159b800753a4b"
+    },
+    {
+      "name": "original-draft.json",
+      "bytes": 143,
+      "sha256": "a235a468c1b23ea09c9d92c5586d3a8a2a50cf7248e91b2fd94a769c9ea59f90"
+    },
+    {
+      "name": "original-result-after-reopen.json",
+      "bytes": 131,
+      "sha256": "22c2708d16003892ee8f6603ea8dd6e40672d0d477c5b60afcd4fd9567159a38"
+    },
+    {
+      "name": "package.log",
+      "bytes": 66,
+      "sha256": "43c7bbd5f98e9e8aca91d7020d6cd4a376d7c1ea9e5f3820923ddc9d1851911c"
+    },
+    {
+      "name": "renderer-smoke.log",
+      "bytes": 965,
+      "sha256": "7f677847924e9159a87ff54b45de44b9a3ccf084c450c3c88447aa4d38cff060"
+    },
+    {
+      "name": "reopened-launch.json",
+      "bytes": 571,
+      "sha256": "52552d6400cc4614b3ef4a9debde9615e0d48a94ad2e79320269022d94bbe7cb"
+    },
+    {
+      "name": "wiki-check-baseline.log",
+      "bytes": 413,
+      "sha256": "a329941f281fcb2b4a7c05a57244d2a6244373067789234859ba06daa45a4018"
+    },
+    {
+      "name": "wiki-check-normalized.log",
+      "bytes": 73,
+      "sha256": "7c06fe8e562040923adab1a7f85a649b8ef8dafd9b9bfd3b2a7687e4fb247ed1"
+    },
+    {
+      "name": "worker-logs.json",
+      "bytes": 299,
+      "sha256": "1f3926cdd1942ebf334b995f3e7442301230a2201695d9af489c5db7501f4982"
+    }
+  ]
+}

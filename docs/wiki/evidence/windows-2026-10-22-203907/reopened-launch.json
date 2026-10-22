@@ -1,0 +1,14 @@
+{
+  "protocol": 1,
+  "session": "8a5856276aae5d91a88ab8e95b846835",
+  "source": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\examples\\compare\\index.html",
+  "input": {
+    "title": "Fungi Windows acceptance windows-2026-10-22-203907",
+    "context": "Synthetic Windows acceptance fixture: move the divider, choose After, enter the test note, close and reopen, then send the review."
+  },
+  "reopenedFrom": "89fed9e918766ea329b0113c77ab5561",
+  "delivery": {
+    "mode": "manual",
+    "reason": "requested manual delivery; say done, then collect once"
+  }
+}

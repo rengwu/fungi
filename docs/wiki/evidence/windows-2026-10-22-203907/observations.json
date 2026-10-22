@@ -1,0 +1,73 @@
+{
+  "runId": "windows-2026-10-22-203907",
+  "result": "Untested",
+  "reason": "Required symlink-dependent scenarios remain unexecuted due to fixture privilege requirements. No observed product scenario failed.",
+  "desktopResult": "Passed",
+  "launch": {
+    "result": "Passed",
+    "childPathEmpty": true,
+    "manualDelivery": true,
+    "session": "89fed9e918766ea329b0113c77ab5561"
+  },
+  "draftRecovery": {
+    "result": "Passed",
+    "data": {
+      "split": 36,
+      "preference": "after",
+      "notes": "WINDOWS-ACCEPTANCE-windows-2026-10-22-203907"
+    },
+    "originalSession": "89fed9e918766ea329b0113c77ab5561",
+    "newSession": "8a5856276aae5d91a88ab8e95b846835",
+    "originalOutcomePreserved": "closed",
+    "visibleStatus": "Draft saved"
+  },
+  "png": {
+    "result": "Passed",
+    "key": "comparison",
+    "width": 1200,
+    "height": 600,
+    "bytes": 45731,
+    "sha256": "919a27da3ac5bb14c1efa3997d19d6ebb8512c7f42e36bc58e1ce3de9c181868",
+    "visualObservation": "Returned PNG matches the visible comparison with the divider at 36 percent."
+  },
+  "cancellation": {
+    "result": "Passed",
+    "session": "49a6f0d331dc3377d844dc0d3743a590",
+    "outcome": "cancelled"
+  },
+  "helper": {
+    "result": "Passed",
+    "session": "ccda35ac404317c96880493ee3a0eaee",
+    "artifactHashVerified": true
+  },
+  "collection": {
+    "count": 3,
+    "onceAfterEach": [
+      "close",
+      "submit",
+      "cancel"
+    ],
+    "polling": false
+  },
+  "automated": {
+    "goPassed": 17,
+    "goUnexecuted": 1,
+    "nodePassed": 6,
+    "nodeUnexecuted": 1,
+    "rendererChecksPassed": 0,
+    "rendererChecksUnexecuted": 21,
+    "reason": "Windows symlink creation privilege unavailable; actual errors retained"
+  },
+  "driverNotes": [
+    "Dropdown accessibility coordinates extended outside the window; keyboard End/Return selected After.",
+    "Cancellation accessibility coordinates were stale after scrolling; refreshed screenshot coordinates completed Cancel.",
+    "Desktop focus/input changed before cancellation; work resumed at user request on 2026-10-23. No user-authored answers were submitted."
+  ],
+  "limits": [
+    "Not a clean-machine or downloaded-archive security test",
+    "No Windows clipboard, sleep/wake, power-loss or automatic harness return claim",
+    "No local WebGL capability claim: the full renderer fixture did not launch"
+  ],
+  "noSecurityPolicyChanges": true,
+  "noProductChanges": true
+}

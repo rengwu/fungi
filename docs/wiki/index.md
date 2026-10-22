@@ -1,6 +1,6 @@
 ---
 title: Fungi
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 # Fungi
 
@@ -15,6 +15,7 @@ Electron + Go is the accepted direction. The [first end-to-end proof](proposal.m
 - [Author a Fungi interface](authoring.md)
 - [Verified environments and portable distribution](platforms.md)
 - [Verified baseline checks and startup diagnostics](verification/runs/2026-10-22-baselines.md)
+- [Windows 11 desktop handoff: desktop passed, symlink-dependent checks unexecuted](verification/runs/windows-2026-10-22-203907.md)
 - [Feature map](features/index.md)
 - [First prototype verification](verification/runs/2026-10-20-first-proof.md)
 - [Current no-setup compatibility verification](verification/runs/2026-10-20-no-setup.md)

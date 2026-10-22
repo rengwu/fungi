@@ -1,6 +1,6 @@
 ---
 title: Requirements and discussion
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 # Requirements and discussion
 
@@ -234,3 +234,27 @@ how to commit evidence back into this wiki. No new questionnaire is pending;
 the next action belongs to the Windows agent after the pull. The original
 receipt and response remain under
 `verification-output/platform-2026-10-22/windows-handoff/` on this Mac.
+
+## Physical Windows handoff on 2026-10-22/23
+
+The user requested execution of the Windows guide and later asked the agent
+to continue. The [completed handoff record](verification/runs/windows-2026-10-22-203907.md)
+identifies revision `73eb9ad`, the locally built portable package, native
+Windows 11 Pro x64 build 26200 and the evidence. The agent operated synthetic
+controls through native mouse/keyboard input. Launch, acknowledged draft,
+close/reopen with restored values, PNG submission/hash and separate
+cancellation all passed with an empty child PATH.
+
+The overall run is **Untested**: 17 core and six Node tests passed, but the
+remaining core/asset tests and the full renderer fixture could not create
+their prerequisite symlinks under this account. Exact setup failures are
+retained; no elevation, security-policy change or weakened fixture was used.
+A checkout line-ending mismatch was resolved by applying the branch's
+existing LF policy; no product source repair was needed. Node/npm were used
+from an isolated portable toolchain for building only.
+
+This completes the visible desktop journey on that machine and records the
+remaining automated coverage gap. It does not certify a clean-machine or
+downloaded-archive launch, Windows clipboard, WebGL, automatic agent return,
+sleep/wake or power-loss behavior. The earlier hosted and Mac reports retain
+their original scopes. Full jstack authoring integration remains deferred.

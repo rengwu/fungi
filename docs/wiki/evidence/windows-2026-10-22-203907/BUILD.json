@@ -1,0 +1,10 @@
+{
+  "created": "2026-10-22T12-43-04-614Z",
+  "platform": "win32",
+  "arch": "x64",
+  "electron": "44.9.0",
+  "binarySHA256": "6274b25d37ea37c280751f11141ec372bb402a2fd2b61dc3ad95f485eb5e66a5",
+  "runtimeArchiveSHA256": null,
+  "publicRelease": false,
+  "runtimeVerified": false
+}

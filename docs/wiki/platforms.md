@@ -1,6 +1,6 @@
 ---
 title: Verified environments and portable distribution
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 # Verified environments and portable distribution
 
@@ -22,7 +22,8 @@ clean-machine distribution have not passed acceptance.
 | --- | --- | --- |
 | Development Mac, macOS 27.0 arm64 (26A5368g) | Native input, paste, saved drafts, recovery, image artifacts, exact-conversation return; portable renderer with empty PATH | One short sleep/wake cycle; two-hour idle proof uses a native helper, not the Electron window |
 | Hosted macOS 26.6.2 arm64 | Core, actual Electron workflow and all 21 renderer checks, including WebGL | Hosted runner; not a clean consumer machine |
-| Hosted Windows Server 2025 x64, 10.0.26100 | Core, actual Electron workflow and all 21 renderer checks, including WebGL | Physical input and an extracted archive on consumer Windows remain unverified |
+| Hosted Windows Server 2025 x64, 10.0.26100 | Core, actual Electron workflow and all 21 renderer checks, including WebGL | Hosted runner; consumer desktop coverage is recorded separately below; clean-machine/archive acceptance remains unverified |
+| Physical Windows 11 Pro x64, 10.0.26200 | Source-built portable package with empty child PATH; agent-operated native input, acknowledged draft, close/reopen, comparison PNG/hash and cancellation | 17 core and six Node tests passed; symlink-dependent tests and all 21 renderer fixture checks unexecuted for lack of fixture privilege. No clean-machine/archive, clipboard or local WebGL claim |
 | Hosted Ubuntu 22.04.5 x64 with Xvfb | Core, actual Electron cancel/reopen/submit workflow, artifacts and 20 renderer checks | WebGL 2 context unavailable; no physical desktop/input or clean-machine claim |
 | Hosted Ubuntu 24.04.5 x64 with Xvfb | Core only; portable renderer fails before readiness under tested sandbox policy | **Unsupported for UI in this environment** |
 | Linux arm64 under OrbStack | Core tests in an isolated unprivileged container | Desktop renderer untested |
@@ -33,6 +34,11 @@ narrower baseline does not change those observations. Hosted runners update;
 each later report identifies the image actually tested.
 The [follow-up baseline run](verification/runs/2026-10-22-baselines.md) passes
 the selected scopes below, including the unsupported-startup diagnostic test.
+The [Windows desktop handoff](verification/runs/windows-2026-10-22-203907.md),
+completed on 2026-10-23, passes its visible desktop journey. Its aggregate is
+**Untested** because required symlink-dependent scenarios could not execute on
+that account. This adds the observed Windows 11 workflow without extending
+the hosted renderer capability results to this machine.
 
 ## Skill authoring
 

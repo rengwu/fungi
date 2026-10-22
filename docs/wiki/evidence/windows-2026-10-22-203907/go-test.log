@@ -1,0 +1,49 @@
+=== RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+--- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.38s)
+=== RUN   TestNativeRoundTripAndConcurrentIsolation
+--- PASS: TestNativeRoundTripAndConcurrentIsolation (1.67s)
+=== RUN   TestManualOwnerSurvivesLauncherAndCollects
+--- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.95s)
+=== RUN   TestInterruptedSessionReopenPreservesOldRecord
+--- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.77s)
+=== RUN   TestWaitConnectionHasNoHumanTimeout
+--- PASS: TestWaitConnectionHasNoHumanTimeout (10.86s)
+=== RUN   TestDisconnectedWaiterDoesNotCancel
+--- PASS: TestDisconnectedWaiterDoesNotCancel (12.02s)
+=== RUN   TestHelperExitAndStdoutDrain
+--- PASS: TestHelperExitAndStdoutDrain (1.47s)
+=== RUN   TestRendererStartupFailureIsSavedAndDiagnosable
+--- PASS: TestRendererStartupFailureIsSavedAndDiagnosable (1.13s)
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+--- PASS: TestBrokenHelperCannotHoldOwnerOpen (1.57s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.77s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.80s)
+=== RUN   TestHelperThatDoesNotReadLaunchIsBounded
+--- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.27s)
+=== RUN   TestDurableSubmissionAndDuplicate
+--- PASS: TestDurableSubmissionAndDuplicate (0.05s)
+=== RUN   TestFailedCommitPreservesPreviousDraft
+--- PASS: TestFailedCommitPreservesPreviousDraft (0.03s)
+=== RUN   TestArtifactConfinementAndLimits
+    store_test.go:93: symlink <temp>\TestArtifactConfinementAndLimits1296934497\002\outside <temp>\TestArtifactConfinementAndLimits1296934497\001\414c77514543a6c2ee4b5b7cd7a788b7\output\escape: A required privilege is not held by the client.
+--- FAIL: TestArtifactConfinementAndLimits (0.01s)
+=== RUN   TestDraftImageSurvivesClose
+--- PASS: TestDraftImageSurvivesClose (0.04s)
+=== RUN   TestMalformedProtocolAndForms
+--- PASS: TestMalformedProtocolAndForms (0.00s)
+=== RUN   TestLockRejectsSecondOwner
+--- PASS: TestLockRejectsSecondOwner (0.00s)
+=== RUN   TestLockIOErrorIsNotAClaimOfOwnership
+--- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+=== RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+--- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.03s)
+FAIL
+FAIL	fungi	51.936s
+?   	fungi/examples/helper	[no test files]
+?   	fungi/scripts/idle-helper	[no test files]
+?   	fungi/scripts/protocol-fixture	[no test files]
+FAIL
+
+exitCode: 1

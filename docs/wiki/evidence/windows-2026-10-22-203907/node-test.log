@@ -1,0 +1,63 @@
+TAP version 13
+# Subtest: local assets stream, seek and reject escapes or special routes
+not ok 1 - local assets stream, seek and reject escapes or special routes
+  ---
+  duration_ms: 12.7875
+  type: 'test'
+  location: '<repo>\\scripts\\assets.test.mjs:8:1'
+  failureType: 'testCodeFailure'
+  error: "EPERM: operation not permitted, symlink '<temp>\\fungi-assets-zDUsmJ\\private.txt' -> '<temp>\\fungi-assets-zDUsmJ\\skill\\escape.txt'"
+  code: 'EPERM'
+  stack: |-
+    async symlink (node:internal/fs/promises:1008:10)
+    async TestContext.<anonymous> (file:///<repo>/scripts/assets.test.mjs:15:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: simple committed question format normalizes stable IDs and rich source
+ok 2 - simple committed question format normalizes stable IDs and rich source
+  ---
+  duration_ms: 2.8432
+  type: 'test'
+  ...
+# Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+  ---
+  duration_ms: 0.9646
+  type: 'test'
+  ...
+# Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+  ---
+  duration_ms: 1.0351
+  type: 'test'
+  ...
+# Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+  ---
+  duration_ms: 0.4552
+  type: 'test'
+  ...
+# Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+  ---
+  duration_ms: 10.2487
+  type: 'test'
+  ...
+# Subtest: rejected save does not poison a later submit retry
+ok 7 - rejected save does not poison a later submit retry
+  ---
+  duration_ms: 2.6475
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 222.1288
+
+exitCode: 1

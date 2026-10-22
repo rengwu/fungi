@@ -1,0 +1,263 @@
+{
+  "automated": [
+    {
+      "command": [
+        "go",
+        "vet",
+        "./..."
+      ],
+      "exitCode": 0,
+      "log": "go-vet.log",
+      "result": "Passed"
+    },
+    {
+      "command": [
+        "go",
+        "test",
+        "-v",
+        "./..."
+      ],
+      "exitCode": 1,
+      "log": "go-test.log",
+      "result": "17 root tests passed; TestArtifactConfinementAndLimits unexecuted after fixture symlink privilege error"
+    },
+    {
+      "command": [
+        "node",
+        "--test"
+      ],
+      "exitCode": 1,
+      "log": "node-test.log",
+      "result": "6 tests passed; local asset test unexecuted after fixture symlink EPERM"
+    },
+    {
+      "command": [
+        "node",
+        "docs/wiki/_build.mjs",
+        "--check"
+      ],
+      "exitCode": 1,
+      "log": "wiki-check-baseline.log",
+      "result": "Initial checkout line endings made generated wiki stale"
+    },
+    {
+      "command": [
+        "node",
+        "docs/wiki/_build.mjs",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "wiki-check-normalized.log",
+      "result": "Passed after applying existing LF policy; no source diff"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "ci",
+        "--prefix",
+        "renderer"
+      ],
+      "exitCode": 0,
+      "log": "npm-ci.log",
+      "result": "Passed"
+    },
+    {
+      "command": [
+        "node",
+        "renderer/node_modules/electron/install.js"
+      ],
+      "exitCode": 0,
+      "log": "electron-install.log",
+      "result": "Passed"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package.mjs",
+        "--platform",
+        "win32",
+        "--arch",
+        "x64"
+      ],
+      "exitCode": 0,
+      "log": "package.log",
+      "result": "Passed; executable SHA256 matches BUILD.json"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/renderer-smoke.mjs",
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe"
+      ],
+      "exitCode": 1,
+      "log": "renderer-smoke.log",
+      "result": "Unexecuted: symlink EPERM during fixture construction before renderer launch; all 21 checks unexecuted"
+    }
+  ],
+  "desktop": [
+    {
+      "startedUTC": "2026-10-22T12:44:22.323Z",
+      "endedUTC": "2026-10-22T12:44:22.537Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "describe"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    },
+    {
+      "startedUTC": "2026-10-22T12:44:22.605Z",
+      "endedUTC": "2026-10-22T12:44:23.465Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "open",
+        "--exec",
+        ".\\examples\\helper.exe",
+        "--delivery",
+        "wait"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    },
+    {
+      "startedUTC": "2026-10-22T12:44:37.183Z",
+      "endedUTC": "2026-10-22T12:44:40.485Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "open",
+        ".\\examples\\compare\\index.html",
+        "--input",
+        "<repo>\\verification-output\\windows-2026-10-22-203907\\desktop-input.json",
+        "--delivery",
+        "manual"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    },
+    {
+      "startedUTC": "2026-10-22T12:46:58.104Z",
+      "endedUTC": "2026-10-22T12:46:58.138Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "collect",
+        "89fed9e918766ea329b0113c77ab5561"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    },
+    {
+      "startedUTC": "2026-10-22T12:46:58.212Z",
+      "endedUTC": "2026-10-22T12:46:58.593Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "reopen",
+        "89fed9e918766ea329b0113c77ab5561",
+        "--delivery",
+        "manual"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    },
+    {
+      "startedUTC": "2026-10-22T12:48:04.625Z",
+      "endedUTC": "2026-10-22T12:48:04.658Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "collect",
+        "8a5856276aae5d91a88ab8e95b846835"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    },
+    {
+      "startedUTC": "2026-10-22T12:48:04.896Z",
+      "endedUTC": "2026-10-22T12:48:05.246Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "open",
+        ".\\examples\\compare\\index.html",
+        "--input",
+        "<repo>\\verification-output\\windows-2026-10-22-203907\\desktop-input.json",
+        "--delivery",
+        "manual"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    },
+    {
+      "startedUTC": "2026-10-22T17:10:29.505Z",
+      "endedUTC": "2026-10-22T17:10:29.774Z",
+      "command": [
+        "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z\\fungi.exe",
+        "collect",
+        "49a6f0d331dc3377d844dc0d3743a590"
+      ],
+      "cwd": "<repo>\\dist\\fungi-win32-x64-2026-10-22T12-43-04-614Z",
+      "environment": {
+        "FUNGI_STATE_DIR": "<repo>\\verification-output\\windows-2026-10-22-203907\\sessions",
+        "PATH": "",
+        "CODEX_THREAD_ID": null,
+        "FUNGI_RENDERER_DIR": null
+      },
+      "exitCode": 0,
+      "signal": null,
+      "stderr": ""
+    }
+  ]
+}

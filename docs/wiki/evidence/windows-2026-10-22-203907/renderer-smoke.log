@@ -1,0 +1,25 @@
+node.exe : node:internal/fs/promises:1008
+At line:2 char:302
++ ... ; $output = & $node scripts/renderer-smoke.mjs (Join-Path $package 'f ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (node:internal/fs/promises:1008:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+  return await PromisePrototypeThen(
+         ^
+
+Error: EPERM: operation not permitted, symlink
+'<repo>\verification-output\renderer-smoke-mK0pyS\private.txt' ->
+'<repo>\verification-output\renderer-smoke-mK0pyS\assets\escape.txt'
+    at async symlink (node:internal/fs/promises:1008:10)
+    at async file:///<repo>/scripts/renderer-smoke.mjs:28:1 {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'symlink',
+  path: '<repo>\\verification-output\\renderer-smoke-mK0pyS\\private.txt',
+  dest: '<repo>\\verification-output\\renderer-smoke-mK0pyS\\assets\\escape.txt'
+}
+
+Node.js v22.19.0
+
+exitCode: 1
