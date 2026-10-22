@@ -212,3 +212,18 @@ a saved, distinct failure with the diagnostic log path. The four-method page
 API remains unchanged. The foundation is ready for further skill work within
 the documented limits. Physical target-machine and clean-machine acceptance
 remain the separate distribution gap; no such result is inferred from CI.
+
+The final Windows handoff is now open as Fungi session
+`61a2170bba8d62aa0291aec1aad663cc`, using the new Mac portable package and an
+armed exact-conversation callback. Question 21 asks for the observed physical
+Windows result or an explicit deferral; it does not assume either. The ZIP is
+`dist/fungi-win32-x64-2026-10-22T09-50-20-630Z.zip`, with the full portable
+folder and `VERIFY.md`. Its SHA-256 is
+`413a6526920e3c8d0fbae17d4a79d31fe50a9309472ee74901eb95cf465529c9`.
+
+The receipt and matching jstack creation metadata are in
+`verification-output/platform-2026-10-22/windows-handoff/`. On its completion
+notice, collect once using the exact receipt argv/environment, then validate
+and finish the matching jstack response. Fungi owns the only completion route;
+no jstack waiter or model polling is running. The question was visually
+inspected; the agent did not choose an answer or submit it.
