@@ -1,0 +1,28 @@
+{
+  "observedDate": "2026-10-23",
+  "kind": "CI helper callback, not a human form",
+  "session": "e9c5802f31a52800b546a2276286eccd",
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "accepted"
+  },
+  "noticeObservedInOriginatingConversation": true,
+  "collectionCountThisNotice": 1,
+  "outcome": "submitted",
+  "run": "39848109685",
+  "ciConclusion": "failure",
+  "watchError": "exit status 1",
+  "interpretation": "The helper reported the failed CI conclusion. Fungi saved the result and delivered its notice; the agent collected it once.",
+  "retry": {
+    "attempt": 2,
+    "macOnly": true,
+    "maximumAutomaticRetries": 1,
+    "session": "cf06e0c1e52cb08785780d0a04ca6943",
+    "delivery": {
+      "mode": "callback",
+      "adapter": "codex",
+      "state": "armed"
+    }
+  }
+}

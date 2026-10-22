@@ -5,7 +5,8 @@ result: Untested
 ---
 # Command installation and update proof
 
-**Untested overall while the newest hosted Mac job remains queued.**
+**Untested overall: the newest Mac job never obtained a hosted runner; a
+single Mac-only retry is queued.**
 Windows and both Linux jobs now pass on `6d587ac`; the initial four-platform
 run, Mac runtime-sharing CI and selected local Mac scenarios also passed.
 This run covers [installation](../../features/installation.md)
@@ -34,10 +35,11 @@ identifies the edits atop `8d4f23b`. These include the final compact README
 and maximum Go archive compression. Package C is 329,066,779 bytes unpacked
 and 137,878,147 bytes compressed (313.8 and 131.5 MiB).
 
-All local interactions use synthetic fixtures and isolated session/install
-directories. No real questionnaire is submitted, no agent callback is queued,
-no release is published and no shell profile/PATH is changed. Installed CLI
-children use an empty PATH; the shell bootstrap uses standard OS tools.
+Local installation interactions use synthetic fixtures and isolated session/install
+directories. These fixtures submit no real questionnaire and queue no agent
+callback. A separate CI-wait helper exercises an actual callback, recorded
+below. No release is published and no shell profile/PATH is changed. Installed
+CLI children use an empty PATH; the shell bootstrap uses standard OS tools.
 
 ## Scenarios
 
@@ -56,7 +58,8 @@ children use an empty PATH; the shell bootstrap uses standard OS tools.
 | Hosted runtime-sharing follow-up | Passed | Mac passes on `af2dbee`; [Windows](../../evidence/2026-10-23-distribution/windows-runtime-reuse.json), [Ubuntu 22.04](../../evidence/2026-10-23-distribution/linux22-runtime-reuse.json) and [Ubuntu 24.04 core](../../evidence/2026-10-23-distribution/linux24-runtime-reuse.json) pass on `6d587ac` |
 | Windows disconnect regression follow-up | Passed | The handshake correction passes on Windows and both Linux runners at `8bd24a0`; the following wiki check stopped their installer/renderer stages |
 | Fresh-checkout generated wiki | Passed | Corrected generation passes a local export of staged files and the Windows/Linux hosted checks; the CRLF failure remains recorded below |
-| Latest complete CI matrix | Untested | [Run 39848109685](https://github.com/rengwu/fungi/actions/runs/39848109685) passes Windows and both Linux jobs on `6d587ac`; hosted Mac remains queued |
+| Latest complete CI matrix | Untested | [Run 39848109685](https://github.com/rengwu/fungi/actions/runs/39848109685) passes Windows and both Linux jobs on `6d587ac`; attempt 1 Mac ran zero steps due to hosted capacity; attempt 2 retries only Mac |
+| CI-wait callback through managed installation | Passed | [Callback evidence](../../evidence/2026-10-23-distribution/ci-callback.json): saved CI failure result, accepted Codex delivery, notice received in the originating conversation and collected once |
 
 The first unsafe-archive test attempt reused a ZIP header object and failed in
 the test writer. A fresh duplicate header corrected the fixture. The first
@@ -118,12 +121,26 @@ tree. No wiki assertion is removed. The superseded queued Mac job was cancelled.
 
 The corrected Windows run completed the bootstrap in **11,773 ms**, then passed
 the real Electron session, shared-file, collected PNG and rollback assertions.
-Both Linux jobs also passed their declared scopes. [Run metadata](../../evidence/2026-10-23-distribution/ci-39848109685.json)
-is a pending snapshot until GitHub assigns the remaining Mac runner. The
-implementing agent handed this external wait to an existing Fungi helper
-session with an armed exact-conversation Codex callback, so no model polling
-is required while the hosted job is queued. The final matrix result is not
-inferred from the earlier Mac success.
+Both Linux jobs also passed their declared scopes. The final
+[attempt 1 metadata](../../evidence/2026-10-23-distribution/ci-39848109685.json)
+records an overall CI failure because Mac was cancelled after fifteen minutes
+without an assigned runner or any executed steps. GitHub's
+[annotations](../../evidence/2026-10-23-distribution/mac-capacity-attempt1.json)
+state that the job was not acquired by a hosted runner and identify macOS arm64
+capacity constraints. This leaves the latest Mac scope untested; it is not a
+failed product assertion. A single Mac-only retry (attempt 2) is queued on the
+same source. The earlier Windows/Linux successes are retained. Another capacity
+failure will be recorded as an external blocker, without an automatic retry loop.
+
+Fungi's separate CI-wait helper saved that failed CI conclusion and sent a
+Codex notice to the originating conversation. The agent received it and
+collected the exact session once. The helper's `watchError: exit status 1`
+reflects the CI conclusion, not a failed Fungi delivery. The
+[callback evidence](../../evidence/2026-10-23-distribution/ci-callback.json)
+records the observed return and the newly armed retry session. One local helper
+waits for GitHub; no model polling is required. This proves the installed
+callback path for this fixture, not callback delivery during an update. The
+final matrix result is not inferred from the earlier Mac success.
 
 ## Size observations
 
