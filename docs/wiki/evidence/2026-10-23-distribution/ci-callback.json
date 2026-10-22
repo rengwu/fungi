@@ -22,7 +22,14 @@
     "delivery": {
       "mode": "callback",
       "adapter": "codex",
-      "state": "armed"
-    }
+      "state": "accepted"
+    },
+    "noticeObservedInOriginatingConversation": true,
+    "collectionCountThisNotice": 1,
+    "outcome": "submitted",
+    "ciConclusion": "failure",
+    "watchError": "exit status 1",
+    "cause": "Mac job cancelled without an assigned runner or executed steps; GitHub annotations identify hosted arm64 capacity.",
+    "furtherAutomaticRetryArmed": false
   }
 }

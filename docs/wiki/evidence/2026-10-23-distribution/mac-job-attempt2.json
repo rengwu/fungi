@@ -1,0 +1,27 @@
+{
+  "id": 120076714896,
+  "run_id": 39848109685,
+  "workflow_name": "Foundation checks",
+  "head_branch": "foundation-hardening",
+  "run_url": "https://api.github.com/repos/rengwu/fungi/actions/runs/39848109685",
+  "run_attempt": 2,
+  "node_id": "CR_kwDOVQ3UgM8AAAAb9SFDkA",
+  "head_sha": "6d587ace8b84e285cbfa5e2de485f41ca0ec4a02",
+  "url": "https://api.github.com/repos/rengwu/fungi/actions/jobs/120076714896",
+  "html_url": "https://github.com/rengwu/fungi/actions/runs/39848109685/job/120076714896",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-10-22T20:41:06Z",
+  "started_at": "2026-10-22T20:41:06Z",
+  "completed_at": "2026-10-22T20:56:07Z",
+  "name": "Foundation (macOS workflow including WebGL)",
+  "steps": [],
+  "check_run_url": "https://api.github.com/repos/rengwu/fungi/check-runs/120076714896",
+  "labels": [
+    "macos-latest"
+  ],
+  "runner_id": 0,
+  "runner_name": "",
+  "runner_group_id": 0,
+  "runner_group_name": ""
+}

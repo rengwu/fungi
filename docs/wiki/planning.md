@@ -316,3 +316,12 @@ No installer/update test authorizes public release publication or signing with
 an account identity. Exact GitHub release downloads, signing/notarization and
 physical clean-machine acceptance remain release work. Full jstack authoring
 integration remains deferred.
+
+The installation implementation and records are pushed. The latest Windows
+and Linux CI scopes pass; the latest Mac job and one bounded retry obtained
+no hosted runner. The [verification record](verification/runs/2026-10-23-distribution.md)
+retains earlier Mac passes and marks the latest matrix **Untested**. Both waits
+returned through Fungi callbacks and were collected once each. No automatic
+retry or pending callback remains; the next verification action is the same
+Mac job after hosted capacity recovers. This is an external verification
+blocker, not a user design decision or a completed release qualification.

@@ -5,8 +5,8 @@ result: Untested
 ---
 # Command installation and update proof
 
-**Untested overall: the newest Mac job never obtained a hosted runner; a
-single Mac-only retry is queued.**
+**Untested overall: the newest Mac job and its single retry never obtained
+a hosted runner.** Automatic retries have stopped; no callback is pending.
 Windows and both Linux jobs now pass on `6d587ac`; the initial four-platform
 run, Mac runtime-sharing CI and selected local Mac scenarios also passed.
 This run covers [installation](../../features/installation.md)
@@ -58,8 +58,8 @@ CLI children use an empty PATH; the shell bootstrap uses standard OS tools.
 | Hosted runtime-sharing follow-up | Passed | Mac passes on `af2dbee`; [Windows](../../evidence/2026-10-23-distribution/windows-runtime-reuse.json), [Ubuntu 22.04](../../evidence/2026-10-23-distribution/linux22-runtime-reuse.json) and [Ubuntu 24.04 core](../../evidence/2026-10-23-distribution/linux24-runtime-reuse.json) pass on `6d587ac` |
 | Windows disconnect regression follow-up | Passed | The handshake correction passes on Windows and both Linux runners at `8bd24a0`; the following wiki check stopped their installer/renderer stages |
 | Fresh-checkout generated wiki | Passed | Corrected generation passes a local export of staged files and the Windows/Linux hosted checks; the CRLF failure remains recorded below |
-| Latest complete CI matrix | Untested | [Run 39848109685](https://github.com/rengwu/fungi/actions/runs/39848109685) passes Windows and both Linux jobs on `6d587ac`; attempt 1 Mac ran zero steps due to hosted capacity; attempt 2 retries only Mac |
-| CI-wait callback through managed installation | Passed | [Callback evidence](../../evidence/2026-10-23-distribution/ci-callback.json): saved CI failure result, accepted Codex delivery, notice received in the originating conversation and collected once |
+| Latest complete CI matrix | Untested | [Run 39848109685](https://github.com/rengwu/fungi/actions/runs/39848109685) passes Windows and both Linux jobs on `6d587ac`; attempts 1 and 2 Mac ran zero steps due to hosted capacity; no further retry is armed |
+| CI-wait callback through managed installation | Passed | [Callback evidence](../../evidence/2026-10-23-distribution/ci-callback.json): both CI attempts saved their failure result, delivered a Codex notice to the originating conversation and were each collected once |
 
 The first unsafe-archive test attempt reused a ZIP header object and failed in
 the test writer. A fresh duplicate header corrected the fixture. The first
@@ -128,19 +128,27 @@ without an assigned runner or any executed steps. GitHub's
 [annotations](../../evidence/2026-10-23-distribution/mac-capacity-attempt1.json)
 state that the job was not acquired by a hosted runner and identify macOS arm64
 capacity constraints. This leaves the latest Mac scope untested; it is not a
-failed product assertion. A single Mac-only retry (attempt 2) is queued on the
-same source. The earlier Windows/Linux successes are retained. Another capacity
-failure will be recorded as an external blocker, without an automatic retry loop.
+failed product assertion. The single Mac-only retry on the same source also
+ended after fifteen minutes without a runner or any steps. Its
+[final metadata](../../evidence/2026-10-23-distribution/ci-39848109685-attempt2.json),
+[Mac job record](../../evidence/2026-10-23-distribution/mac-job-attempt2.json) and
+[annotations](../../evidence/2026-10-23-distribution/mac-capacity-attempt2.json)
+preserve the same capacity diagnosis. The earlier Windows/Linux successes
+remain valid; they were not rerun in attempt 2. There is no third automatic
+attempt or pending watcher. The latest hosted Mac scope remains externally
+blocked until runner capacity is available.
 
 Fungi's separate CI-wait helper saved that failed CI conclusion and sent a
 Codex notice to the originating conversation. The agent received it and
 collected the exact session once. The helper's `watchError: exit status 1`
 reflects the CI conclusion, not a failed Fungi delivery. The
 [callback evidence](../../evidence/2026-10-23-distribution/ci-callback.json)
-records the observed return and the newly armed retry session. One local helper
-waits for GitHub; no model polling is required. This proves the installed
-callback path for this fixture, not callback delivery during an update. The
-final matrix result is not inferred from the earlier Mac success.
+records both observed returns. The retry's notice also reached this
+conversation, and its exact session was collected once. Each wait used one
+local helper with no model polling. Both helpers have finished; no callback
+is pending. This proves the installed callback path for these fixtures, not
+callback delivery during an update. The final matrix result is not inferred
+from the earlier Mac success.
 
 ## Size observations
 
