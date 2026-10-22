@@ -30,7 +30,7 @@ func main() {
 		fmt.Println(`{"type":"result","outcome":"submitted","data":{"drained":true}}`)
 		os.Exit(7)
 	case "never-read":
-		time.Sleep(8 * time.Second)
+		time.Sleep(30 * time.Second)
 	case "malformed", "closed-stdout":
 		var launch any
 		if err := json.NewDecoder(os.Stdin).Decode(&launch); err != nil {
@@ -42,7 +42,9 @@ func main() {
 		} else {
 			os.Stdout.Close()
 		}
-		time.Sleep(2 * time.Second)
+		// Longer than the test deadline, so a pass proves owner termination
+		// rather than the fixture eventually exiting by itself.
+		time.Sleep(30 * time.Second)
 	default:
 		os.Exit(2)
 	}

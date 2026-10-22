@@ -60,4 +60,7 @@ jobs:
       - name: Renderer failure evidence
         if: failure()
         shell: bash
-        run: find verification-output -type f \( -name result.json -o -name worker.log -o -name evidence.json \) -exec cat {} \;
+        run: |
+          if [[ -d verification-output ]]; then
+            find verification-output -type f \( -name result.json -o -name worker.log -o -name evidence.json \) -exec cat {} \;
+          fi
