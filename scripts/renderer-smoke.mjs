@@ -24,6 +24,9 @@ await writeFile(path.join(assets,'silence.wav'),wave);
 await writeFile(path.join(directory,'private.txt'),'must stay outside the skill root');
 await symlink(path.join(directory,'private.txt'),path.join(assets,'escape.txt'));
 const env={...process.env,FUNGI_STATE_DIR:path.join(directory,'sessions')};
+// Windows environment names are case-insensitive; avoid retaining Path too.
+for(const key of Object.keys(env))if(key.toLowerCase()==='path')delete env[key];
+env.PATH='';
 delete env.CODEX_THREAD_ID;
 const run=async args=>{
   const {stdout}=await promisify(execFile)(binary,args,{env,timeout:45000,maxBuffer:2*1024*1024});
@@ -35,7 +38,7 @@ const result=await run(['reopen',closed.session,'--delivery','wait']);
 assert.equal(result.outcome,'submitted');
 const bytes=await readFile(result.artifacts[0].path);
 assert.equal(createHash('sha256').update(bytes).digest('hex'),result.artifacts[0].sha256);
-const evidence={binary,directory,closed,result,artifactVerified:true};
+const evidence={binary,directory,closed,result,artifactVerified:true,childPathEmpty:true};
 await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
 console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),checks:result.data.checks},null,2));
 assert.ok(result.data.checks.every(check=>check.passed),'renderer checks failed');
