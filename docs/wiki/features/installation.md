@@ -28,13 +28,15 @@ describes these commands:
 Updates, rollback and pruning operate on managed installations. Unpacked
 portable folders remain usable directly; they are not silently adopted.
 Successful mutations emit one JSON `installation` result with the stable
-command, current/previous versions, removed versions and cleanup warnings.
+command, current/previous versions, removed versions, cleanup warnings and
+`reusedRuntimeBytes` (the bytes shared with an existing renderer).
 Errors use the existing JSON error envelope and nonzero exit status.
 
 The repository's `scripts/install.sh` and `scripts/install.ps1` download and
 verify one archive, extract it privately and invoke the Go installer. POSIX
 requires a shell, curl or wget, tar and shasum or sha256sum. Windows uses
-PowerShell's download, ZIP and hashing commands. Neither requires Go, Node,+npm or Homebrew. Windows adds the user PATH entry unless `-NoPath` is given;
+PowerShell's download, ZIP and hashing commands. Neither requires Go, Node,
+npm or Homebrew. Windows adds the user PATH entry unless `-NoPath` is given;
 POSIX prints the directory to add, without editing shell startup files.
 
 `FUNGI_INSTALL_DIR` selects a bootstrap destination. The bootstrap-only
@@ -57,6 +59,15 @@ separate cryptographic publisher signature. An invalid download/package or
 failed preactivation probe leaves the selected installation unchanged.
 Interrupted staging is disposable and an interrupted first install can retry.
 Version names cannot be reused with different archive bytes.
+
+When the selected and incoming packages use the same Electron version, compare
+the runtime's regular files by permissions, size and SHA-256. Identical files
+can share filesystem hard links; unsupported links fall back to the verified
+copies. Framework symlinks remain unchanged. Package files must stay immutable:
+editing a shared file in place would affect each version using it. Removing an
+old package removes its links without invalidating the retained version.
+This reduces retained update storage, not the first download, update traffic
+or staging space. No separate runtime cache or skill-author API is introduced.
 
 An update lock serializes mutations. Short activation locks coordinate version
 selection and cleanup; downloads do not hold this lock. Each running process
@@ -92,14 +103,15 @@ Each creates `dist/release-VERSION/fungi-OS-ARCH`, a `.tar.gz` (Unix) or `.zip`
 OS/CPU, Electron version and CLI hash. Archive names use Go OS/CPU names, such
 as `darwin-arm64`, `windows-amd64` and `linux-amd64`. No release is published.
 The build keeps Electron intact, strips Go debug information, uses standard
-archive compression and omits full wiki/evidence, skill bundles and compiled
+maximum standard-library archive compression and omits full wiki/evidence, skill bundles and compiled
 demo helpers. Small HTML examples and upstream license notices remain.
 
 Run `go test -race -v ./...` on Unix (`go test -v ./...` on Windows) and
 `node scripts/install-smoke.mjs ARCHIVE_A ARCHIVE_B`. The latter uses a local
 HTTP fixture for the actual bootstrap, updates from the second local archive,
-keeps one real Electron session open through activation, checks its PNG hash
-and rolls back. Its installed CLI children have an empty PATH. Windows uses
+keeps one real Electron session open through activation, checks its PNG hash,
+verifies identical runtimes share files and rolls back. Its installed CLI
+children have an empty PATH. Windows uses
 `-NoPath` to avoid persistent test changes. `--core-only` deliberately omits UI
 on the unsupported Ubuntu 24.04 baseline. A finite automated fixture gate is
 not a human-facing polling mechanism.

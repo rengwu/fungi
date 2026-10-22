@@ -1,0 +1,114 @@
+{
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif",
+  "platform": "darwin",
+  "arch": "arm64",
+  "archiveA": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-install.3/fungi-darwin-arm64.tar.gz",
+  "checksumA": "c13bd521e093fc69cfbdc30ccd8a9acf04f3bccd4d85f7d086b0206b07a9df3b",
+  "archiveB": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-install.4/fungi-darwin-arm64.tar.gz",
+  "checksumB": "90aa4b8a575dfc64c0baa94b4f32e5aad6845829564f8b767f4075b06e2917c3",
+  "requests": [
+    "/download/v0.1.0-install.3/fungi-darwin-arm64.tar.gz.sha256",
+    "/download/v0.1.0-install.3/fungi-darwin-arm64.tar.gz"
+  ],
+  "scope": "bootstrap, active Electron session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/install with spaces/bin/fungi\",\"current\":\"v0.1.0-install.3\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/install with spaces/bin\nThen run: fungi update\n"
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-install.3"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "2a76868008be019487e9adb612b7c9c0",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/install with spaces/bin/fungi",
+      "collect",
+      "2a76868008be019487e9adb612b7c9c0"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/sessions/2a76868008be019487e9adb612b7c9c0/artifacts/229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/install with spaces/bin/fungi",
+    "current": "v0.1.0-install.4",
+    "kind": "installation",
+    "previous": "v0.1.0-install.3",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 322471819,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-install.4"
+  },
+  "runtimeShared": {
+    "bytes": 322471819,
+    "engine": "Electron.app/Contents/MacOS/Electron",
+    "sameFile": true
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "2a76868008be019487e9adb612b7c9c0",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-install.4"
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/sessions/2a76868008be019487e9adb612b7c9c0/artifacts/229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-eClTif/install with spaces/bin/fungi",
+    "current": "v0.1.0-install.3",
+    "kind": "installation",
+    "previous": "v0.1.0-install.4",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}

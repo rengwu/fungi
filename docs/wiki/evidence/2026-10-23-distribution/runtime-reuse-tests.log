@@ -1,0 +1,8 @@
+=== RUN   TestManagedInstallUpdateRollbackAndSessions
+--- PASS: TestManagedInstallUpdateRollbackAndSessions (43.21s)
+=== RUN   TestReleaseDownloadFailures
+--- PASS: TestReleaseDownloadFailures (0.00s)
+=== RUN   TestRuntimeReusePreservesChangedFilesAndSurvivesPruning
+--- PASS: TestRuntimeReusePreservesChangedFilesAndSurvivesPruning (0.00s)
+PASS
+ok  	fungi	45.549s

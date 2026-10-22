@@ -1,0 +1,10 @@
+{
+  "format": 1,
+  "version": "v0.1.0-install.3",
+  "platform": "darwin",
+  "arch": "arm64",
+  "electron": "44.9.0",
+  "binarySHA256": "98606e15cb98343079da62f0695e69f3c9808f91e6492c44b45d8efb7882d4e9",
+  "totalBytes": 329066779,
+  "archiveBytes": 137878147
+}

@@ -1,0 +1,7 @@
+{
+  "measurement": "regular file bytes in two installed version directories, excluding stable launcher and filesystem overhead",
+  "logicalBytes": 658133714,
+  "uniqueFileBytes": 335661895,
+  "duplicateBytesAvoided": 322471819,
+  "uniqueAllocatedBytes": 336658432
+}

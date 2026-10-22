@@ -1,6 +1,6 @@
 ---
 title: Verification setup
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 # Verification setup
 
@@ -129,3 +129,19 @@ The portable core test fixture replaces shell-only helpers. Desktop execution
 uses the [handoff recipe](desktop.md). The packaging command can download a
 pinned official target runtime during development; a completed package does
 not need a runtime download, Node, npm or Go on the user's machine.
+
+## Installation and updates
+
+Follow the [managed installation recipe](../features/installation.md#build-and-verification-recipe)
+to build two versioned archives and run `scripts/install-smoke.mjs`. It serves
+one actual archive/checksum from a local fixture server, executes the platform
+bootstrap in a fresh directory with spaces in its name, holds a real Electron
+session through an update, checks its saved PNG, verifies runtime file sharing
+and rolls back. Installed CLI children have an empty PATH. The driver emits
+full evidence and saves it beneath its new `verification-output/install-smoke-*`
+directory. It sends no model callback and changes no persistent PATH.
+
+CI runs this after its renderer check on each target. Ubuntu 24.04 uses
+`--core-only`; Ubuntu 22.04 uses its existing Xvfb. Neither test changes host
+sandbox policy. These fixtures prove local release archives and bootstrap
+downloads, not public GitHub assets, signing or clean consumer-machine setup.

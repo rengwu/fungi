@@ -25,7 +25,10 @@ if command -v sha256sum >/dev/null 2>&1; then hash_command=sha256sum
 elif command -v shasum >/dev/null 2>&1; then hash_command=shasum
 else echo "sha256sum or shasum is required to verify the download" >&2; exit 1; fi
 temp=$(mktemp -d)
-trap 'rm -rf "$temp"' EXIT HUP INT TERM
+trap 'rm -rf "$temp"' EXIT
+trap 'exit 129' HUP
+trap 'exit 130' INT
+trap 'exit 143' TERM
 name="fungi-$platform-$arch.tar.gz"
 if [ "$version" = latest ]; then location="$base/latest/download"; else location="$base/download/$version"; fi
 download "$location/$name.sha256" "$temp/checksum"

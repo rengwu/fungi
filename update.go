@@ -32,6 +32,7 @@ func manageInstallation(args []string, out io.Writer) error {
 	action := args[0]
 	root, _, _ := executableInstallation()
 	archive, digest, version := "", "", ""
+	var reusedRuntimeBytes int64
 	seen := map[string]bool{}
 	for i := 1; i < len(args); i++ {
 		key := args[i]
@@ -212,6 +213,13 @@ func manageInstallation(args []string, out io.Writer) error {
 		} else if !os.IsNotExist(e) {
 			return e
 		} else {
+			if state.Current != "" {
+				oldDir := versionDir(root, state.Current)
+				var old packageManifest
+				if readJSON(filepath.Join(oldDir, "RELEASE.json"), &old) == nil && old.Electron == manifest.Electron {
+					reusedRuntimeBytes = reuseRuntimeFiles(oldDir, contents)
+				}
+			}
 			if err = atomicJSON(filepath.Join(contents, ".archive.json"), map[string]string{"sha256": digest}); err != nil {
 				return err
 			}
@@ -247,7 +255,52 @@ func manageInstallation(args []string, out io.Writer) error {
 		}
 	}
 	removed, warnings := pruneVersions(root, state)
-	return emit(out, map[string]any{"protocol": 1, "kind": "installation", "action": action, "current": state.Current, "previous": state.Previous, "command": installedBinary(root), "removed": removed, "warnings": warnings})
+	return emit(out, map[string]any{"protocol": 1, "kind": "installation", "action": action, "current": state.Current, "previous": state.Previous, "command": installedBinary(root), "removed": removed, "warnings": warnings, "reusedRuntimeBytes": reusedRuntimeBytes})
+}
+
+// Package files are immutable. Reuse identical regular renderer files without
+// a runtime registry or privileged symlinks on Windows. Failure is an ordinary
+// copy fallback; the new, verified bytes remain untouched until a link exists.
+func reuseRuntimeFiles(previous, staged string) int64 {
+	oldRoot, newRoot := filepath.Join(previous, "renderer", "runtime"), filepath.Join(staged, "renderer", "runtime")
+	var reused int64
+	_ = filepath.WalkDir(newRoot, func(name string, entry os.DirEntry, err error) error {
+		if err != nil || !entry.Type().IsRegular() {
+			return nil
+		}
+		info, err := entry.Info()
+		if err != nil {
+			return nil
+		}
+		rel, err := filepath.Rel(newRoot, name)
+		if err != nil {
+			return nil
+		}
+		old := filepath.Join(oldRoot, rel)
+		oldInfo, err := os.Lstat(old)
+		if err != nil || !oldInfo.Mode().IsRegular() || oldInfo.Mode().Perm() != info.Mode().Perm() || oldInfo.Size() != info.Size() {
+			return nil
+		}
+		newHash, err := fileDigest(name)
+		if err != nil {
+			return nil
+		}
+		oldHash, err := fileDigest(old)
+		if err != nil || newHash != oldHash {
+			return nil
+		}
+		link := name + ".reuse-" + newID()
+		if os.Link(old, link) != nil {
+			return nil
+		}
+		if os.Rename(link, name) != nil {
+			_ = os.Remove(link)
+			return nil
+		}
+		reused += info.Size()
+		return nil
+	})
+	return reused
 }
 
 func snapshotArchive(source, destination string) error {

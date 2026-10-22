@@ -305,9 +305,12 @@ Keep Electron and its languages, GPU fallback and license notices intact for
 now. Local measurements show the runtime accounts for roughly 96–97% of the
 previous packages. Release builds omit full wiki/evidence, separately authored
 skill bundles and the compiled demo helper; they strip Go debug information
-and use standard archive compression. Reusing unchanged renderer files between
-releases could reduce update storage/traffic, but is not implemented in this
-first complete-package updater. It would not shrink the first download.
+and use maximum standard-library archive compression. The follow-up updater
+shares byte-identical renderer files through filesystem hard links, falling
+back to verified copies where unavailable. This reduces retained update
+storage without a runtime registry or changes for skill authors. Complete
+archives still download and stage before activation; neither the first
+download nor update traffic is reduced by file sharing.
 
 No installer/update test authorizes public release publication or signing with
 an account identity. Exact GitHub release downloads, signing/notarization and

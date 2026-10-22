@@ -200,3 +200,42 @@ func TestReleaseDownloadFailures(t *testing.T) {
 		}
 	}
 }
+
+func TestRuntimeReusePreservesChangedFilesAndSurvivesPruning(t *testing.T) {
+	old, next := t.TempDir(), t.TempDir()
+	for _, root := range []string{old, next} {
+		if e := os.MkdirAll(filepath.Join(root, "renderer", "runtime"), 0700); e != nil {
+			t.Fatal(e)
+		}
+	}
+	file := func(root, name string) string { return filepath.Join(root, "renderer", "runtime", name) }
+	for name, content := range map[string]string{"engine": "same engine", "changed": "old data"} {
+		if e := os.WriteFile(file(old, name), []byte(content), 0755); e != nil {
+			t.Fatal(e)
+		}
+	}
+	if e := os.WriteFile(file(next, "engine"), []byte("same engine"), 0755); e != nil {
+		t.Fatal(e)
+	}
+	if e := os.WriteFile(file(next, "changed"), []byte("new data"), 0755); e != nil {
+		t.Fatal(e)
+	}
+	probe := filepath.Join(t.TempDir(), "hardlink-probe")
+	supportsLinks := os.Link(file(old, "engine"), probe) == nil
+	_ = os.Remove(probe)
+	reused := reuseRuntimeFiles(old, next)
+	before, _ := os.Stat(file(old, "engine"))
+	after, _ := os.Stat(file(next, "engine"))
+	if supportsLinks && (!os.SameFile(before, after) || reused != int64(len("same engine"))) {
+		t.Fatal("identical runtime was not shared", reused)
+	}
+	if b, e := os.ReadFile(file(next, "changed")); e != nil || string(b) != "new data" {
+		t.Fatal("changed file overwritten", e)
+	}
+	if e := os.RemoveAll(old); e != nil {
+		t.Fatal(e)
+	}
+	if b, e := os.ReadFile(file(next, "engine")); e != nil || string(b) != "same engine" {
+		t.Fatal("pruning old version broke new runtime", e)
+	}
+}

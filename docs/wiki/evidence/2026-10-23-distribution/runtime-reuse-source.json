@@ -1,0 +1,12 @@
+{
+  "base": "8d4f23b6900f736cc7ee9bc4b05d222a87aa1704",
+  "dirty": true,
+  "files": {
+    "update.go": "95a880b38cb603a6bf65bf971573e76d0e65768493aa991328ce6dea232cd5a5",
+    "update_test.go": "bd17983cb38926523ba2c518147f6f87e194c6b3e57c11816bb1296f54c96ad7",
+    "scripts/install-smoke.mjs": "3ebdf072c3346c69835946909b6191a8cca86cb2d4986dd264fec051d663ba47",
+    "scripts/install.sh": "088b8bbe7f4c31e69d47e5c07a017b7b01d2ae32d5d4361744a92406d7c48f71",
+    "scripts/package.mjs": "f79e4153cd527d42f4782dd7ff55b64bf8e9476dca0f2b35a6a12d4efcb6aac6",
+    "internal/bundle/archive.go": "98dcd37b14d7c7d0924fb1c4a81abc70d97f214cfaf6b9d90327cf85a24079b7"
+  }
+}

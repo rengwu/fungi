@@ -5,8 +5,9 @@ result: Untested
 ---
 # Command installation and update proof
 
-**Untested overall while hosted execution is pending.** The selected local
-Mac scenarios passed. This run covers [installation](../../features/installation.md)
+**Untested overall while the runtime-sharing follow-up awaits hosted execution.**
+The initial four-platform CI run and selected local Mac scenarios passed.
+This run covers [installation](../../features/installation.md)
 and preservation of [sessions](../../features/sessions.md) through updates.
 It does not establish a public release or clean consumer-machine support.
 
@@ -19,7 +20,18 @@ and [package B](../../evidence/2026-10-23-distribution/package-b.json) identify
 the actual executable hashes and sizes. Their versions are `v0.1.0-install.1`
 and `v0.1.0-install.2`. Later packaging changes increase archive compression
 and substitute a compact portable README; those two archives predate these
-packaging-only changes. Hosted checks will identify the committed source.
+packaging-only changes. [Initial CI run 39843208109](https://github.com/rengwu/fungi/actions/runs/39843208109)
+passed on `8d4f23b6900f736cc7ee9bc4b05d222a87aa1704`; its
+[metadata](../../evidence/2026-10-23-distribution/ci-39843208109.json) and
+[log](../../evidence/2026-10-23-distribution/ci-39843208109.log) preserve exact job scopes.
+
+The file-sharing follow-up uses local packages
+[`v0.1.0-install.3`](../../evidence/2026-10-23-distribution/package-c.json) and
+[`v0.1.0-install.4`](../../evidence/2026-10-23-distribution/package-d.json).
+Their [source checkpoint](../../evidence/2026-10-23-distribution/runtime-reuse-source.json)
+identifies the edits atop `8d4f23b`. These include the final compact README
+and maximum Go archive compression. Package C is 329,066,779 bytes unpacked
+and 137,878,147 bytes compressed (313.8 and 131.5 MiB).
 
 All local interactions use synthetic fixtures and isolated session/install
 directories. No real questionnaire is submitted, no agent callback is queued,
@@ -36,13 +48,28 @@ children use an empty PATH; the shell bootstrap uses standard OS tools.
 | Shell bootstrap on development Mac | Passed | [Download evidence](../../evidence/2026-10-23-distribution/mac-install.json): exactly one matching archive plus checksum fetched from a local fixture server, checksum checked, space-containing destination installed |
 | Open Electron session across update | Passed | A acknowledges draft and PNG, B activates, A submits, original stable receipt collects the matching saved answer; [PNG](../../evidence/2026-10-23-distribution/submitted.png) hash verified, rollback selects A |
 | Installed renderer regression | Passed | [All 21 checks](../../evidence/2026-10-23-distribution/mac-renderer.json), including WebGL, cancel/reopen, restored Blob, submission and hash through the stable installed command |
-| Hosted macOS, Windows and Linux install/update paths | Untested | CI execution pending; Ubuntu 24.04's installation check will intentionally omit UI |
+| Hosted macOS, Windows and Linux install/update paths | Passed | Initial CI completed all four jobs, including actual platform bootstraps and local archive updates; Ubuntu 24.04 intentionally omits UI |
+| Runtime sharing, changed files and cleanup | Passed | [Race-enabled follow-up](../../evidence/2026-10-23-distribution/runtime-reuse-tests.log): unchanged file shares an inode, changed file stays separate, removing the old directory preserves the new runtime; managed lifecycle regression passes |
+| Actual Mac runtime sharing during update | Passed | [Install evidence](../../evidence/2026-10-23-distribution/mac-runtime-reuse.json): runtime executable shares an inode; open session submits with matching PNG hash; rollback succeeds |
+| Renderer regression with shared runtime | Passed | [All 21 checks](../../evidence/2026-10-23-distribution/mac-runtime-renderer.json) pass through the stable installed command after the sharing update and rollback, including WebGL and draft/Blob recovery |
+| Hosted runtime-sharing follow-up | Untested | Execution pending on the committed follow-up |
 
 The first unsafe-archive test attempt reused a ZIP header object and failed in
 the test writer. A fresh duplicate header corrected the fixture. The first
 managed-path assertion also exposed macOS `/var` versus `/private/var` aliases;
 package-reference matching now resolves existing symlinks before retaining
 assets. The rerun passes. No failed product assertion was simply removed.
+
+## Size observations
+
+[Filesystem measurement](../../evidence/2026-10-23-distribution/runtime-storage.json)
+of the two retained Mac versions records 658,133,714 logical bytes and
+335,661,895 bytes in unique regular files: **322,471,819 bytes (307.5 MiB)
+shared**. These figures exclude the small stable launcher and filesystem
+overhead; they are not download sizes. Electron's locales, GPU fallback and
+license notices remain intact. File sharing does not reduce full-archive
+download traffic or the space needed to stage an update. Unsupported hard
+links fall back to independent verified copies.
 
 ## Limits and follow-up
 
@@ -52,7 +79,7 @@ separately. A saved receipt was collected through the stable command; actual
 agent queue delivery during an update is not claimed here. UI actions in this
 run are automated page fixtures, not native human keyboard/mouse input.
 
-Hosted/physical Windows and Linux execution, fresh-shell PATH integration,
+Physical Windows and Linux installation, fresh-shell PATH integration,
 downloaded/quarantined consumer packages, signing/notarization, release
 publication, interruption during selector replacement and power-loss recovery
 remain unverified. Existing platform and harness limits remain in force.

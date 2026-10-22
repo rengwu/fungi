@@ -80,6 +80,12 @@ try{
   }
   evidence.update=await run(['update','--archive',archiveB,'--sha256',checksumB]);
   evidence.after=await run(['--version']);assert.equal(evidence.after.version,versionB);
+  assert.ok(evidence.update.reusedRuntimeBytes>0,'matching runtime files were not shared');
+  const engine=process.platform==='darwin'?'Electron.app/Contents/MacOS/Electron':process.platform==='win32'?'electron.exe':'electron';
+  const runtimeFile=version=>path.join(installation,'versions',version,'renderer','runtime',engine);
+  const [oldEngine,newEngine]=await Promise.all([stat(runtimeFile(versionA),{bigint:true}),stat(runtimeFile(versionB),{bigint:true})]);
+  assert.equal(oldEngine.dev,newEngine.dev);assert.equal(oldEngine.ino,newEngine.ino);
+  evidence.runtimeShared={bytes:evidence.update.reusedRuntimeBytes,engine,sameFile:true};
   if(receipt){
     await writeFile(path.join(assets,'gate.json'),JSON.stringify({submit:true,version:versionB}));
     const saved=await untilFile(path.join(state,receipt.session,'result.json'));
@@ -94,5 +100,5 @@ try{
 finally{
   await new Promise(resolve=>server.close(resolve));
   await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
-  console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),passed:evidence.passed,scope:evidence.scope}));
+  console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),...evidence},null,2));
 }
