@@ -213,7 +213,7 @@ API remains unchanged. The foundation is ready for further skill work within
 the documented limits. Physical target-machine and clean-machine acceptance
 remain the separate distribution gap; no such result is inferred from CI.
 
-The final Windows handoff is now open as Fungi session
+The final Windows handoff was opened as Fungi session
 `61a2170bba8d62aa0291aec1aad663cc`, using the new Mac portable package and an
 armed exact-conversation callback. Question 21 asks for the observed physical
 Windows result or an explicit deferral; it does not assume either. The ZIP is
@@ -221,9 +221,16 @@ Windows result or an explicit deferral; it does not assume either. The ZIP is
 folder and `VERIFY.md`. Its SHA-256 is
 `413a6526920e3c8d0fbae17d4a79d31fe50a9309472ee74901eb95cf465529c9`.
 
-The receipt and matching jstack creation metadata are in
-`verification-output/platform-2026-10-22/windows-handoff/`. On its completion
-notice, collect once using the exact receipt argv/environment, then validate
-and finish the matching jstack response. Fungi owns the only completion route;
-no jstack waiter or model polling is running. The question was visually
-inspected; the agent did not choose an answer or submit it.
+The callback was collected exactly once and the matching jstack transcript
+was validated and finished. The [submitted response](journal/2026-10-22-grill-b8ce5a10-7261-48c1-9d80-ee54e103ec5e.md)
+asks for instructions in the wiki: the user will pull on Windows and have the
+agent there execute them. It does not report a pass, failure or deferral.
+Physical Windows verification therefore remains pending execution there.
+
+The [Windows agent handoff](verification/windows.md) is the entry point. It
+specifies `foundation-hardening`, building from tracked source because
+portable packages are ignored by Git, the automated and visible checks, and
+how to commit evidence back into this wiki. No new questionnaire is pending;
+the next action belongs to the Windows agent after the pull. The original
+receipt and response remain under
+`verification-output/platform-2026-10-22/windows-handoff/` on this Mac.

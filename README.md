@@ -53,6 +53,11 @@ The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the
 
 ## Develop
 
+For the physical Windows check after pulling this repository, start with the
+[Windows agent handoff](docs/wiki/verification/windows.md). It covers the
+`foundation-hardening` branch, building the portable folder and recording the
+desktop results. Git does not include built executables or the Electron runtime.
+
 Build dependencies are Go 1.26 and Node 22.12+; they are not end-user runtime dependencies.
 
 ```sh

@@ -6,6 +6,10 @@ updated: 2026-10-22
 
 Run from `/Users/rengwu/Desktop/Projects/fungi`. Early runs predate Git initialization; current runs record the Git base, dirty source hashes and binary SHA-256.
 
+For the user's Windows checkout, follow the [Windows agent handoff](windows.md).
+It includes the correct branch, source build, actual desktop checks and result
+recording without relying on this Mac's paths or a sibling jstack checkout.
+
 ## Build and launch
 
 Development prerequisites on the tested machine: Go 1.26.4, Node 22.19.0, npm 10.9.3, macOS arm64. Electron is pinned to 44.9.0 in `renderer/package-lock.json`.
