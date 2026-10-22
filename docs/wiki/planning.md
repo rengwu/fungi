@@ -258,3 +258,36 @@ remaining automated coverage gap. It does not certify a clean-machine or
 downloaded-archive launch, Windows clipboard, WebGL, automatic agent return,
 sleep/wake or power-loss behavior. The earlier hosted and Mac reports retain
 their original scopes. Full jstack authoring integration remains deferred.
+
+## Command installation and updates on 2026-10-23
+
+The user asks to target a script/command installation for the eventual release,
+with as few dependencies as possible, and easy updates on every platform
+comparable in convenience to updating a CLI through npm. These are release
+requirements; Node/npm and Homebrew should remain optional.
+
+This clarifies the earlier no-install wording: keep a complete portable archive
+with no separately installed language runtime or renderer, and offer a command
+that downloads and places it. The Linux decision still excludes installing OS
+dependencies, elevated sandbox helpers or changed security policy as part of
+this path. A download script does not expand the supported environments.
+
+The recommended design is an official shell bootstrap for macOS/Linux and a
+PowerShell bootstrap for Windows, each selecting one OS/CPU package. Shared
+update logic belongs in the Go CLI, with a proposed `fungi update` command.
+Homebrew/npm channels can wrap the same release artifacts later. Exact flags,
+hosting and installation layouts remain implementation decisions. No installer
+or updater currently exists; this discussion records the release target.
+
+Updates must preserve the working installation on failure and retain sessions,
+drafts and artifacts. Stage and verify a release before activating it through
+a stable command path. Retain rollback and versions still required by sessions;
+prune obsolete, unreferenced versions rather than accumulating every build.
+Current receipts embed absolute executable paths, and reopened sessions can
+reference package-owned assets. Resolve and test that compatibility before
+automatic pruning implements this retention policy.
+
+The [platform plan](platforms.md#planned-command-installation-and-updates)
+records the proposed delivery flow and acceptance checks. Signing, release
+publication and clean-machine verification remain outstanding. Full jstack
+authoring integration remains deferred.
