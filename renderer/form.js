@@ -72,12 +72,13 @@
     }
     fields.append(box);
   }
-  function setBusy(value){busy=value;for(const button of form.querySelectorAll('button'))button.disabled=value;}
+  function setBusy(value){busy=value;form.inert=value;for(const button of form.querySelectorAll('button'))button.disabled=value;}
   form.onsubmit=async event=>{
     event.preventDefault();if(busy)return;error.textContent='';setBusy(true);
     try{
       for(const field of schema.fields)if(field.type==='image'&&field.required&&!images.has(field.name))throw new Error((field.label||field.name)+' is required');
-      await saving;
+      // The final submission retries current data even if an earlier autosave failed.
+      await saving.catch(()=>{});
       status.textContent='Sending…';
       await fungi.submit({...values},imageList());
     }catch(e){error.textContent=e.message;status.textContent='Response not sent';setBusy(false);}

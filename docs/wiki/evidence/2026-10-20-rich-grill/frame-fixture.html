@@ -1,0 +1,13 @@
+<!doctype html><title>Fungi disposable inline-frame verification</title><p>Testing inline preview isolation…</p><script>
+(async()=>{
+ const ready=await fungi.ready();let inline=null,forbidden=false;
+ addEventListener('message',e=>{if(e.data?.inline)inline=e.data;if(e.data?.forbidden)forbidden=true});
+ const frame=document.createElement('iframe');frame.sandbox='allow-scripts';
+ frame.srcdoc=`<script>(async()=>{let parentBlocked=false,networkBlocked=false;try{void parent.document.body}catch{parentBlocked=true}try{await fetch('https://example.com')}catch{networkBlocked=true}parent.postMessage({inline:true,parentBlocked,networkBlocked,bridgeMissing:typeof fungi==='undefined',nodeMissing:typeof require==='undefined'},'*')})()<\/script>`;
+ document.body.append(frame);
+ const file=document.createElement('iframe');file.src='forbidden.html';document.body.append(file);
+ await new Promise(resolve=>setTimeout(resolve,1200));
+ const checks={inlineLoaded:!!inline,parentBlocked:inline?.parentBlocked===true,networkBlocked:inline?.networkBlocked===true,bridgeMissing:inline?.bridgeMissing===true,nodeMissing:inline?.nodeMissing===true,fileFrameBlocked:!forbidden};
+ await fungi.submit({fixture:'inline-frame-verification',checks,passed:Object.values(checks).every(Boolean)});
+})().catch(e=>document.body.append(String(e)))
+</script>

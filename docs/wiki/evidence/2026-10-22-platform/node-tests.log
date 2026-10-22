@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: local assets stream, seek and reject escapes or special routes
+ok 1 - local assets stream, seek and reject escapes or special routes
+  ---
+  duration_ms: 35.508667
+  type: 'test'
+  ...
+# Subtest: simple committed question format normalizes stable IDs and rich source
+ok 2 - simple committed question format normalizes stable IDs and rich source
+  ---
+  duration_ms: 1.341334
+  type: 'test'
+  ...
+# Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+  ---
+  duration_ms: 0.300541
+  type: 'test'
+  ...
+# Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+  ---
+  duration_ms: 1.200083
+  type: 'test'
+  ...
+# Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+  ---
+  duration_ms: 0.154917
+  type: 'test'
+  ...
+# Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+  ---
+  duration_ms: 4.622667
+  type: 'test'
+  ...
+# Subtest: rejected save does not poison a later submit retry
+ok 7 - rejected save does not poison a later submit retry
+  ---
+  duration_ms: 0.763667
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 104.281417

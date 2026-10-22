@@ -1,0 +1,41 @@
+=== RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+--- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.03s)
+=== RUN   TestNativeRoundTripAndConcurrentIsolation
+--- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+=== RUN   TestManualOwnerSurvivesLauncherAndCollects
+--- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.03s)
+=== RUN   TestInterruptedSessionReopenPreservesOldRecord
+--- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.05s)
+=== RUN   TestWaitConnectionHasNoHumanTimeout
+--- PASS: TestWaitConnectionHasNoHumanTimeout (10.11s)
+=== RUN   TestDisconnectedWaiterDoesNotCancel
+--- PASS: TestDisconnectedWaiterDoesNotCancel (12.02s)
+=== RUN   TestHelperExitAndStdoutDrain
+--- PASS: TestHelperExitAndStdoutDrain (0.05s)
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+--- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.02s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.01s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.01s)
+=== RUN   TestHelperThatDoesNotReadLaunchIsBounded
+--- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.04s)
+=== RUN   TestDurableSubmissionAndDuplicate
+--- PASS: TestDurableSubmissionAndDuplicate (0.03s)
+=== RUN   TestFailedCommitPreservesPreviousDraft
+--- PASS: TestFailedCommitPreservesPreviousDraft (0.02s)
+=== RUN   TestArtifactConfinementAndLimits
+--- PASS: TestArtifactConfinementAndLimits (0.01s)
+=== RUN   TestDraftImageSurvivesClose
+--- PASS: TestDraftImageSurvivesClose (0.01s)
+=== RUN   TestMalformedProtocolAndForms
+--- PASS: TestMalformedProtocolAndForms (0.01s)
+=== RUN   TestLockRejectsSecondOwner
+--- PASS: TestLockRejectsSecondOwner (0.00s)
+=== RUN   TestLockIOErrorIsNotAClaimOfOwnership
+--- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+=== RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+--- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.13s)
+PASS
+ok  	fungi	42.647s
+?   	fungi/examples/helper	[no test files]

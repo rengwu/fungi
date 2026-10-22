@@ -1,10 +1,10 @@
 ---
 title: Verification setup
-updated: 2026-10-20
+updated: 2026-10-22
 ---
 # Verification setup
 
-Run from `/Users/rengwu/Desktop/Projects/fungi`. The repository had no Git metadata at implementation time; use the source manifest and binary SHA-256 in each report.
+Run from `/Users/rengwu/Desktop/Projects/fungi`. Early runs predate Git initialization; current runs record the Git base, dirty source hashes and binary SHA-256.
 
 ## Build and launch
 
@@ -79,10 +79,33 @@ go build -o verification-output/idle-helper ./scripts/idle-helper
 
 For native recovery: enter a choice/note, select the known reference image, wait for “Draft saved,” close, collect once, and reopen. The initial session must stay `closed`. To test abrupt owner loss, identify the exact `_run SESSION` process in this disposable root before killing it; never terminate by generic Electron/Fungi process name. Collect the interrupted session once, reopen it, and verify the acknowledged draft and image. The submitted result must preserve the image hash.
 
-For the Linux core recipe, copy only root Go sources/module, `examples/helper` and `scripts/idle-helper` into an isolated directory. The [recorded Docker command](../evidence/2026-10-20-skill-proof/linux-command.json) pins the official Go image, uses an unprivileged user, disables networking and mounts that source read-only. Its disposable container removes itself. The passed run is Linux arm64 under OrbStack; it is not a Linux desktop verification.
+For the Linux core recipe, copy only root Go sources/module, `examples/helper`, `scripts/protocol-fixture` and any selected `scripts/idle-helper` fixture into an isolated directory. The [recorded Docker command](../evidence/2026-10-20-skill-proof/linux-command.json) pins the official Go image, uses an unprivileged user, disables networking and mounts that source read-only. Its disposable container removes itself. The passed run is Linux arm64 under OrbStack; it is not a Linux desktop verification.
 
 The idle helper takes `--input` JSON with `seconds` (1–86400) and `marker`. It acknowledges a draft, announces readiness, sleeps locally once, then submits timings and a JSON artifact. The five-second smoke check must pass before launching a long run. For a real callback test, run with `--delivery auto` from the intended conversation, preserve the receipt, and end the agent turn. Its one completion notice supplies the exact executable/session/environment for one collection. For other harnesses, use their already documented completion route. Do not wrap the wait in repeated tool calls.
 
 The completed two-hour probe is session `622f59b42e05840dd408622f23c8416a`, with state beneath `verification-output/skill-proof/idle-long-sessions`. Its original executable is in `dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z`. Its [result](../evidence/2026-10-20-skill-proof/idle-long-result.json) records one collection after the exact-origin notice, matching timing artifact bytes and exit of the helper/owner. Retain the evidence. For future runs, keep the launched package and helper available until completion; do not suspend the machine without settling timing with its user. Record both the helper's elapsed measurement and the UTC timestamp difference when sleep occurs.
 
 The user manually completed sleep/wake fixture `1897358a56ceff72064a252004170716`, using the same package and `verification-output/skill-proof/sleep-wake-sessions`. Its [baseline](../evidence/2026-10-20-skill-proof/sleep-wake-baseline.json) records the initial note/image and preparation time. After its completion notice, one collection returned the preserved note/image and user's post-wake edit. A minimal [power-log excerpt](../evidence/2026-10-20-skill-proof/sleep-wake-power.log) independently confirms actual sleep/wake within the interval. The [result record](../evidence/2026-10-20-skill-proof/sleep-wake-result.json) retains the callback, data and byte validation. For future repetitions, obtain the user's timing, prepare a fresh fixture, let them sleep/wake and submit, then collect once; inspect only relevant `Sleep`, `Wake` and `DarkWake` event rows since the baseline, excluding scheduled `Wake Requests`. Do not select an answer or submit on the user's behalf.
+
+## Platform foundation checks
+
+```sh
+node --test scripts/*.test.mjs
+go test -race -v . ./examples/helper ./scripts/protocol-fixture
+go vet . ./examples/helper ./scripts/protocol-fixture
+node scripts/package.mjs
+node scripts/renderer-smoke.mjs /absolute/package/fungi
+node scripts/package.mjs --platform win32 --arch x64
+node scripts/package.mjs --platform linux --arch x64
+```
+
+The renderer driver writes a new directory beneath `verification-output/`,
+opens only its disposable fixture, checks browser features, cancels, reopens
+and submits. It uses one pending CLI call per interaction; it does not invoke
+a model callback or poll a person. `evidence.json` records results and artifact
+hashes. Its 45-second process bound is a test timeout, not a product wait limit.
+
+The portable core test fixture replaces shell-only helpers. Desktop execution
+uses the [handoff recipe](desktop.md). The packaging command can download a
+pinned official target runtime during development; a completed package does
+not need a runtime download, Node, npm or Go on the user's machine.

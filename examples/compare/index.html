@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare two designs</title>
+<style>
+:root{font:16px/1.5 system-ui;color-scheme:dark;background:#18191c;color:#eee}*{box-sizing:border-box}
+body{max-width:900px;margin:auto;padding:28px}h1{font-size:26px;margin:0 0 8px}p{color:#b8bac5}
+canvas{display:block;width:100%;border:1px solid #454852;border-radius:12px;background:#252731}
+label{display:block;margin-top:18px;font-weight:600}input[type=range],textarea,select{width:100%;margin-top:8px}
+textarea,select,button{font:inherit;border:1px solid #555965;border-radius:7px;padding:10px;background:#24262d;color:inherit}
+textarea{min-height:85px}footer{display:flex;gap:12px;align-items:center;margin-top:24px}#send{background:#c4b4ff;color:#20183b}#status{flex:1;font-size:14px}#error{color:#ffb4bc;white-space:pre-wrap}
+:focus-visible{outline:3px solid #c4b4ff;outline-offset:3px}
+</style>
+<h1 id="title">Compare two designs</h1><p id="context">Move the divider to compare. Your selected view is returned as an image with your feedback.</p>
+<p id="delivery"></p><form id="review">
+<canvas id="preview" width="1200" height="600" aria-label="Before and after comparison"></canvas>
+<label>Divider: <output id="position">50</output>%<input id="split" type="range" min="0" max="100" value="50"></label>
+<label>Preference<select id="preference"><option value="undecided">Undecided</option><option value="before">Before</option><option value="after">After</option></select></label>
+<label>Feedback<textarea id="notes" placeholder="What should change?"></textarea></label>
+<p id="error" role="alert"></p><footer><span id="status" role="status"></span><button id="cancel" type="button">Cancel</button><button id="send" type="submit">Send review</button></footer>
+</form>
+<script type="module">
+const form=document.querySelector('#review'),status=document.querySelector('#status'),error=document.querySelector('#error');
+const split=document.querySelector('#split'),preference=document.querySelector('#preference'),notes=document.querySelector('#notes');
+const canvas=document.querySelector('#preview'),ctx=canvas.getContext('2d');
+let busy=false,generation=0;
+function showError(e){error.textContent=e.message;}
+try{
+  const {input,draft,delivery}=await fungi.ready();
+  const config={title:'Compare two designs',before:'before.svg',after:'after.svg',...input};
+  document.title=document.querySelector('#title').textContent=config.title;
+  if(config.context)document.querySelector('#context').textContent=config.context;
+  if(delivery.mode==='manual')document.querySelector('#delivery').textContent='After sending, tell your agent “done”.';
+  async function load(source){const image=new Image();image.src=source;await image.decode();return image;}
+  const [before,after]=await Promise.all([load(config.before),load(config.after)]);
+  split.value=draft?.split??50;preference.value=draft?.preference??'undecided';notes.value=draft?.notes??'';
+  function data(){return {split:Number(split.value),preference:preference.value,notes:notes.value};}
+  function paint(){
+    const x=canvas.width*Number(split.value)/100;
+    ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(after,0,0,canvas.width,canvas.height);
+    ctx.save();ctx.beginPath();ctx.rect(0,0,x,canvas.height);ctx.clip();ctx.drawImage(before,0,0,canvas.width,canvas.height);ctx.restore();
+    ctx.fillStyle='#c4b4ff';ctx.fillRect(x-2,0,4,canvas.height);
+    document.querySelector('#position').value=split.value;
+  }
+  function save(){
+    const n=++generation;status.textContent='Saving…';error.textContent='';
+    // Fungi orders calls, including asynchronous attachment conversion.
+    fungi.saveDraft(data()).then(()=>{if(n===generation)status.textContent='Draft saved';},e=>{if(n===generation){status.textContent='Draft not saved';showError(e);}});
+  }
+  split.oninput=()=>{paint();save();};preference.onchange=save;notes.oninput=save;
+  form.onsubmit=async event=>{
+    event.preventDefault();if(busy)return;busy=true;form.inert=true;error.textContent='';status.textContent='Sending…';
+    try{
+      const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw new Error('Unable to export the comparison');
+      await fungi.submit({...data(),view:{artifact:'comparison'}},[{key:'comparison',name:'comparison.png',blob}]);
+    }catch(e){busy=false;form.inert=false;status.textContent='Review not sent';showError(e);}
+  };
+  document.querySelector('#cancel').onclick=async()=>{
+    if(busy)return;busy=true;form.inert=true;
+    try{await fungi.cancel();}catch(e){busy=false;form.inert=false;showError(e);}
+  };
+  paint();save();
+}catch(e){form.inert=true;showError(e);}
+</script></html>

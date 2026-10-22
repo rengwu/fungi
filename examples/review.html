@@ -20,19 +20,21 @@ textarea{min-height:90px;font:inherit}button{font:inherit;padding:10px 18px;marg
 <button id="submit">Send response</button><button id="cancel">Cancel</button><p id="status"></p>
 <script>
 (async()=>{
-const {input,draft,attachments}=await fungi.ready();
+const {input,draft,attachments,delivery}=await fungi.ready();
 const duration=document.querySelector('#duration'),notes=document.querySelector('#notes'),status=document.querySelector('#status');
 const initial=draft??input??{};
 duration.value=initial.duration??300;notes.value=initial.notes??'';
-let image=attachments.find(a=>a.key==='reference'),saving=Promise.resolve();
+let image=attachments.find(a=>a.key==='reference'),generation=0,busy=false;
+if(delivery.mode==='manual'){const hint=document.createElement('p');hint.textContent='After sending, tell your agent “done”.';document.querySelector('h1').after(hint);}
 function data(){return {duration:Number(duration.value),notes:notes.value,reference:image?{artifact:'reference'}:null};}
 function files(){return image?[image]:[];}
 function preview(){document.querySelector('#durationLabel').value=duration.value;document.documentElement.style.setProperty('--duration',duration.value+'ms');const c=document.querySelector('.card');c.classList.remove('play');void c.offsetWidth;c.classList.add('play');}
-function save(){const value=data(),items=files();saving=saving.catch(()=>{}).then(()=>fungi.saveDraft(value,items));saving.then(()=>status.textContent='Draft saved',e=>status.textContent=e.message);}
+function save(){const n=++generation;status.textContent='Saving…';fungi.saveDraft(data(),files()).then(()=>{if(n===generation)status.textContent='Draft saved';},e=>{if(n===generation)status.textContent=e.message;});}
+function setBusy(value){busy=value;for(const control of document.querySelectorAll('input,textarea,button'))control.disabled=value;}
 duration.oninput=()=>{preview();save();};notes.oninput=save;document.querySelector('#play').onclick=preview;
 document.querySelector('#image').onchange=e=>{const blob=e.target.files[0];image=blob?{key:'reference',name:blob.name,blob}:null;save();};
-document.querySelector('#submit').onclick=async()=>{try{await saving;await fungi.submit(data(),files());}catch(e){status.textContent=e.message;}};
-document.querySelector('#cancel').onclick=()=>fungi.cancel().catch(e=>status.textContent=e.message);
+document.querySelector('#submit').onclick=async()=>{if(busy)return;setBusy(true);try{await fungi.submit(data(),files());}catch(e){status.textContent=e.message;setBusy(false);}};
+document.querySelector('#cancel').onclick=async()=>{if(busy)return;setBusy(true);try{await fungi.cancel();}catch(e){status.textContent=e.message;setBusy(false);}};
 preview();save();
 })().catch(e=>document.querySelector('#status').textContent=e.message);
 </script></html>

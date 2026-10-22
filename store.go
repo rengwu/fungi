@@ -156,18 +156,10 @@ func atomicJSON(path string, value any) error {
 	if err != nil {
 		return err
 	}
-	if len(b) > maxJSON {
+	if len(b)+1 > maxJSON {
 		return fail("json_too_large", "JSON exceeds 1 MiB")
 	}
 	return atomicBytes(path, append(b, '\n'))
-}
-func syncDir(path string) error {
-	f, err := os.Open(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	return f.Sync()
 }
 func atomicBytes(path string, b []byte) error {
 	f, err := os.CreateTemp(filepath.Dir(path), ".pending-")

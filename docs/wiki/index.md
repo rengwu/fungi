@@ -1,6 +1,6 @@
 ---
 title: Fungi
-updated: 2026-10-20
+updated: 2026-10-22
 ---
 # Fungi
 
@@ -12,10 +12,12 @@ Electron + Go is the accepted direction. The [first end-to-end proof](proposal.m
 
 - [Requirements and discussion](planning.md)
 - [First implementation contract](contract.md)
+- [Author a Fungi interface](authoring.md)
 - [Feature map](features/index.md)
 - [First prototype verification](verification/runs/2026-10-20-first-proof.md)
 - [Current no-setup compatibility verification](verification/runs/2026-10-20-no-setup.md)
 - [Skill authoring, recovery and longer-idle verification](verification/runs/2026-10-20-skill-proof.md)
+- [Renderer flexibility and reliability verification](verification/runs/2026-10-22-platform.md)
 - [Verification setup](verification/setup.md)
 - [Research findings and recommendation](research/index.md)
 - [Proposed small authoring interface](proposal.md)

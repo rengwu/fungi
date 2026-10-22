@@ -1,0 +1,160 @@
+{
+  "recordedAtUTC": "2026-10-20T12:29:39.804294+00:00",
+  "baseCommit": "eca3d85d5214835af941d580a51dd971caac0076",
+  "workingTree": "Renderer/example changes are local and uncommitted",
+  "package": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T12-22-27-273Z",
+  "binarySHA256": "81e0f51944ba1f91d5bc28829c3b206e9a44232b186812a188a801a513a29c66",
+  "rendererMatchesPackage": true,
+  "jstackCommit": "ac01535877211b2eda2789e0788b6cd76e1665db",
+  "sourceFiles": [
+    {
+      "path": "renderer/main.cjs",
+      "bytes": 8625,
+      "sha256": "59c48728c49ed6d8ea0cd8319384579a70273dfc654c6aebf0435a34cff22acb"
+    },
+    {
+      "path": "examples/jstack-grill-form/bridge.js",
+      "bytes": 3278,
+      "sha256": "2985ead38f754b4495b39b1c864cf86861437f51accd8a436e6b15b5932cc92d"
+    },
+    {
+      "path": "examples/jstack-grill-form/adapt.mjs",
+      "bytes": 2676,
+      "sha256": "47233d3e4790c924c891b5bbb8c9d666a8d1fb3560c7b7c388d2a0cb15698634"
+    },
+    {
+      "path": "examples/jstack-grill-form/questions.json",
+      "bytes": 7754,
+      "sha256": "b6fec18823e1ac17279e2b2bb19dc9411b6d4d9586e88184c0577ade545a7254"
+    },
+    {
+      "path": "examples/jstack-grill-form/README.md",
+      "bytes": 2177,
+      "sha256": "c7fcd7d45b32c7fe0b356c4ed8594a8691a4c97be1ba1c45e017d1c77613839d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4926,
+      "sha256": "49e881a92d6fc77338a3c6584df09f4c6c3266599f6e85be7439d4c7d896135b"
+    },
+    {
+      "path": "scripts/package.mjs",
+      "bytes": 2336,
+      "sha256": "2a96541c333d429f28973cbab78b4c1f828c166f5bfe1e3f832cd87e2f3cee07"
+    }
+  ],
+  "jstackFiles": [
+    {
+      "path": "../jstack/skills/grill-form/.DS_Store",
+      "bytes": 6148,
+      "sha256": "4c8b5dc28c9be871615db4acbe612b8a5562b11c53c148ff86ac68264f2e8065"
+    },
+    {
+      "path": "../jstack/skills/grill-form/SKILL.md",
+      "bytes": 2390,
+      "sha256": "f3747d1548eccec42359de4f40508455e679b8d4da960f6d7017baf421def6d8"
+    },
+    {
+      "path": "../jstack/skills/grill-form/references/authoring.md",
+      "bytes": 5718,
+      "sha256": "db096222bbe4e8e4b3893aca69fb1c50b7943bc7076ecc150de510a043cac770"
+    },
+    {
+      "path": "../jstack/skills/grill-form/references/usage.md",
+      "bytes": 10162,
+      "sha256": "f8ddf6ed0caf9fb3eae1a8f002976f299cc5afc2eb5a6f5bb6cfac7e19a5ab9f"
+    },
+    {
+      "path": "../jstack/skills/grill-form/agents/openai.yaml",
+      "bytes": 241,
+      "sha256": "7ced8e360562a3bee44a274b2a904c5f6a32c19bd123e3c9f9a6831c25f70117"
+    },
+    {
+      "path": "../jstack/skills/grill-form/scripts/grill-form.mjs",
+      "bytes": 23639,
+      "sha256": "54c896a825343344520054e24ccf1a9b456b55b449551478b96841a8cabcea1b"
+    },
+    {
+      "path": "../jstack/skills/grill-form/scripts/model.mjs",
+      "bytes": 11209,
+      "sha256": "3caf025e9e5479f6c3aaf0b295b4d45f78950cbed572a36fecf28de6eafc93e8"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/review.js",
+      "bytes": 14915,
+      "sha256": "09db47f204b72b1caca84339099286d80cc7f4311518fa3615b04cc4734386c4"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/.DS_Store",
+      "bytes": 6148,
+      "sha256": "783a96d754187e2b46401b43490a6b3a1760e829c730784926e0a39d96feaef7"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/form.template.html",
+      "bytes": 19569,
+      "sha256": "3361d798c0bb7a0000f0024124d440c8cf4ff2fbabaa11e54540702c89eb90d3"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/notes-editor.js",
+      "bytes": 12824,
+      "sha256": "1016732b7df194c1dc4b20ec9b1063708bca365e3b4098e226a2f2ed7200d071"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/pele-LICENSE",
+      "bytes": 1934,
+      "sha256": "311bccc30de6f7b9cbfb64232bb0c911ccb2191abe316550813ae25b2c7925b9"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/dompurify-LICENSE-MPL",
+      "bytes": 16726,
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/purify.js",
+      "bytes": 28885,
+      "sha256": "2c90a9b46d6463f26038a29b686e82bc91de01fdac9d5229e7cfe3b360134ea2"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/pele.js",
+      "bytes": 682005,
+      "sha256": "b82d1bcd435302779a945e1e0f4a54ea56fb26e010ce3f2122f4216fcfc095d7"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/README.md",
+      "bytes": 1124,
+      "sha256": "ed9bd6316687b20b440b782a182c637a906a68b0a86eaf3c4fd126f4e36c4536"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/marked.js",
+      "bytes": 47225,
+      "sha256": "f424dcb508fdf93e0137a970cfce8f3207ea2e3f37eca5f7556a52875683632a"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/dompurify-LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "../jstack/skills/grill-form/assets/vendor/marked-LICENSE",
+      "bytes": 2942,
+      "sha256": "8e3a3f82f59a60958f56ca08f445647c32a4733dc7ca6c2c46f6eb898471ab9c"
+    }
+  ],
+  "generatedForm": {
+    "path": "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/fungi-rich-grill-j1dkwxt6/form.html",
+    "bytes": 816828,
+    "sha256": "db616a3301e49fdb754d945761012a7ae28a91b8ffa18d2f96ce2f2f0e2f4d10"
+  },
+  "checks": {
+    "frameFixture": "Passed six runtime assertions",
+    "JavaScriptSyntax": "Passed renderer, adapter and bridge",
+    "nativeDraft": "Passed selected controls, durable draft and close/reopen notes/comment",
+    "userCallback": "Passed: one exact-origin callback, one Fungi collection; six items validated against the pinned jstack model, including a region comment with coordinates",
+    "jstackFinalization": "Passed: collector accepted reconstructed submission; finish saved temporary transcript and review"
+  },
+  "limits": [
+    "No inline images or changed prototype states in the user submission; the earlier disposable draft provides the slider-state evidence",
+    "No full parity, submission failure/retry or other-platform claim"
+  ],
+  "evidenceUpdatedAtUTC": "2026-10-20T12:34:52.571211+00:00"
+}

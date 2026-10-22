@@ -1,0 +1,88 @@
+{
+  "initialSession": "b673be642363c9f8b977dcaff60dd663",
+  "reopenedSession": "e5283e6dff66107f1f8956159087d079",
+  "closedResult": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "b673be642363c9f8b977dcaff60dd663",
+    "outcome": "closed",
+    "artifacts": []
+  },
+  "acknowledgedDraft": {
+    "data": {
+      "schemaVersion": 1,
+      "sessionId": "64569c4c-d501-47ab-bed8-672addb38747",
+      "specDigest": "0a135f1b61d108a99bf24cd8087a4d8dcf29ce943f91b06c10f01c995bd72c98",
+      "title": "Fungi × jstack — rich questionnaire demo",
+      "answers": [
+        {
+          "questionId": "quick_choice",
+          "choiceId": "option2",
+          "notes": "DISPOSABLE-SMOKE",
+          "comments": [],
+          "images": []
+        },
+        {
+          "questionId": "visual_choice",
+          "choiceId": null,
+          "notes": "",
+          "comments": []
+        },
+        {
+          "questionId": "animation",
+          "choiceId": null,
+          "notes": "",
+          "comments": [],
+          "states": {
+            "main": {
+              "duration": 560,
+              "easing": "ease-out"
+            }
+          }
+        },
+        {
+          "questionId": "layout_critique",
+          "choiceId": null,
+          "notes": "",
+          "comments": [
+            {
+              "preview": "main",
+              "region": {
+                "x": 28,
+                "y": 20,
+                "width": 120,
+                "height": 80,
+                "viewportWidth": 755,
+                "viewportHeight": 400,
+                "scroll": []
+              },
+              "state": {},
+              "notes": "REGION-SMOKE: make this heading clearer.",
+              "images": []
+            }
+          ]
+        },
+        {
+          "questionId": "diagram",
+          "choiceId": null,
+          "notes": "",
+          "comments": []
+        },
+        {
+          "questionId": "notes_images",
+          "choiceId": null,
+          "notes": "",
+          "comments": []
+        }
+      ]
+    },
+    "artifacts": []
+  },
+  "observations": [
+    "Native updated form visibly rendered choices, visual previews, duration/easing prototype, Pele diagram/table and contenteditable notes.",
+    "Through native UI, selected Underwater library, typed DISPOSABLE-SMOKE, changed duration to 560 ms, and added a region comment via keyboard rectangle selection.",
+    "After native close, reopening displayed the saved note and region comment. Subsequent user changes to choice and duration were seen; preserved that reopened window and draft.",
+    "The actual callback-enabled window titled Fungi — your questionnaire was opened separately and visibly rendered its controls. The agent did not answer or submit it."
+  ],
+  "driverLimit": "Close keyboard shortcut had no effect; one premature collection was pending. Used native close control, then inspected saved closed result; no repeated collection. A later desktop scroll call was interrupted by user changes."
+}

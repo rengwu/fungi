@@ -1,6 +1,6 @@
 ---
 title: First implementation contract
-updated: 2026-10-20
+updated: 2026-10-22
 status: Prototype contract
 ---
 # First implementation contract
@@ -8,6 +8,8 @@ status: Prototype contract
 This contract describes the initial implementation of the [accepted first milestone](planning.md#accepted-first-milestone-scope). The prototype exists; the [verification report](verification/runs/2026-10-20-first-proof.md) identifies passing scenarios and remaining gaps. The result boundary is intended to stabilize before broader UI composition.
 
 Go owns sessions, persistence and delivery. Electron owns the native web window. Skills provide local HTML/assets, a small JSON form, or an executable helper. A skill sequences workflows; the engine runs one interaction at a time per session, with independent sessions allowed concurrently.
+
+The [authoring guide](authoring.md) is the compact entry point for new skills. Protocol 1's existing meanings are the compatibility boundary: preserve them for additive extensions and explicitly version breaking changes. This does not make the experimental flat form schema or untested platforms stable.
 
 ## Four CLI operations
 
@@ -110,6 +112,8 @@ The page gets a deliberately small bridge:
 | `await fungi.cancel()` | Commit a cancelled outcome |
 
 The renderer handles Blob/File transfer internally. Page authors do not choose output paths, callback destinations or shell commands. Relative local assets remain usable; the default example needs no network or build step. Native helpers are trusted executables with ordinary OS access, not sandboxed web pages.
+
+Save, submit and cancel calls are ordered from invocation, before asynchronous Blob encoding. A failure rejects its own call and does not poison later retries. Each save/submit supplies a complete state and attachment list; omitted attachments mean none. Closing or crashing recovers only acknowledged saves, including with queued calls. Library bundles, local/Blob workers, WebAssembly, canvas and streamed media remain page capabilities rather than new bridge methods.
 
 After successful submission, the reference renderer closes the window. If persistence fails, it stays open, shows the failure and retains the user's current input for retry. A committed response remains successful even if agent notification later fails; the interface can report that collection is still available.
 

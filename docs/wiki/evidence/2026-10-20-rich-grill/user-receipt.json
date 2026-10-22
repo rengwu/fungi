@@ -1,0 +1,18 @@
+{
+  "protocol": 1,
+  "kind": "opened",
+  "session": "2b009f78acc7f857be52fc58d18a7643",
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "armed"
+  },
+  "collect": [
+    "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T12-22-27-273Z/fungi",
+    "collect",
+    "2b009f78acc7f857be52fc58d18a7643"
+  ],
+  "collectEnv": {
+    "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/rich-grill/user-sessions"
+  }
+}

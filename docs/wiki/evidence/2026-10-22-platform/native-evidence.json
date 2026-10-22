@@ -1,0 +1,101 @@
+{
+  "comparison": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "c4ec559a7244be99aea64548bc036079",
+    "outcome": "submitted",
+    "data": {
+      "split": 39,
+      "preference": "after",
+      "notes": "Nice",
+      "view": {
+        "artifact": "comparison"
+      }
+    },
+    "artifacts": [
+      {
+        "id": "c1d9cb178213fd0a180a260f64392594b6785ec6e9b1dd83893045e36adf1752",
+        "key": "comparison",
+        "name": "comparison.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/platform-2026-10-22/compare-sessions/c4ec559a7244be99aea64548bc036079/artifacts/c1d9cb178213fd0a180a260f64392594b6785ec6e9b1dd83893045e36adf1752",
+        "bytes": 45676,
+        "sha256": "c1d9cb178213fd0a180a260f64392594b6785ec6e9b1dd83893045e36adf1752"
+      }
+    ]
+  },
+  "richForm": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "700e437675ba91d707f35a1dc9d9c347",
+    "outcome": "submitted",
+    "data": {
+      "schemaVersion": 1,
+      "sessionId": "295378ad-5644-44ac-9398-6ca1d0670871",
+      "specDigest": "e164a0cd55d8506590483905d707705e1262b358b42fbd9396b8118d9fdf9b64",
+      "title": "Disposable verification \u2014 rich image and retry",
+      "answers": [
+        {
+          "questionId": "animation",
+          "choiceId": null,
+          "notes": "RICH-RETRY: preserve this note and image [Image #1]",
+          "comments": [],
+          "states": {
+            "main": {
+              "duration": 560,
+              "easing": "ease-out"
+            }
+          },
+          "images": [
+            {
+              "id": 1,
+              "offset": 41,
+              "artifact": "image-1",
+              "mimeType": "image/png"
+            }
+          ]
+        }
+      ]
+    },
+    "artifacts": [
+      {
+        "id": "83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9",
+        "key": "image-1",
+        "name": "image-1.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/platform-2026-10-22/rich-sessions/700e437675ba91d707f35a1dc9d9c347/artifacts/83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9",
+        "bytes": 401,
+        "sha256": "83e160394a50c08746093b421e7bbf7865d6591aac9f9b2d1f0850bea504c2d9"
+      }
+    ]
+  },
+  "richClosedSession": "b0041cd4ce1254ecfd6235bb78d11216",
+  "richDraftMatchesSubmission": true,
+  "richImageSHA256Verified": true,
+  "richFailure": {
+    "session": "700e437675ba91d707f35a1dc9d9c347",
+    "injection": "session directory mode 0500",
+    "observed": "submit returned permission denied, retained note/image and 560 ms state, button enabled",
+    "resultPublished": false
+  },
+  "referenceFormRetry": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "f9d110dba964d62f6cb3cfbdda662bdd",
+    "outcome": "submitted",
+    "data": {
+      "notes": "RETRY-WITHOUT-EDIT"
+    },
+    "artifacts": []
+  },
+  "collectionCalls": {
+    "comparison": 1,
+    "richSubmitted": 1,
+    "referenceForm": 1
+  },
+  "driverNotes": [
+    "Comparison was submitted while the agent was inspecting its window; the saved response was preserved.",
+    "Preview location dialog required selecting the existing reference-image entry; no unrelated file was opened.",
+    "App quit after successful native close/submit appears as a driver error; saved outcomes independently confirmed success."
+  ]
+}

@@ -30,7 +30,9 @@ Results are durable JSON envelopes with `submitted`, `cancelled`, `closed` or `f
 </script>
 ```
 
-The bridge has four methods: `ready()`, `saveDraft(data, attachments?)`, `submit(data, attachments?)`, and `cancel()`. An attachment is `{key, name, blob}`. `ready()` returns restored attachments in that shape. Save drafts explicitly in custom HTML. Relative local assets work; outbound network, remote navigation, embedded frames and OS permission requests are denied in this prototype. Trusted native helpers have ordinary OS access.
+The bridge has four methods: `ready()`, `saveDraft(data, attachments?)`, `submit(data, attachments?)`, and `cancel()`. An attachment is `{key, name, blob}`. `ready()` returns restored attachments in that shape. Save drafts explicitly in custom HTML. Mutations run in call order, including Blob conversion; failed saves can be retried. Only acknowledged drafts are recoverable after close or interruption.
+
+Skills can use local HTML/CSS/JS, modules, custom elements, Canvas/SVG/WebGL, workers, WebAssembly and local streaming media. Inline `srcdoc` previews work; frame document requests, outbound network, popups, navigation and OS permission requests are denied. Skills should sandbox their previews; only the main page can call the bridge. Trusted native helpers have ordinary OS access. See the compact [authoring guide](docs/wiki/authoring.md) and the [comparison example](examples/compare/README.md), which exports a custom canvas as a PNG without engine changes.
 
 The JSON renderer supports flat `text`, `textarea`, `range` and `image` fields. Its schema is experimental. See the examples and `describe form` / `describe helper`.
 
@@ -44,6 +46,8 @@ The bundled [grill-form skill](skills/grill-form/SKILL.md) adapts jstack's simpl
 
 It supports choices, plain notes, offline Markdown/diagrams, acknowledged drafts and one optional image. The current jstack review/editor rework is intentionally outside this example. UI libraries live with the skill; the engine has no questionnaire-specific API.
 
+The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the newer generated form, including visual choices, prototype controls, region comments and inline images. The simpler bundled skill remains available.
+
 ## Develop
 
 Build dependencies are Go 1.26 and Node 22.12+; they are not end-user runtime dependencies.
@@ -53,10 +57,12 @@ npm ci --prefix renderer
 node renderer/node_modules/electron/install.js
 go build -o fungi .
 go test -race . ./examples/helper
+node --test scripts/*.test.mjs
+node scripts/renderer-smoke.mjs
 node scripts/package.mjs
 ```
 
-The pinned Electron 44 package uses an explicit runtime download command. Packaging copies that runtime into a new `dist/fungi-darwin-…/` directory beside the executable and renderer code. Copy the whole directory. Public signing/notarization and clean-machine Gatekeeper verification remain outstanding; this local development package is not a production release.
+The pinned Electron 44 package uses an explicit runtime download command. Packaging copies that runtime into a new `dist/fungi-PLATFORM-ARCH-…/` directory beside the executable and renderer code. Copy the whole directory. Cross-package with `node scripts/package.mjs --platform win32 --arch x64` (or `linux` / `darwin`, `x64` / `arm64`); this uses Electron's build-time downloader and pinned checksums. Cross-packaging does not prove that the target runs. Public signing/notarization and clean-machine Gatekeeper verification remain outstanding; these are development packages. The [desktop verification recipe](docs/wiki/verification/desktop.md) needs no Go, Node or npm on the target.
 
 Set `FUNGI_STATE_DIR` to isolate verification sessions. Otherwise data lives beneath the OS config directory in `fungi/sessions`. Sessions remain until explicitly removed. No background service runs after a completed session. `FUNGI_RENDERER_DIR` selects a renderer directory during development.
 

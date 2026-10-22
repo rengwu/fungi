@@ -16,11 +16,7 @@ func TestCallbackUncertaintyDoesNotResendOrLoseResult(t *testing.T) {
 	}
 	log := filepath.Join(t.TempDir(), "notice.txt")
 	t.Setenv("FUNGI_TEST_NOTICE", log)
-	adapter := filepath.Join(t.TempDir(), "fake-codex")
-	if err := os.WriteFile(adapter, []byte("#!/bin/sh\nprintf '%s\\n' \"$@\" >> \"$FUNGI_TEST_NOTICE\"\nexit 7\n"), 0700); err != nil {
-		t.Fatal(err)
-	}
-	l := launch{Session: id, Delivery: delivery{Mode: "callback", Adapter: "codex", Thread: "11111111-1111-1111-1111-111111111111", Command: adapter}}
+	l := launch{Session: id, Delivery: delivery{Mode: "callback", Adapter: "codex", Thread: "11111111-1111-1111-1111-111111111111", Command: testFixture}}
 	notifyResult(s, l)
 	first, err := os.ReadFile(log)
 	if err != nil {

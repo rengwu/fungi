@@ -1,10 +1,12 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"sync"
 	"testing"
@@ -13,15 +15,21 @@ import (
 
 var testBinary string
 var testHelper string
+var testFixture string
 
 func TestMain(m *testing.M) {
 	dir, err := os.MkdirTemp("", "fungi-tests-")
 	if err != nil {
 		panic(err)
 	}
-	testBinary = filepath.Join(dir, "fungi")
-	testHelper = filepath.Join(dir, "helper")
-	for _, build := range [][]string{{"build", "-o", testBinary, "."}, {"build", "-o", testHelper, "./examples/helper"}} {
+	suffix := ""
+	if runtime.GOOS == "windows" {
+		suffix = ".exe"
+	}
+	testBinary = filepath.Join(dir, "fungi"+suffix)
+	testHelper = filepath.Join(dir, "helper"+suffix)
+	testFixture = filepath.Join(dir, "protocol-fixture"+suffix)
+	for _, build := range [][]string{{"build", "-o", testBinary, "."}, {"build", "-o", testHelper, "./examples/helper"}, {"build", "-o", testFixture, "./scripts/protocol-fixture"}} {
 		if out, err := exec.Command("go", build...).CombinedOutput(); err != nil {
 			panic(string(out))
 		}
@@ -192,7 +200,7 @@ func TestDisconnectedWaiterDoesNotCancel(t *testing.T) {
 
 func TestHelperExitAndStdoutDrain(t *testing.T) {
 	root := t.TempDir()
-	cmd := exec.Command(testBinary, "open", "--exec", "/usr/bin/false", "--delivery", "wait")
+	cmd := exec.Command(testBinary, "open", "--exec", testFixture, "--delivery", "wait", "--", "exit")
 	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+root)
 	b, err := cmd.Output()
 	if err == nil {
@@ -207,10 +215,50 @@ func TestHelperExitAndStdoutDrain(t *testing.T) {
 	}
 	// A helper can terminate immediately after emitting its final message.
 	// Even a nonzero exit cannot overwrite an already committed submission.
-	script := `printf '%s\n' '{"type":"ready"}' '{"type":"result","outcome":"submitted","data":{"drained":true}}'
-exit 7`
-	b = cli(t, root, "open", "--exec", "/bin/sh", "--delivery", "wait", "--", "-c", script)
+	b = cli(t, root, "open", "--exec", testFixture, "--delivery", "wait", "--", "early-result")
 	if err = json.Unmarshal(b, &r); err != nil || r.Outcome != "submitted" {
 		t.Fatal("result lost at process exit", string(b), err)
+	}
+}
+
+func TestBrokenHelperCannotHoldOwnerOpen(t *testing.T) {
+	for _, mode := range []string{"malformed", "closed-stdout"} {
+		t.Run(mode, func(t *testing.T) {
+			root := t.TempDir()
+			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+			defer cancel()
+			cmd := exec.CommandContext(ctx, testBinary, "open", "--exec", testFixture, "--delivery", "wait", "--", mode)
+			cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+root)
+			start := time.Now()
+			b, err := cmd.Output()
+			if ctx.Err() != nil || time.Since(start) > time.Second {
+				t.Fatal("owner hung after broken helper output")
+			}
+			var r result
+			if err == nil || json.Unmarshal(b, &r) != nil || r.Outcome != "failed" || r.Error == nil {
+				t.Fatalf("expected one failed result, got %s (%v)", b, err)
+			}
+		})
+	}
+}
+
+func TestHelperThatDoesNotReadLaunchIsBounded(t *testing.T) {
+	root := t.TempDir()
+	input := filepath.Join(root, "input.json")
+	if err := os.WriteFile(input, []byte(`"`+strings.Repeat("x", 200000)+`"`), 0600); err != nil {
+		t.Fatal(err)
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 12*time.Second)
+	defer cancel()
+	cmd := exec.CommandContext(ctx, testBinary, "open", "--exec", testFixture, "--input", input, "--delivery", "wait", "--", "never-read")
+	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+filepath.Join(root, "sessions"))
+	start := time.Now()
+	b, err := cmd.Output()
+	var r result
+	if err == nil || json.Unmarshal(b, &r) != nil || r.Outcome != "failed" || r.Error == nil {
+		t.Fatalf("expected a failed session, got %s (%v)", b, err)
+	}
+	if time.Since(start) > 7*time.Second {
+		t.Fatal("helper blocked launch until its own exit")
 	}
 }

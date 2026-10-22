@@ -14,7 +14,10 @@ func lockSession(path string) (func(), error) {
 	}
 	if err = syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB); err != nil {
 		f.Close()
-		return nil, fail("session_owned", "session already has an owner")
+		if err == syscall.EWOULDBLOCK {
+			return nil, fail("session_owned", "session already has an owner")
+		}
+		return nil, err
 	}
 	return func() { _ = syscall.Flock(int(f.Fd()), syscall.LOCK_UN); f.Close() }, nil
 }

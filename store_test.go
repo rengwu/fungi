@@ -165,3 +165,24 @@ func TestLockRejectsSecondOwner(t *testing.T) {
 	}
 	release()
 }
+
+func TestLockIOErrorIsNotAClaimOfOwnership(t *testing.T) {
+	_, err := lockSession(t.TempDir()) // a directory cannot be an owner lock file
+	if err == nil || asProblem(err).Code == "session_owned" {
+		t.Fatalf("storage error reported as live ownership: %v", err)
+	}
+}
+
+func TestJSONBoundaryNeverAcknowledgesUnreadableFile(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "boundary.json")
+	for _, n := range []int{maxJSON - 3, maxJSON - 2} {
+		value := strings.Repeat("x", n)
+		if err := atomicJSON(path, value); err != nil {
+			continue // Refusing a full envelope is allowed; unreadable success is not.
+		}
+		var restored string
+		if err := readJSON(path, &restored); err != nil || restored != value {
+			t.Fatalf("acknowledged %d-byte value cannot be read: %v", n, err)
+		}
+	}
+}

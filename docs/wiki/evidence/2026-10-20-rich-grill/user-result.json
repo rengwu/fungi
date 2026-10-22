@@ -1,0 +1,195 @@
+{
+  "consumptionRecordedAtUTC": "2026-10-20T12:32:30.528Z",
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "2b009f78acc7f857be52fc58d18a7643",
+    "outcome": "submitted",
+    "data": {
+      "schemaVersion": 1,
+      "sessionId": "64569c4c-d501-47ab-bed8-672addb38747",
+      "specDigest": "0a135f1b61d108a99bf24cd8087a4d8dcf29ce943f91b06c10f01c995bd72c98",
+      "title": "Fungi × jstack — rich questionnaire demo",
+      "answers": [
+        {
+          "questionId": "quick_choice",
+          "choiceId": "option2",
+          "notes": "",
+          "comments": []
+        },
+        {
+          "questionId": "visual_choice",
+          "choiceId": "other",
+          "notes": "sadasd",
+          "comments": [],
+          "images": []
+        },
+        {
+          "questionId": "animation",
+          "choiceId": null,
+          "notes": "test",
+          "comments": [],
+          "images": []
+        },
+        {
+          "questionId": "layout_critique",
+          "choiceId": null,
+          "notes": "",
+          "comments": [
+            {
+              "preview": "main",
+              "region": {
+                "x": 76,
+                "y": 36,
+                "width": 280,
+                "height": 290,
+                "viewportWidth": 755,
+                "viewportHeight": 400,
+                "scroll": []
+              },
+              "state": {},
+              "notes": "test",
+              "images": []
+            }
+          ]
+        },
+        {
+          "questionId": "diagram",
+          "choiceId": "option1",
+          "notes": "",
+          "comments": []
+        },
+        {
+          "questionId": "notes_images",
+          "choiceId": null,
+          "notes": "i'm just worried that the authoring and handoff process is very expensive and hard for models to understand. when fungi is proven to be a good stable base, i will eventually ship jstack with fungi in it, and skills like grill-form will be rewritten around fungi to make full use of it.",
+          "comments": [],
+          "images": []
+        }
+      ]
+    },
+    "artifacts": []
+  },
+  "normalized": {
+    "schemaVersion": 1,
+    "sessionId": "64569c4c-d501-47ab-bed8-672addb38747",
+    "title": "Fungi × jstack — rich questionnaire demo",
+    "answers": [
+      {
+        "questionId": "quick_choice",
+        "number": 1,
+        "question": "Which fictional expedition should we take?",
+        "choiceId": "option2",
+        "choice": "Underwater library",
+        "notes": "",
+        "status": "feedback",
+        "states": {},
+        "comments": []
+      },
+      {
+        "questionId": "visual_choice",
+        "number": 2,
+        "question": "Which sample confirmation card do you prefer?",
+        "choiceId": "other",
+        "choice": "Something else",
+        "notes": "sadasd",
+        "status": "feedback",
+        "states": {},
+        "comments": []
+      },
+      {
+        "questionId": "animation",
+        "number": 3,
+        "question": "What animation timing feels right?",
+        "choiceId": null,
+        "choice": null,
+        "notes": "test",
+        "status": "feedback",
+        "states": {},
+        "comments": []
+      },
+      {
+        "questionId": "layout_critique",
+        "number": 4,
+        "question": "What would you change in this imaginary review card?",
+        "choiceId": null,
+        "choice": null,
+        "notes": "",
+        "status": "feedback",
+        "states": {},
+        "comments": [
+          {
+            "preview": "main",
+            "region": {
+              "x": 76,
+              "y": 36,
+              "width": 280,
+              "height": 290,
+              "viewportWidth": 755,
+              "viewportHeight": 400,
+              "scroll": []
+            },
+            "state": {},
+            "notes": "test"
+          }
+        ]
+      },
+      {
+        "questionId": "diagram",
+        "number": 5,
+        "question": "Is this sample handoff easy to understand?",
+        "choiceId": "option1",
+        "choice": "Clear enough",
+        "notes": "",
+        "status": "feedback",
+        "states": {},
+        "comments": []
+      },
+      {
+        "questionId": "notes_images",
+        "number": 6,
+        "question": "Leave a note or paste an image to test the round trip.",
+        "choiceId": null,
+        "choice": null,
+        "notes": "i'm just worried that the authoring and handoff process is very expensive and hard for models to understand. when fungi is proven to be a good stable base, i will eventually ship jstack with fungi in it, and skills like grill-form will be rewritten around fungi to make full use of it.",
+        "status": "feedback",
+        "states": {},
+        "comments": []
+      }
+    ]
+  },
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "accepted"
+  },
+  "collect": {
+    "argv": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-20T12-22-27-273Z/fungi",
+      "collect",
+      "2b009f78acc7f857be52fc58d18a7643"
+    ],
+    "env": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/rich-grill/user-sessions"
+    },
+    "calls": 1,
+    "exitCode": 0
+  },
+  "validation": {
+    "pinnedJstackModelSHA256": "3caf025e9e5479f6c3aaf0b295b4d45f78950cbed572a36fecf28de6eafc93e8",
+    "sessionAndSpecMatch": true,
+    "answeredItems": 6,
+    "artifacts": 0,
+    "regionComments": 1,
+    "submittedPrototypeStateKeys": []
+  },
+  "observation": "The exact-origin Fungi callback reached this conversation after the prior turn ended. Collected once; validated all six answer identities and content against the pinned jstack model. No images or changed prototype-state objects were submitted. The selected region coordinates, comment text and final authoring/handoff concern are retained as user data.",
+  "jstackFinalization": {
+    "status": "finished",
+    "record": "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/2026-10-20-grill-64569c4c-d501-47ab-bed8-672addb38747.md",
+    "preview": "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/2026-10-20-grill-64569c4c-d501-47ab-bed8-672addb38747-review.html",
+    "recordRead": true,
+    "images": [],
+    "observation": "The original jstack collector accepted the reconstructed submission and finish saved its temporary transcript and visual review. The Fungi saved result and the separately adapted live test window were preserved."
+  }
+}

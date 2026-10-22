@@ -1,6 +1,6 @@
 ---
 title: Sessions, results and recovery
-updated: 2026-10-20
+updated: 2026-10-22
 ---
 # Sessions, results and recovery
 
@@ -21,6 +21,7 @@ Use `open`, `collect` and `reopen` in the Go CLI. An executable helper uses `ope
 - Losing the waiting CLI does not cancel the owner. The worker uses a detached process, ordinary pipes and an OS file lock; there is no local HTTP server.
 - Reopen creates a new linked session and restores the latest acknowledged JSON/image draft.
 - Native helper output is drained before interpreting exit. The helper need not depend on Electron.
+- Malformed output or a closed stdout ends the helper protocol and terminates the helper, even if its process would otherwise keep running. Persisted JSON is bounded including its final newline, so acknowledged boundary-sized records remain readable.
 
 ## Verification recipe
 
@@ -40,6 +41,8 @@ Read the returned artifact path. Run `collect` with the exact returned session a
 The macOS and Linux arm64 race-enabled suites passed. Failure injection covers publication before acknowledgement; the UI separately exercised an actual filesystem permission error. One user-controlled macOS sleep/wake cycle preserved the note and image, accepted a new edit and returned the result. These tests do not establish power-loss or storage-hardware durability. Windows builds do not establish runtime behavior, particularly file replacement and directory syncing; Linux desktop UI remains untested.
 
 ## Verification history
+
+- [2026-10-22 platform verification](../verification/runs/2026-10-22-platform.md) — malformed/closed helper output and exact JSON-limit regressions, plus the macOS core race suite.
 
 - [2026-10-20 skill proof](../verification/runs/2026-10-20-skill-proof.md) — real skill recovery, Linux arm64 core execution, one macOS sleep/wake cycle and a completed two-hour helper/owner/callback run.
 - [2026-10-20 no-setup compatibility](../verification/runs/2026-10-20-no-setup.md) — self-contained collection receipts and real native artifact sessions.

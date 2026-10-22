@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Fungi rendering verification</title>
+<style>:root{font:16px system-ui;color-scheme:dark}body{padding:32px}li{margin:8px 0}</style>
+<h1>Rendering verification</h1><p>Disposable automated fixture. This window will close itself.</p><ul id="checks"></ul>
+<script type="module">
+const ready=await fungi.ready(),checks=[];
+function assert(value,message='Assertion failed'){if(!value)throw new Error(message);}
+async function check(name,run){
+  let timer;
+  try{await Promise.race([run(),new Promise((_,reject)=>timer=setTimeout(()=>reject(new Error('Timed out')),2500))]);checks.push({name,passed:true});}
+  catch(error){checks.push({name,passed:false,error:error.message});}
+  finally{clearTimeout(timer);const li=document.createElement('li');li.textContent=name+': '+(checks.at(-1).passed?'passed':checks.at(-1).error);document.querySelector('#checks').append(li);}
+}
+async function rejects(run){try{await run();}catch{return;}throw new Error('Expected rejection');}
+function messageFrom(worker){return new Promise((resolve,reject)=>{worker.onmessage=e=>resolve(e.data);worker.onerror=e=>reject(new Error(e.message));});}
+if(ready.draft){
+  checks.push(...ready.draft.checks);
+  await check('draft data restored',async()=>assert(ready.draft.version===2));
+  await check('draft attachment restored as Blob',async()=>{
+    assert(ready.attachments.length===1&&ready.attachments[0].blob instanceof Blob);
+    assert(ready.attachments[0].blob.type==='image/png');
+    const image=await createImageBitmap(ready.attachments[0].blob);assert(image.width===32&&image.height===32);image.close();
+  });
+  await fungi.submit({checks,version:ready.draft.version},ready.attachments);
+}else{
+  await check('ES modules and dynamic import',async()=>assert((await import('./module.mjs')).answer===42));
+  await check('custom elements and shadow DOM',async()=>{
+    customElements.define('sample-card',class extends HTMLElement{connectedCallback(){this.attachShadow({mode:'open'}).innerHTML='<button>Review</button>';}});
+    const card=document.createElement('sample-card');document.body.append(card);assert(card.shadowRoot.querySelector('button').textContent==='Review');
+  });
+  const canvas=document.createElement('canvas');canvas.width=canvas.height=32;
+  let picture;
+  await check('Canvas 2D and PNG export',async()=>{
+    const ctx=canvas.getContext('2d');ctx.fillStyle='#8060c0';ctx.fillRect(0,0,32,32);
+    picture=await new Promise(resolve=>canvas.toBlob(resolve));assert(picture?.type==='image/png');
+  });
+  await check('SVG image rendering',async()=>{
+    const svg=new Blob(['<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="red"/></svg>'],{type:'image/svg+xml'});
+    const image=new Image(),url=URL.createObjectURL(svg);image.src=url;await image.decode();
+    const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);assert(ctx.getImageData(0,0,1,1).data[0]===255);URL.revokeObjectURL(url);
+  });
+  await check('WebGL rendering context',async()=>{
+    const gl=document.createElement('canvas').getContext('webgl2');assert(gl);gl.clearColor(0,1,0,1);gl.clear(gl.COLOR_BUFFER_BIT);
+    const pixel=new Uint8Array(4);gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixel);assert(pixel[1]===255);gl.getExtension('WEBGL_lose_context')?.loseContext();
+  });
+  await check('local module worker',async()=>{
+    const worker=new Worker('./worker.mjs',{type:'module'});try{assert(await messageFrom(worker)===42);}finally{worker.terminate();}
+  });
+  await check('Blob worker',async()=>{
+    const url=URL.createObjectURL(new Blob(['postMessage(42)'],{type:'text/javascript'})),worker=new Worker(url);
+    try{assert(await messageFrom(worker)===42);}finally{worker.terminate();URL.revokeObjectURL(url);}
+  });
+  await check('WebAssembly streaming compile',async()=>{
+    const {instance}=await WebAssembly.instantiateStreaming(fetch('./answer.wasm'));assert(instance.exports.answer()===42);
+  });
+  await check('local JSON fetch',async()=>assert((await (await fetch('./data.json')).json()).answer===42));
+  await check('Blob fetch',async()=>{
+    const url=URL.createObjectURL(new Blob(['local bytes']));try{assert(await (await fetch(url)).text()==='local bytes');}finally{URL.revokeObjectURL(url);}
+  });
+  await check('media metadata and seek',async()=>{
+    const audio=new Audio('./silence.wav');audio.preload='auto';
+    await new Promise((resolve,reject)=>{audio.onloadedmetadata=resolve;audio.onerror=()=>reject(new Error('Media failed to load'));});
+    assert(Math.abs(audio.duration-1)<0.01);
+    await new Promise(resolve=>{audio.onseeked=resolve;audio.currentTime=0.5;});assert(audio.currentTime===0.5);audio.src='';
+  });
+  await check('asset byte ranges',async()=>{
+    const response=await fetch('./data.json',{headers:{Range:'bytes=0-3'}});
+    assert(response.status===206);assert((await response.text()).length===4);
+  });
+  await check('sandboxed inline preview',async()=>{
+    const frame=document.createElement('iframe');frame.setAttribute('sandbox','allow-scripts');
+    const result=new Promise(resolve=>{window.addEventListener('message',function receive(event){if(event.source===frame.contentWindow){window.removeEventListener('message',receive);resolve(event.data);}});});
+    frame.srcdoc='<script>let blocked=false;try{parent.document.body}catch{blocked=true}parent.postMessage({blocked,bridge:typeof fungi,node:typeof require},"*")<\/script>';
+    document.body.append(frame);const value=await result;frame.remove();assert(value.blocked&&value.bridge==='undefined'&&value.node==='undefined');
+  });
+  await check('page has no Node or IPC',async()=>assert(typeof require==='undefined'&&typeof process==='undefined'&&typeof ipcRenderer==='undefined'));
+  await check('external and file requests denied',async()=>{
+    await rejects(()=>fetch('https://example.com'));await rejects(()=>fetch('file:///etc/hosts'));
+  });
+  await check('asset symlink escape denied',async()=>assert((await fetch('./escape.txt')).status===403));
+  await check('oversized JSON rejected without closing',async()=>rejects(()=>fungi.saveDraft({value:'x'.repeat(ready.limits.jsonBytes)})));
+  await check('envelope overhead rejected without killing owner',async()=>rejects(()=>fungi.saveDraft({value:'x'.repeat(ready.limits.jsonBytes-200)},[{key:'envelope',name:'n'.repeat(255),blob:new Blob(['small'])}])));
+  await check('oversized attachment rejected',async()=>rejects(()=>fungi.saveDraft({},[{key:'large',name:'large',blob:new Blob([new Uint8Array(ready.limits.artifactBytes+1)])}])));
+  const files=picture?[{key:'canvas',name:'canvas.png',blob:picture}]:[];
+  const first=fungi.saveDraft({checks,version:1},files),second=fungi.saveDraft({checks,version:2},files);
+  await Promise.all([first,second]);
+  await fungi.cancel();
+}
+</script></html>

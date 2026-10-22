@@ -1,0 +1,12 @@
+{
+  "binary": "/Users/rengwu/Desktop/Projects/fungi/fungi",
+  "binarySHA256": "30beb20e37219b92c9501b33d3de5ab8c242204347c8574312cf961d13a011a4",
+  "electron": "44.9.0",
+  "rendererFiles": {
+    "renderer/form.html": "861d7c6c3016aa3d55fb238cc7cec0e12dd4fd18d475dfcd0a3c82dd1d0b1b8a",
+    "renderer/preload.cjs": "9ce703d718bb7c962edfb63067468b7039216624f3258ebdc0261f1301c66f22",
+    "renderer/assets.cjs": "94dfa28eb94e1f43376aa2774cbd7d205aedfc464a02d164ff32a8824f790e0a",
+    "renderer/main.cjs": "b235f1d30be4b4659a6beccf88dfde2ecfbcb64fd645a6b5e70283edee792f75",
+    "renderer/form.js": "54d704a80450c943ebd1ddd201fa5f5767294f4f4e3ed4e02b966d6b8673f081"
+  }
+}

@@ -140,3 +140,32 @@ Questions 18–19 are complete in the Fungi-backed simple form, session `3863d61
 The sleep/wake fixture, session `1897358a56ceff72064a252004170716`, passed. Its [baseline](evidence/2026-10-20-skill-proof/sleep-wake-baseline.json) records the acknowledged `BEFORE-SLEEP — keep this line` note and reference image. macOS [power events](evidence/2026-10-20-skill-proof/sleep-wake-power.log) confirm clamshell sleep at 18:09:06 +0800 and final lid/HID wake at 18:13:38, with a maintenance dark wake/sleep in between. The exact-origin callback was collected once: the [response](evidence/2026-10-20-skill-proof/sleep-wake-result.json) retains that note, adds the user's `AFTER-WAKE` edit and returns identical image bytes. This verifies one short cycle on the current Mac.
 
 The [skill-authoring and longer-idle proof](verification/runs/2026-10-20-skill-proof.md) is now complete for its selected scenarios. All callbacks in this round have been consumed. Additional desktop checks remain deferred by the user's answer; public distribution and arbitrary-duration reliability are not established. The current portable package is `dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z`.
+
+## Rich questionnaire feedback
+
+The user tried the updated jstack presentation in a Fungi window. Its [submitted response](evidence/2026-10-20-rich-grill/user-result.json) returned all six items through one callback and one collection; the [verification report](verification/runs/2026-10-20-rich-grill.md) records the tested build and remaining gaps. Mock choices and placeholder comments are demonstration data.
+
+The final note expresses a real concern that UI authoring and handoff may be expensive and hard for models to understand. The user intends eventually to bundle Fungi with jstack and rewrite skills such as grill-form around it once the base is sufficiently stable. This reinforces the existing simplicity requirement. The compatibility adapter used for this experiment is not the intended routine authoring workflow.
+
+The user then explicitly confirmed the authoring requirement: agents should follow robust mechanical instructions while understanding the available grill-form capabilities well enough to author meaningful sessions. Both parts matter: a compact capability reference with working examples and limits, and a fixed procedure for validation, launch, completion and interpreting the result.
+
+The target is question data plus one launch, followed by automatic structured response delivery. Rendering, draft storage, attachment conversion and callback handling should be reusable implementation supplied with the skill/Fungi distribution. An agent should not reconstruct the template adapter or reconcile two collectors for every questionnaire. The skill should describe choices, open feedback, visual comparisons, diagrams, prototype state, region comments and images without requiring agents to read renderer internals. This is a requirement for the eventual integration, not a claim that the current experiment already provides that final authoring experience.
+
+## Foundation work on 2026-10-22
+
+The user renewed `work-until-grill` to pursue a stable, robust, simple and broadly flexible rendering platform. Continue within the accepted Go/Electron, local-first, no-harness-setup scope. Full jstack authoring integration remains deferred; a small reusable authoring guide and independent example are appropriate foundation work.
+
+Concrete verification initially exposed four repairs: asynchronous Blob conversion could reorder mutations; exact-limit JSON could be saved but unreadable because of its newline; malformed/closed helper stdout could leave the owner blocked in process wait; a failed reference-form autosave could prevent a later submit retry without another edit. Repairs retain the existing protocol and bridge.
+
+Renderer support now includes local/Blob workers and WebAssembly, plus streamed local assets with media range requests. The independent before/after comparison example uses ordinary HTML and canvas, exports a PNG and adds no engine API. Its submitted feedback (39% divider, After, “Nice”) is demo data, not a new project requirement. [The verification record](verification/runs/2026-10-22-platform.md) separates runtime observations from broader compatibility claims.
+
+Treat existing protocol-1 meanings as the extension compatibility boundary. Keep the flat JSON schema experimental and grow capabilities through ordinary skill assets/helpers. Cross-platform desktop and clean-machine release verification remain the last outstanding acceptance work; signing/notarization and universal harness resumption are not established by a local macOS pass.
+
+The follow-up Linux run exposed a fifth issue: a helper could emit a valid
+result and exit before the launch write completed. The owner now drains its
+output after write failure and bounds blocked protocol writes. macOS and Linux
+core suites pass after the repair. Portable Windows x64 and Linux x64 bundles
+are prepared using pinned Electron downloads. Windows file handling has a
+separate directory-sync policy, and lock errors no longer masquerade as live
+owners. Actual desktop validation is the next unresolved acceptance boundary;
+compiled bundles are not a platform-support claim.

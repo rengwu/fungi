@@ -3,8 +3,9 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const readline = require('node:readline');
 const crypto = require('node:crypto');
+const {serveAsset}=require('./assets.cjs');
 
-protocol.registerSchemesAsPrivileged([{scheme:'fungi',privileges:{standard:true,secure:true,supportFetchAPI:true,corsEnabled:true}}]);
+protocol.registerSchemesAsPrivileged([{scheme:'fungi',privileges:{standard:true,secure:true,supportFetchAPI:true,corsEnabled:true,stream:true}}]);
 app.setName('Fungi');
 const privateData=process.argv.find(a=>a.startsWith('--fungi-data='));
 if(privateData)app.setPath('userData',privateData.slice('--fungi-data='.length));
@@ -15,9 +16,11 @@ const pending = new Map();
 function send(value) { process.stdout.write(JSON.stringify(value)+'\n'); }
 function request(value) {
   const id = String(++sequence);
+  const line=JSON.stringify({...value,id})+'\n';
+  if(Buffer.byteLength(line)>launch.limits.jsonBytes)throw new Error('Response envelope exceeds the JSON limit');
   return new Promise((resolve,reject)=>{
     pending.set(id,{resolve,reject});
-    send({...value,id});
+    process.stdout.write(line);
   });
 }
 lines.on('line', async line => {
@@ -67,7 +70,7 @@ async function attachments(items = []) {
 }
 async function cleanup(items) { await Promise.all(items.map(x=>fs.rm(path.join(launch.outputDir,x.path),{force:true}))); }
 async function persist(type, data, items, outcome) {
-  if (Buffer.byteLength(JSON.stringify(data ?? null))>launch.limits.jsonBytes-8192) throw new Error('Response JSON exceeds 1 MiB');
+  if (Buffer.byteLength(JSON.stringify(data ?? null))>launch.limits.jsonBytes) throw new Error('Response JSON exceeds 1 MiB');
   const files=await attachments(items);
   try { return await request({type,data,artifacts:files,outcome}); }
   finally { await cleanup(files); }
@@ -83,24 +86,11 @@ async function openWindow() {
   const form=path.extname(launch.source).toLowerCase()==='.json' ? JSON.parse(await fs.readFile(launch.source,'utf8')) : null;
   // No Node.js, file:// browsing, remote navigation, or permission prompts in a
   // skill's page. Local assets are served beneath one explicit directory.
-  protocol.handle('fungi', async request => {
-    try {
-      const u=new URL(request.url);
-      const root=u.hostname==='app'?builtinRoot:u.hostname==='skill'?sourceRoot:null;
-      if (!root) return new Response('Not found',{status:404});
-      const relative=decodeURIComponent(u.pathname).replace(/^\/+/,'');
-      const target=await fs.realpath(path.resolve(root,relative));
-      if (target!==root && !target.startsWith(root+path.sep)) return new Response('Forbidden',{status:403});
-      const types={'.html':'text/html; charset=utf-8','.htm':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.gif':'image/gif','.woff':'font/woff','.woff2':'font/woff2','.wasm':'application/wasm','.mp4':'video/mp4','.webm':'video/webm'};
-      const headers=new Headers({'Content-Type':types[path.extname(target).toLowerCase()]||'application/octet-stream'});
-      headers.set('Content-Security-Policy',"default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'");
-      return new Response(await fs.readFile(target),{status:200,headers});
-    } catch { return new Response('Not found',{status:404}); }
-  });
+  protocol.handle('fungi',request=>serveAsset(request,{app:builtinRoot,skill:sourceRoot}));
   session.defaultSession.setPermissionRequestHandler((_wc,_p,callback)=>callback(false));
   session.defaultSession.setPermissionCheckHandler(()=>false);
   session.defaultSession.webRequest.onBeforeRequest((details,callback)=>{
-    callback({cancel:!['fungi:','data:','blob:','devtools:'].some(p=>details.url.startsWith(p))});
+    callback({cancel:details.resourceType==='subFrame'||!['fungi:','data:','blob:','devtools:'].some(p=>details.url.startsWith(p))});
   });
   win=new BrowserWindow({
     width:820,height:780,minWidth:420,minHeight:420,show:false,title:form?.title || 'Fungi',
@@ -110,6 +100,11 @@ async function openWindow() {
   win.setMenu(null);
   win.webContents.setWindowOpenHandler(()=>({action:'deny'}));
   win.webContents.on('will-navigate',event=>event.preventDefault());
+  // Inline srcdoc previews need no document request. Keep file/URL frame
+  // navigation blocked; sandboxing the preview is the authoring skill's job.
+  win.webContents.on('will-frame-navigate',event=>{
+    if(event.isMainFrame||event.url!=='about:srcdoc')event.preventDefault();
+  });
   win.webContents.on('render-process-gone',()=>{if (!terminal) serialized(()=>request({type:'result',outcome:'failed',error:{code:'renderer_crashed',message:'Page renderer stopped'}})).finally(()=>app.exit(1));});
   ipcMain.handle('fungi:ready',async event=>{
     assertSender(event);

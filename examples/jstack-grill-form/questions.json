@@ -1,0 +1,81 @@
+{
+  "title": "Fungi × jstack — rich questionnaire demo",
+  "questions": [
+    {
+      "id": "quick_choice",
+      "number": 1,
+      "prompt": "Which fictional expedition should we take?",
+      "context": "**Variant: simple choice.** Pick any answer, or try **Something else** with a note. Everything in this round is sample feedback, not a product decision.",
+      "recommendation": "The moon garden sounds fun for this demo.",
+      "options": [
+        "Moon garden",
+        "Underwater library",
+        "Cloud observatory"
+      ]
+    },
+    {
+      "id": "visual_choice",
+      "number": 2,
+      "prompt": "Which sample confirmation card do you prefer?",
+      "context": "**Variant: visual choices.** Click a card or its label, then add a note if you want.",
+      "options": [
+        {
+          "id": "violet",
+          "label": "Violet · round symbol",
+          "preview": {
+            "height": 245,
+            "html": "<style>body{margin:0;padding:22px;background:#17191f;color:#ececf3;font:15px system-ui;line-height:1.5}h2,h3,p{margin:0 0 12px}small{color:#a6aabc}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 16px}label{display:block;margin:14px 0}input,select{accent-color:#b6a3ff}select{padding:6px;background:#252936;color:#fff;border:1px solid #545c70;border-radius:6px}.card{padding:18px;border:1px solid #383e4f;border-radius:14px;background:#222632}.muted{color:#a6aabc}</style><div class='card'><svg width='32' height='32' viewBox='0 0 32 32' aria-label='Violet circle'><circle cx='16' cy='16' r='12' fill='#b6a3ff'/></svg><h3 style='margin-top:12px'>Feedback received</h3><p class='muted'>Your work is safely saved.</p><button style='background:#b6a3ff;color:#17191f'>Continue</button></div>"
+          }
+        },
+        {
+          "id": "amber",
+          "label": "Amber · square symbol",
+          "preview": {
+            "height": 245,
+            "html": "<style>body{margin:0;padding:22px;background:#17191f;color:#ececf3;font:15px system-ui;line-height:1.5}h2,h3,p{margin:0 0 12px}small{color:#a6aabc}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 16px}label{display:block;margin:14px 0}input,select{accent-color:#b6a3ff}select{padding:6px;background:#252936;color:#fff;border:1px solid #545c70;border-radius:6px}.card{padding:18px;border:1px solid #383e4f;border-radius:14px;background:#222632}.muted{color:#a6aabc}</style><div class='card'><svg width='32' height='32' viewBox='0 0 32 32' aria-label='Amber square'><rect x='4' y='4' width='24' height='24' rx='5' fill='#f0bd73'/></svg><h3 style='margin-top:12px'>Feedback received</h3><p class='muted'>Your work is safely saved.</p><button style='background:#f0bd73;color:#17191f'>Continue</button></div>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "animation",
+      "number": 3,
+      "prompt": "What animation timing feels right?",
+      "context": "**Variant: live prototype.** Adjust duration and easing. Those values are included in your response even without notes. You can also comment on a selected region.",
+      "preview": {
+        "height": 370,
+        "state": {
+          "duration": 320,
+          "easing": "ease-out"
+        },
+        "html": "<style>body{margin:0;padding:22px;background:#17191f;color:#ececf3;font:15px system-ui;line-height:1.5}h2,h3,p{margin:0 0 12px}small{color:#a6aabc}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 16px}label{display:block;margin:14px 0}input,select{accent-color:#b6a3ff}select{padding:6px;background:#252936;color:#fff;border:1px solid #545c70;border-radius:6px}.card{padding:18px;border:1px solid #383e4f;border-radius:14px;background:#222632}.muted{color:#a6aabc}</style><h3>Try the animation</h3><p class=\"muted\">Tune it, then press Replay. Your control values will be returned.</p><label>Duration <output id=\"duration\">320 ms</output><input id=\"speed\" type=\"range\" min=\"80\" max=\"1000\" step=\"20\" style=\"width:100%\"></label><label>Easing <select id=\"easing\"><option value=\"ease-out\">Ease out</option><option value=\"ease-in-out\">Ease in and out</option><option value=\"linear\">Linear</option></select></label><div style=\"background:#292d39;padding:8px;border-radius:12px;margin:14px 0\"><div id=\"dot\" style=\"width:38px;height:38px;background:#b6a3ff;border-radius:10px\"></div></div><button id=\"replay\" style=\"background:#b6a3ff\">Replay animation</button><script>\nconst speed=document.querySelector('#speed'),easing=document.querySelector('#easing'),dot=document.querySelector('#dot');\nfunction draw(){speed.value=grill.state.duration;easing.value=grill.state.easing;document.querySelector('#duration').textContent=grill.state.duration+' ms'}\nfunction save(){grill.setState({duration:Number(speed.value),easing:easing.value});draw()}\nspeed.oninput=save;easing.onchange=save;\ndocument.querySelector('#replay').onclick=()=>dot.animate([{transform:'translateX(0)'},{transform:'translateX(210px)'},{transform:'translateX(0)'}],{duration:grill.state.duration*2,easing:grill.state.easing});\ndraw();\n</script>"
+      }
+    },
+    {
+      "id": "layout_critique",
+      "number": 4,
+      "prompt": "What would you change in this imaginary review card?",
+      "context": "**Variant: open critique with region comments.** Use **Comment on preview**, drag over an area, and write feedback. Or use the ordinary Notes field.",
+      "preview": {
+        "height": 400,
+        "html": "<style>body{margin:0;padding:22px;background:#17191f;color:#ececf3;font:15px system-ui;line-height:1.5}h2,h3,p{margin:0 0 12px}small{color:#a6aabc}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 16px}label{display:block;margin:14px 0}input,select{accent-color:#b6a3ff}select{padding:6px;background:#252936;color:#fff;border:1px solid #545c70;border-radius:6px}.card{padding:18px;border:1px solid #383e4f;border-radius:14px;background:#222632}.muted{color:#a6aabc}</style><div style=\"display:flex;justify-content:space-between;align-items:center;margin-bottom:22px\"><strong>FIELDNOTES</strong><small>Workspace / Friday</small></div><div class=\"card\"><small style=\"color:#a9d9c3\">READY TO REVIEW</small><h2 style=\"font-size:29px;margin:14px 0\">A little room<br>for better ideas.</h2><p class=\"muted\">Review the latest draft, leave a note, and keep your day moving.</p><div style=\"display:flex;gap:12px;margin-top:22px;flex-wrap:wrap\"><button style=\"background:#b6a3ff\">Review draft</button><button style=\"background:#353b4d;color:#fff\">Maybe later</button></div></div><p class=\"muted\" style=\"font-size:12px;margin-top:16px\">Draft 04 · 3 changes · Saved just now</p>"
+      }
+    },
+    {
+      "id": "diagram",
+      "number": 5,
+      "prompt": "Is this sample handoff easy to understand?",
+      "context": "**Variant: Markdown, table, code, and Pele diagram.**\n\n```mermaid\nflowchart LR\n  A[Agent] --> B[Fungi]\n  B --> C[Questionnaire]\n  C --> D[Saved response]\n  D --> A\n```\n\n| Event | What happens |\n| --- | --- |\n| Edit | Save a draft |\n| Submit | Save the response and notify the agent |\n| Close | Preserve the draft without submitting |\n\n```sh\nfungi open form.html --delivery auto\n```",
+      "options": [
+        "Clear enough",
+        "Needs a clearer explanation"
+      ]
+    },
+    {
+      "id": "notes_images",
+      "number": 6,
+      "prompt": "Leave a note or paste an image to test the round trip.",
+      "context": "**Variant: free text with inline images.** Type anything into Notes. Optionally paste a clipboard image next to your text; it becomes a numbered image chip.\n\nYou may leave any item untouched. Submit when you are ready, and I will report exactly what came back."
+    }
+  ]
+}

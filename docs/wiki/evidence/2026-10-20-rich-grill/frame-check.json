@@ -1,0 +1,19 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "88418a1777bd66543628d8cc2d5b0803",
+  "outcome": "submitted",
+  "data": {
+    "fixture": "inline-frame-verification",
+    "checks": {
+      "inlineLoaded": true,
+      "parentBlocked": true,
+      "networkBlocked": true,
+      "bridgeMissing": true,
+      "nodeMissing": true,
+      "fileFrameBlocked": true
+    },
+    "passed": true
+  },
+  "artifacts": []
+}

@@ -1,6 +1,6 @@
 ---
 title: HTML and flat JSON interfaces
-updated: 2026-10-20
+updated: 2026-10-22
 ---
 # HTML and flat JSON interfaces
 
@@ -16,7 +16,11 @@ The portable package also includes `skills/grill-form/`. Run `fungi open skills/
 
 The bridge is `ready`, `saveDraft`, `submit` and `cancel`. Draft saving optionally takes attachments, so image bytes survive explicit reopen. HTML authors need no build system or registration manifest. The JSON schema remains experimental.
 
-The Electron page has context isolation and sandboxing. Local assets are confined beneath the source directory; remote requests, navigation and OS permission requests are denied. Native helpers remain trusted executables with ordinary OS access. Reference image fields have a file picker and an explicit editable paste target.
+Mutating calls preserve invocation order before Blob conversion begins. A failed save rejects that call without preventing later submission. The [authoring guide](../authoring.md) describes the complete replacement semantics, delivery procedure and limits. `examples/compare/index.html` demonstrates a custom comparison canvas and PNG result through the same API.
+
+The local renderer supports ES modules, custom elements, Canvas/SVG/WebGL, local and Blob workers, WebAssembly and streamed local audio/video with single byte-range seeking. Skills provide their libraries; no component catalog or framework is installed in the engine. The asset handler confines real paths to the source root, rejects directories/unsupported methods and escapes, and streams bytes instead of buffering entire media files.
+
+The Electron page has context isolation and sandboxing. Local assets are confined beneath the source directory; remote requests, navigation and OS permission requests are denied. Inline `srcdoc` frames support skill-owned previews, while frame document requests remain blocked. Skills provide their preview sandbox; the bridge accepts only the main frame. Native helpers remain trusted executables with ordinary OS access. Reference image fields have a file picker and an explicit editable paste target.
 
 Submission closes the window after acknowledgement. Persistence failure retains the input and permits retry. Manual delivery is stated in the form. Window close saves a `closed` result; it preserves acknowledged drafts. A custom page must opt into saving its state.
 
@@ -41,6 +45,10 @@ For renderer recovery, save a distinctive draft in a disposable session, termina
 File selection, image paste, image draft recovery, submission, cancellation, local HTML controls and actual write-failure recovery were observed through the native UI. Killing the isolated page renderer produced `failed` with `renderer_crashed`; explicit reopen restored `DRAFT-CRASH-RECOVER`, and closing that new window produced `closed`. The app uses a minimal native menu without development reload. No screenshot, canvas, nested JSON components or external live-update mechanism is implemented.
 
 ## Verification history
+
+- [2026-10-22 platform verification](../verification/runs/2026-10-22-platform.md) — call ordering, rendering primitives, saved/exported images, rich-form retry and a separate comparison example.
+
+- [2026-10-20 rich jstack demo](../verification/runs/2026-10-20-rich-grill.md) — inline previews, native draft checks and a completed user questionnaire with region feedback and exact-origin return.
 
 - [2026-10-20 skill proof](../verification/runs/2026-10-20-skill-proof.md) — historical grill-form port, native draft/image recovery, owner loss, retry and cancellation.
 - [2026-10-20 first proof](../verification/runs/2026-10-20-first-proof.md) — includes asset-loader and clipboard-fixture corrections, native artifact submission, and crash recovery.

@@ -1,0 +1,14 @@
+{
+  "beforeRepairs": {
+    "preloadOrdering": [
+      "cancel",
+      "save(version=2)",
+      "submit(version=3)"
+    ],
+    "jsonBoundary": "atomicJSON acknowledged a 1048574-byte string whose resulting file read failed: JSON exceeds 1 MiB",
+    "helperEnd": "Both malformed stdout and closed stdout held the owner until the fixture exited after 2 seconds",
+    "linuxLaunchRace": "HelperExitAndStdoutDrain returned write |1: broken pipe instead of the already-emitted submitted result; see linux-before-fix.log"
+  },
+  "referenceFormRetry": "Source inspection found submit awaited a rejected autosave promise. Fixed behavior was verified through native permission failure and retry without an edit.",
+  "windows": "Source/API inspection: FlushFileBuffers needs a writable handle; Unix-style directory sync cannot be used unchanged. Runtime still untested."
+}

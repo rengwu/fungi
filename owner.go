@@ -62,9 +62,26 @@ func serveSession(id string, readyOut io.Writer) error {
 		return err
 	}
 	start := map[string]any{"protocol": 1, "session": id, "input": l.Input, "draft": d.Data, "draftArtifacts": d.Artifacts, "source": l.Source, "outputDir": s.path("output"), "limits": limits(), "delivery": publicDelivery(l.Delivery)}
-	if err = emit(stdin, start); err != nil {
-		return err
+	// A helper may exit after writing its result before reading launch input.
+	// Drain stdout even if this write fails; a valid result already in the pipe
+	// still wins. A helper that never reads must not block startup indefinitely.
+	writeHelper := func(value any) error {
+		done := make(chan error, 1)
+		go func() { done <- emit(stdin, value) }()
+		timeout := time.NewTimer(5 * time.Second)
+		defer timeout.Stop()
+		select {
+		case e := <-done:
+			if e != nil {
+				_ = cmd.Process.Kill()
+			}
+			return e
+		case <-timeout.C:
+			_ = cmd.Process.Kill()
+			return fail("helper_unresponsive", "helper did not read a protocol message within 5 seconds")
+		}
 	}
+	communicationErr := writeHelper(start)
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, os.Interrupt, syscall.SIGTERM)
 	defer signal.Stop(signals)
@@ -90,7 +107,9 @@ func serveSession(id string, readyOut io.Writer) error {
 		} else if m.Type == "result" {
 			reply["result"] = terminal
 		}
-		_ = emit(stdin, reply)
+		if e := writeHelper(reply); e != nil {
+			communicationErr = e
+		}
 	}
 loop:
 	for {
@@ -127,12 +146,16 @@ loop:
 				ack(m, fail("invalid_protocol", "expected ready, draft or result"))
 			}
 		case e := <-scanDone:
-			// The scanner has consumed every complete message before Wait.
+			// EOF or malformed output ends the protocol, even if the helper keeps
+			// running. Never block in Wait on a process that cannot respond anymore.
+			_ = cmd.Process.Kill()
 			exitErr := cmd.Wait()
 			if terminal == nil {
 				detail := "helper exited without a terminal result"
 				if e != nil {
 					detail = e.Error()
+				} else if communicationErr != nil {
+					detail = communicationErr.Error()
 				} else if exitErr != nil {
 					detail = exitErr.Error()
 				}

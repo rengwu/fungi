@@ -1,0 +1,43 @@
+=== RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+--- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.10s)
+=== RUN   TestNativeRoundTripAndConcurrentIsolation
+--- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+=== RUN   TestManualOwnerSurvivesLauncherAndCollects
+--- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.03s)
+=== RUN   TestInterruptedSessionReopenPreservesOldRecord
+--- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.04s)
+=== RUN   TestWaitConnectionHasNoHumanTimeout
+--- PASS: TestWaitConnectionHasNoHumanTimeout (10.07s)
+=== RUN   TestDisconnectedWaiterDoesNotCancel
+--- PASS: TestDisconnectedWaiterDoesNotCancel (12.02s)
+=== RUN   TestHelperExitAndStdoutDrain
+    integration_test.go:213: [open --exec /bin/sh --delivery wait -- -c printf '%s\n' '{"type":"ready"}' '{"type":"result","outcome":"submitted","data":{"drained":true}}'
+        exit 7]: exit status 1
+        {"error":{"code":"operation_failed","message":"write |1: broken pipe"},"kind":"error","protocol":1}
+--- FAIL: TestHelperExitAndStdoutDrain (0.05s)
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/printf_'%s\n'_'{"type":"ready"}'_'not_json';_exec_sleep_2
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/printf_'%s\n'_'{"type":"ready"}';_exec_1>&-;_exec_sleep_2
+--- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.02s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/printf_'%s\n'_'{"type":"ready"}'_'not_json';_exec_sleep_2 (0.01s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/printf_'%s\n'_'{"type":"ready"}';_exec_1>&-;_exec_sleep_2 (0.01s)
+=== RUN   TestDurableSubmissionAndDuplicate
+--- PASS: TestDurableSubmissionAndDuplicate (0.01s)
+=== RUN   TestFailedCommitPreservesPreviousDraft
+--- PASS: TestFailedCommitPreservesPreviousDraft (0.02s)
+=== RUN   TestArtifactConfinementAndLimits
+--- PASS: TestArtifactConfinementAndLimits (0.01s)
+=== RUN   TestDraftImageSurvivesClose
+--- PASS: TestDraftImageSurvivesClose (0.01s)
+=== RUN   TestMalformedProtocolAndForms
+--- PASS: TestMalformedProtocolAndForms (0.01s)
+=== RUN   TestLockRejectsSecondOwner
+--- PASS: TestLockRejectsSecondOwner (0.00s)
+=== RUN   TestLockIOErrorIsNotAClaimOfOwnership
+--- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+=== RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+--- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.12s)
+FAIL
+FAIL	fungi	36.469s
+?   	fungi/examples/helper	[no test files]
+FAIL

@@ -1,0 +1,101 @@
+{
+  "baseRevision": "eca3d85d5214835af941d580a51dd971caac0076",
+  "dirty": true,
+  "platform": "macOS 27.0 arm64 (26A5368g)",
+  "go": "go version go1.26.4 darwin/arm64",
+  "node": "v22.19.0",
+  "sources": {
+    "delivery_test.go": "2839526a852c671afd86d18facb750420c747afa154c192dccbf1a11e8190e1e",
+    "describe.go": "6d460a5088890380dfca4f62785e1b6f45639bd840409a551d133eddc3653829",
+    "examples/compare/after.svg": "08eeb85e93376cd40c3342064ba76691c0b21aa4ad2eab3bedcda1805fc92095",
+    "examples/compare/before.svg": "0235ac337e1b3aefe5e1180cf3c8dc80d14e2a7c3abe1091a174e83eebe90937",
+    "examples/compare/index.html": "6bfb5ec9c8c1a272da6aa960f70ecf57f73bc45cd3b0986f7c15f77da3ba970a",
+    "examples/feedback.json": "bc9b4b7d02b7a1c6d45d35b79c0e086d8c259c2111879d445adb1f195d21c287",
+    "examples/helper/main.go": "e40d9e28a32cbb48395a380369b4868371573c6dd0fb3af22299ffe33b4bee0d",
+    "examples/jstack-grill-form/adapt.mjs": "47233d3e4790c924c891b5bbb8c9d666a8d1fb3560c7b7c388d2a0cb15698634",
+    "examples/jstack-grill-form/bridge.js": "2985ead38f754b4495b39b1c864cf86861437f51accd8a436e6b15b5932cc92d",
+    "examples/jstack-grill-form/questions.json": "b6fec18823e1ac17279e2b2bb19dc9411b6d4d9586e88184c0577ade545a7254",
+    "examples/review.html": "897646f32c319f7b75b1d76f0b121d690c55dff0f1fc9b1c2c0878b1438e3872",
+    "go.mod": "a241c23e00e4857bd9df822064ef8163de76472ac93f348818bef3a742af739c",
+    "integration_test.go": "91f7b2cdf638cf61bd91c2e6c063b11be80fba2468e28728c32b2b144f4fb897",
+    "lock_unix.go": "3d8de1ebee752fcdd55412a66474c3993a2a6cf7a6ad765f283ae217710dbdb4",
+    "lock_windows.go": "96f19e7dba84640864cc7c4f224de68889813fe5b438f8a263a1df7d8220b652",
+    "main.go": "723f7f08744113e40cc214f403cc36c9e3ad76b1226ba64f7d225010ffd76215",
+    "owner.go": "87738358e98fc59c6bc39003c91fbd8b7e2de6d99930bcf91a97e33223deaf43",
+    "process_unix.go": "9848afc408a55b714055586c5bfd111e39f9d6112b96ae7e681bc0ffc94dd292",
+    "process_windows.go": "23c676f2af31b732a8ff252983f7896f2862374816744c58353a433a7c2851dc",
+    "renderer/assets.cjs": "94dfa28eb94e1f43376aa2774cbd7d205aedfc464a02d164ff32a8824f790e0a",
+    "renderer/form.html": "861d7c6c3016aa3d55fb238cc7cec0e12dd4fd18d475dfcd0a3c82dd1d0b1b8a",
+    "renderer/form.js": "54d704a80450c943ebd1ddd201fa5f5767294f4f4e3ed4e02b966d6b8673f081",
+    "renderer/main.cjs": "b235f1d30be4b4659a6beccf88dfde2ecfbcb64fd645a6b5e70283edee792f75",
+    "renderer/package-lock.json": "723ecd6748962ef31ed5f168f54cb8e4adef86e465779b525c0ef19b6bd7a7a2",
+    "renderer/package.json": "4787c08ca4594c3e37b404ce1006c2a69dcafa9bab31d41f4cc5bde91f22f253",
+    "renderer/preload.cjs": "9ce703d718bb7c962edfb63067468b7039216624f3258ebdc0261f1301c66f22",
+    "scripts/assets.test.mjs": "11dae410035ad73eb7f36bf46c92ce29c9b4d494a88160d03992f82fbb419aeb",
+    "scripts/fixtures/rendering.html": "563194f6c79d9e677d8bf4cbaeebb3dedfd9027ba860732afe44124ce3cf3b8c",
+    "scripts/grill-form.test.mjs": "57851489df55f95ac058ea2bc2d77c607118f512b09af80def7f39fd7616f437",
+    "scripts/idle-helper/main.go": "437f6b689a0374ff099ad8c13d15c477c484bd318c296bab47907c8e68a35b88",
+    "scripts/package.mjs": "7e1e8409d6ea2a6cd4a96091a85b43b3947edca697e194202c48f793b90b7949",
+    "scripts/preload.test.mjs": "1a93257cff28712539cb2b37100d3435bb9b7b7317eb04a373a5e9f37dca2e51",
+    "scripts/protocol-fixture/main.go": "047054e57c75fc896e60f879b3f9c008128018fc5d6e5f35cd722063f1ab8d54",
+    "scripts/renderer-smoke.mjs": "5836b9f1ae6b352b086a554878944a9dc7c27e9d2fee39c9269c6af589c0e9ab",
+    "store.go": "99168764ff0d3fa0f80a48217f5a670d3870001b3c03340f7761c17d09282bd3",
+    "store_test.go": "d724d46b27cafa331ba13bd0960a81b97f4a66da3bfd069ca18414052fcf820d",
+    "sync_unix.go": "265202155789626910c9106109266a60e5a16c83aaf177ef0574e7566ef0086a",
+    "sync_windows.go": "440e4bcf8432067f4afda6c6c2986448be075ea586a5523dd35aa7452f3c5644"
+  },
+  "packages": {
+    "mac": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-22T08-33-53-221Z",
+      "build": {
+        "created": "2026-10-22T08-33-53-221Z",
+        "platform": "darwin",
+        "arch": "arm64",
+        "electron": "44.9.0",
+        "binarySHA256": "6a79df05e409b42c8b1cbe531cd292052e28077c010d0a9636d467137a0b7a83",
+        "runtimeArchiveSHA256": null,
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    },
+    "windows": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-win32-x64-2026-10-22T08-34-29-699Z",
+      "build": {
+        "created": "2026-10-22T08-34-29-699Z",
+        "platform": "win32",
+        "arch": "x64",
+        "electron": "44.9.0",
+        "binarySHA256": "211c3cc5d47217b1da6e93590b51636e53170b2107299474e3b80a4beefa5212",
+        "runtimeArchiveSHA256": "88e08039d0ef359bab9f674e8051fa103bd8628ea7c5a5e1daaa610a8a0c6931",
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    },
+    "linux": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-linux-x64-2026-10-22T08-34-32-574Z",
+      "build": {
+        "created": "2026-10-22T08-34-32-574Z",
+        "platform": "linux",
+        "arch": "x64",
+        "electron": "44.9.0",
+        "binarySHA256": "2aea872e537e428f4835bc2731d786cffa9c90b47d2e96414db9f29b4564aeab",
+        "runtimeArchiveSHA256": "ecced7ecb55697f92ca870939c5988557faa8acd8c222c232cae5913d318c8b9",
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    }
+  },
+  "nativeJourneyBuild": {
+    "binary": "/Users/rengwu/Desktop/Projects/fungi/fungi",
+    "binarySHA256": "30beb20e37219b92c9501b33d3de5ab8c242204347c8574312cf961d13a011a4",
+    "electron": "44.9.0",
+    "rendererFiles": {
+      "renderer/form.html": "861d7c6c3016aa3d55fb238cc7cec0e12dd4fd18d475dfcd0a3c82dd1d0b1b8a",
+      "renderer/preload.cjs": "9ce703d718bb7c962edfb63067468b7039216624f3258ebdc0261f1301c66f22",
+      "renderer/assets.cjs": "94dfa28eb94e1f43376aa2774cbd7d205aedfc464a02d164ff32a8824f790e0a",
+      "renderer/main.cjs": "b235f1d30be4b4659a6beccf88dfde2ecfbcb64fd645a6b5e70283edee792f75",
+      "renderer/form.js": "54d704a80450c943ebd1ddd201fa5f5767294f4f4e3ed4e02b966d6b8673f081"
+    }
+  },
+  "note": "Native UI journeys preceded the later helper-write and platform-file changes. Final packaged renderer checks and core suites use the final source. Renderer bytes are identical across those phases."
+}

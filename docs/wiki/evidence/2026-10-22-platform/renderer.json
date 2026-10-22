@@ -1,0 +1,118 @@
+{
+  "binary": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-22T08-33-53-221Z/fungi",
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/renderer-smoke-ehzXKP",
+  "closed": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "241947288108e7d0a9597b8d1cb8b7f7",
+    "outcome": "cancelled",
+    "artifacts": []
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "7d9a71d203ce93b4ed6f48576a8ec6fe",
+    "outcome": "submitted",
+    "data": {
+      "checks": [
+        {
+          "name": "ES modules and dynamic import",
+          "passed": true
+        },
+        {
+          "name": "custom elements and shadow DOM",
+          "passed": true
+        },
+        {
+          "name": "Canvas 2D and PNG export",
+          "passed": true
+        },
+        {
+          "name": "SVG image rendering",
+          "passed": true
+        },
+        {
+          "name": "WebGL rendering context",
+          "passed": true
+        },
+        {
+          "name": "local module worker",
+          "passed": true
+        },
+        {
+          "name": "Blob worker",
+          "passed": true
+        },
+        {
+          "name": "WebAssembly streaming compile",
+          "passed": true
+        },
+        {
+          "name": "local JSON fetch",
+          "passed": true
+        },
+        {
+          "name": "Blob fetch",
+          "passed": true
+        },
+        {
+          "name": "media metadata and seek",
+          "passed": true
+        },
+        {
+          "name": "asset byte ranges",
+          "passed": true
+        },
+        {
+          "name": "sandboxed inline preview",
+          "passed": true
+        },
+        {
+          "name": "page has no Node or IPC",
+          "passed": true
+        },
+        {
+          "name": "external and file requests denied",
+          "passed": true
+        },
+        {
+          "name": "asset symlink escape denied",
+          "passed": true
+        },
+        {
+          "name": "oversized JSON rejected without closing",
+          "passed": true
+        },
+        {
+          "name": "envelope overhead rejected without killing owner",
+          "passed": true
+        },
+        {
+          "name": "oversized attachment rejected",
+          "passed": true
+        },
+        {
+          "name": "draft data restored",
+          "passed": true
+        },
+        {
+          "name": "draft attachment restored as Blob",
+          "passed": true
+        }
+      ],
+      "version": 2
+    },
+    "artifacts": [
+      {
+        "id": "c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/renderer-smoke-ehzXKP/sessions/7d9a71d203ce93b4ed6f48576a8ec6fe/artifacts/c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d",
+        "bytes": 134,
+        "sha256": "c830f45ececb189ccacd1bb204f0863bc29b1563192bf9a9eda9180ff351301d"
+      }
+    ]
+  },
+  "artifactVerified": true
+}
