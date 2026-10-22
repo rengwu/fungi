@@ -1,0 +1,266 @@
+Set up job	﻿2026-10-22T09:49:55.6834700Z Current runner version: '2.338.0'
+Set up job	2026-10-22T09:49:55.6850200Z ##[group]Runner Image Provisioner
+Set up job	2026-10-22T09:49:55.6850720Z Hosted Compute Agent
+Set up job	2026-10-22T09:49:55.6851080Z Version: 20261012.601
+Set up job	2026-10-22T09:49:55.6851550Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+Set up job	2026-10-22T09:49:55.6852140Z Build Date: 2026-10-12T17:48:21Z
+Set up job	2026-10-22T09:49:55.6852700Z Worker ID: {7aa2d34f-6ed2-40ad-a531-2b9cf6c0168f}
+Set up job	2026-10-22T09:49:55.6853290Z Region: westus
+Set up job	2026-10-22T09:49:55.6853690Z Cloud: MacCloud
+Set up job	2026-10-22T09:49:55.6894550Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.6895750Z ##[group]Operating System
+Set up job	2026-10-22T09:49:55.6896230Z macOS
+Set up job	2026-10-22T09:49:55.6896550Z 26.6.2
+Set up job	2026-10-22T09:49:55.6896840Z 25G83
+Set up job	2026-10-22T09:49:55.6897170Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.6897500Z ##[group]Runner Image
+Set up job	2026-10-22T09:49:55.6897840Z Image: macos-26-arm64
+Set up job	2026-10-22T09:49:55.6898210Z Version: 20261013.0424.1
+Set up job	2026-10-22T09:49:55.6899020Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20261013.0424/images/macos/macos-26-arm64-Readme.md
+Set up job	2026-10-22T09:49:55.6900290Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20261013.0424
+Set up job	2026-10-22T09:49:55.6900900Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.6901570Z ##[group]GITHUB_TOKEN Permissions
+Set up job	2026-10-22T09:49:55.6902780Z Contents: read
+Set up job	2026-10-22T09:49:55.6903140Z Metadata: read
+Set up job	2026-10-22T09:49:55.6903500Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.6904790Z Secret source: Actions
+Set up job	2026-10-22T09:49:55.6905390Z Cache mode: write
+Set up job	2026-10-22T09:49:55.6905870Z Prepare workflow directory
+Set up job	2026-10-22T09:49:55.7101650Z Prepare all required actions
+Set up job	2026-10-22T09:49:55.7132230Z Getting action download info
+Set up job	2026-10-22T09:49:55.9747600Z Download action repository 'actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+Set up job	2026-10-22T09:49:56.1228800Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+Set up job	2026-10-22T09:49:56.7964960Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+Set up job	2026-10-22T09:49:56.9410910Z Complete job name: Foundation (macOS workflow including WebGL)
+Run go version	﻿2026-10-22T09:50:15.7926870Z ##[group]Run go version
+Run go version	2026-10-22T09:50:15.7927080Z ^[[36;1mgo version^[[0m
+Run go version	2026-10-22T09:50:15.7964080Z shell: /bin/bash -e {0}
+Run go version	2026-10-22T09:50:15.7964240Z env:
+Run go version	2026-10-22T09:50:15.7964360Z   GOTOOLCHAIN: local
+Run go version	2026-10-22T09:50:15.7964490Z ##[endgroup]
+Run go version	2026-10-22T09:50:15.8316350Z go version go1.26.4 darwin/arm64
+Run go vet ./...	﻿2026-10-22T09:50:15.8349120Z ##[group]Run go vet ./...
+Run go vet ./...	2026-10-22T09:50:15.8349300Z ^[[36;1mgo vet ./...^[[0m
+Run go vet ./...	2026-10-22T09:50:15.8376700Z shell: /bin/bash -e {0}
+Run go vet ./...	2026-10-22T09:50:15.8376860Z env:
+Run go vet ./...	2026-10-22T09:50:15.8376980Z   GOTOOLCHAIN: local
+Run go vet ./...	2026-10-22T09:50:15.8377160Z ##[endgroup]
+Run go test -race -v ./...	﻿2026-10-22T09:50:19.1023350Z ##[group]Run go test -race -v ./...
+Run go test -race -v ./...	2026-10-22T09:50:19.1023600Z ^[[36;1mgo test -race -v ./...^[[0m
+Run go test -race -v ./...	2026-10-22T09:50:19.1050520Z shell: /bin/bash -e {0}
+Run go test -race -v ./...	2026-10-22T09:50:19.1050660Z env:
+Run go test -race -v ./...	2026-10-22T09:50:19.1050760Z   GOTOOLCHAIN: local
+Run go test -race -v ./...	2026-10-22T09:50:19.1050890Z ##[endgroup]
+Run go test -race -v ./...	2026-10-22T09:51:06.1643960Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+Run go test -race -v ./...	2026-10-22T09:51:06.1644710Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.04s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1645320Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+Run go test -race -v ./...	2026-10-22T09:51:06.1646780Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.03s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1647560Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+Run go test -race -v ./...	2026-10-22T09:51:06.1648140Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.02s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1648720Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+Run go test -race -v ./...	2026-10-22T09:51:06.1649290Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.03s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1649910Z === RUN   TestWaitConnectionHasNoHumanTimeout
+Run go test -race -v ./...	2026-10-22T09:51:06.1650450Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.03s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1650870Z === RUN   TestDisconnectedWaiterDoesNotCancel
+Run go test -race -v ./...	2026-10-22T09:51:06.1651250Z --- PASS: TestDisconnectedWaiterDoesNotCancel (12.01s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1651580Z === RUN   TestHelperExitAndStdoutDrain
+Run go test -race -v ./...	2026-10-22T09:51:06.1651930Z --- PASS: TestHelperExitAndStdoutDrain (0.03s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1652370Z === RUN   TestRendererStartupFailureIsSavedAndDiagnosable
+Run go test -race -v ./...	2026-10-22T09:51:06.1652910Z --- PASS: TestRendererStartupFailureIsSavedAndDiagnosable (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1653420Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+Run go test -race -v ./...	2026-10-22T09:51:06.1653830Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+Run go test -race -v ./...	2026-10-22T09:51:06.1654260Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+Run go test -race -v ./...	2026-10-22T09:51:06.1654780Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.04s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1655900Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1656460Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1656970Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+Run go test -race -v ./...	2026-10-22T09:51:06.1657450Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.03s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1657940Z === RUN   TestDurableSubmissionAndDuplicate
+Run go test -race -v ./...	2026-10-22T09:51:06.1658360Z --- PASS: TestDurableSubmissionAndDuplicate (2.07s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1658740Z === RUN   TestFailedCommitPreservesPreviousDraft
+Run go test -race -v ./...	2026-10-22T09:51:06.1659150Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1659560Z === RUN   TestArtifactConfinementAndLimits
+Run go test -race -v ./...	2026-10-22T09:51:06.1659990Z --- PASS: TestArtifactConfinementAndLimits (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1660320Z === RUN   TestDraftImageSurvivesClose
+Run go test -race -v ./...	2026-10-22T09:51:06.1660700Z --- PASS: TestDraftImageSurvivesClose (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1661100Z === RUN   TestMalformedProtocolAndForms
+Run go test -race -v ./...	2026-10-22T09:51:06.1661460Z --- PASS: TestMalformedProtocolAndForms (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1661800Z === RUN   TestLockRejectsSecondOwner
+Run go test -race -v ./...	2026-10-22T09:51:06.1662190Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1662570Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+Run go test -race -v ./...	2026-10-22T09:51:06.1663010Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1663420Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+Run go test -race -v ./...	2026-10-22T09:51:06.1663940Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.09s)
+Run go test -race -v ./...	2026-10-22T09:51:06.1664240Z PASS
+Run go test -race -v ./...	2026-10-22T09:51:06.1664470Z ok  	fungi	42.204s
+Run go test -race -v ./...	2026-10-22T09:51:06.1664860Z ?   	fungi/examples/helper	[no test files]
+Run go test -race -v ./...	2026-10-22T09:51:06.1665250Z ?   	fungi/scripts/idle-helper	[no test files]
+Run go test -race -v ./...	2026-10-22T09:51:06.1665590Z ?   	fungi/scripts/protocol-fixture	[no test files]
+Run node --test	﻿2026-10-22T09:51:06.1967960Z ##[group]Run node --test
+Run node --test	2026-10-22T09:51:06.1968150Z ^[[36;1mnode --test^[[0m
+Run node --test	2026-10-22T09:51:06.1997290Z shell: /bin/bash -e {0}
+Run node --test	2026-10-22T09:51:06.1997420Z env:
+Run node --test	2026-10-22T09:51:06.1997530Z   GOTOOLCHAIN: local
+Run node --test	2026-10-22T09:51:06.1997660Z ##[endgroup]
+Run node --test	2026-10-22T09:51:06.2725730Z TAP version 13
+Run node --test	2026-10-22T09:51:06.3255460Z # Subtest: local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:06.3258410Z ok 1 - local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:06.3258840Z   ---
+Run node --test	2026-10-22T09:51:06.3259110Z   duration_ms: 24.985833
+Run node --test	2026-10-22T09:51:06.3259350Z   type: 'test'
+Run node --test	2026-10-22T09:51:06.3259510Z   ...
+Run node --test	2026-10-22T09:51:06.3295350Z # Subtest: simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:06.3296040Z ok 2 - simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:06.3296430Z   ---
+Run node --test	2026-10-22T09:51:06.3296630Z   duration_ms: 0.890459
+Run node --test	2026-10-22T09:51:06.3296800Z   type: 'test'
+Run node --test	2026-10-22T09:51:06.3297050Z   ...
+Run node --test	2026-10-22T09:51:06.3297560Z # Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:06.3298380Z ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:06.3298780Z   ---
+Run node --test	2026-10-22T09:51:06.3298950Z   duration_ms: 0.282084
+Run node --test	2026-10-22T09:51:06.3299110Z   type: 'test'
+Run node --test	2026-10-22T09:51:06.3299250Z   ...
+Run node --test	2026-10-22T09:51:06.3299670Z # Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:06.3300250Z ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:06.3300630Z   ---
+Run node --test	2026-10-22T09:51:06.3300840Z   duration_ms: 0.712541
+Run node --test	2026-10-22T09:51:06.3301040Z   type: 'test'
+Run node --test	2026-10-22T09:51:06.3301210Z   ...
+Run node --test	2026-10-22T09:51:06.3301690Z # Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:06.3302360Z ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:06.3302710Z   ---
+Run node --test	2026-10-22T09:51:06.3302920Z   duration_ms: 0.122334
+Run node --test	2026-10-22T09:51:06.3303610Z   type: 'test'
+Run node --test	2026-10-22T09:51:06.3303780Z   ...
+Run node --test	2026-10-22T09:51:06.3304100Z # Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:06.3304570Z ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:06.3304860Z   ---
+Run node --test	2026-10-22T09:51:06.3305070Z   duration_ms: 3.240291
+Run node --test	2026-10-22T09:51:06.3305280Z   type: 'test'
+Run node --test	2026-10-22T09:51:06.3305440Z   ...
+Run node --test	2026-10-22T09:51:06.3305710Z # Subtest: rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:06.3306070Z ok 7 - rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:06.3313290Z   ---
+Run node --test	2026-10-22T09:51:06.3313560Z   duration_ms: 0.710583
+Run node --test	2026-10-22T09:51:06.3313770Z   type: 'test'
+Run node --test	2026-10-22T09:51:06.3313930Z   ...
+Run node --test	2026-10-22T09:51:06.3314080Z 1..7
+Run node --test	2026-10-22T09:51:06.3314220Z # tests 7
+Run node --test	2026-10-22T09:51:06.3314340Z # suites 0
+Run node --test	2026-10-22T09:51:06.3314490Z # pass 7
+Run node --test	2026-10-22T09:51:06.3314640Z # fail 0
+Run node --test	2026-10-22T09:51:06.3314770Z # cancelled 0
+Run node --test	2026-10-22T09:51:06.3314960Z # skipped 0
+Run node --test	2026-10-22T09:51:06.3315110Z # todo 0
+Run node --test	2026-10-22T09:51:06.3315280Z # duration_ms 80.202209
+Run node docs/wiki/_build.mjs --check	﻿2026-10-22T09:51:06.3348600Z ##[group]Run node docs/wiki/_build.mjs --check
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:06.3348850Z ^[[36;1mnode docs/wiki/_build.mjs --check^[[0m
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:06.3376850Z shell: /bin/bash -e {0}
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:06.3376980Z env:
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:06.3377080Z   GOTOOLCHAIN: local
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:06.3377210Z ##[endgroup]
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:06.5128840Z Checked 32 pages and internal links; index.html is current.
+Exercise renderer (macOS workflow including WebGL)	﻿2026-10-22T09:51:09.0467550Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0467850Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0468120Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs ./fungi ^[[0m
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0468360Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0468610Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi.exe^[[0m
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0468840Z ^[[36;1melse^[[0m
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0469020Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi^[[0m
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0469210Z ^[[36;1mfi^[[0m
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0496810Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0497010Z env:
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0497130Z   GOTOOLCHAIN: local
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:09.0497250Z ##[endgroup]
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7076440Z {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7077200Z   "evidence": "/Users/runner/work/fungi/fungi/verification-output/renderer-smoke-wZfDtE/evidence.json",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7077730Z   "scope": "workflow including WebGL",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7078100Z   "excluded": [],
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7078260Z   "checks": [
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7078410Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7079190Z       "name": "ES modules and dynamic import",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7079520Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7079720Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7079850Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7080160Z       "name": "custom elements and shadow DOM",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7080490Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7080670Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7080890Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7081160Z       "name": "Canvas 2D and PNG export",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7081400Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7081570Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7081700Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7081920Z       "name": "SVG image rendering",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7082150Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7082340Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7082460Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7082680Z       "name": "WebGL rendering context",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7082950Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7083190Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7083350Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7083640Z       "name": "local module worker",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7083930Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7084140Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7084300Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7084540Z       "name": "Blob worker",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7084800Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7084960Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7085140Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7085490Z       "name": "WebAssembly streaming compile",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7085730Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7085880Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7086000Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7086400Z       "name": "local JSON fetch",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7086700Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7086900Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7087040Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7087290Z       "name": "Blob fetch",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7087530Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7087700Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7087870Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7088170Z       "name": "media metadata and seek",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7088480Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7088690Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7088840Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7089130Z       "name": "asset byte ranges",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7089360Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7089500Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7089600Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7089840Z       "name": "sandboxed inline preview",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7090050Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7090210Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7090320Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7090600Z       "name": "page has no Node or IPC",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7090920Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7091110Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7091250Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7091570Z       "name": "external and file requests denied",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7091830Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7091980Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7092090Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7099110Z       "name": "asset symlink escape denied",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7099470Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7100010Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7100120Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7100410Z       "name": "oversized JSON rejected without closing",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7100700Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7100880Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7101030Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7101400Z       "name": "envelope overhead rejected without killing owner",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7101640Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7101760Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7101860Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7102080Z       "name": "oversized attachment rejected",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7102290Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7102420Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7102510Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7102710Z       "name": "draft data restored",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7102900Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7103020Z     },
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7103120Z     {
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7103360Z       "name": "draft attachment restored as Blob",
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7103570Z       "passed": true
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7103690Z     }
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7103790Z   ]
+Exercise renderer (macOS workflow including WebGL)	2026-10-22T09:51:12.7103880Z }

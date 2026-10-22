@@ -1,0 +1,19 @@
+{
+  "evidence": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-30ZxRl/evidence.json",
+  "binary": "/home/runner/work/fungi/fungi/fungi",
+  "directory": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-30ZxRl",
+  "scope": "unsupported renderer startup failure; no UI support established",
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "5979de8cc9d1ddb44d117121a473bb0f",
+    "outcome": "failed",
+    "artifacts": [],
+    "error": {
+      "code": "renderer_startup_failed",
+      "message": "bundled renderer exited before readiness: signal: trace/breakpoint trap (core dumped). Diagnostics: /home/runner/work/fungi/fungi/verification-output/renderer-smoke-30ZxRl/sessions/5979de8cc9d1ddb44d117121a473bb0f/worker.log. Check docs/wiki/platforms.md in the portable package for verified environments; Fungi does not install OS dependencies or change sandbox policy."
+    }
+  },
+  "diagnostics": "[5435:1022/095131.525316:FATAL:sandbox/linux/suid/client/setuid_sandbox_host.cc:166] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /home/runner/work/fungi/fungi/renderer/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.\n",
+  "childPathEmpty": true
+}

@@ -1,0 +1,74 @@
+{
+  "windows": {
+    "scope": "workflow including WebGL",
+    "os": [
+      "2026-10-22T09:49:55.4518888Z ##[group]Operating System",
+      "2026-10-22T09:49:55.4520037Z Microsoft Windows Server 2025",
+      "2026-10-22T09:49:55.4521191Z 10.0.26100",
+      "2026-10-22T09:49:55.4522087Z Datacenter",
+      "2026-10-22T09:49:55.4522988Z ##[endgroup]"
+    ],
+    "coreRootTests": 18,
+    "passedRendererChecks": 21,
+    "unavailable": [],
+    "startupFailure": null
+  },
+  "macos": {
+    "scope": "workflow including WebGL",
+    "os": [
+      "2026-10-22T09:49:55.6895750Z ##[group]Operating System",
+      "2026-10-22T09:49:55.6896230Z macOS",
+      "2026-10-22T09:49:55.6896550Z 26.6.2",
+      "2026-10-22T09:49:55.6896840Z 25G83",
+      "2026-10-22T09:49:55.6897170Z ##[endgroup]"
+    ],
+    "coreRootTests": 18,
+    "passedRendererChecks": 21,
+    "unavailable": [],
+    "startupFailure": null
+  },
+  "ubuntu22": {
+    "scope": "workflow with optional WebGL availability",
+    "os": [
+      "2026-10-22T09:49:56.4442085Z ##[group]Operating System",
+      "2026-10-22T09:49:56.4443363Z Ubuntu",
+      "2026-10-22T09:49:56.4444316Z 22.04.5",
+      "2026-10-22T09:49:56.4445746Z LTS",
+      "2026-10-22T09:49:56.4447501Z ##[endgroup]"
+    ],
+    "coreRootTests": 18,
+    "passedRendererChecks": 20,
+    "unavailable": [
+      {
+        "name": "WebGL rendering context",
+        "passed": false,
+        "unavailable": "WebGL 2 context unavailable on this display/GPU"
+      }
+    ],
+    "startupFailure": null
+  },
+  "ubuntu24": {
+    "scope": "unsupported renderer startup failure; no UI support established",
+    "os": [
+      "2026-10-22T09:49:56.1309413Z ##[group]Operating System",
+      "2026-10-22T09:49:56.1310528Z Ubuntu",
+      "2026-10-22T09:49:56.1311929Z 24.04.5",
+      "2026-10-22T09:49:56.1313435Z LTS",
+      "2026-10-22T09:49:56.1314364Z ##[endgroup]"
+    ],
+    "coreRootTests": 18,
+    "passedRendererChecks": 0,
+    "unavailable": [],
+    "startupFailure": {
+      "protocol": 1,
+      "kind": "result",
+      "session": "5979de8cc9d1ddb44d117121a473bb0f",
+      "outcome": "failed",
+      "artifacts": [],
+      "error": {
+        "code": "renderer_startup_failed",
+        "message": "bundled renderer exited before readiness: signal: trace/breakpoint trap (core dumped). Diagnostics: /home/runner/work/fungi/fungi/verification-output/renderer-smoke-30ZxRl/sessions/5979de8cc9d1ddb44d117121a473bb0f/worker.log. Check docs/wiki/platforms.md in the portable package for verified environments; Fungi does not install OS dependencies or change sandbox policy."
+      }
+    }
+  }
+}

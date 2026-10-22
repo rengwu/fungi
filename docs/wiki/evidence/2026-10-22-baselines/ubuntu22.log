@@ -1,0 +1,285 @@
+Set up job	﻿2026-10-22T09:49:56.4391522Z Current runner version: '2.338.0'
+Set up job	2026-10-22T09:49:56.4428716Z ##[group]Runner Image Provisioner
+Set up job	2026-10-22T09:49:56.4430148Z Hosted Compute Agent
+Set up job	2026-10-22T09:49:56.4431397Z Version: 20261015.610
+Set up job	2026-10-22T09:49:56.4432673Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+Set up job	2026-10-22T09:49:56.4434036Z Build Date: 2026-10-14T17:06:54Z
+Set up job	2026-10-22T09:49:56.4435528Z Worker ID: {818163a9-23fc-4e83-bb55-c504306e77d8}
+Set up job	2026-10-22T09:49:56.4437301Z Region: southcentralus
+Set up job	2026-10-22T09:49:56.4438542Z Cloud: Azure
+Set up job	2026-10-22T09:49:56.4439619Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.4442085Z ##[group]Operating System
+Set up job	2026-10-22T09:49:56.4443363Z Ubuntu
+Set up job	2026-10-22T09:49:56.4444316Z 22.04.5
+Set up job	2026-10-22T09:49:56.4445746Z LTS
+Set up job	2026-10-22T09:49:56.4447501Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.4448611Z ##[group]Runner Image
+Set up job	2026-10-22T09:49:56.4449941Z Image: ubuntu-22.04
+Set up job	2026-10-22T09:49:56.4451054Z Version: 20261018.327.1
+Set up job	2026-10-22T09:49:56.4453067Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261018.327/images/ubuntu/Ubuntu2204-Readme.md
+Set up job	2026-10-22T09:49:56.4456846Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261018.327
+Set up job	2026-10-22T09:49:56.4458821Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.4460795Z ##[group]GITHUB_TOKEN Permissions
+Set up job	2026-10-22T09:49:56.4464031Z Contents: read
+Set up job	2026-10-22T09:49:56.4465164Z Metadata: read
+Set up job	2026-10-22T09:49:56.4466819Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.4470176Z Secret source: Actions
+Set up job	2026-10-22T09:49:56.4471830Z Cache mode: write
+Set up job	2026-10-22T09:49:56.4473418Z Prepare workflow directory
+Set up job	2026-10-22T09:49:56.5182229Z Prepare all required actions
+Set up job	2026-10-22T09:49:56.5254265Z Getting action download info
+Set up job	2026-10-22T09:49:56.7880095Z Download action repository 'actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+Set up job	2026-10-22T09:49:56.9532758Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+Set up job	2026-10-22T09:49:57.4221266Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+Set up job	2026-10-22T09:49:57.6498431Z Complete job name: Foundation (Ubuntu 22.04 workflow; WebGL optional)
+Run go version	﻿2026-10-22T09:50:15.4390266Z ##[group]Run go version
+Run go version	2026-10-22T09:50:15.4390588Z ^[[36;1mgo version^[[0m
+Run go version	2026-10-22T09:50:15.4429192Z shell: /usr/bin/bash -e {0}
+Run go version	2026-10-22T09:50:15.4429456Z env:
+Run go version	2026-10-22T09:50:15.4429648Z   GOTOOLCHAIN: local
+Run go version	2026-10-22T09:50:15.4429864Z ##[endgroup]
+Run go version	2026-10-22T09:50:15.4551984Z go version go1.26.4 linux/amd64
+Run go vet ./...	﻿2026-10-22T09:50:15.4592541Z ##[group]Run go vet ./...
+Run go vet ./...	2026-10-22T09:50:15.4592829Z ^[[36;1mgo vet ./...^[[0m
+Run go vet ./...	2026-10-22T09:50:15.4626602Z shell: /usr/bin/bash -e {0}
+Run go vet ./...	2026-10-22T09:50:15.4626857Z env:
+Run go vet ./...	2026-10-22T09:50:15.4627060Z   GOTOOLCHAIN: local
+Run go vet ./...	2026-10-22T09:50:15.4627283Z ##[endgroup]
+Run go test -race -v ./...	﻿2026-10-22T09:50:29.6443534Z ##[group]Run go test -race -v ./...
+Run go test -race -v ./...	2026-10-22T09:50:29.6443883Z ^[[36;1mgo test -race -v ./...^[[0m
+Run go test -race -v ./...	2026-10-22T09:50:29.6479007Z shell: /usr/bin/bash -e {0}
+Run go test -race -v ./...	2026-10-22T09:50:29.6479259Z env:
+Run go test -race -v ./...	2026-10-22T09:50:29.6479449Z   GOTOOLCHAIN: local
+Run go test -race -v ./...	2026-10-22T09:50:29.6479666Z ##[endgroup]
+Run go test -race -v ./...	2026-10-22T09:51:28.8365464Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+Run go test -race -v ./...	2026-10-22T09:51:28.8373132Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8380635Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+Run go test -race -v ./...	2026-10-22T09:51:28.8381924Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8382945Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+Run go test -race -v ./...	2026-10-22T09:51:28.8383925Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.02s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8384911Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+Run go test -race -v ./...	2026-10-22T09:51:28.8386327Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8387280Z === RUN   TestWaitConnectionHasNoHumanTimeout
+Run go test -race -v ./...	2026-10-22T09:51:28.8418521Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.01s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8419575Z === RUN   TestDisconnectedWaiterDoesNotCancel
+Run go test -race -v ./...	2026-10-22T09:51:28.8420442Z --- PASS: TestDisconnectedWaiterDoesNotCancel (12.00s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8421242Z === RUN   TestHelperExitAndStdoutDrain
+Run go test -race -v ./...	2026-10-22T09:51:28.8422004Z --- PASS: TestHelperExitAndStdoutDrain (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8422856Z === RUN   TestRendererStartupFailureIsSavedAndDiagnosable
+Run go test -race -v ./...	2026-10-22T09:51:28.8423893Z --- PASS: TestRendererStartupFailureIsSavedAndDiagnosable (0.03s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8424920Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+Run go test -race -v ./...	2026-10-22T09:51:28.8425762Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+Run go test -race -v ./...	2026-10-22T09:51:28.8432051Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+Run go test -race -v ./...	2026-10-22T09:51:28.8432993Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8434048Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8435222Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8436639Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+Run go test -race -v ./...	2026-10-22T09:51:28.8437536Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.02s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8438344Z === RUN   TestDurableSubmissionAndDuplicate
+Run go test -race -v ./...	2026-10-22T09:51:28.8439769Z --- PASS: TestDurableSubmissionAndDuplicate (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8440584Z === RUN   TestFailedCommitPreservesPreviousDraft
+Run go test -race -v ./...	2026-10-22T09:51:28.8441426Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8442289Z === RUN   TestArtifactConfinementAndLimits
+Run go test -race -v ./...	2026-10-22T09:51:28.8443148Z --- PASS: TestArtifactConfinementAndLimits (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8443898Z === RUN   TestDraftImageSurvivesClose
+Run go test -race -v ./...	2026-10-22T09:51:28.8444609Z --- PASS: TestDraftImageSurvivesClose (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8445306Z === RUN   TestMalformedProtocolAndForms
+Run go test -race -v ./...	2026-10-22T09:51:28.8446517Z --- PASS: TestMalformedProtocolAndForms (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8447288Z === RUN   TestLockRejectsSecondOwner
+Run go test -race -v ./...	2026-10-22T09:51:28.8448010Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8448773Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+Run go test -race -v ./...	2026-10-22T09:51:28.8449629Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8450551Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+Run go test -race -v ./...	2026-10-22T09:51:28.8451562Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.13s)
+Run go test -race -v ./...	2026-10-22T09:51:28.8452276Z PASS
+Run go test -race -v ./...	2026-10-22T09:51:28.8452688Z ok  	fungi	40.383s
+Run go test -race -v ./...	2026-10-22T09:51:28.8453279Z ?   	fungi/examples/helper	[no test files]
+Run go test -race -v ./...	2026-10-22T09:51:28.8453971Z ?   	fungi/scripts/idle-helper	[no test files]
+Run go test -race -v ./...	2026-10-22T09:51:28.8454747Z ?   	fungi/scripts/protocol-fixture	[no test files]
+Run node --test	﻿2026-10-22T09:51:28.9230758Z ##[group]Run node --test
+Run node --test	2026-10-22T09:51:28.9231060Z ^[[36;1mnode --test^[[0m
+Run node --test	2026-10-22T09:51:28.9266344Z shell: /usr/bin/bash -e {0}
+Run node --test	2026-10-22T09:51:28.9266601Z env:
+Run node --test	2026-10-22T09:51:28.9266792Z   GOTOOLCHAIN: local
+Run node --test	2026-10-22T09:51:28.9267008Z ##[endgroup]
+Run node --test	2026-10-22T09:51:29.0235418Z TAP version 13
+Run node --test	2026-10-22T09:51:29.1387755Z # Subtest: local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:29.1402131Z ok 1 - local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:29.1419181Z   ---
+Run node --test	2026-10-22T09:51:29.1419842Z   duration_ms: 64.785594
+Run node --test	2026-10-22T09:51:29.1420477Z   type: 'test'
+Run node --test	2026-10-22T09:51:29.1420942Z   ...
+Run node --test	2026-10-22T09:51:29.2071338Z # Subtest: simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:29.2077643Z ok 2 - simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:29.2078833Z   ---
+Run node --test	2026-10-22T09:51:29.2079514Z   duration_ms: 1.802315
+Run node --test	2026-10-22T09:51:29.2080218Z   type: 'test'
+Run node --test	2026-10-22T09:51:29.2080920Z   ...
+Run node --test	2026-10-22T09:51:29.2091304Z # Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:29.2107073Z ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:29.2113903Z   ---
+Run node --test	2026-10-22T09:51:29.2114623Z   duration_ms: 0.564815
+Run node --test	2026-10-22T09:51:29.2115327Z   type: 'test'
+Run node --test	2026-10-22T09:51:29.2116146Z   ...
+Run node --test	2026-10-22T09:51:29.2117272Z # Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:29.2118785Z ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:29.2119784Z   ---
+Run node --test	2026-10-22T09:51:29.2120435Z   duration_ms: 1.412587
+Run node --test	2026-10-22T09:51:29.2121115Z   type: 'test'
+Run node --test	2026-10-22T09:51:29.2121720Z   ...
+Run node --test	2026-10-22T09:51:29.2122884Z # Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:29.2124442Z ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:29.2125479Z   ---
+Run node --test	2026-10-22T09:51:29.2126383Z   duration_ms: 0.334675
+Run node --test	2026-10-22T09:51:29.2127701Z   type: 'test'
+Run node --test	2026-10-22T09:51:29.2136962Z   ...
+Run node --test	2026-10-22T09:51:29.2667530Z # Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:29.2681659Z ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:29.2682685Z   ---
+Run node --test	2026-10-22T09:51:29.2683341Z   duration_ms: 6.412402
+Run node --test	2026-10-22T09:51:29.2683974Z   type: 'test'
+Run node --test	2026-10-22T09:51:29.2685069Z   ...
+Run node --test	2026-10-22T09:51:29.2686194Z # Subtest: rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:29.2687378Z ok 7 - rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:29.2688186Z   ---
+Run node --test	2026-10-22T09:51:29.2688808Z   duration_ms: 1.389394
+Run node --test	2026-10-22T09:51:29.2689428Z   type: 'test'
+Run node --test	2026-10-22T09:51:29.2689998Z   ...
+Run node --test	2026-10-22T09:51:29.2760500Z 1..7
+Run node --test	2026-10-22T09:51:29.2761155Z # tests 7
+Run node --test	2026-10-22T09:51:29.2761808Z # suites 0
+Run node --test	2026-10-22T09:51:29.2762525Z # pass 7
+Run node --test	2026-10-22T09:51:29.2763126Z # fail 0
+Run node --test	2026-10-22T09:51:29.2763709Z # cancelled 0
+Run node --test	2026-10-22T09:51:29.2764343Z # skipped 0
+Run node --test	2026-10-22T09:51:29.2764919Z # todo 0
+Run node --test	2026-10-22T09:51:29.2765566Z # duration_ms 315.783411
+Run node docs/wiki/_build.mjs --check	﻿2026-10-22T09:51:29.2876777Z ##[group]Run node docs/wiki/_build.mjs --check
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:29.2877471Z ^[[36;1mnode docs/wiki/_build.mjs --check^[[0m
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:29.2927451Z shell: /usr/bin/bash -e {0}
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:29.2927907Z env:
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:29.2928248Z   GOTOOLCHAIN: local
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:29.2928647Z ##[endgroup]
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:29.6527520Z Checked 32 pages and internal links; index.html is current.
+Linux sandbox prerequisites (diagnostic only)	﻿2026-10-22T09:51:33.2595109Z ##[group]Run cat /proc/sys/kernel/unprivileged_userns_clone
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2596191Z ^[[36;1mcat /proc/sys/kernel/unprivileged_userns_clone^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2597017Z ^[[36;1mif [[ -f /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]]; then^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2597915Z ^[[36;1m  cat /proc/sys/kernel/apparmor_restrict_unprivileged_userns^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2598559Z ^[[36;1mfi^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2598996Z ^[[36;1munshare --user --map-root-user true || true^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2641336Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2641695Z env:
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2641892Z   GOTOOLCHAIN: local
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2642113Z ##[endgroup]
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2716463Z 1
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:33.2731431Z 0
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	﻿2026-10-22T09:51:33.2894532Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2895220Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2896356Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs ./fungi --allow-unavailable-webgl^[[0m
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2897283Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2897924Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi.exe^[[0m
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2898466Z ^[[36;1melse^[[0m
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2898895Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi^[[0m
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2899416Z ^[[36;1mfi^[[0m
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2947238Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2948222Z env:
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2959748Z   GOTOOLCHAIN: local
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:33.2960537Z ##[endgroup]
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3873708Z {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3877574Z   "evidence": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-xLK2gi/evidence.json",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3883475Z   "scope": "workflow with optional WebGL availability",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3884352Z   "excluded": [
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3884854Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3885573Z       "name": "WebGL rendering context",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3886609Z       "passed": false,
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3887622Z       "unavailable": "WebGL 2 context unavailable on this display/GPU"
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3888420Z     }
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3888901Z   ],
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3889388Z   "checks": [
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3889872Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3890569Z       "name": "ES modules and dynamic import",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3891300Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3891844Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3892308Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3893028Z       "name": "custom elements and shadow DOM",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3893793Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3894332Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3894870Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3895590Z       "name": "Canvas 2D and PNG export",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3896808Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3897353Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3897824Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3898467Z       "name": "SVG image rendering",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3899156Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3899678Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3900128Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3900795Z       "name": "WebGL rendering context",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3901501Z       "passed": false,
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3902487Z       "unavailable": "WebGL 2 context unavailable on this display/GPU"
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3903280Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3903730Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3904374Z       "name": "local module worker",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3905061Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3905652Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3910127Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3910736Z       "name": "Blob worker",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3911380Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3911886Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3912332Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3913021Z       "name": "WebAssembly streaming compile",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3913710Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3914216Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3914644Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3915238Z       "name": "local JSON fetch",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3916064Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3918549Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3919090Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3919863Z       "name": "Blob fetch",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3920472Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3921065Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3921518Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3922170Z       "name": "media metadata and seek",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3922829Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3923315Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3923766Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3924419Z       "name": "asset byte ranges",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3925112Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3925624Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3926316Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3927127Z       "name": "sandboxed inline preview",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3927818Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3928318Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3928754Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3929544Z       "name": "page has no Node or IPC",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3930669Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3931198Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3931633Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3932347Z       "name": "external and file requests denied",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3933052Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3933548Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3933983Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3934649Z       "name": "asset symlink escape denied",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3935328Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3935825Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3937078Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3937941Z       "name": "oversized JSON rejected without closing",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3938967Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3939509Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3940288Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3941180Z       "name": "envelope overhead rejected without killing owner",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3942029Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3942581Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3943050Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3943790Z       "name": "oversized attachment rejected",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3944553Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3945123Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3945592Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3946866Z       "name": "draft data restored",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3947763Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3948355Z     },
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3948803Z     {
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3949530Z       "name": "draft attachment restored as Blob",
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3950249Z       "passed": true
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3950744Z     }
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3951219Z   ]
+Exercise renderer (Ubuntu 22.04 workflow; WebGL optional)	2026-10-22T09:51:36.3951669Z }

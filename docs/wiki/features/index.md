@@ -1,10 +1,13 @@
 ---
 title: Feature map
-updated: 2026-10-20
+updated: 2026-10-22
 ---
 # Feature map
 
-The first implementation is a macOS prototype. Expected behavior follows the [accepted scope](../planning.md#accepted-first-milestone-scope); coverage follows the dated verification report, not this index.
+The Go session engine and Electron renderer provide a development foundation
+for skill-owned interfaces. Expected behavior follows the [accepted scope](../planning.md#accepted-first-milestone-scope);
+coverage follows the [verified environments](../platforms.md) and dated
+reports, not the presence of a compiled package.
 
 - [Sessions, results and recovery](sessions.md) — FEAT-sessions
 - [HTML and flat JSON interfaces](interfaces.md) — FEAT-interfaces

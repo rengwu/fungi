@@ -181,11 +181,10 @@ All hosted core suites pass. Ubuntu 22.04 completes the renderer workflow and
 at Chromium sandbox startup under its default namespace policy. No sandbox
 bypass or machine policy change was made. The
 [hosted report](verification/runs/2026-10-22-hosted.md) remains **Failed** overall.
-The consequential open choice is whether to keep no-install distribution with
-explicit supported Linux environments, allow an optional Linux installation
-path, or defer Linux UI. Prepare that one decision through grill-form; none
-of these alternatives is accepted yet. Full jstack authoring integration
-remains deferred.
+This exposed a choice between keeping no-install distribution with
+explicit supported Linux environments, allowing an optional Linux installation
+path, or deferring Linux UI. The following interview resolves it. Full jstack
+authoring integration remains deferred.
 
 ## Linux distribution decision
 
@@ -206,3 +205,10 @@ The [platform record](platforms.md) distinguishes workflow coverage, optional
 GPU/codec availability and physical clean-machine acceptance. Full jstack
 authoring integration remains deferred. No new skill/plugin architecture is
 needed to apply this decision.
+
+The [baseline follow-up](verification/runs/2026-10-22-baselines.md) passes
+those selected scopes on revision `199759a`. Unsupported startup now returns
+a saved, distinct failure with the diagnostic log path. The four-method page
+API remains unchanged. The foundation is ready for further skill work within
+the documented limits. Physical target-machine and clean-machine acceptance
+remain the separate distribution gap; no such result is inferred from CI.

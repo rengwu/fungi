@@ -20,7 +20,7 @@ clean-machine distribution have not passed acceptance.
 
 | Environment actually exercised | Verified scope | Limits |
 | --- | --- | --- |
-| Current development Mac, arm64 | Native input, paste, saved drafts, recovery, image artifacts, exact-conversation return; portable renderer with empty PATH | One short sleep/wake cycle; two-hour idle proof uses a native helper, not the Electron window |
+| Development Mac, macOS 27.0 arm64 (26A5368g) | Native input, paste, saved drafts, recovery, image artifacts, exact-conversation return; portable renderer with empty PATH | One short sleep/wake cycle; two-hour idle proof uses a native helper, not the Electron window |
 | Hosted macOS 26.6.2 arm64 | Core, actual Electron workflow and all 21 renderer checks, including WebGL | Hosted runner; not a clean consumer machine |
 | Hosted Windows Server 2025 x64, 10.0.26100 | Core, actual Electron workflow and all 21 renderer checks, including WebGL | Physical input and an extracted archive on consumer Windows remain unverified |
 | Hosted Ubuntu 22.04.5 x64 with Xvfb | Core, actual Electron cancel/reopen/submit workflow, artifacts and 20 renderer checks | WebGL 2 context unavailable; no physical desktop/input or clean-machine claim |
@@ -31,6 +31,8 @@ The [original hosted report](verification/runs/2026-10-22-hosted.md) preserves
 the failed broad rendering matrix and exact runner images. Selecting a
 narrower baseline does not change those observations. Hosted runners update;
 each later report identifies the image actually tested.
+The [follow-up baseline run](verification/runs/2026-10-22-baselines.md) passes
+the selected scopes below, including the unsupported-startup diagnostic test.
 
 ## Skill authoring
 

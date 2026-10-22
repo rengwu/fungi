@@ -1,0 +1,70 @@
+{
+  "productRevision": "199759a5f0341d8b97b8683385a1d4d06080b8ef",
+  "sources": {
+    "delivery_test.go": "2839526a852c671afd86d18facb750420c747afa154c192dccbf1a11e8190e1e",
+    "describe.go": "26120cde7fb76a60bbca51ae8f807f92d3ecbfa7bac83064ec9b511fd15f7353",
+    "go.mod": "a241c23e00e4857bd9df822064ef8163de76472ac93f348818bef3a742af739c",
+    "integration_test.go": "8f91cbfeaf87971e2cb9961c172ad98acce6ee6435d3cca3ae80aed451c8975e",
+    "lock_unix.go": "3d8de1ebee752fcdd55412a66474c3993a2a6cf7a6ad765f283ae217710dbdb4",
+    "lock_windows.go": "96f19e7dba84640864cc7c4f224de68889813fe5b438f8a263a1df7d8220b652",
+    "main.go": "bd3434d132b6666d2e8f515a9613096243358a82875e4e5d776d2caaeb0c86f2",
+    "owner.go": "a48e28a88cff13479b3d0b7e83f75de01f2bfdb8a4e4ca0481085f88b36371d3",
+    "process_unix.go": "9848afc408a55b714055586c5bfd111e39f9d6112b96ae7e681bc0ffc94dd292",
+    "process_windows.go": "23c676f2af31b732a8ff252983f7896f2862374816744c58353a433a7c2851dc",
+    "renderer/assets.cjs": "94dfa28eb94e1f43376aa2774cbd7d205aedfc464a02d164ff32a8824f790e0a",
+    "renderer/form.html": "861d7c6c3016aa3d55fb238cc7cec0e12dd4fd18d475dfcd0a3c82dd1d0b1b8a",
+    "renderer/form.js": "54d704a80450c943ebd1ddd201fa5f5767294f4f4e3ed4e02b966d6b8673f081",
+    "renderer/main.cjs": "1c6d75869ef5d651724e0a17d93303c377273ce6e1bdc7ad13a17f6b4b2bf63a",
+    "renderer/package-lock.json": "723ecd6748962ef31ed5f168f54cb8e4adef86e465779b525c0ef19b6bd7a7a2",
+    "renderer/package.json": "4787c08ca4594c3e37b404ce1006c2a69dcafa9bab31d41f4cc5bde91f22f253",
+    "renderer/preload.cjs": "9ce703d718bb7c962edfb63067468b7039216624f3258ebdc0261f1301c66f22",
+    "scripts/fixtures/rendering.html": "6df29d1325121c7a2a2161dd409ee9e7ff3e1d352d7408bed2a0d3e7a055f538",
+    "scripts/package.mjs": "7e1e8409d6ea2a6cd4a96091a85b43b3947edca697e194202c48f793b90b7949",
+    "scripts/renderer-smoke.mjs": "487100d256adeecd2a25e0cc75d54e07f936c7494bc7c882da1ed92d283e41f1",
+    "store.go": "99168764ff0d3fa0f80a48217f5a670d3870001b3c03340f7761c17d09282bd3",
+    "store_test.go": "6ab362e76bfcd3140aed770f23eda612e149685188c422a2b43d3754e5d2be3d",
+    "sync_unix.go": "265202155789626910c9106109266a60e5a16c83aaf177ef0574e7566ef0086a",
+    "sync_windows.go": "440e4bcf8432067f4afda6c6c2986448be075ea586a5523dd35aa7452f3c5644"
+  },
+  "packages": {
+    "mac": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-22T09-50-20-629Z",
+      "build": {
+        "created": "2026-10-22T09-50-20-629Z",
+        "platform": "darwin",
+        "arch": "arm64",
+        "electron": "44.9.0",
+        "binarySHA256": "f8a7f20b701d925a26bd62443d663d8ce4579261044d8fabc09506c3e3286028",
+        "runtimeArchiveSHA256": null,
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    },
+    "windows": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-win32-x64-2026-10-22T09-50-20-630Z",
+      "build": {
+        "created": "2026-10-22T09-50-20-630Z",
+        "platform": "win32",
+        "arch": "x64",
+        "electron": "44.9.0",
+        "binarySHA256": "7851154057883ed2ef5f30c0a88bb6dac6eb9062123302024d573a292ae5aeb6",
+        "runtimeArchiveSHA256": "88e08039d0ef359bab9f674e8051fa103bd8628ea7c5a5e1daaa610a8a0c6931",
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    },
+    "linux": {
+      "directory": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-linux-x64-2026-10-22T09-50-20-629Z",
+      "build": {
+        "created": "2026-10-22T09-50-20-629Z",
+        "platform": "linux",
+        "arch": "x64",
+        "electron": "44.9.0",
+        "binarySHA256": "492b52ef13a162fd1345e96361ed96bb10e1610d9d031877390a4935c61572ea",
+        "runtimeArchiveSHA256": "ecced7ecb55697f92ca870939c5988557faa8acd8c222c232cae5913d318c8b9",
+        "publicRelease": false,
+        "runtimeVerified": false
+      }
+    }
+  }
+}

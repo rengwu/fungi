@@ -1,0 +1,207 @@
+Set up job	﻿2026-10-22T09:49:56.1188600Z Current runner version: '2.338.0'
+Set up job	2026-10-22T09:49:56.1275944Z ##[group]Runner Image Provisioner
+Set up job	2026-10-22T09:49:56.1277524Z Hosted Compute Agent
+Set up job	2026-10-22T09:49:56.1278814Z Version: 20261012.601
+Set up job	2026-10-22T09:49:56.1280104Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+Set up job	2026-10-22T09:49:56.1281649Z Build Date: 2026-10-12T17:48:21Z
+Set up job	2026-10-22T09:49:56.1303532Z Worker ID: {01d980fb-6448-4452-b713-57641d3464e5}
+Set up job	2026-10-22T09:49:56.1304930Z Region: centralus
+Set up job	2026-10-22T09:49:56.1306013Z Cloud: Azure
+Set up job	2026-10-22T09:49:56.1306958Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.1309413Z ##[group]Operating System
+Set up job	2026-10-22T09:49:56.1310528Z Ubuntu
+Set up job	2026-10-22T09:49:56.1311929Z 24.04.5
+Set up job	2026-10-22T09:49:56.1313435Z LTS
+Set up job	2026-10-22T09:49:56.1314364Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.1315465Z ##[group]Runner Image
+Set up job	2026-10-22T09:49:56.1316520Z Image: ubuntu-24.04
+Set up job	2026-10-22T09:49:56.1317467Z Version: 20261012.334.1
+Set up job	2026-10-22T09:49:56.1319570Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+Set up job	2026-10-22T09:49:56.1343232Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+Set up job	2026-10-22T09:49:56.1345158Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.1347242Z ##[group]GITHUB_TOKEN Permissions
+Set up job	2026-10-22T09:49:56.1350665Z Contents: read
+Set up job	2026-10-22T09:49:56.1351905Z Metadata: read
+Set up job	2026-10-22T09:49:56.1353277Z ##[endgroup]
+Set up job	2026-10-22T09:49:56.1356797Z Secret source: Actions
+Set up job	2026-10-22T09:49:56.1358667Z Cache mode: write
+Set up job	2026-10-22T09:49:56.1360268Z Prepare workflow directory
+Set up job	2026-10-22T09:49:56.2451854Z Prepare all required actions
+Set up job	2026-10-22T09:49:56.2633864Z Getting action download info
+Set up job	2026-10-22T09:49:56.5189388Z Download action repository 'actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+Set up job	2026-10-22T09:49:56.6265713Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+Set up job	2026-10-22T09:49:57.2428536Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+Set up job	2026-10-22T09:49:57.4646249Z Complete job name: Foundation (Ubuntu 24.04 core and unsupported-startup error)
+Run go version	﻿2026-10-22T09:50:15.3250476Z ##[group]Run go version
+Run go version	2026-10-22T09:50:15.3250816Z ^[[36;1mgo version^[[0m
+Run go version	2026-10-22T09:50:15.3519448Z shell: /usr/bin/bash -e {0}
+Run go version	2026-10-22T09:50:15.3519838Z env:
+Run go version	2026-10-22T09:50:15.3520070Z   GOTOOLCHAIN: local
+Run go version	2026-10-22T09:50:15.3520317Z ##[endgroup]
+Run go version	2026-10-22T09:50:15.3684316Z go version go1.26.4 linux/amd64
+Run go vet ./...	﻿2026-10-22T09:50:15.3726881Z ##[group]Run go vet ./...
+Run go vet ./...	2026-10-22T09:50:15.3727198Z ^[[36;1mgo vet ./...^[[0m
+Run go vet ./...	2026-10-22T09:50:15.3796039Z shell: /usr/bin/bash -e {0}
+Run go vet ./...	2026-10-22T09:50:15.3796306Z env:
+Run go vet ./...	2026-10-22T09:50:15.3796525Z   GOTOOLCHAIN: local
+Run go vet ./...	2026-10-22T09:50:15.3796746Z ##[endgroup]
+Run go test -race -v ./...	﻿2026-10-22T09:50:28.3273785Z ##[group]Run go test -race -v ./...
+Run go test -race -v ./...	2026-10-22T09:50:28.3274132Z ^[[36;1mgo test -race -v ./...^[[0m
+Run go test -race -v ./...	2026-10-22T09:50:28.3337564Z shell: /usr/bin/bash -e {0}
+Run go test -race -v ./...	2026-10-22T09:50:28.3337833Z env:
+Run go test -race -v ./...	2026-10-22T09:50:28.3338024Z   GOTOOLCHAIN: local
+Run go test -race -v ./...	2026-10-22T09:50:28.3338243Z ##[endgroup]
+Run go test -race -v ./...	2026-10-22T09:51:26.4630404Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+Run go test -race -v ./...	2026-10-22T09:51:26.4631692Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4632994Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+Run go test -race -v ./...	2026-10-22T09:51:26.4633973Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4640291Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+Run go test -race -v ./...	2026-10-22T09:51:26.4641730Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.02s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4643360Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+Run go test -race -v ./...	2026-10-22T09:51:26.4644662Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4645804Z === RUN   TestWaitConnectionHasNoHumanTimeout
+Run go test -race -v ./...	2026-10-22T09:51:26.4646945Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.01s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4647957Z === RUN   TestDisconnectedWaiterDoesNotCancel
+Run go test -race -v ./...	2026-10-22T09:51:26.4648971Z --- PASS: TestDisconnectedWaiterDoesNotCancel (12.00s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4649953Z === RUN   TestHelperExitAndStdoutDrain
+Run go test -race -v ./...	2026-10-22T09:51:26.4650884Z --- PASS: TestHelperExitAndStdoutDrain (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4651931Z === RUN   TestRendererStartupFailureIsSavedAndDiagnosable
+Run go test -race -v ./...	2026-10-22T09:51:26.4653411Z --- PASS: TestRendererStartupFailureIsSavedAndDiagnosable (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4654528Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+Run go test -race -v ./...	2026-10-22T09:51:26.4655538Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+Run go test -race -v ./...	2026-10-22T09:51:26.4656641Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+Run go test -race -v ./...	2026-10-22T09:51:26.4657695Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.02s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4658925Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4665012Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4669547Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+Run go test -race -v ./...	2026-10-22T09:51:26.4670363Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.02s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4670855Z === RUN   TestDurableSubmissionAndDuplicate
+Run go test -race -v ./...	2026-10-22T09:51:26.4671779Z --- PASS: TestDurableSubmissionAndDuplicate (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4672438Z === RUN   TestFailedCommitPreservesPreviousDraft
+Run go test -race -v ./...	2026-10-22T09:51:26.4673667Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4674662Z === RUN   TestArtifactConfinementAndLimits
+Run go test -race -v ./...	2026-10-22T09:51:26.4675656Z --- PASS: TestArtifactConfinementAndLimits (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4676403Z === RUN   TestDraftImageSurvivesClose
+Run go test -race -v ./...	2026-10-22T09:51:26.4677068Z --- PASS: TestDraftImageSurvivesClose (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4677950Z === RUN   TestMalformedProtocolAndForms
+Run go test -race -v ./...	2026-10-22T09:51:26.4678872Z --- PASS: TestMalformedProtocolAndForms (0.01s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4679591Z === RUN   TestLockRejectsSecondOwner
+Run go test -race -v ./...	2026-10-22T09:51:26.4680364Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4681119Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+Run go test -race -v ./...	2026-10-22T09:51:26.4681957Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4683448Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+Run go test -race -v ./...	2026-10-22T09:51:26.4684439Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.16s)
+Run go test -race -v ./...	2026-10-22T09:51:26.4685280Z PASS
+Run go test -race -v ./...	2026-10-22T09:51:26.4685701Z ok  	fungi	40.267s
+Run go test -race -v ./...	2026-10-22T09:51:26.4686431Z ?   	fungi/examples/helper	[no test files]
+Run go test -race -v ./...	2026-10-22T09:51:26.4687311Z ?   	fungi/scripts/idle-helper	[no test files]
+Run go test -race -v ./...	2026-10-22T09:51:26.4688088Z ?   	fungi/scripts/protocol-fixture	[no test files]
+Run node --test	﻿2026-10-22T09:51:26.5423724Z ##[group]Run node --test
+Run node --test	2026-10-22T09:51:26.5424038Z ^[[36;1mnode --test^[[0m
+Run node --test	2026-10-22T09:51:26.5488831Z shell: /usr/bin/bash -e {0}
+Run node --test	2026-10-22T09:51:26.5489114Z env:
+Run node --test	2026-10-22T09:51:26.5489318Z   GOTOOLCHAIN: local
+Run node --test	2026-10-22T09:51:26.5489539Z ##[endgroup]
+Run node --test	2026-10-22T09:51:26.6504265Z TAP version 13
+Run node --test	2026-10-22T09:51:26.7430977Z # Subtest: local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:26.7443650Z ok 1 - local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:26.7469613Z   ---
+Run node --test	2026-10-22T09:51:26.7495843Z   duration_ms: 54.184926
+Run node --test	2026-10-22T09:51:26.7502688Z   type: 'test'
+Run node --test	2026-10-22T09:51:26.7512874Z   ...
+Run node --test	2026-10-22T09:51:26.8452920Z # Subtest: simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:26.8474076Z ok 2 - simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:26.8477274Z   ---
+Run node --test	2026-10-22T09:51:26.8492858Z   duration_ms: 2.923657
+Run node --test	2026-10-22T09:51:26.8512789Z   type: 'test'
+Run node --test	2026-10-22T09:51:26.8513605Z   ...
+Run node --test	2026-10-22T09:51:26.8517364Z # Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:26.8540055Z ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:26.8562692Z   ---
+Run node --test	2026-10-22T09:51:26.8563399Z   duration_ms: 0.848501
+Run node --test	2026-10-22T09:51:26.8566764Z   type: 'test'
+Run node --test	2026-10-22T09:51:26.8582921Z   ...
+Run node --test	2026-10-22T09:51:26.8584099Z # Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:26.8595420Z ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:26.8642960Z   ---
+Run node --test	2026-10-22T09:51:26.8655248Z   duration_ms: 1.788073
+Run node --test	2026-10-22T09:51:26.8673228Z   type: 'test'
+Run node --test	2026-10-22T09:51:26.8687905Z   ...
+Run node --test	2026-10-22T09:51:26.8703421Z # Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:26.8716802Z ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:26.8717583Z   ---
+Run node --test	2026-10-22T09:51:26.8717997Z   duration_ms: 0.511348
+Run node --test	2026-10-22T09:51:26.8718491Z   type: 'test'
+Run node --test	2026-10-22T09:51:26.8718939Z   ...
+Run node --test	2026-10-22T09:51:26.9396100Z # Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:26.9405697Z ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:26.9406619Z   ---
+Run node --test	2026-10-22T09:51:26.9446325Z   duration_ms: 9.697426
+Run node --test	2026-10-22T09:51:26.9477360Z   type: 'test'
+Run node --test	2026-10-22T09:51:26.9491544Z   ...
+Run node --test	2026-10-22T09:51:26.9496570Z # Subtest: rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:26.9497581Z ok 7 - rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:26.9514441Z   ---
+Run node --test	2026-10-22T09:51:26.9537909Z   duration_ms: 2.053183
+Run node --test	2026-10-22T09:51:26.9544075Z   type: 'test'
+Run node --test	2026-10-22T09:51:26.9556749Z   ...
+Run node --test	2026-10-22T09:51:26.9557160Z 1..7
+Run node --test	2026-10-22T09:51:26.9572274Z # tests 7
+Run node --test	2026-10-22T09:51:26.9578499Z # suites 0
+Run node --test	2026-10-22T09:51:26.9583290Z # pass 7
+Run node --test	2026-10-22T09:51:26.9584026Z # fail 0
+Run node --test	2026-10-22T09:51:26.9584605Z # cancelled 0
+Run node --test	2026-10-22T09:51:26.9585103Z # skipped 0
+Run node --test	2026-10-22T09:51:26.9585585Z # todo 0
+Run node --test	2026-10-22T09:51:26.9586144Z # duration_ms 366.377071
+Run node docs/wiki/_build.mjs --check	﻿2026-10-22T09:51:26.9671246Z ##[group]Run node docs/wiki/_build.mjs --check
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:26.9671892Z ^[[36;1mnode docs/wiki/_build.mjs --check^[[0m
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:26.9881299Z shell: /usr/bin/bash -e {0}
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:26.9881590Z env:
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:26.9881806Z   GOTOOLCHAIN: local
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:26.9882313Z ##[endgroup]
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:27.3837776Z Checked 32 pages and internal links; index.html is current.
+Linux sandbox prerequisites (diagnostic only)	﻿2026-10-22T09:51:30.9214574Z ##[group]Run cat /proc/sys/kernel/unprivileged_userns_clone
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9215377Z ^[[36;1mcat /proc/sys/kernel/unprivileged_userns_clone^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9216217Z ^[[36;1mif [[ -f /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]]; then^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9217107Z ^[[36;1m  cat /proc/sys/kernel/apparmor_restrict_unprivileged_userns^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9217736Z ^[[36;1mfi^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9218172Z ^[[36;1munshare --user --map-root-user true || true^[[0m
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9313226Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9313845Z env:
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9314232Z   GOTOOLCHAIN: local
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9314642Z ##[endgroup]
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9471319Z 1
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9487597Z 1
+Linux sandbox prerequisites (diagnostic only)	2026-10-22T09:51:30.9522755Z unshare: write failed /proc/self/uid_map: Operation not permitted
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	﻿2026-10-22T09:51:30.9605178Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9605586Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9606065Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs ./fungi --expect-startup-failure^[[0m
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9606552Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9606909Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi.exe^[[0m
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9607219Z ^[[36;1melse^[[0m
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9607457Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi^[[0m
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9607741Z ^[[36;1mfi^[[0m
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9671731Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9672615Z env:
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9672818Z   GOTOOLCHAIN: local
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:30.9673034Z ##[endgroup]
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7573852Z {
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7587498Z   "evidence": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-30ZxRl/evidence.json",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7591876Z   "binary": "/home/runner/work/fungi/fungi/fungi",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7596548Z   "directory": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-30ZxRl",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7598045Z   "scope": "unsupported renderer startup failure; no UI support established",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7599007Z   "result": {
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7599624Z     "protocol": 1,
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7600247Z     "kind": "result",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7601056Z     "session": "5979de8cc9d1ddb44d117121a473bb0f",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7602024Z     "outcome": "failed",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7613324Z     "artifacts": [],
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7625814Z     "error": {
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7637328Z       "code": "renderer_startup_failed",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7650663Z       "message": "bundled renderer exited before readiness: signal: trace/breakpoint trap (core dumped). Diagnostics: /home/runner/work/fungi/fungi/verification-output/renderer-smoke-30ZxRl/sessions/5979de8cc9d1ddb44d117121a473bb0f/worker.log. Check docs/wiki/platforms.md in the portable package for verified environments; Fungi does not install OS dependencies or change sandbox policy."
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7673170Z     }
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7677887Z   },
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7683773Z   "diagnostics": "[5435:1022/095131.525316:FATAL:sandbox/linux/suid/client/setuid_sandbox_host.cc:166] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /home/runner/work/fungi/fungi/renderer/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.\n",
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7701869Z   "childPathEmpty": true
+Exercise renderer (Ubuntu 24.04 core and unsupported-startup error)	2026-10-22T09:51:31.7714262Z }

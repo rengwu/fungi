@@ -1,0 +1,266 @@
+Set up job	﻿2026-10-22T09:49:55.4449234Z Current runner version: '2.338.0'
+Set up job	2026-10-22T09:49:55.4508076Z ##[group]Runner Image Provisioner
+Set up job	2026-10-22T09:49:55.4509398Z Hosted Compute Agent
+Set up job	2026-10-22T09:49:55.4510351Z Version: 20261015.610
+Set up job	2026-10-22T09:49:55.4511481Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+Set up job	2026-10-22T09:49:55.4512703Z Build Date: 2026-10-14T17:06:54Z
+Set up job	2026-10-22T09:49:55.4513904Z Worker ID: {d8c3845c-01dd-4735-9a1f-cab844393429}
+Set up job	2026-10-22T09:49:55.4515076Z Region: eastus
+Set up job	2026-10-22T09:49:55.4515891Z Cloud: Azure
+Set up job	2026-10-22T09:49:55.4516735Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.4518888Z ##[group]Operating System
+Set up job	2026-10-22T09:49:55.4520037Z Microsoft Windows Server 2025
+Set up job	2026-10-22T09:49:55.4521191Z 10.0.26100
+Set up job	2026-10-22T09:49:55.4522087Z Datacenter
+Set up job	2026-10-22T09:49:55.4522988Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.4523923Z ##[group]Runner Image
+Set up job	2026-10-22T09:49:55.4524934Z Image: windows-2025-vs2026
+Set up job	2026-10-22T09:49:55.4526339Z Version: 20261018.275.1
+Set up job	2026-10-22T09:49:55.4528452Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261018.275/images/windows/Windows2025-VS2026-Readme.md
+Set up job	2026-10-22T09:49:55.4531838Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261018.275
+Set up job	2026-10-22T09:49:55.4533544Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.4535531Z ##[group]GITHUB_TOKEN Permissions
+Set up job	2026-10-22T09:49:55.4538227Z Contents: read
+Set up job	2026-10-22T09:49:55.4539258Z Metadata: read
+Set up job	2026-10-22T09:49:55.4540234Z ##[endgroup]
+Set up job	2026-10-22T09:49:55.4543007Z Secret source: Actions
+Set up job	2026-10-22T09:49:55.4544317Z Cache mode: write
+Set up job	2026-10-22T09:49:55.4545660Z Prepare workflow directory
+Set up job	2026-10-22T09:49:55.5061403Z Prepare all required actions
+Set up job	2026-10-22T09:49:55.5133729Z Getting action download info
+Set up job	2026-10-22T09:49:55.6925401Z Download action repository 'actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+Set up job	2026-10-22T09:49:55.8645611Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+Set up job	2026-10-22T09:49:56.1316159Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+Set up job	2026-10-22T09:49:56.4779306Z Complete job name: Foundation (Windows workflow including WebGL)
+Run go version	﻿2026-10-22T09:50:40.3160858Z ##[group]Run go version
+Run go version	2026-10-22T09:50:40.3161268Z ^[[36;1mgo version^[[0m
+Run go version	2026-10-22T09:50:40.3690167Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Run go version	2026-10-22T09:50:40.3690539Z env:
+Run go version	2026-10-22T09:50:40.3690713Z   GOTOOLCHAIN: local
+Run go version	2026-10-22T09:50:40.3690911Z ##[endgroup]
+Run go version	2026-10-22T09:50:40.8321510Z go version go1.26.4 windows/amd64
+Run go vet ./...	﻿2026-10-22T09:50:40.9491418Z ##[group]Run go vet ./...
+Run go vet ./...	2026-10-22T09:50:40.9491735Z ^[[36;1mgo vet ./...^[[0m
+Run go vet ./...	2026-10-22T09:50:40.9564108Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Run go vet ./...	2026-10-22T09:50:40.9564462Z env:
+Run go vet ./...	2026-10-22T09:50:40.9564645Z   GOTOOLCHAIN: local
+Run go vet ./...	2026-10-22T09:50:40.9564832Z ##[endgroup]
+Run go test -v ./...	﻿2026-10-22T09:51:02.4774607Z ##[group]Run go test -v ./...
+Run go test -v ./...	2026-10-22T09:51:02.4774961Z ^[[36;1mgo test -v ./...^[[0m
+Run go test -v ./...	2026-10-22T09:51:02.4846125Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Run go test -v ./...	2026-10-22T09:51:02.4846474Z env:
+Run go test -v ./...	2026-10-22T09:51:02.4846648Z   GOTOOLCHAIN: local
+Run go test -v ./...	2026-10-22T09:51:02.4846844Z ##[endgroup]
+Run go test -v ./...	2026-10-22T09:51:54.2688128Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+Run go test -v ./...	2026-10-22T09:51:54.2689626Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.09s)
+Run go test -v ./...	2026-10-22T09:51:54.2859555Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+Run go test -v ./...	2026-10-22T09:51:54.2875955Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.59s)
+Run go test -v ./...	2026-10-22T09:51:54.2876820Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+Run go test -v ./...	2026-10-22T09:51:54.2877665Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.42s)
+Run go test -v ./...	2026-10-22T09:51:54.2878530Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+Run go test -v ./...	2026-10-22T09:51:54.2879475Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.32s)
+Run go test -v ./...	2026-10-22T09:51:54.2880352Z === RUN   TestWaitConnectionHasNoHumanTimeout
+Run go test -v ./...	2026-10-22T09:51:54.2881102Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.31s)
+Run go test -v ./...	2026-10-22T09:51:54.2881802Z === RUN   TestDisconnectedWaiterDoesNotCancel
+Run go test -v ./...	2026-10-22T09:51:54.2882520Z --- PASS: TestDisconnectedWaiterDoesNotCancel (12.02s)
+Run go test -v ./...	2026-10-22T09:51:54.2883185Z === RUN   TestHelperExitAndStdoutDrain
+Run go test -v ./...	2026-10-22T09:51:54.2883807Z --- PASS: TestHelperExitAndStdoutDrain (0.60s)
+Run go test -v ./...	2026-10-22T09:51:54.2884581Z === RUN   TestRendererStartupFailureIsSavedAndDiagnosable
+Run go test -v ./...	2026-10-22T09:51:54.2885507Z --- PASS: TestRendererStartupFailureIsSavedAndDiagnosable (0.35s)
+Run go test -v ./...	2026-10-22T09:51:54.2886320Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+Run go test -v ./...	2026-10-22T09:51:54.2887387Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+Run go test -v ./...	2026-10-22T09:51:54.2888199Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+Run go test -v ./...	2026-10-22T09:51:54.2889301Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.58s)
+Run go test -v ./...	2026-10-22T09:51:54.2890200Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.27s)
+Run go test -v ./...	2026-10-22T09:51:54.2891213Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.31s)
+Run go test -v ./...	2026-10-22T09:51:54.2892145Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+Run go test -v ./...	2026-10-22T09:51:54.2892958Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.13s)
+Run go test -v ./...	2026-10-22T09:51:54.2893692Z === RUN   TestDurableSubmissionAndDuplicate
+Run go test -v ./...	2026-10-22T09:51:54.2894375Z --- PASS: TestDurableSubmissionAndDuplicate (0.03s)
+Run go test -v ./...	2026-10-22T09:51:54.2895081Z === RUN   TestFailedCommitPreservesPreviousDraft
+Run go test -v ./...	2026-10-22T09:51:54.2895833Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.11s)
+Run go test -v ./...	2026-10-22T09:51:54.2896532Z === RUN   TestArtifactConfinementAndLimits
+Run go test -v ./...	2026-10-22T09:51:54.2897248Z --- PASS: TestArtifactConfinementAndLimits (0.02s)
+Run go test -v ./...	2026-10-22T09:51:54.2897890Z === RUN   TestDraftImageSurvivesClose
+Run go test -v ./...	2026-10-22T09:51:54.2898482Z --- PASS: TestDraftImageSurvivesClose (0.03s)
+Run go test -v ./...	2026-10-22T09:51:54.2899093Z === RUN   TestMalformedProtocolAndForms
+Run go test -v ./...	2026-10-22T09:51:54.2899724Z --- PASS: TestMalformedProtocolAndForms (0.00s)
+Run go test -v ./...	2026-10-22T09:51:54.2900332Z === RUN   TestLockRejectsSecondOwner
+Run go test -v ./...	2026-10-22T09:51:54.2900919Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+Run go test -v ./...	2026-10-22T09:51:54.2901578Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+Run go test -v ./...	2026-10-22T09:51:54.2902305Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+Run go test -v ./...	2026-10-22T09:51:54.2903117Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+Run go test -v ./...	2026-10-22T09:51:54.2904009Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.02s)
+Run go test -v ./...	2026-10-22T09:51:54.2904632Z PASS
+Run go test -v ./...	2026-10-22T09:51:54.2904953Z ok  	fungi	44.574s
+Run go test -v ./...	2026-10-22T09:51:54.2905406Z ?   	fungi/examples/helper	[no test files]
+Run go test -v ./...	2026-10-22T09:51:54.2905984Z ?   	fungi/scripts/idle-helper	[no test files]
+Run go test -v ./...	2026-10-22T09:51:54.2906624Z ?   	fungi/scripts/protocol-fixture	[no test files]
+Run node --test	﻿2026-10-22T09:51:54.3324141Z ##[group]Run node --test
+Run node --test	2026-10-22T09:51:54.3324583Z ^[[36;1mnode --test^[[0m
+Run node --test	2026-10-22T09:51:54.3442305Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Run node --test	2026-10-22T09:51:54.3442887Z env:
+Run node --test	2026-10-22T09:51:54.3443161Z   GOTOOLCHAIN: local
+Run node --test	2026-10-22T09:51:54.3443481Z ##[endgroup]
+Run node --test	2026-10-22T09:51:54.9805976Z TAP version 13
+Run node --test	2026-10-22T09:51:55.2023529Z # Subtest: local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:55.2318610Z ok 1 - local assets stream, seek and reject escapes or special routes
+Run node --test	2026-10-22T09:51:55.2319330Z   ---
+Run node --test	2026-10-22T09:51:55.2319722Z   duration_ms: 113.349
+Run node --test	2026-10-22T09:51:55.2320135Z   type: 'test'
+Run node --test	2026-10-22T09:51:55.2320454Z   ...
+Run node --test	2026-10-22T09:51:55.2953006Z # Subtest: simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:55.2954309Z ok 2 - simple committed question format normalizes stable IDs and rich source
+Run node --test	2026-10-22T09:51:55.2958351Z   ---
+Run node --test	2026-10-22T09:51:55.2960922Z   duration_ms: 2.3066
+Run node --test	2026-10-22T09:51:55.2964656Z   type: 'test'
+Run node --test	2026-10-22T09:51:55.2966173Z   ...
+Run node --test	2026-10-22T09:51:55.2986650Z # Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:55.2987985Z ok 3 - notes-only answers work; empty answers and Other without notes cannot submit
+Run node --test	2026-10-22T09:51:55.2988759Z   ---
+Run node --test	2026-10-22T09:51:55.2989112Z   duration_ms: 0.8628
+Run node --test	2026-10-22T09:51:55.2989506Z   type: 'test'
+Run node --test	2026-10-22T09:51:55.2989834Z   ...
+Run node --test	2026-10-22T09:51:55.2990586Z # Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:55.2991765Z ok 4 - reopen preserves partial notes but refuses a mismatched questionnaire
+Run node --test	2026-10-22T09:51:55.2992484Z   ---
+Run node --test	2026-10-22T09:51:55.2992837Z   duration_ms: 1.345
+Run node --test	2026-10-22T09:51:55.2993224Z   type: 'test'
+Run node --test	2026-10-22T09:51:55.2993530Z   ...
+Run node --test	2026-10-22T09:51:55.2994302Z # Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:55.2995481Z ok 5 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+Run node --test	2026-10-22T09:51:55.3031342Z   ---
+Run node --test	2026-10-22T09:51:55.3031693Z   duration_ms: 0.4836
+Run node --test	2026-10-22T09:51:55.3032195Z   type: 'test'
+Run node --test	2026-10-22T09:51:55.3033286Z   ...
+Run node --test	2026-10-22T09:51:55.4426895Z # Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:55.4428032Z ok 6 - slow attachment encoding cannot reorder saves, submit or cancel
+Run node --test	2026-10-22T09:51:55.4428709Z   ---
+Run node --test	2026-10-22T09:51:55.4429051Z   duration_ms: 10.1406
+Run node --test	2026-10-22T09:51:55.4429443Z   type: 'test'
+Run node --test	2026-10-22T09:51:55.4429761Z   ...
+Run node --test	2026-10-22T09:51:55.4430335Z # Subtest: rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:55.4431169Z ok 7 - rejected save does not poison a later submit retry
+Run node --test	2026-10-22T09:51:55.4431730Z   ---
+Run node --test	2026-10-22T09:51:55.4432066Z   duration_ms: 2.3038
+Run node --test	2026-10-22T09:51:55.4432453Z   type: 'test'
+Run node --test	2026-10-22T09:51:55.4432768Z   ...
+Run node --test	2026-10-22T09:51:55.4792913Z 1..7
+Run node --test	2026-10-22T09:51:55.4793366Z # tests 7
+Run node --test	2026-10-22T09:51:55.4793683Z # suites 0
+Run node --test	2026-10-22T09:51:55.4793972Z # pass 7
+Run node --test	2026-10-22T09:51:55.4794255Z # fail 0
+Run node --test	2026-10-22T09:51:55.4794651Z # cancelled 0
+Run node --test	2026-10-22T09:51:55.4795328Z # skipped 0
+Run node --test	2026-10-22T09:51:55.4795667Z # todo 0
+Run node --test	2026-10-22T09:51:55.4796014Z # duration_ms 587.1366
+Run node docs/wiki/_build.mjs --check	﻿2026-10-22T09:51:55.6541710Z ##[group]Run node docs/wiki/_build.mjs --check
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:55.6542144Z ^[[36;1mnode docs/wiki/_build.mjs --check^[[0m
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:55.6651914Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:55.6652449Z env:
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:55.6652713Z   GOTOOLCHAIN: local
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:55.6653004Z ##[endgroup]
+Run node docs/wiki/_build.mjs --check	2026-10-22T09:51:56.7465898Z Checked 32 pages and internal links; index.html is current.
+Exercise renderer (Windows workflow including WebGL)	﻿2026-10-22T09:52:12.4997733Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.4998399Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.4999017Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs ./fungi ^[[0m
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.4999648Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5000215Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi.exe^[[0m
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5001103Z ^[[36;1melse^[[0m
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5001479Z ^[[36;1m  node scripts/renderer-smoke.mjs ./fungi^[[0m
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5001965Z ^[[36;1mfi^[[0m
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5035616Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5036306Z env:
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5036589Z   GOTOOLCHAIN: local
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:12.5037202Z ##[endgroup]
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7429806Z {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7430797Z   "evidence": "D:\\a\\fungi\\fungi\\verification-output\\renderer-smoke-CzOoSx\\evidence.json",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7431858Z   "scope": "workflow including WebGL",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7432475Z   "excluded": [],
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7432882Z   "checks": [
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7433232Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7433772Z       "name": "ES modules and dynamic import",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7434353Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7434758Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7435103Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7435627Z       "name": "custom elements and shadow DOM",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7436189Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7436583Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7436909Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7437456Z       "name": "Canvas 2D and PNG export",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7438416Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7438808Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7439128Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7439554Z       "name": "SVG image rendering",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7440061Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7440412Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7440713Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7441163Z       "name": "WebGL rendering context",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7441674Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7442025Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7442320Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7442740Z       "name": "local module worker",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7443216Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7443568Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7443864Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7444243Z       "name": "Blob worker",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7444705Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7445071Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7445377Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7445860Z       "name": "WebAssembly streaming compile",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7446395Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7446816Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7447144Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7447576Z       "name": "local JSON fetch",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7448301Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7448696Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7449009Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7449390Z       "name": "Blob fetch",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7449837Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7450204Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7450510Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7450950Z       "name": "media metadata and seek",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7451467Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7451828Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7452130Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7452554Z       "name": "asset byte ranges",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7453038Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7453394Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7453690Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7454143Z       "name": "sandboxed inline preview",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7454650Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7455014Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7455314Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7455762Z       "name": "page has no Node or IPC",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7456285Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7456650Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7456978Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7457471Z       "name": "external and file requests denied",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7458042Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7458407Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7458833Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7461712Z       "name": "asset symlink escape denied",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7462322Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7462716Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7463037Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7463635Z       "name": "oversized JSON rejected without closing",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7464241Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7464627Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7464992Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7465632Z       "name": "envelope overhead rejected without killing owner",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7466289Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7466670Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7467048Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7467581Z       "name": "oversized attachment rejected",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7468376Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7468780Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7469348Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7469796Z       "name": "draft data restored",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7470292Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7470649Z     },
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7470947Z     {
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7471476Z       "name": "draft attachment restored as Blob",
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7472029Z       "passed": true
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7472383Z     }
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7472687Z   ]
+Exercise renderer (Windows workflow including WebGL)	2026-10-22T09:52:19.7472996Z }

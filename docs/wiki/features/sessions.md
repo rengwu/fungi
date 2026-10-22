@@ -42,6 +42,8 @@ The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also
 
 ## Verification history
 
+- [2026-10-22 verified baselines](../verification/runs/2026-10-22-baselines.md) — saved renderer startup failure and identical collection, plus 18 core tests on four hosted targets.
+
 - [2026-10-22 hosted checks](../verification/runs/2026-10-22-hosted.md) — Windows/Linux/macOS core execution and target-specific renderer findings.
 
 - [2026-10-22 platform verification](../verification/runs/2026-10-22-platform.md) — malformed/closed helper output and exact JSON-limit regressions, plus the macOS core race suite.

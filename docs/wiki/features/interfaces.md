@@ -51,6 +51,8 @@ File selection, image paste, image draft recovery, submission, cancellation, loc
 
 ## Verification history
 
+- [2026-10-22 verified baselines](../verification/runs/2026-10-22-baselines.md) — unchanged authoring API, explicit WebGL availability and diagnosable unsupported startup.
+
 - [2026-10-22 hosted checks](../verification/runs/2026-10-22-hosted.md) — real Electron execution, Windows pipe repair and Linux sandbox/graphics limits.
 
 - [2026-10-22 platform verification](../verification/runs/2026-10-22-platform.md) — call ordering, rendering primitives, saved/exported images, rich-form retry and a separate comparison example.

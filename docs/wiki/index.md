@@ -14,6 +14,7 @@ Electron + Go is the accepted direction. The [first end-to-end proof](proposal.m
 - [First implementation contract](contract.md)
 - [Author a Fungi interface](authoring.md)
 - [Verified environments and portable distribution](platforms.md)
+- [Verified baseline checks and startup diagnostics](verification/runs/2026-10-22-baselines.md)
 - [Feature map](features/index.md)
 - [First prototype verification](verification/runs/2026-10-20-first-proof.md)
 - [Current no-setup compatibility verification](verification/runs/2026-10-20-no-setup.md)
