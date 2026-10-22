@@ -1,0 +1,116 @@
+{
+  "evidence": "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/evidence.json",
+  "directory": "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm",
+  "platform": "linux",
+  "arch": "x64",
+  "archiveA": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.1/fungi-linux-amd64.tar.gz",
+  "checksumA": "701f37e779aff1ba8a488ae4023d598cdda96596f6791884aeeb9b9980cc877a",
+  "archiveB": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.2/fungi-linux-amd64.tar.gz",
+  "checksumB": "fc43e9ee72b57a87cbda54918ca46d4dce6c6622b9b4f9f3affcee1908685413",
+  "requests": [
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz.sha256",
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz"
+  ],
+  "scope": "bootstrap, active Electron session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/install with spaces/bin/fungi\",\"current\":\"v0.1.0-ci.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 6844
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.1"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "0df86883f8ae148219e250d60a75422e",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/install with spaces/bin/fungi",
+      "collect",
+      "0df86883f8ae148219e250d60a75422e"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/sessions/0df86883f8ae148219e250d60a75422e/artifacts/229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.2",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 297192653,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.2"
+  },
+  "runtimeShared": {
+    "bytes": 297192653,
+    "engine": "electron",
+    "sameFile": true
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "0df86883f8ae148219e250d60a75422e",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-ci.2"
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/sessions/0df86883f8ae148219e250d60a75422e/artifacts/229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-BsdLAm/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.1",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}

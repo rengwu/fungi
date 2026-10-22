@@ -1,12 +1,13 @@
 ---
 title: Command installation and update proof
 updated: 2026-10-23
-result: Failed
+result: Untested
 ---
 # Command installation and update proof
 
-**Failed pending retest after the generated-wiki correction described below.**
-The initial four-platform CI run and selected local Mac scenarios passed.
+**Untested overall while the newest hosted Mac job remains queued.**
+Windows and both Linux jobs now pass on `6d587ac`; the initial four-platform
+run, Mac runtime-sharing CI and selected local Mac scenarios also passed.
 This run covers [installation](../../features/installation.md)
 and preservation of [sessions](../../features/sessions.md) through updates.
 It does not establish a public release or clean consumer-machine support.
@@ -52,9 +53,10 @@ children use an empty PATH; the shell bootstrap uses standard OS tools.
 | Runtime sharing, changed files and cleanup | Passed | [Race-enabled follow-up](../../evidence/2026-10-23-distribution/runtime-reuse-tests.log): unchanged file shares an inode, changed file stays separate, removing the old directory preserves the new runtime; managed lifecycle regression passes |
 | Actual Mac runtime sharing during update | Passed | [Install evidence](../../evidence/2026-10-23-distribution/mac-runtime-reuse.json): runtime executable shares an inode; open session submits with matching PNG hash; rollback succeeds |
 | Renderer regression with shared runtime | Passed | [All 21 checks](../../evidence/2026-10-23-distribution/mac-runtime-renderer.json) pass through the stable installed command after the sharing update and rollback, including WebGL and draft/Blob recovery |
-| Hosted runtime-sharing follow-up | Untested | Mac and both Linux jobs passed on `af2dbee`; Windows bootstrap hit the fixture's 180-second timeout before installation completed. Corrected driver/bootstrap rerun pending |
+| Hosted runtime-sharing follow-up | Passed | Mac passes on `af2dbee`; [Windows](../../evidence/2026-10-23-distribution/windows-runtime-reuse.json), [Ubuntu 22.04](../../evidence/2026-10-23-distribution/linux22-runtime-reuse.json) and [Ubuntu 24.04 core](../../evidence/2026-10-23-distribution/linux24-runtime-reuse.json) pass on `6d587ac` |
 | Windows disconnect regression follow-up | Passed | The handshake correction passes on Windows and both Linux runners at `8bd24a0`; the following wiki check stopped their installer/renderer stages |
-| Fresh-checkout generated wiki | Failed | A CRLF evidence log was hashed before Git normalized it to LF; corrected generation and hosted retest pending |
+| Fresh-checkout generated wiki | Passed | Corrected generation passes a local export of staged files and the Windows/Linux hosted checks; the CRLF failure remains recorded below |
+| Latest complete CI matrix | Untested | [Run 39848109685](https://github.com/rengwu/fungi/actions/runs/39848109685) passes Windows and both Linux jobs on `6d587ac`; hosted Mac remains queued |
 
 The first unsafe-archive test attempt reused a ZIP header object and failed in
 the test writer. A fresh duplicate header corrected the fixture. The first
@@ -114,6 +116,15 @@ attachments, but Git stored LF per repository policy. Normalize the evidence
 before rebuilding and verify a fresh staged checkout as well as the working
 tree. No wiki assertion is removed. The superseded queued Mac job was cancelled.
 
+The corrected Windows run completed the bootstrap in **11,773 ms**, then passed
+the real Electron session, shared-file, collected PNG and rollback assertions.
+Both Linux jobs also passed their declared scopes. [Run metadata](../../evidence/2026-10-23-distribution/ci-39848109685.json)
+is a pending snapshot until GitHub assigns the remaining Mac runner. The
+implementing agent handed this external wait to an existing Fungi helper
+session with an armed exact-conversation Codex callback, so no model polling
+is required while the hosted job is queued. The final matrix result is not
+inferred from the earlier Mac success.
+
 ## Size observations
 
 [Filesystem measurement](../../evidence/2026-10-23-distribution/runtime-storage.json)
@@ -124,6 +135,11 @@ overhead; they are not download sizes. Electron's locales, GPU fallback and
 license notices remain intact. File sharing does not reduce full-archive
 download traffic or the space needed to stage an update. Unsupported hard
 links fall back to independent verified copies.
+
+The Windows hosted update shares **386,397,410 bytes (368.5 MiB)** of runtime
+files; both Linux updates share **297,192,653 bytes (283.4 MiB)**. These are
+retained-storage savings for an unchanged Electron version, not reductions
+to first-download sizes.
 
 ## Limits and follow-up
 

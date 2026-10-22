@@ -1,0 +1,59 @@
+{
+  "evidence": "/home/runner/work/fungi/fungi/verification-output/install-smoke-I2xkot/evidence.json",
+  "directory": "/home/runner/work/fungi/fungi/verification-output/install-smoke-I2xkot",
+  "platform": "linux",
+  "arch": "x64",
+  "archiveA": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.1/fungi-linux-amd64.tar.gz",
+  "checksumA": "7795a93f2d96a39c6a8840631e1d391483bee7773410dd30a807be740e8bc85c",
+  "archiveB": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.2/fungi-linux-amd64.tar.gz",
+  "checksumB": "e95c221a1a78b583417cc701d3ea17b79e22f9f16234a207d8af40d388463714",
+  "requests": [
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz.sha256",
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz"
+  ],
+  "scope": "bootstrap and version switching; UI omitted",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/home/runner/work/fungi/fungi/verification-output/install-smoke-I2xkot/install with spaces/bin/fungi\",\"current\":\"v0.1.0-ci.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /home/runner/work/fungi/fungi/verification-output/install-smoke-I2xkot/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 8642
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.1"
+  },
+  "update": {
+    "action": "update",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-I2xkot/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.2",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 297192653,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.2"
+  },
+  "runtimeShared": {
+    "bytes": 297192653,
+    "engine": "electron",
+    "sameFile": true
+  },
+  "rollback": {
+    "action": "rollback",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-I2xkot/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.1",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}

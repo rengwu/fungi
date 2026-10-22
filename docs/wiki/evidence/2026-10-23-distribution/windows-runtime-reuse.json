@@ -1,0 +1,116 @@
+{
+  "evidence": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\evidence.json",
+  "directory": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6",
+  "platform": "win32",
+  "arch": "x64",
+  "archiveA": "D:\\a\\fungi\\fungi\\dist\\release-v0.1.0-ci.1\\fungi-windows-amd64.zip",
+  "checksumA": "d12705b808c9a78a30302da1f81a40ac898535e92558c06d543853b9b2f27ead",
+  "archiveB": "D:\\a\\fungi\\fungi\\dist\\release-v0.1.0-ci.2\\fungi-windows-amd64.zip",
+  "checksumB": "280324e04e7f6e8cec6ecfaa867bf4b4b6341584783427e0e2579dc0c4d394c5",
+  "requests": [
+    "/download/v0.1.0-ci.1/fungi-windows-amd64.zip.sha256",
+    "/download/v0.1.0-ci.1/fungi-windows-amd64.zip"
+  ],
+  "scope": "bootstrap, active Electron session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"D:\\\\a\\\\fungi\\\\fungi\\\\verification-output\\\\install-smoke-gT0HI6\\\\install with spaces\\\\bin\\\\fungi.exe\",\"current\":\"v0.1.0-ci.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\nFungi is installed at D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\install with spaces\\bin. PATH was left unchanged.\n",
+    "stderr": "Downloading fungi-windows-amd64.zip and its checksum...\r\nVerifying archive checksum...\r\nExtracting bootstrap package...\r\nCreating managed installation...\r\n",
+    "elapsedMs": 11773
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.1"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "e0d1ac342ceaf3a8c97328d2cc824181",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\install with spaces\\bin\\fungi.exe",
+      "collect",
+      "e0d1ac342ceaf3a8c97328d2cc824181"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\sessions\\e0d1ac342ceaf3a8c97328d2cc824181\\artifacts\\229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\install with spaces\\bin\\fungi.exe",
+    "current": "v0.1.0-ci.2",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 386397410,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.2"
+  },
+  "runtimeShared": {
+    "bytes": 386397410,
+    "engine": "electron.exe",
+    "sameFile": true
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "e0d1ac342ceaf3a8c97328d2cc824181",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-ci.2"
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\sessions\\e0d1ac342ceaf3a8c97328d2cc824181\\artifacts\\229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-gT0HI6\\install with spaces\\bin\\fungi.exe",
+    "current": "v0.1.0-ci.1",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}
