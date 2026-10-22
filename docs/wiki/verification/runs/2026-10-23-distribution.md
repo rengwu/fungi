@@ -5,7 +5,7 @@ result: Failed
 ---
 # Command installation and update proof
 
-**Failed pending retest of the Windows regression described below.**
+**Failed pending retest after the generated-wiki correction described below.**
 The initial four-platform CI run and selected local Mac scenarios passed.
 This run covers [installation](../../features/installation.md)
 and preservation of [sessions](../../features/sessions.md) through updates.
@@ -53,7 +53,8 @@ children use an empty PATH; the shell bootstrap uses standard OS tools.
 | Actual Mac runtime sharing during update | Passed | [Install evidence](../../evidence/2026-10-23-distribution/mac-runtime-reuse.json): runtime executable shares an inode; open session submits with matching PNG hash; rollback succeeds |
 | Renderer regression with shared runtime | Passed | [All 21 checks](../../evidence/2026-10-23-distribution/mac-runtime-renderer.json) pass through the stable installed command after the sharing update and rollback, including WebGL and draft/Blob recovery |
 | Hosted runtime-sharing follow-up | Untested | Mac and both Linux jobs passed on `af2dbee`; Windows bootstrap hit the fixture's 180-second timeout before installation completed. Corrected driver/bootstrap rerun pending |
-| Windows disconnect regression follow-up | Failed | The subsequent Windows core run found no result after fixed startup/completion sleeps; the handshake-based correction awaits hosted retest |
+| Windows disconnect regression follow-up | Passed | The handshake correction passes on Windows and both Linux runners at `8bd24a0`; the following wiki check stopped their installer/renderer stages |
+| Fresh-checkout generated wiki | Failed | A CRLF evidence log was hashed before Git normalized it to LF; corrected generation and hosted retest pending |
 
 The first unsafe-archive test attempt reused a ZIP header object and failed in
 the test writer. A fresh duplicate header corrected the fixture. The first
@@ -79,7 +80,8 @@ phase is unknown, so progress rendering is a plausible contributor, not an
 established root cause. All functional assertions remain unchanged. No human
 wait timeout or host security setting changed.
 
-The next Windows attempt on `58edcc6` stopped before the installer in
+The [next Windows attempt](https://github.com/rengwu/fungi/actions/runs/39846391476)
+on `58edcc6` stopped before the installer in
 `TestDisconnectedWaiterDoesNotCancel`: the test killed the CLI after one
 second and expected its ten-second helper's result eleven seconds later.
 The result was absent; [job log](../../evidence/2026-10-23-distribution/windows-120060671977.log)
@@ -93,12 +95,24 @@ release submission and require the saved submitted result. It adds worker
 diagnostics on failure. The fixture's observable-condition deadline is thirty
 seconds, matching the product startup bound; there is no fixed startup sleep
 or human polling. The queued Mac job in that superseded run was cancelled;
-both Linux jobs had already passed. The new committed-source rerun will cover
+both Linux jobs had already passed; [job metadata](../../evidence/2026-10-23-distribution/ci-39846391476.json)
+records that cancellation. The new committed-source rerun will cover
 all four targets.
 
 The [local race-enabled handshake and managed-update retest](../../evidence/2026-10-23-distribution/fixture-handshake-tests.log)
 passed before this follow-up was committed; it does not establish the Windows
 result.
+
+[CI 39847366853](https://github.com/rengwu/fungi/actions/runs/39847366853)
+on `8bd24a0` passed core and Node tests on Windows and both Linux targets,
+including the corrected disconnect assertion. All three then failed the wiki
+freshness check, before renderer/installer stages. The [Windows log](../../evidence/2026-10-23-distribution/windows-120064065885.log)
+and [metadata](../../evidence/2026-10-23-distribution/ci-39847366853.json)
+record it. This was reproduced in a fresh local export of that commit:
+the saved Windows job log had CRLF in the working tree when the wiki hashed
+attachments, but Git stored LF per repository policy. Normalize the evidence
+before rebuilding and verify a fresh staged checkout as well as the working
+tree. No wiki assertion is removed. The superseded queued Mac job was cancelled.
 
 ## Size observations
 
