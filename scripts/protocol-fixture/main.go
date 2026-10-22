@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 )
@@ -15,6 +16,50 @@ func main() {
 		os.Exit(2)
 	}
 	switch os.Args[1] {
+	case "update-session":
+		// A bounded synthetic session controlled by a test-owned file. This is
+		// never a human-facing waiter and is not part of the shipped helper API.
+		if len(os.Args) != 3 {
+			panic("update-session needs a gate file")
+		}
+		dec, enc := json.NewDecoder(os.Stdin), json.NewEncoder(os.Stdout)
+		var launch struct {
+			Draft     any    `json:"draft"`
+			OutputDir string `json:"outputDir"`
+		}
+		if err := dec.Decode(&launch); err != nil {
+			panic(err)
+		}
+		data := launch.Draft
+		if data == nil {
+			data = map[string]string{"notes": "saved before update"}
+		}
+		enc.Encode(map[string]any{"type": "draft", "id": "draft", "data": data})
+		var ack struct {
+			OK bool `json:"ok"`
+		}
+		if err := dec.Decode(&ack); err != nil || !ack.OK {
+			panic("draft failed")
+		}
+		enc.Encode(map[string]any{"type": "ready"})
+		deadline := time.Now().Add(60 * time.Second)
+		for {
+			gate, err := os.ReadFile(os.Args[2])
+			if err == nil {
+				if err = os.WriteFile(filepath.Join(launch.OutputDir, "note.txt"), []byte("artifact survives update"), 0600); err != nil {
+					panic(err)
+				}
+				enc.Encode(map[string]any{"type": "result", "id": "result", "outcome": strings.TrimSpace(string(gate)), "data": data, "artifacts": []any{map[string]string{"key": "note", "name": "note.txt", "path": "note.txt", "mediaType": "text/plain"}}})
+				if err = dec.Decode(&ack); err != nil || !ack.OK {
+					panic("submission failed")
+				}
+				return
+			}
+			if !os.IsNotExist(err) || time.Now().After(deadline) {
+				panic("fixture gate unavailable")
+			}
+			time.Sleep(20 * time.Millisecond)
+		}
 	case "queue":
 		f, err := os.OpenFile(os.Getenv("FUNGI_TEST_NOTICE"), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
 		if err != nil {

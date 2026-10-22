@@ -42,6 +42,8 @@ The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also
 
 ## Verification history
 
+- [2026-10-23 installation/update proof](../verification/runs/2026-10-23-distribution.md) — stable receipts, active sessions, package-owned draft assets and artifact preservation through version switches.
+
 - [2026-10-22/23 Windows desktop handoff](../verification/runs/windows-2026-10-22-203907.md) — native draft/close/reopen/submission/cancellation passed on Windows 11 x64; 17 core tests passed, one confinement fixture could not create its symlink. Aggregate Untested.
 
 - [2026-10-22 verified baselines](../verification/runs/2026-10-22-baselines.md) — saved renderer startup failure and identical collection, plus 18 core tests on four hosted targets.

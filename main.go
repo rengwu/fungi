@@ -40,6 +40,9 @@ func run(args []string, out io.Writer) int {
 	if _, ok := err.(*alreadyPrinted); ok {
 		return 1
 	}
+	if e, ok := err.(*commandExit); ok {
+		return e.code
+	}
 	p := asProblem(err)
 	_ = emit(out, map[string]any{"protocol": 1, "kind": "error", "error": p})
 	if strings.HasPrefix(p.Code, "invalid_") {
@@ -48,13 +51,26 @@ func run(args []string, out io.Writer) int {
 	return 1
 }
 func command(args []string, out io.Writer) error {
+	handled, release, err := installationCommand(args, out)
+	if err != nil {
+		return err
+	}
+	defer release()
+	if handled {
+		return nil
+	}
 	if len(args) == 0 || args[0] == "--help" || args[0] == "help" {
 		fmt.Fprintln(out, `Fungi — local interfaces for agent workflows
-  fungi describe [html|form|helper|delivery]
+  fungi describe [html|form|helper|delivery|installation]
   fungi open SOURCE [--input FILE] [--delivery auto|wait|manual]
   fungi open --exec HELPER [--delivery MODE] -- [ARGS...]
   fungi collect SESSION
   fungi reopen SESSION [--delivery MODE]
+  fungi --version
+  fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]
+  fungi update [--version vX.Y.Z | --archive FILE --sha256 HASH]
+  fungi rollback
+  fungi prune
 
 Use one pending --delivery wait call when your harness supports it.
 Never poll collect. Auto uses an exact Codex callback or reports manual fallback.
@@ -62,6 +78,13 @@ FUNGI_STATE_DIR overrides private storage for isolated tests.`)
 		return nil
 	}
 	switch args[0] {
+	case "--version", "version":
+		if len(args) != 1 {
+			return fail("invalid_arguments", "version takes no arguments")
+		}
+		return emit(out, map[string]any{"protocol": 1, "kind": "version", "version": buildVersion})
+	case "install", "update", "rollback", "prune":
+		return manageInstallation(args, out)
 	case "describe":
 		return describe(args[1:], out)
 	case "_run":
@@ -94,6 +117,9 @@ FUNGI_STATE_DIR overrides private storage for isolated tests.`)
 			return err
 		}
 		if err = s.init(l); err != nil {
+			return err
+		}
+		if err = pinSessionPackages(l, s); err != nil {
 			return err
 		}
 		if l.ReopenedFrom != "" {

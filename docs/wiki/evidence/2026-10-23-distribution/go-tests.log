@@ -1,0 +1,76 @@
+=== RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+--- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.06s)
+=== RUN   TestNativeRoundTripAndConcurrentIsolation
+--- PASS: TestNativeRoundTripAndConcurrentIsolation (0.09s)
+=== RUN   TestManualOwnerSurvivesLauncherAndCollects
+--- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.05s)
+=== RUN   TestInterruptedSessionReopenPreservesOldRecord
+--- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.08s)
+=== RUN   TestWaitConnectionHasNoHumanTimeout
+--- PASS: TestWaitConnectionHasNoHumanTimeout (10.06s)
+=== RUN   TestDisconnectedWaiterDoesNotCancel
+--- PASS: TestDisconnectedWaiterDoesNotCancel (12.01s)
+=== RUN   TestHelperExitAndStdoutDrain
+--- PASS: TestHelperExitAndStdoutDrain (0.08s)
+=== RUN   TestRendererStartupFailureIsSavedAndDiagnosable
+--- PASS: TestRendererStartupFailureIsSavedAndDiagnosable (0.05s)
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+=== RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+--- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.08s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.04s)
+    --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.04s)
+=== RUN   TestHelperThatDoesNotReadLaunchIsBounded
+--- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.05s)
+=== RUN   TestDurableSubmissionAndDuplicate
+--- PASS: TestDurableSubmissionAndDuplicate (0.04s)
+=== RUN   TestFailedCommitPreservesPreviousDraft
+--- PASS: TestFailedCommitPreservesPreviousDraft (0.05s)
+=== RUN   TestArtifactConfinementAndLimits
+--- PASS: TestArtifactConfinementAndLimits (0.02s)
+=== RUN   TestDraftImageSurvivesClose
+--- PASS: TestDraftImageSurvivesClose (0.04s)
+=== RUN   TestMalformedProtocolAndForms
+--- PASS: TestMalformedProtocolAndForms (0.00s)
+=== RUN   TestLockRejectsSecondOwner
+--- PASS: TestLockRejectsSecondOwner (0.00s)
+=== RUN   TestLockIOErrorIsNotAClaimOfOwnership
+--- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+=== RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+--- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.10s)
+=== RUN   TestManagedInstallUpdateRollbackAndSessions
+--- PASS: TestManagedInstallUpdateRollbackAndSessions (43.14s)
+=== RUN   TestReleaseDownloadFailures
+--- PASS: TestReleaseDownloadFailures (0.00s)
+PASS
+ok  	fungi	84.363s
+?   	fungi/dist/fungi-darwin-arm64-2026-10-20T07-10-07-432Z/examples/helper	[no test files]
+?   	fungi/dist/fungi-darwin-arm64-2026-10-20T07-18-52-638Z/examples/helper	[no test files]
+?   	fungi/examples/helper	[no test files]
+=== RUN   TestArchiveRoundTrip
+=== RUN   TestArchiveRoundTrip/.zip
+=== RUN   TestArchiveRoundTrip/.tar.gz
+--- PASS: TestArchiveRoundTrip (0.05s)
+    --- PASS: TestArchiveRoundTrip/.zip (0.03s)
+    --- PASS: TestArchiveRoundTrip/.tar.gz (0.02s)
+=== RUN   TestRejectUnsafeArchives
+=== RUN   TestRejectUnsafeArchives/../outside
+=== RUN   TestRejectUnsafeArchives//absolute
+=== RUN   TestRejectUnsafeArchives/C:/drive
+=== RUN   TestRejectUnsafeArchives/dir\escape
+=== RUN   TestRejectUnsafeArchives/a/../escape
+=== RUN   TestRejectUnsafeArchives/duplicate
+=== RUN   TestRejectUnsafeArchives/link
+--- PASS: TestRejectUnsafeArchives (0.01s)
+    --- PASS: TestRejectUnsafeArchives/../outside (0.00s)
+    --- PASS: TestRejectUnsafeArchives//absolute (0.00s)
+    --- PASS: TestRejectUnsafeArchives/C:/drive (0.00s)
+    --- PASS: TestRejectUnsafeArchives/dir\escape (0.00s)
+    --- PASS: TestRejectUnsafeArchives/a/../escape (0.00s)
+    --- PASS: TestRejectUnsafeArchives/duplicate (0.01s)
+    --- PASS: TestRejectUnsafeArchives/link (0.00s)
+PASS
+ok  	fungi/internal/bundle	1.074s
+?   	fungi/scripts/archive	[no test files]
+?   	fungi/scripts/idle-helper	[no test files]
+?   	fungi/scripts/protocol-fixture	[no test files]

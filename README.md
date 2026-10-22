@@ -53,6 +53,14 @@ The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the
 
 ## Develop
 
+Command installation and updates now have a [development implementation](docs/wiki/features/installation.md).
+Build a versioned archive with `node scripts/package.mjs --release v0.1.0-test.1`.
+The shell/PowerShell bootstraps select one platform package; managed installs
+support `fungi update`, `fungi rollback` and `fungi prune`. Public releases and
+signing are not available merely because these commands exist. See the
+[distribution verification](docs/wiki/verification/runs/2026-10-23-distribution.md)
+for actual coverage and limits.
+
 For the physical Windows check after pulling this repository, start with the
 [Windows agent handoff](docs/wiki/verification/windows.md). It covers the
 `foundation-hardening` branch, building the portable folder and recording the

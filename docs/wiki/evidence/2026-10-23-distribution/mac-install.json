@@ -1,0 +1,107 @@
+{
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ",
+  "platform": "darwin",
+  "arch": "arm64",
+  "archiveA": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-install.1/fungi-darwin-arm64.tar.gz",
+  "checksumA": "e48837a9e4e1c86043d11a694511450c788c997c2d1de1c1a60740e7569d80ff",
+  "archiveB": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-install.2/fungi-darwin-arm64.tar.gz",
+  "checksumB": "b0596c7aa6bf94c9adfda0c67d0549e67abdf04a84d54775232d3d33a32a3100",
+  "requests": [
+    "/download/v0.1.0-install.1/fungi-darwin-arm64.tar.gz.sha256",
+    "/download/v0.1.0-install.1/fungi-darwin-arm64.tar.gz"
+  ],
+  "scope": "bootstrap, active Electron session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/install with spaces/bin/fungi\",\"current\":\"v0.1.0-install.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/install with spaces/bin\nThen run: fungi update\n"
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-install.1"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "76ec0ab824fa5f9159aea52f47fc45ff",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/install with spaces/bin/fungi",
+      "collect",
+      "76ec0ab824fa5f9159aea52f47fc45ff"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/sessions/76ec0ab824fa5f9159aea52f47fc45ff/artifacts/229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/install with spaces/bin/fungi",
+    "current": "v0.1.0-install.2",
+    "kind": "installation",
+    "previous": "v0.1.0-install.1",
+    "protocol": 1,
+    "removed": null,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-install.2"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "76ec0ab824fa5f9159aea52f47fc45ff",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-install.2"
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/sessions/76ec0ab824fa5f9159aea52f47fc45ff/artifacts/229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-xu39oQ/install with spaces/bin/fungi",
+    "current": "v0.1.0-install.1",
+    "kind": "installation",
+    "previous": "v0.1.0-install.2",
+    "protocol": 1,
+    "removed": null,
+    "warnings": null
+  },
+  "passed": true
+}

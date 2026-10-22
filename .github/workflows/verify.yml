@@ -17,17 +17,21 @@ jobs:
           - os: ubuntu-22.04
             scope: Ubuntu 22.04 workflow; WebGL optional
             renderer-args: --allow-unavailable-webgl
+            archive: tar.gz
           - os: ubuntu-24.04
             scope: Ubuntu 24.04 core and unsupported-startup error
             renderer-args: --expect-startup-failure
+            archive: tar.gz
           - os: macos-latest
             scope: macOS workflow including WebGL
             renderer-args: ''
+            archive: tar.gz
           - os: windows-latest
             scope: Windows workflow including WebGL
             renderer-args: ''
+            archive: zip
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
@@ -77,4 +81,25 @@ jobs:
         run: |
           if [[ -d verification-output ]]; then
             find verification-output -type f \( -name result.json -o -name worker.log -o -name evidence.json \) -exec cat {} \;
+          fi
+      - name: Build two local release packages (no publication)
+        run: |
+          node scripts/package.mjs --release v0.1.0-ci.1
+          node scripts/package.mjs --release v0.1.0-ci.2
+      - name: Install, update and roll back a prebuilt package
+        shell: bash
+        run: |
+          if [[ "${{ matrix.os }}" == "ubuntu-24.04" ]]; then
+            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.${{ matrix.archive }} dist/release-v0.1.0-ci.2/*.${{ matrix.archive }} --core-only
+          elif [[ "$RUNNER_OS" == "Linux" ]]; then
+            xvfb-run -a node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.${{ matrix.archive }} dist/release-v0.1.0-ci.2/*.${{ matrix.archive }}
+          else
+            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.${{ matrix.archive }} dist/release-v0.1.0-ci.2/*.${{ matrix.archive }}
+          fi
+      - name: Installer failure evidence
+        if: failure()
+        shell: bash
+        run: |
+          if [[ -d verification-output ]]; then
+            find verification-output -path '*/install-smoke-*/evidence.json' -exec cat {} \;
           fi

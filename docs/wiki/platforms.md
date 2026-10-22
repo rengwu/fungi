@@ -18,7 +18,9 @@ clean-machine distribution have not passed acceptance.
 
 For the eventual release, command installation and updates are now requirements;
 see the [proposed delivery flow](#planned-command-installation-and-updates).
-These convenience commands are not implemented yet.
+The [development implementation](features/installation.md) now exists; its
+[verification record](verification/runs/2026-10-23-distribution.md) does not
+establish public release availability or clean-machine acceptance.
 
 ## Current evidence
 
@@ -98,7 +100,8 @@ first release uses complete prebuilt archives and a small bootstrap:
 | Supported Linux environments | Same shell bootstrap, selecting the matching OS/CPU archive | `fungi update` |
 | Windows | PowerShell script using built-in download, ZIP extraction and hashing | `fungi update` |
 
-These are proposed commands, not current CLI capabilities. The bootstrap should
+The commands below were subsequently implemented as a development preview;
+see the [current contract](features/installation.md). The bootstrap should
 select one OS/CPU package, download and verify it, place it in a user-owned
 location without administrator access, and make the stable `fungi` command
 available. It should report any required shell restart or PATH adjustment.

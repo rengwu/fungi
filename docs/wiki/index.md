@@ -14,6 +14,8 @@ Electron + Go is the accepted direction. The [first end-to-end proof](proposal.m
 - [First implementation contract](contract.md)
 - [Author a Fungi interface](authoring.md)
 - [Verified environments and portable distribution](platforms.md)
+- [Command installation and updates](features/installation.md)
+- [Distribution proof and remaining release checks](verification/runs/2026-10-23-distribution.md)
 - [Verified baseline checks and startup diagnostics](verification/runs/2026-10-22-baselines.md)
 - [Windows 11 desktop handoff: desktop passed, symlink-dependent checks unexecuted](verification/runs/windows-2026-10-22-203907.md)
 - [Feature map](features/index.md)

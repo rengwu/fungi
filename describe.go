@@ -57,6 +57,13 @@ func describe(args []string, w io.Writer) error {
 			"recovery": "collect is non-destructive. Explicit reopen creates a new session from the saved draft. Never poll collect.",
 			"limits":   "No harness setup required. Use manual when native capabilities are insufficient. See verification records; short probes do not establish indefinite AFK reliability.",
 		},
+		"installation": map[string]any{
+			"install":  "fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]; complete platform package, no runtime download",
+			"update":   "fungi update [--version vX.Y.Z]; verified GitHub release, or --archive FILE --sha256 HASH for an explicit local package",
+			"rollback": "fungi rollback; switches to the previous retained release",
+			"prune":    "fungi prune; retains current, previous, active processes and package assets referenced by recoverable sessions",
+			"scope":    "Managed per-user installs only. Portable folders remain usable. No background updates or host policy changes. Public release/signing acceptance remains pending.",
+		},
 	}
 	if len(args) > 1 {
 		return fail("invalid_arguments", "describe accepts at most one topic")
@@ -68,5 +75,5 @@ func describe(args []string, w io.Writer) error {
 		}
 		return emit(w, map[string]any{"protocol": 1, "topic": args[0], "capability": v, "limits": limits()})
 	}
-	return emit(w, map[string]any{"protocol": 1, "version": "0.1.0-dev", "topics": []string{"html", "form", "helper", "delivery"}, "commands": []string{"describe", "open", "collect", "reopen"}, "outcomes": []string{"submitted", "cancelled", "closed", "failed"}, "limits": limits(), "next": "fungi describe html"})
+	return emit(w, map[string]any{"protocol": 1, "version": buildVersion, "topics": []string{"html", "form", "helper", "delivery", "installation"}, "commands": []string{"describe", "open", "collect", "reopen", "version", "install", "update", "rollback", "prune"}, "outcomes": []string{"submitted", "cancelled", "closed", "failed"}, "limits": limits(), "next": "fungi describe html"})
 }

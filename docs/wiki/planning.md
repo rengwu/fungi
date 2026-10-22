@@ -277,7 +277,7 @@ PowerShell bootstrap for Windows, each selecting one OS/CPU package. Shared
 update logic belongs in the Go CLI, with a proposed `fungi update` command.
 Homebrew/npm channels can wrap the same release artifacts later. Exact flags,
 hosting and installation layouts remain implementation decisions. No installer
-or updater currently exists; this discussion records the release target.
+or updater existed at this planning checkpoint; this discussion records the release target.
 
 Updates must preserve the working installation on failure and retain sessions,
 drafts and artifacts. Stage and verify a release before activating it through
@@ -291,3 +291,25 @@ The [platform plan](platforms.md#planned-command-installation-and-updates)
 records the proposed delivery flow and acceptance checks. Signing, release
 publication and clean-machine verification remain outstanding. Full jstack
 authoring integration remains deferred.
+
+## Installation implementation on 2026-10-23
+
+The user invoked `work-until-grill` for the installation/update milestone and
+asked how to shrink the bundle. The [development implementation](features/installation.md)
+adds versioned archives, script bootstraps, a stable command, Go-managed update,
+rollback and reference-aware cleanup. It preserves the four-method page API.
+The [verification run](verification/runs/2026-10-23-distribution.md) separates
+local observations from hosted and clean-machine acceptance.
+
+Keep Electron and its languages, GPU fallback and license notices intact for
+now. Local measurements show the runtime accounts for roughly 96–97% of the
+previous packages. Release builds omit full wiki/evidence, separately authored
+skill bundles and the compiled demo helper; they strip Go debug information
+and use standard archive compression. Reusing unchanged renderer files between
+releases could reduce update storage/traffic, but is not implemented in this
+first complete-package updater. It would not shrink the first download.
+
+No installer/update test authorizes public release publication or signing with
+an account identity. Exact GitHub release downloads, signing/notarization and
+physical clean-machine acceptance remain release work. Full jstack authoring
+integration remains deferred.
