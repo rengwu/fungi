@@ -123,10 +123,12 @@ returning to the previous version. Keep session state outside replaceable
 installation files. Running sessions must finish normally during an update,
 including on Windows where running binaries may prevent replacement.
 
-Legacy portable receipts/callbacks contain absolute executable paths, and reopening can
-refer to assets in an older package. Define how those references survive updates
-before enabling cleanup. Retain the current release, a rollback release and any
-older versions still needed by sessions; prune only unreferenced versions.
+Legacy portable receipts/callbacks contain absolute executable paths, and
+reopening can refer to assets in an older package. The managed implementation
+now issues stable command paths and retains package references; it does not
+migrate legacy portable receipts or delete their packages. Retain the current
+release, a rollback release and any older versions still needed by sessions;
+prune only unreferenced versions.
 Avoid treating terminal sessions as automatically safe to discard: their saved
 receipts and drafts can still be collected or reopened later.
 

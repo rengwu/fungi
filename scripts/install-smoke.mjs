@@ -44,14 +44,17 @@ async function untilFile(file){
 }
 try{
   let installer;
+  const bootstrapStarted=Date.now();
   if(process.platform==='win32'){
     const powershell=path.join(process.env.SystemRoot,'System32','WindowsPowerShell','v1.0','powershell.exe');
-    installer=await promisify(execFile)(powershell,['-NoProfile','-File',path.join(root,'scripts/install.ps1'),'-Version',versionA,'-Directory',installation,'-NoPath'],{env:bootstrapEnv,timeout:180000});
+    // Allow hosted Windows ZIP extraction headroom. This is a finite fixture
+    // bound, not a timeout for a human interaction or a relaxed assertion.
+    installer=await promisify(execFile)(powershell,['-NoProfile','-File',path.join(root,'scripts/install.ps1'),'-Version',versionA,'-Directory',installation,'-NoPath'],{env:bootstrapEnv,timeout:300000});
   }else{
     bootstrapEnv.PATH='/usr/bin:/bin:/usr/sbin:/sbin';
     installer=await promisify(execFile)('/bin/sh',[path.join(root,'scripts/install.sh'),'--version',versionA,'--dir',installation],{env:bootstrapEnv,timeout:180000});
   }
-  evidence.bootstrap={stdout:installer.stdout,stderr:installer.stderr};
+  evidence.bootstrap={stdout:installer.stdout,stderr:installer.stderr,elapsedMs:Date.now()-bootstrapStarted};
   evidence.before=await run(['--version']);assert.equal(evidence.before.version,versionA);
   assert.deepEqual(requests,[`/download/${versionA}/${path.basename(archiveA)}.sha256`,`/download/${versionA}/${path.basename(archiveA)}`]);
   let receipt;
@@ -96,7 +99,7 @@ try{
   }
   evidence.rollback=await run(['rollback']);assert.equal((await run(['--version'])).version,versionA);
   evidence.passed=true;
-}catch(error){evidence.passed=false;evidence.error={message:error.message,stdout:error.stdout,stderr:error.stderr};throw error;}
+}catch(error){evidence.passed=false;evidence.error={message:error.message,code:error.code,signal:error.signal,killed:error.killed,stdout:error.stdout,stderr:error.stderr};throw error;}
 finally{
   await new Promise(resolve=>server.close(resolve));
   await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');

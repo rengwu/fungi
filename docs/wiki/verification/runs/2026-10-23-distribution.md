@@ -52,13 +52,31 @@ children use an empty PATH; the shell bootstrap uses standard OS tools.
 | Runtime sharing, changed files and cleanup | Passed | [Race-enabled follow-up](../../evidence/2026-10-23-distribution/runtime-reuse-tests.log): unchanged file shares an inode, changed file stays separate, removing the old directory preserves the new runtime; managed lifecycle regression passes |
 | Actual Mac runtime sharing during update | Passed | [Install evidence](../../evidence/2026-10-23-distribution/mac-runtime-reuse.json): runtime executable shares an inode; open session submits with matching PNG hash; rollback succeeds |
 | Renderer regression with shared runtime | Passed | [All 21 checks](../../evidence/2026-10-23-distribution/mac-runtime-renderer.json) pass through the stable installed command after the sharing update and rollback, including WebGL and draft/Blob recovery |
-| Hosted runtime-sharing follow-up | Untested | Execution pending on the committed follow-up |
+| Hosted runtime-sharing follow-up | Untested | Mac and both Linux jobs passed on `af2dbee`; Windows bootstrap hit the fixture's 180-second timeout before installation completed. Corrected driver/bootstrap rerun pending |
 
 The first unsafe-archive test attempt reused a ZIP header object and failed in
 the test writer. A fresh duplicate header corrected the fixture. The first
 managed-path assertion also exposed macOS `/var` versus `/private/var` aliases;
 package-reference matching now resolves existing symlinks before retaining
 assets. The rerun passes. No failed product assertion was simply removed.
+
+[Follow-up CI 39844997609](https://github.com/rengwu/fungi/actions/runs/39844997609)
+on `af2dbee1ea02bb0d2fe36f892e7fab985a6663c5` failed overall because the
+Windows driver terminated PowerShell at exactly 180 seconds (`killed: true`,
+`SIGTERM`); it had requested both release files but produced no stage output.
+The update/sharing assertions therefore did not execute there. Preserve the
+[failed log](../../evidence/2026-10-23-distribution/ci-39844997609.log) and
+[job metadata](../../evidence/2026-10-23-distribution/ci-39844997609.json).
+The prior Windows run took about 165 seconds for this entire scenario.
+
+The correction adds bootstrap stage messages, records elapsed time and failure
+signal metadata, and gives Windows extraction a 300-second fixture bound.
+It also replaces per-chunk PowerShell progress with the concise stage messages;
+[Microsoft's module issue](https://github.com/microsoft/PowerShellForGitHub/issues/227)
+documents this source of download overhead. The original timeout's exact
+phase is unknown, so progress rendering is a plausible contributor, not an
+established root cause. All functional assertions remain unchanged. No human
+wait timeout or host security setting changed.
 
 ## Size observations
 

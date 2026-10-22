@@ -107,8 +107,8 @@ node .\docs\wiki\_build.mjs --check
 node .\scripts\renderer-smoke.mjs $FungiExe
 ```
 
-The current suites contain 18 root Go tests and seven Node tests. The real
-renderer fixture opens disposable windows, cancels, reopens, submits and
+The suites include session, installation/update, archive and page tests. The
+real renderer fixture opens disposable windows, cancels, reopens, submits and
 verifies the PNG hash. It requires all 21 renderer checks by default and
 prints its `evidence.json` path. It clears the child PATH and caller ID,
 showing that this packaged workflow uses its bundled runtime. Keep that
