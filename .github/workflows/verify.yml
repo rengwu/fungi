@@ -9,11 +9,11 @@ permissions:
 
 jobs:
   core:
-    name: Core and authoring (${{ matrix.os }})
+    name: Foundation (${{ matrix.os }})
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-22.04, ubuntu-24.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
@@ -38,6 +38,15 @@ jobs:
       - run: node renderer/node_modules/electron/install.js
       - shell: bash
         run: go build -o fungi${{ runner.os == 'Windows' && '.exe' || '' }} .
+      - name: Linux sandbox prerequisites (diagnostic only)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          cat /proc/sys/kernel/unprivileged_userns_clone
+          if [[ -f /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]]; then
+            cat /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+          fi
+          unshare --user --map-root-user true || true
       - name: Exercise actual renderer
         shell: bash
         run: |

@@ -9,6 +9,7 @@ import (
 	"os/exec"
 	"os/signal"
 	"regexp"
+	"runtime"
 	"syscall"
 	"time"
 )
@@ -44,6 +45,11 @@ func serveSession(id string, readyOut io.Writer) error {
 	}
 	// A renderer/helper does not need the caller routing environment.
 	cmd.Env = childEnv()
+	if l.Exec == "" && runtime.GOOS == "windows" {
+		// Electron must retain the inherited protocol pipes, not attach stdio
+		// to a Windows console. Helpers already use their own normal stdio.
+		cmd.Env = append(cmd.Env, "ELECTRON_NO_ATTACH_CONSOLE=1")
+	}
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
 		return err

@@ -9,7 +9,11 @@ protocol.registerSchemesAsPrivileged([{scheme:'fungi',privileges:{standard:true,
 app.setName('Fungi');
 const privateData=process.argv.find(a=>a.startsWith('--fungi-data='));
 if(privateData)app.setPath('userData',privateData.slice('--fungi-data='.length));
-const lines = readline.createInterface({input:process.stdin});
+// Electron's Windows initialization replaces process.stdin with an EOF-only
+// stream. Read the inherited pipe directly without changing the protocol.
+const input=process.platform==='win32'?require('node:fs').createReadStream(null,{fd:0,autoClose:false}):process.stdin;
+input.on('error',error=>{console.error(error.message);app.exit(1);});
+const lines = readline.createInterface({input});
 let launch, win, terminal = false, closing = false, sequence = 0;
 let queue = Promise.resolve();
 const pending = new Map();
