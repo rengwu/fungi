@@ -1,6 +1,6 @@
 // Runs the real CLI/owner/Electron bridge. No browser automation dependency,
 // callback, model polling, or synthetic input in a user's session.
-import {mkdtemp,writeFile,readFile,cp,mkdir,symlink} from 'node:fs/promises';
+import {mkdtemp,writeFile,readFile,cp,mkdir,symlink,readdir} from 'node:fs/promises';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {createHash} from 'node:crypto';
@@ -32,6 +32,7 @@ const run=async args=>{
   const {stdout}=await promisify(execFile)(binary,args,{env,timeout:45000,maxBuffer:2*1024*1024});
   return JSON.parse(stdout);
 };
+try {
 const closed=await run(['open',path.join(assets,'index.html'),'--delivery','wait']);
 assert.equal(closed.outcome,'cancelled');
 const result=await run(['reopen',closed.session,'--delivery','wait']);
@@ -42,3 +43,11 @@ const evidence={binary,directory,closed,result,artifactVerified:true,childPathEm
 await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
 console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),checks:result.data.checks},null,2));
 assert.ok(result.data.checks.every(check=>check.passed),'renderer checks failed');
+} catch(error) {
+  // Preserve actual launch diagnostics from this disposable fixture in CI.
+  for(const session of await readdir(env.FUNGI_STATE_DIR).catch(()=>[])){
+    const log=await readFile(path.join(env.FUNGI_STATE_DIR,session,'worker.log'),'utf8').catch(()=>'');
+    if(log)console.error(log);
+  }
+  throw error;
+}
