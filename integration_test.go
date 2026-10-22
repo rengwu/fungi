@@ -210,7 +210,7 @@ func TestHelperExitAndStdoutDrain(t *testing.T) {
 	if err = json.Unmarshal(b, &r); err != nil {
 		t.Fatal("expected one JSON envelope", string(b))
 	}
-	if r.Outcome != "failed" || r.Error == nil {
+	if r.Outcome != "failed" || r.Error == nil || r.Error.Code != "helper_exited" {
 		t.Fatal("missing failure result", string(b))
 	}
 	// A helper can terminate immediately after emitting its final message.
@@ -218,6 +218,52 @@ func TestHelperExitAndStdoutDrain(t *testing.T) {
 	b = cli(t, root, "open", "--exec", testFixture, "--delivery", "wait", "--", "early-result")
 	if err = json.Unmarshal(b, &r); err != nil || r.Outcome != "submitted" {
 		t.Fatal("result lost at process exit", string(b), err)
+	}
+}
+
+func TestRendererStartupFailureIsSavedAndDiagnosable(t *testing.T) {
+	root := t.TempDir()
+	renderer := filepath.Join(root, "renderer")
+	runtimeDir := filepath.Join(renderer, "runtime")
+	if err := os.MkdirAll(runtimeDir, 0700); err != nil {
+		t.Fatal(err)
+	}
+	name := "electron"
+	if runtime.GOOS == "windows" {
+		name += ".exe"
+	}
+	bytes, err := os.ReadFile(testFixture)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err = os.WriteFile(filepath.Join(runtimeDir, name), bytes, 0700); err != nil {
+		t.Fatal(err)
+	}
+	source := filepath.Join(root, "index.html")
+	if err = os.WriteFile(source, []byte("<!doctype html>"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	t.Setenv("FUNGI_RENDERER_DIR", renderer)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	state := filepath.Join(root, "sessions")
+	cmd := exec.CommandContext(ctx, testBinary, "open", source, "--delivery", "wait")
+	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+state)
+	b, err := cmd.Output()
+	var r result
+	if ctx.Err() != nil || err == nil || json.Unmarshal(b, &r) != nil || r.Outcome != "failed" || r.Error == nil || r.Error.Code != "renderer_startup_failed" {
+		t.Fatalf("expected one saved renderer startup failure: %s (%v)", b, err)
+	}
+	log := filepath.Join(state, r.Session, "worker.log")
+	diagnostics, err := os.ReadFile(log)
+	if err != nil || !strings.Contains(string(diagnostics), "protocol fixture: unknown mode") || !strings.Contains(r.Error.Message, log) {
+		t.Fatalf("startup diagnostics unavailable: %+v, %s (%v)", r.Error, diagnostics, err)
+	}
+	cmd = exec.Command(testBinary, "collect", r.Session)
+	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+state)
+	again, err := cmd.Output()
+	if err == nil || string(again) != string(b) {
+		t.Fatalf("collection must return the identical failed result: %s (%v)", again, err)
 	}
 }
 

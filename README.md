@@ -4,6 +4,8 @@ A small Go session engine with an Electron window for skill-authored human inter
 
 Run a local HTML file or a flat JSON form. A native executable can implement the same lifecycle without using Electron. No registration, plugin SDK or frontend framework is required.
 
+The no-install distribution supports [explicitly verified environments](docs/wiki/platforms.md). Ubuntu 22.04's hosted workflow passes without WebGL; the tested Ubuntu 24.04 sandbox policy prevents renderer startup. Fungi does not install OS dependencies or change security policy. A renderer startup failure returns a saved error with the diagnostic log location.
+
 ```sh
 ./fungi describe
 ./fungi describe html

@@ -25,6 +25,7 @@ func describe(args []string, w io.Writer) error {
 			"boundaries":  "Main frame owns the bridge. Outbound network, URL/file frames, popups, navigation, Node, eval and OS permissions are unavailable. Use sandbox=allow-scripts for untrusted srcdoc previews; use a trusted native helper for OS integration.",
 			"examples":    []string{"examples/review.html", "examples/compare/index.html"},
 			"authoring":   "docs/wiki/authoring.md",
+			"platforms":   "docs/wiki/platforms.md: verified environments and startup diagnostics. Feature-detect WebGL and codecs; their availability depends on the host.",
 		},
 		"form": map[string]any{
 			"experimental": true, "launch": "fungi open ./form.json --input ./values.json --delivery wait",

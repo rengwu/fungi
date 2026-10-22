@@ -46,6 +46,7 @@ func main() {
 		// rather than the fixture eventually exiting by itself.
 		time.Sleep(30 * time.Second)
 	default:
+		fmt.Fprintln(os.Stderr, "protocol fixture: unknown mode")
 		os.Exit(2)
 	}
 }

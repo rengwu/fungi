@@ -165,7 +165,14 @@ loop:
 				} else if exitErr != nil {
 					detail = exitErr.Error()
 				}
-				err = commit(message{Outcome: "failed", Error: &problem{"helper_exited", detail}})
+				code := "helper_exited"
+				if l.Exec == "" && !isReady {
+					code = "renderer_startup_failed"
+					detail = "bundled renderer exited before readiness: " + detail +
+						". Diagnostics: " + s.path("worker.log") +
+						". Check docs/wiki/platforms.md in the portable package for verified environments; Fungi does not install OS dependencies or change sandbox policy."
+				}
+				err = commit(message{Outcome: "failed", Error: &problem{code, detail}})
 			}
 			break loop
 		case <-timer.C:

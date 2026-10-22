@@ -106,12 +106,20 @@ a model callback or poll a person. `evidence.json` records results and artifact
 hashes. Its 45-second process bound is a test timeout, not a product wait limit.
 It clears the child executable search path, preserves worker diagnostics on
 failure, and does not turn unavailable WebGL into a passing rendering check.
+Its default scope requires all 21 checks. `--allow-unavailable-webgl` permits
+only a null WebGL context and records it explicitly as unavailable; an
+incorrect render still fails. `--expect-startup-failure` instead requires one
+saved `renderer_startup_failed` result and the indicated sandbox diagnostic
+log. It fails if startup succeeds, prompting review of the platform record.
 
 `.github/workflows/verify.yml` runs the core, Node and wiki checks before the
 actual Electron fixture on hosted macOS, Windows, Ubuntu 22.04 and Ubuntu
 24.04. The renderer sandbox stays enabled. Linux uses the runner's existing
 Xvfb; diagnostic namespace checks do not change its security policy. See the
 [hosted report](runs/2026-10-22-hosted.md) for failures and tested revisions.
+After the user's [Linux decision](../planning.md#linux-distribution-decision),
+Ubuntu 22.04 uses the optional-WebGL scope; Ubuntu 24.04 tests the unsupported
+startup error, not successful rendering. CI job names state those scopes.
 
 The portable core test fixture replaces shell-only helpers. Desktop execution
 uses the [handoff recipe](desktop.md). The packaging command can download a

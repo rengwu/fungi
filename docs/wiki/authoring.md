@@ -103,6 +103,8 @@ Feature-detect graphics and codec capabilities. For example, WebGL context
 creation may return null on a virtual display or unsupported GPU; provide an
 appropriate alternative or explain that the interface needs that capability.
 The Electron runtime does not guarantee every graphics feature on every host.
+See [verified environments](platforms.md) for platform limits and startup
+diagnostics. An unavailable graphics context is not a successful render.
 
 Discover limits from `ready().limits`: currently 1 MiB JSON envelopes, 20 MiB
 per attachment and 100 MiB across retained draft/result artifacts. Metadata

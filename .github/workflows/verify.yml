@@ -9,11 +9,23 @@ permissions:
 
 jobs:
   core:
-    name: Foundation (${{ matrix.os }})
+    name: Foundation (${{ matrix.scope }})
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04, ubuntu-24.04, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-22.04
+            scope: Ubuntu 22.04 workflow; WebGL optional
+            renderer-args: --allow-unavailable-webgl
+          - os: ubuntu-24.04
+            scope: Ubuntu 24.04 core and unsupported-startup error
+            renderer-args: --expect-startup-failure
+          - os: macos-latest
+            scope: macOS workflow including WebGL
+            renderer-args: ''
+          - os: windows-latest
+            scope: Windows workflow including WebGL
+            renderer-args: ''
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
@@ -47,11 +59,13 @@ jobs:
             cat /proc/sys/kernel/apparmor_restrict_unprivileged_userns
           fi
           unshare --user --map-root-user true || true
-      - name: Exercise actual renderer
+      # Ubuntu 24.04 is not a supported UI environment. Its check verifies the
+      # saved startup error and sandbox diagnostics, not successful rendering.
+      - name: Exercise renderer (${{ matrix.scope }})
         shell: bash
         run: |
           if [[ "$RUNNER_OS" == "Linux" ]]; then
-            xvfb-run -a node scripts/renderer-smoke.mjs ./fungi
+            xvfb-run -a node scripts/renderer-smoke.mjs ./fungi ${{ matrix.renderer-args }}
           elif [[ "$RUNNER_OS" == "Windows" ]]; then
             node scripts/renderer-smoke.mjs ./fungi.exe
           else

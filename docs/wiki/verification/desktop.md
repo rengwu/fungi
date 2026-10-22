@@ -13,6 +13,13 @@ hosted-platform report records the failure. Record the OS/version/architecture a
 `BUILD.json` with the results. Do not bypass OS security protections or disable
 Chromium's sandbox if startup fails; record the actual error.
 
+The accepted Linux policy is no-install on explicitly verified environments.
+The bundled `docs/wiki/platforms.md` lists the evidence and limits. A
+`renderer_startup_failed` result identifies its `worker.log`; preserve both.
+Ubuntu 22.04's hosted workflow passes without WebGL, but that is not proof of
+every Linux desktop. A green Ubuntu 24.04 CI job verifies the core and startup
+failure diagnostics, not UI support.
+
 ## Windows PowerShell
 
 Open PowerShell in the extracted directory. Use a disposable state directory:

@@ -42,6 +42,11 @@ For renderer recovery, save a distinctive draft in a disposable session, termina
 
 ## Coverage and limitations
 
+The [platform record](../platforms.md) defines the accepted no-install
+baseline. A renderer that exits before readiness produces a saved
+`renderer_startup_failed` result with its diagnostic log location. This does
+not infer a cause or retry with a different security policy.
+
 File selection, image paste, image draft recovery, submission, cancellation, local HTML controls and actual write-failure recovery were observed through the native UI. Killing the isolated page renderer produced `failed` with `renderer_crashed`; explicit reopen restored `DRAFT-CRASH-RECOVER`, and closing that new window produced `closed`. The app uses a minimal native menu without development reload. The comparison example exports a custom canvas; a drawing editor, screenshot capture, nested JSON components and external live updates remain deferred. Feature-detect GPU and codec capabilities; hosted rendering results vary by platform.
 
 ## Verification history

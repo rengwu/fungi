@@ -1,6 +1,6 @@
 ---
 title: Requirements and discussion
-updated: 2026-10-20
+updated: 2026-10-22
 ---
 # Requirements and discussion
 
@@ -186,3 +186,23 @@ explicit supported Linux environments, allow an optional Linux installation
 path, or defer Linux UI. Prepare that one decision through grill-form; none
 of these alternatives is accepted yet. Full jstack authoring integration
 remains deferred.
+
+## Linux distribution decision
+
+The [submitted answer to question 20](journal/2026-10-22-grill-0c10be35-a07a-4a8d-8d5d-39fda5b2e1bc.md)
+selects **keep no-install; support explicitly verified Linux environments**.
+The Fungi callback was collected once, and the matching jstack transcript
+was validated and finished. There were no additional notes.
+
+Keep the portable folder/archive and bundled Electron runtime. Publish the
+tested environments and their capability limits; make unsupported startup
+failures diagnosable. This authorizes neither an installer nor sandbox
+bypasses, elevated helper setup or global host policy changes. Ubuntu 22.04's
+tested workflow is usable without WebGL; Ubuntu 24.04's tested default
+sandbox policy remains outside UI support. The earlier broad matrix remains
+Failed in its historical report.
+
+The [platform record](platforms.md) distinguishes workflow coverage, optional
+GPU/codec availability and physical clean-machine acceptance. Full jstack
+authoring integration remains deferred. No new skill/plugin architecture is
+needed to apply this decision.

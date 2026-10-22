@@ -13,6 +13,7 @@ Electron + Go is the accepted direction. The [first end-to-end proof](proposal.m
 - [Requirements and discussion](planning.md)
 - [First implementation contract](contract.md)
 - [Author a Fungi interface](authoring.md)
+- [Verified environments and portable distribution](platforms.md)
 - [Feature map](features/index.md)
 - [First prototype verification](verification/runs/2026-10-20-first-proof.md)
 - [Current no-setup compatibility verification](verification/runs/2026-10-20-no-setup.md)
@@ -27,5 +28,6 @@ Electron + Go is the accepted direction. The [first end-to-end proof](proposal.m
 - [Third interview: first milestone](journal/2026-10-19-grill-689a37f9-b8c4-4f2a-9e54-282234bc2551.md)
 - [Fourth interview: no-setup delivery](journal/2026-10-20-grill-397cc4f4-31e2-4fd5-a08e-30ee197e3297.md)
 - [Desktop verification arrangements](journal/2026-10-20-grill-desktop-arrangements.md)
+- [Linux distribution decision: submitted answer](journal/2026-10-22-grill-0c10be35-a07a-4a8d-8d5d-39fda5b2e1bc.md)
 
 The project uses jstack's plan, wiki, grill-form, and rule-lean workflows. The wiki builder is development documentation tooling, not a proposed dependency of the delivered fungi binary.
