@@ -77,7 +77,9 @@ func installedCLI(t *testing.T, binary, state string, wantOK bool, args ...strin
 
 func eventually(t *testing.T, check func() bool) {
 	t.Helper()
-	deadline := time.Now().Add(5 * time.Second)
+	// Match the product's startup bound while allowing each fixture to finish
+	// immediately on observable readiness. Never used to wait for a person.
+	deadline := time.Now().Add(30 * time.Second)
 	for !check() {
 		if time.Now().After(deadline) {
 			t.Fatal("bounded fixture condition did not complete")

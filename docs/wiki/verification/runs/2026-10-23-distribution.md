@@ -1,11 +1,11 @@
 ---
 title: Command installation and update proof
 updated: 2026-10-23
-result: Untested
+result: Failed
 ---
 # Command installation and update proof
 
-**Untested overall while the runtime-sharing follow-up awaits hosted execution.**
+**Failed pending retest of the Windows regression described below.**
 The initial four-platform CI run and selected local Mac scenarios passed.
 This run covers [installation](../../features/installation.md)
 and preservation of [sessions](../../features/sessions.md) through updates.
@@ -53,6 +53,7 @@ children use an empty PATH; the shell bootstrap uses standard OS tools.
 | Actual Mac runtime sharing during update | Passed | [Install evidence](../../evidence/2026-10-23-distribution/mac-runtime-reuse.json): runtime executable shares an inode; open session submits with matching PNG hash; rollback succeeds |
 | Renderer regression with shared runtime | Passed | [All 21 checks](../../evidence/2026-10-23-distribution/mac-runtime-renderer.json) pass through the stable installed command after the sharing update and rollback, including WebGL and draft/Blob recovery |
 | Hosted runtime-sharing follow-up | Untested | Mac and both Linux jobs passed on `af2dbee`; Windows bootstrap hit the fixture's 180-second timeout before installation completed. Corrected driver/bootstrap rerun pending |
+| Windows disconnect regression follow-up | Failed | The subsequent Windows core run found no result after fixed startup/completion sleeps; the handshake-based correction awaits hosted retest |
 
 The first unsafe-archive test attempt reused a ZIP header object and failed in
 the test writer. A fresh duplicate header corrected the fixture. The first
@@ -77,6 +78,27 @@ documents this source of download overhead. The original timeout's exact
 phase is unknown, so progress rendering is a plausible contributor, not an
 established root cause. All functional assertions remain unchanged. No human
 wait timeout or host security setting changed.
+
+The next Windows attempt on `58edcc6` stopped before the installer in
+`TestDisconnectedWaiterDoesNotCancel`: the test killed the CLI after one
+second and expected its ten-second helper's result eleven seconds later.
+The result was absent; [job log](../../evidence/2026-10-23-distribution/windows-120060671977.log)
+preserves the failure. Those sleeps did not establish that the owner had
+started or the helper had completed. Without worker diagnostics from that
+attempt, delayed startup is an inference rather than a proven cause.
+
+The correction uses the existing bounded helper gate: wait for an acknowledged
+draft/readiness marker, kill the actual waiting CLI, assert no result exists,
+release submission and require the saved submitted result. It adds worker
+diagnostics on failure. The fixture's observable-condition deadline is thirty
+seconds, matching the product startup bound; there is no fixed startup sleep
+or human polling. The queued Mac job in that superseded run was cancelled;
+both Linux jobs had already passed. The new committed-source rerun will cover
+all four targets.
+
+The [local race-enabled handshake and managed-update retest](../../evidence/2026-10-23-distribution/fixture-handshake-tests.log)
+passed before this follow-up was committed; it does not establish the Windows
+result.
 
 ## Size observations
 

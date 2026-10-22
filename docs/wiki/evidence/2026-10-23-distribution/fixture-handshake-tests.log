@@ -1,0 +1,6 @@
+=== RUN   TestDisconnectedWaiterDoesNotCancel
+--- PASS: TestDisconnectedWaiterDoesNotCancel (0.09s)
+=== RUN   TestManagedInstallUpdateRollbackAndSessions
+--- PASS: TestManagedInstallUpdateRollbackAndSessions (43.48s)
+PASS
+ok  	fungi	46.207s

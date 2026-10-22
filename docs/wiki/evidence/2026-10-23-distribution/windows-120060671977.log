@@ -1,0 +1,312 @@
+﻿2026-10-22T20:09:39.0603729Z Current runner version: '2.338.0'
+2026-10-22T20:09:39.0640374Z ##[group]Runner Image Provisioner
+2026-10-22T20:09:39.0641595Z Hosted Compute Agent
+2026-10-22T20:09:39.0642520Z Version: 20261015.610
+2026-10-22T20:09:39.0643524Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+2026-10-22T20:09:39.0644703Z Build Date: 2026-10-14T17:06:54Z
+2026-10-22T20:09:39.0646402Z Worker ID: {b407565f-7731-4950-8001-235ea1d152da}
+2026-10-22T20:09:39.0647602Z Region: westus
+2026-10-22T20:09:39.0648540Z Cloud: Azure
+2026-10-22T20:09:39.0649499Z ##[endgroup]
+2026-10-22T20:09:39.0652171Z ##[group]Operating System
+2026-10-22T20:09:39.0653271Z Microsoft Windows Server 2025
+2026-10-22T20:09:39.0654261Z 10.0.26100
+2026-10-22T20:09:39.0655156Z Datacenter
+2026-10-22T20:09:39.0656032Z ##[endgroup]
+2026-10-22T20:09:39.0656901Z ##[group]Runner Image
+2026-10-22T20:09:39.0657987Z Image: windows-2025-vs2026
+2026-10-22T20:09:39.0658974Z Version: 20261018.275.1
+2026-10-22T20:09:39.0661572Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261018.275/images/windows/Windows2025-VS2026-Readme.md
+2026-10-22T20:09:39.0664643Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261018.275
+2026-10-22T20:09:39.0666981Z ##[endgroup]
+2026-10-22T20:09:39.0668920Z ##[group]GITHUB_TOKEN Permissions
+2026-10-22T20:09:39.0671501Z Contents: read
+2026-10-22T20:09:39.0672456Z Metadata: read
+2026-10-22T20:09:39.0673446Z ##[endgroup]
+2026-10-22T20:09:39.0676415Z Secret source: Actions
+2026-10-22T20:09:39.0677793Z Cache mode: write
+2026-10-22T20:09:39.0678830Z Prepare workflow directory
+2026-10-22T20:09:39.1693538Z Prepare all required actions
+2026-10-22T20:09:39.1773506Z Getting action download info
+2026-10-22T20:09:39.5583404Z Download action repository 'actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+2026-10-22T20:09:39.7374120Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+2026-10-22T20:09:40.1669942Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+2026-10-22T20:09:40.4814024Z Complete job name: Foundation (Windows workflow including WebGL)
+2026-10-22T20:09:40.6456538Z ##[group]Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+2026-10-22T20:09:40.6458153Z with:
+2026-10-22T20:09:40.6458912Z   repository: rengwu/fungi
+2026-10-22T20:09:40.6464192Z   token: ***
+2026-10-22T20:09:40.6464736Z   ssh-strict: true
+2026-10-22T20:09:40.6465274Z   ssh-user: git
+2026-10-22T20:09:40.6465829Z   persist-credentials: true
+2026-10-22T20:09:40.6466440Z   clean: true
+2026-10-22T20:09:40.6466993Z   sparse-checkout-cone-mode: true
+2026-10-22T20:09:40.6467546Z   fetch-depth: 1
+2026-10-22T20:09:40.6467978Z   fetch-tags: false
+2026-10-22T20:09:40.6468433Z   show-progress: true
+2026-10-22T20:09:40.6468926Z   lfs: false
+2026-10-22T20:09:40.6469361Z   submodules: false
+2026-10-22T20:09:40.6469806Z   set-safe-directory: true
+2026-10-22T20:09:40.6470320Z   allow-unsafe-pr-checkout: false
+2026-10-22T20:09:40.6471125Z ##[endgroup]
+2026-10-22T20:09:41.3454803Z Syncing repository: rengwu/fungi
+2026-10-22T20:09:41.3457506Z ##[group]Getting Git version info
+2026-10-22T20:09:41.3458818Z Working directory is 'D:\a\fungi\fungi'
+2026-10-22T20:09:41.3460939Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-22T20:09:42.3227727Z git version 2.56.0.windows.2
+2026-10-22T20:09:42.3229560Z ##[endgroup]
+2026-10-22T20:09:42.3234055Z Temporarily overriding HOME='D:\a\_temp\fae64371-4fbf-4097-955d-3a3a8e6dd44f' before making global git config changes
+2026-10-22T20:09:42.3234925Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-22T20:09:42.3236142Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\fungi\fungi
+2026-10-22T20:09:42.3237536Z Deleting the contents of 'D:\a\fungi\fungi'
+2026-10-22T20:09:42.3241785Z ##[group]Initializing the repository
+2026-10-22T20:09:42.3242455Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\fungi\fungi
+2026-10-22T20:09:42.3243024Z Initialized empty Git repository in D:/a/fungi/fungi/.git/
+2026-10-22T20:09:42.3243951Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/rengwu/fungi
+2026-10-22T20:09:42.3244830Z ##[endgroup]
+2026-10-22T20:09:42.3245212Z ##[group]Disabling automatic garbage collection
+2026-10-22T20:09:42.3245616Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-22T20:09:42.3248766Z ##[endgroup]
+2026-10-22T20:09:42.3249139Z ##[group]Setting up auth
+2026-10-22T20:09:42.3249692Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-22T20:09:42.3251803Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-22T20:09:43.4216330Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-22T20:09:43.4616773Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-22T20:09:44.3452620Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-22T20:09:44.3455005Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-22T20:09:44.7087535Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-22T20:09:44.7495781Z ##[endgroup]
+2026-10-22T20:09:44.7496828Z ##[group]Fetching the repository
+2026-10-22T20:09:44.7518021Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +58edcc63539450e27da12d6835e97aa66ddca8c5:refs/remotes/origin/foundation-hardening
+2026-10-22T20:09:46.3345545Z From https://github.com/rengwu/fungi
+2026-10-22T20:09:46.3347452Z  * [new ref]         58edcc63539450e27da12d6835e97aa66ddca8c5 -> origin/foundation-hardening
+2026-10-22T20:09:46.3349588Z ##[endgroup]
+2026-10-22T20:09:46.3350227Z ##[group]Determining the checkout info
+2026-10-22T20:09:46.3350952Z ##[endgroup]
+2026-10-22T20:09:46.3351516Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-22T20:09:46.3353343Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-22T20:09:46.3355146Z ##[group]Checking out the ref
+2026-10-22T20:09:46.3356185Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B foundation-hardening refs/remotes/origin/foundation-hardening
+2026-10-22T20:09:46.3357412Z Switched to a new branch 'foundation-hardening'
+2026-10-22T20:09:46.3358302Z branch 'foundation-hardening' set up to track 'origin/foundation-hardening'.
+2026-10-22T20:09:46.3359899Z ##[endgroup]
+2026-10-22T20:09:46.3361042Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-22T20:09:46.3361711Z 58edcc63539450e27da12d6835e97aa66ddca8c5
+2026-10-22T20:09:46.3756237Z ##[group]Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+2026-10-22T20:09:46.3756687Z with:
+2026-10-22T20:09:46.3756877Z   go-version: 1.26.4
+2026-10-22T20:09:46.3757079Z   cache: false
+2026-10-22T20:09:46.3757268Z   check-latest: false
+2026-10-22T20:09:46.3759622Z   token: ***
+2026-10-22T20:09:46.3759807Z ##[endgroup]
+2026-10-22T20:09:46.5401230Z Setup go version spec 1.26.4
+2026-10-22T20:09:46.5420072Z Attempting to download 1.26.4...
+2026-10-22T20:09:47.1811812Z matching 1.26.4...
+2026-10-22T20:09:47.1864081Z Acquiring 1.26.4 from https://github.com/actions/go-versions/releases/download/1.26.4-26891772857/go-1.26.4-win32-x64.zip
+2026-10-22T20:09:48.2897987Z Extracting Go...
+2026-10-22T20:09:48.4158172Z [command]"C:\Program Files\PowerShell\7\pwsh.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command "$ErrorActionPreference = 'Stop' ; try { Add-Type -AssemblyName System.IO.Compression.ZipFile } catch { } ; try { [System.IO.Compression.ZipFile]::ExtractToDirectory('D:\a\_temp\go-1.26.4-win32-x64.zip', 'D:\a\_temp\a968d868-78b3-40df-9ac0-8bb86dd4a005', $true) } catch { if (($_.Exception.GetType().FullName -eq 'System.Management.Automation.MethodException') -or ($_.Exception.GetType().FullName -eq 'System.Management.Automation.RuntimeException') ){ Expand-Archive -LiteralPath 'D:\a\_temp\go-1.26.4-win32-x64.zip' -DestinationPath 'D:\a\_temp\a968d868-78b3-40df-9ac0-8bb86dd4a005' -Force } else { throw $_ } } ;"
+2026-10-22T20:09:54.6362595Z Successfully extracted go to D:\a\_temp\a968d868-78b3-40df-9ac0-8bb86dd4a005
+2026-10-22T20:09:54.6363932Z Adding to the cache ...
+2026-10-22T20:10:09.2303825Z Created link C:\hostedtoolcache\windows\go\1.26.4\x64 => D:\hostedtoolcache\windows\go\1.26.4\x64
+2026-10-22T20:10:09.2305074Z Created link C:\hostedtoolcache\windows\go\1.26.4\x64.complete => D:\hostedtoolcache\windows\go\1.26.4\x64.complete
+2026-10-22T20:10:09.2306101Z Successfully cached go to C:\hostedtoolcache\windows\go\1.26.4\x64
+2026-10-22T20:10:09.2306717Z Added go to the path
+2026-10-22T20:10:09.2307071Z Successfully set up Go version 1.26.4
+2026-10-22T20:10:09.6236011Z go version go1.26.4 windows/amd64
+2026-10-22T20:10:09.6238553Z 
+2026-10-22T20:10:09.6261482Z ##[group]go env
+2026-10-22T20:10:12.6356016Z set AR=ar
+2026-10-22T20:10:12.6356823Z set CC=gcc
+2026-10-22T20:10:12.6357360Z set CGO_CFLAGS=-O2 -g
+2026-10-22T20:10:12.6368295Z set CGO_CPPFLAGS=
+2026-10-22T20:10:12.6368892Z set CGO_CXXFLAGS=-O2 -g
+2026-10-22T20:10:12.6371670Z set CGO_ENABLED=1
+2026-10-22T20:10:12.6372223Z set CGO_FFLAGS=-O2 -g
+2026-10-22T20:10:12.6372742Z set CGO_LDFLAGS=-O2 -g
+2026-10-22T20:10:12.6373179Z set CXX=g++
+2026-10-22T20:10:12.6373574Z set GCCGO=gccgo
+2026-10-22T20:10:12.6374000Z set GO111MODULE=
+2026-10-22T20:10:12.6374433Z set GOAMD64=v1
+2026-10-22T20:10:12.6374855Z set GOARCH=amd64
+2026-10-22T20:10:12.6375278Z set GOAUTH=netrc
+2026-10-22T20:10:12.6375705Z set GOBIN=
+2026-10-22T20:10:12.6376340Z set GOCACHE=C:\Users\runneradmin\AppData\Local\go-build
+2026-10-22T20:10:12.6378422Z set GOCACHEPROG=
+2026-10-22T20:10:12.6402062Z set GODEBUG=
+2026-10-22T20:10:12.6410547Z set GOENV=C:\Users\runneradmin\AppData\Roaming\go\env
+2026-10-22T20:10:12.6411268Z set GOEXE=.exe
+2026-10-22T20:10:12.6411724Z set GOEXPERIMENT=
+2026-10-22T20:10:12.6412189Z set GOFIPS140=off
+2026-10-22T20:10:12.6412668Z set GOFLAGS=
+2026-10-22T20:10:12.6414172Z set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=C:\Users\RUNNER~1\AppData\Local\Temp\go-build685108086=/tmp/go-build -gno-record-gcc-switches
+2026-10-22T20:10:12.6426544Z set GOHOSTARCH=amd64
+2026-10-22T20:10:12.6427118Z set GOHOSTOS=windows
+2026-10-22T20:10:12.6427618Z set GOINSECURE=
+2026-10-22T20:10:12.6428290Z set GOMOD=D:\a\fungi\fungi\go.mod
+2026-10-22T20:10:12.6431625Z set GOMODCACHE=C:\Users\runneradmin\go\pkg\mod
+2026-10-22T20:10:12.6432370Z set GONOPROXY=
+2026-10-22T20:10:12.6432847Z set GONOSUMDB=
+2026-10-22T20:10:12.6433324Z set GOOS=windows
+2026-10-22T20:10:12.6453966Z set GOPATH=C:\Users\runneradmin\go
+2026-10-22T20:10:12.6454786Z set GOPRIVATE=
+2026-10-22T20:10:12.6458416Z set GOPROXY=https://proxy.golang.org,direct
+2026-10-22T20:10:12.6459346Z set GOROOT=C:\hostedtoolcache\windows\go\1.26.4\x64
+2026-10-22T20:10:12.6459973Z set GOSUMDB=sum.golang.org
+2026-10-22T20:10:12.6460436Z set GOTELEMETRY=local
+2026-10-22T20:10:12.6461047Z set GOTELEMETRYDIR=C:\Users\runneradmin\AppData\Roaming\go\telemetry
+2026-10-22T20:10:12.6461734Z set GOTMPDIR=
+2026-10-22T20:10:12.6462139Z set GOTOOLCHAIN=local
+2026-10-22T20:10:12.6463194Z set GOTOOLDIR=C:\hostedtoolcache\windows\go\1.26.4\x64\pkg\tool\windows_amd64
+2026-10-22T20:10:12.6463974Z set GOVCS=
+2026-10-22T20:10:12.6464396Z set GOVERSION=go1.26.4
+2026-10-22T20:10:12.6464849Z set GOWORK=
+2026-10-22T20:10:12.6465267Z set PKG_CONFIG=pkg-config
+2026-10-22T20:10:12.6465619Z 
+2026-10-22T20:10:12.6466401Z ##[endgroup]
+2026-10-22T20:10:12.6768101Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+2026-10-22T20:10:12.6768544Z with:
+2026-10-22T20:10:12.6768726Z   node-version: 22.19.0
+2026-10-22T20:10:12.6768946Z   package-manager-cache: false
+2026-10-22T20:10:12.6769185Z   check-latest: false
+2026-10-22T20:10:12.6771529Z   token: ***
+2026-10-22T20:10:12.6771710Z env:
+2026-10-22T20:10:12.6771866Z   GOTOOLCHAIN: local
+2026-10-22T20:10:12.6772053Z ##[endgroup]
+2026-10-22T20:10:12.8707424Z Attempting to download 22.19.0...
+2026-10-22T20:10:13.6304754Z Acquiring 22.19.0 - x64 from https://github.com/actions/node-versions/releases/download/22.19.0-17311483029/node-22.19.0-win32-x64.7z
+2026-10-22T20:10:14.1535466Z Extracting ...
+2026-10-22T20:10:16.8400405Z Adding to the cache ...
+2026-10-22T20:10:22.2785899Z ##[group]Environment details
+2026-10-22T20:10:23.9680757Z node: v22.19.0
+2026-10-22T20:10:23.9681567Z npm: 10.9.3
+2026-10-22T20:10:23.9691492Z yarn: 1.22.22
+2026-10-22T20:10:23.9692501Z ##[endgroup]
+2026-10-22T20:10:24.0037535Z ##[group]Run go version
+2026-10-22T20:10:24.0037949Z [36;1mgo version[0m
+2026-10-22T20:10:24.0550601Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T20:10:24.0551056Z env:
+2026-10-22T20:10:24.0551273Z   GOTOOLCHAIN: local
+2026-10-22T20:10:24.0551518Z ##[endgroup]
+2026-10-22T20:10:24.4743469Z go version go1.26.4 windows/amd64
+2026-10-22T20:10:24.5931338Z ##[group]Run go vet ./...
+2026-10-22T20:10:24.5931643Z [36;1mgo vet ./...[0m
+2026-10-22T20:10:24.6002423Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T20:10:24.6002769Z env:
+2026-10-22T20:10:24.6002961Z   GOTOOLCHAIN: local
+2026-10-22T20:10:24.6003160Z ##[endgroup]
+2026-10-22T20:11:01.6830615Z ##[group]Run go test -v ./...
+2026-10-22T20:11:01.6830950Z [36;1mgo test -v ./...[0m
+2026-10-22T20:11:01.6900764Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-22T20:11:01.6901120Z env:
+2026-10-22T20:11:01.6901305Z   GOTOOLCHAIN: local
+2026-10-22T20:11:01.6901509Z ##[endgroup]
+2026-10-22T20:12:36.0418733Z === RUN   TestCallbackUncertaintyDoesNotResendOrLoseResult
+2026-10-22T20:12:36.0420476Z --- PASS: TestCallbackUncertaintyDoesNotResendOrLoseResult (0.09s)
+2026-10-22T20:12:36.0422277Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+2026-10-22T20:12:36.0423936Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.64s)
+2026-10-22T20:12:36.0426533Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+2026-10-22T20:12:36.0429552Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (11.34s)
+2026-10-22T20:12:36.0431760Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+2026-10-22T20:12:36.0434601Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (0.31s)
+2026-10-22T20:12:36.0440063Z === RUN   TestWaitConnectionHasNoHumanTimeout
+2026-10-22T20:12:36.0441794Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.59s)
+2026-10-22T20:12:36.0451198Z === RUN   TestDisconnectedWaiterDoesNotCancel
+2026-10-22T20:12:36.0455850Z     integration_test.go:194: waiter loss killed owner open C:\Users\RUNNER~1\AppData\Local\Temp\TestDisconnectedWaiterDoesNotCancel421684149\001\dede028b7fa2fbc22c57195a52ce8e21\result.json: The system cannot find the file specified.
+2026-10-22T20:12:36.0458809Z --- FAIL: TestDisconnectedWaiterDoesNotCancel (13.44s)
+2026-10-22T20:12:36.0460618Z === RUN   TestHelperExitAndStdoutDrain
+2026-10-22T20:12:36.0461668Z --- PASS: TestHelperExitAndStdoutDrain (0.59s)
+2026-10-22T20:12:36.0463190Z === RUN   TestRendererStartupFailureIsSavedAndDiagnosable
+2026-10-22T20:12:36.0465188Z --- PASS: TestRendererStartupFailureIsSavedAndDiagnosable (0.40s)
+2026-10-22T20:12:36.0467504Z === RUN   TestBrokenHelperCannotHoldOwnerOpen
+2026-10-22T20:12:36.0468916Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/malformed
+2026-10-22T20:12:36.0470197Z === RUN   TestBrokenHelperCannotHoldOwnerOpen/closed-stdout
+2026-10-22T20:12:36.0471711Z --- PASS: TestBrokenHelperCannotHoldOwnerOpen (0.60s)
+2026-10-22T20:12:36.0477011Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/malformed (0.29s)
+2026-10-22T20:12:36.0479766Z     --- PASS: TestBrokenHelperCannotHoldOwnerOpen/closed-stdout (0.31s)
+2026-10-22T20:12:36.0481815Z === RUN   TestHelperThatDoesNotReadLaunchIsBounded
+2026-10-22T20:12:36.0483467Z --- PASS: TestHelperThatDoesNotReadLaunchIsBounded (5.85s)
+2026-10-22T20:12:36.0484735Z === RUN   TestDurableSubmissionAndDuplicate
+2026-10-22T20:12:36.0486444Z --- PASS: TestDurableSubmissionAndDuplicate (0.09s)
+2026-10-22T20:12:36.0488362Z === RUN   TestFailedCommitPreservesPreviousDraft
+2026-10-22T20:12:36.0489945Z --- PASS: TestFailedCommitPreservesPreviousDraft (0.04s)
+2026-10-22T20:12:36.0491212Z === RUN   TestArtifactConfinementAndLimits
+2026-10-22T20:12:36.0493083Z --- PASS: TestArtifactConfinementAndLimits (0.02s)
+2026-10-22T20:12:36.0494882Z === RUN   TestDraftImageSurvivesClose
+2026-10-22T20:12:36.0496009Z --- PASS: TestDraftImageSurvivesClose (0.04s)
+2026-10-22T20:12:36.0497452Z === RUN   TestMalformedProtocolAndForms
+2026-10-22T20:12:36.0498396Z --- PASS: TestMalformedProtocolAndForms (0.00s)
+2026-10-22T20:12:36.0500521Z === RUN   TestLockRejectsSecondOwner
+2026-10-22T20:12:36.0501883Z --- PASS: TestLockRejectsSecondOwner (0.00s)
+2026-10-22T20:12:36.0502929Z === RUN   TestLockIOErrorIsNotAClaimOfOwnership
+2026-10-22T20:12:36.0504464Z --- PASS: TestLockIOErrorIsNotAClaimOfOwnership (0.00s)
+2026-10-22T20:12:36.0507124Z === RUN   TestJSONBoundaryNeverAcknowledgesUnreadableFile
+2026-10-22T20:12:36.0508552Z --- PASS: TestJSONBoundaryNeverAcknowledgesUnreadableFile (0.02s)
+2026-10-22T20:12:36.0510306Z === RUN   TestManagedInstallUpdateRollbackAndSessions
+2026-10-22T20:12:36.0516068Z --- PASS: TestManagedInstallUpdateRollbackAndSessions (36.42s)
+2026-10-22T20:12:36.0517599Z === RUN   TestReleaseDownloadFailures
+2026-10-22T20:12:36.0518487Z --- PASS: TestReleaseDownloadFailures (0.01s)
+2026-10-22T20:12:36.0520840Z === RUN   TestRuntimeReusePreservesChangedFilesAndSurvivesPruning
+2026-10-22T20:12:36.0522697Z --- PASS: TestRuntimeReusePreservesChangedFilesAndSurvivesPruning (0.01s)
+2026-10-22T20:12:36.0524239Z FAIL
+2026-10-22T20:12:36.0525404Z FAIL	fungi	84.621s
+2026-10-22T20:12:36.0527116Z ?   	fungi/examples/helper	[no test files]
+2026-10-22T20:12:36.0528124Z === RUN   TestArchiveRoundTrip
+2026-10-22T20:12:36.0528805Z === RUN   TestArchiveRoundTrip/.zip
+2026-10-22T20:12:36.0529557Z === RUN   TestArchiveRoundTrip/.tar.gz
+2026-10-22T20:12:36.0530658Z --- PASS: TestArchiveRoundTrip (0.03s)
+2026-10-22T20:12:36.0531473Z     --- PASS: TestArchiveRoundTrip/.zip (0.01s)
+2026-10-22T20:12:36.0532220Z     --- PASS: TestArchiveRoundTrip/.tar.gz (0.01s)
+2026-10-22T20:12:36.0533743Z === RUN   TestRejectUnsafeArchives
+2026-10-22T20:12:36.0534862Z === RUN   TestRejectUnsafeArchives/../outside
+2026-10-22T20:12:36.0535720Z === RUN   TestRejectUnsafeArchives//absolute
+2026-10-22T20:12:36.0536840Z === RUN   TestRejectUnsafeArchives/C:/drive
+2026-10-22T20:12:36.0537629Z === RUN   TestRejectUnsafeArchives/dir\escape
+2026-10-22T20:12:36.0538851Z === RUN   TestRejectUnsafeArchives/a/../escape
+2026-10-22T20:12:36.0539676Z === RUN   TestRejectUnsafeArchives/duplicate
+2026-10-22T20:12:36.0540484Z === RUN   TestRejectUnsafeArchives/link
+2026-10-22T20:12:36.0541533Z --- PASS: TestRejectUnsafeArchives (0.03s)
+2026-10-22T20:12:36.0542535Z     --- PASS: TestRejectUnsafeArchives/../outside (0.00s)
+2026-10-22T20:12:36.0543877Z     --- PASS: TestRejectUnsafeArchives//absolute (0.00s)
+2026-10-22T20:12:36.0545101Z     --- PASS: TestRejectUnsafeArchives/C:/drive (0.00s)
+2026-10-22T20:12:36.0546117Z     --- PASS: TestRejectUnsafeArchives/dir\escape (0.00s)
+2026-10-22T20:12:36.0548927Z     --- PASS: TestRejectUnsafeArchives/a/../escape (0.00s)
+2026-10-22T20:12:36.0549929Z     --- PASS: TestRejectUnsafeArchives/duplicate (0.01s)
+2026-10-22T20:12:36.0551167Z     --- PASS: TestRejectUnsafeArchives/link (0.00s)
+2026-10-22T20:12:36.0551940Z PASS
+2026-10-22T20:12:36.0552489Z ok  	fungi/internal/bundle	0.097s
+2026-10-22T20:12:36.0553524Z ?   	fungi/scripts/archive	[no test files]
+2026-10-22T20:12:36.0554600Z ?   	fungi/scripts/idle-helper	[no test files]
+2026-10-22T20:12:36.0555436Z ?   	fungi/scripts/protocol-fixture	[no test files]
+2026-10-22T20:12:36.0555981Z FAIL
+2026-10-22T20:12:36.3369121Z ##[error]Process completed with exit code 1.
+2026-10-22T20:12:36.3589066Z ##[group]Run if [[ -d verification-output ]]; then
+2026-10-22T20:12:36.3589683Z [36;1mif [[ -d verification-output ]]; then[0m
+2026-10-22T20:12:36.3590308Z [36;1m  find verification-output -type f \( -name result.json -o -name worker.log -o -name evidence.json \) -exec cat {} \;[0m
+2026-10-22T20:12:36.3590878Z [36;1mfi[0m
+2026-10-22T20:12:36.3610389Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-22T20:12:36.3610798Z env:
+2026-10-22T20:12:36.3610980Z   GOTOOLCHAIN: local
+2026-10-22T20:12:36.3611182Z ##[endgroup]
+2026-10-22T20:12:36.9044372Z ##[group]Run if [[ -d verification-output ]]; then
+2026-10-22T20:12:36.9045151Z [36;1mif [[ -d verification-output ]]; then[0m
+2026-10-22T20:12:36.9046074Z [36;1m  find verification-output -path '*/install-smoke-*/evidence.json' -exec cat {} \;[0m
+2026-10-22T20:12:36.9046899Z [36;1mfi[0m
+2026-10-22T20:12:36.9078482Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-10-22T20:12:36.9079270Z env:
+2026-10-22T20:12:36.9079651Z   GOTOOLCHAIN: local
+2026-10-22T20:12:36.9080141Z ##[endgroup]
+2026-10-22T20:12:36.9993550Z Post job cleanup.
+2026-10-22T20:12:37.2628727Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-22T20:12:37.3151003Z git version 2.56.0.windows.2
+2026-10-22T20:12:37.3295324Z Temporarily overriding HOME='D:\a\_temp\2248df1c-1dac-4d61-8860-d5755cdf52e6' before making global git config changes
+2026-10-22T20:12:37.3314760Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-22T20:12:37.3317850Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\fungi\fungi
+2026-10-22T20:12:37.3740151Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-22T20:12:37.4143004Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-22T20:12:38.0225522Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-22T20:12:38.0576711Z http.https://github.com/.extraheader
+2026-10-22T20:12:38.0637354Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-10-22T20:12:38.1208430Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-22T20:12:38.7552991Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-22T20:12:38.7992485Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-22T20:12:39.4135781Z Cleaning up orphan processes

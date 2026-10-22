@@ -24,6 +24,7 @@ func main() {
 		}
 		dec, enc := json.NewDecoder(os.Stdin), json.NewEncoder(os.Stdout)
 		var launch struct {
+			Session   string `json:"session"`
 			Draft     any    `json:"draft"`
 			OutputDir string `json:"outputDir"`
 		}
@@ -42,6 +43,9 @@ func main() {
 			panic("draft failed")
 		}
 		enc.Encode(map[string]any{"type": "ready"})
+		if err := os.WriteFile(os.Args[2]+".ready", []byte(launch.Session), 0600); err != nil {
+			panic(err)
+		}
 		deadline := time.Now().Add(60 * time.Second)
 		for {
 			gate, err := os.ReadFile(os.Args[2])

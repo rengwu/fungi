@@ -171,24 +171,45 @@ func TestWaitConnectionHasNoHumanTimeout(t *testing.T) {
 
 func TestDisconnectedWaiterDoesNotCancel(t *testing.T) {
 	root := t.TempDir()
-	cmd := exec.Command(testBinary, "open", "--exec", testHelper, "--delivery", "wait", "--", "wait")
+	gate := filepath.Join(t.TempDir(), "submit")
+	cmd := exec.Command(testBinary, "open", "--exec", testFixture, "--delivery", "wait", "--", "update-session", gate)
 	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+root)
 	if err := cmd.Start(); err != nil {
 		t.Fatal(err)
 	}
-	// This finite test delay is not a model-facing polling mechanism.
-	time.Sleep(time.Second)
-	entries, err := os.ReadDir(root)
-	if err != nil || len(entries) != 1 {
-		t.Fatal("owner did not start", err)
-	}
-	id := entries[0].Name()
-	if err = cmd.Process.Kill(); err != nil {
+	defer func() {
+		_ = os.WriteFile(gate, []byte("submitted"), 0600)
+		if cmd.ProcessState == nil {
+			_ = cmd.Process.Kill()
+			_ = cmd.Wait()
+		}
+	}()
+	// Wait for a real helper/owner round trip before disconnecting the caller.
+	// A fixed sleep can kill the launcher before its owner has even started.
+	var id []byte
+	eventually(t, func() bool {
+		var err error
+		id, err = os.ReadFile(gate + ".ready")
+		return err == nil && len(id) == 32
+	})
+	s := &store{dir: filepath.Join(root, string(id))}
+	defer func() {
+		if t.Failed() {
+			log, _ := os.ReadFile(s.path("worker.log"))
+			t.Logf("worker diagnostics: %s", log)
+		}
+	}()
+	if err := cmd.Process.Kill(); err != nil {
 		t.Fatal(err)
 	}
 	_ = cmd.Wait()
-	time.Sleep(11 * time.Second)
-	s := &store{dir: filepath.Join(root, id)}
+	if _, err := s.readResult(); !os.IsNotExist(err) {
+		t.Fatal("fixture completed before submission was released", err)
+	}
+	if err := os.WriteFile(gate, []byte("submitted"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	eventually(t, func() bool { _, err := s.readResult(); return err == nil })
 	r, err := s.readResult()
 	if err != nil {
 		t.Fatal("waiter loss killed owner", err)
