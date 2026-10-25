@@ -10,6 +10,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
+	"strings"
 	"sync"
 
 	"github.com/wailsapp/wails/v2"
@@ -235,6 +237,14 @@ func run() error {
 		return err
 	}
 	defer handler.root.Close()
+	if runtime.GOOS == "linux" {
+		// WebKitGTK 2.52 restricts media URL schemes. Opt this renderer into
+		// Wails' local asset scheme, preserving any caller-supplied additions.
+		protocols := strings.Trim(os.Getenv("WEBKIT_GST_ALLOWED_URI_PROTOCOLS")+",wails", ",")
+		if err := os.Setenv("WEBKIT_GST_ALLOWED_URI_PROTOCOLS", protocols); err != nil {
+			return err
+		}
+	}
 	m := menu.NewMenu()
 	m.Append(menu.AppMenu())
 	m.Append(menu.EditMenu())
