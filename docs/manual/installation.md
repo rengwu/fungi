@@ -63,8 +63,8 @@ previous, active and session-referenced versions. Portable folders do not
 self-update; create a managed install for these commands. No background update
 or OS policy changes occur. Keep session state outside the installation.
 
-Old Electron preview updaters reject package format 2 and need the new bootstrap
-once; legacy rollback support remains. Physical Windows/Linux desktop input,
+Only format-2 Wails packages are supported for installation and rollback.
+Electron preview packages are no longer accepted. Physical Windows/Linux desktop input,
 other OS/CPU combinations, signing/notarization and long Wails sleep/wake still
 need release acceptance. Hosted checks are not clean consumer-machine proof.
 

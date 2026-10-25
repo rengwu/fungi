@@ -25,7 +25,6 @@ type packageManifest struct {
 	Platform       string `json:"platform"`
 	Arch           string `json:"arch"`
 	BinarySHA256   string `json:"binarySHA256"`
-	Electron       string `json:"electron,omitempty"` // format 1, retained for rollback
 	Wails          string `json:"wails,omitempty"`
 	RendererSHA256 string `json:"rendererSHA256,omitempty"`
 }
@@ -295,7 +294,10 @@ func inspectPackage(dir, expected string) (packageManifest, error) {
 	if err != nil {
 		return m, err
 	}
-	if (m.Format != 1 && m.Format != 2) || !versionPattern.MatchString(m.Version) || (expected != "" && m.Version != expected) || m.Platform != runtime.GOOS || m.Arch != runtime.GOARCH || !validDigest(m.BinarySHA256) {
+	if m.Format != 2 {
+		return m, fail("invalid_package", "only Wails package format 2 is supported; use a current Fungi package")
+	}
+	if !versionPattern.MatchString(m.Version) || (expected != "" && m.Version != expected) || m.Platform != runtime.GOOS || m.Arch != runtime.GOARCH || !validDigest(m.BinarySHA256) {
 		return m, fail("invalid_package", "release identity, protocol or OS/CPU does not match this machine")
 	}
 	digest, err := fileDigest(filepath.Join(dir, binaryName()))
@@ -305,47 +307,15 @@ func inspectPackage(dir, expected string) (packageManifest, error) {
 	if digest != m.BinarySHA256 {
 		return m, fail("invalid_package", "release executable SHA-256 differs")
 	}
-	if m.Format == 2 {
-		if m.Wails == "" || !validDigest(m.RendererSHA256) {
-			return m, fail("invalid_package", "missing Wails renderer identity")
-		}
-		got, err := fileDigest(filepath.Join(dir, rendererRelativePath()))
-		if err != nil {
-			return m, err
-		}
-		if got != m.RendererSHA256 {
-			return m, fail("invalid_package", "window helper SHA-256 differs")
-		}
-		return m, nil
+	if m.Wails == "" || !validDigest(m.RendererSHA256) {
+		return m, fail("invalid_package", "missing Wails renderer identity")
 	}
-	// Read-only compatibility for existing pre-release Electron installations.
-	// New packages never contain this runtime; preserve explicit rollback.
-	if m.Electron == "" {
-		return m, fail("invalid_package", "missing legacy renderer identity")
-	}
-	runtimeDir := filepath.Join(dir, "renderer", "runtime")
-	v, err := os.ReadFile(filepath.Join(runtimeDir, "version"))
+	got, err := fileDigest(filepath.Join(dir, rendererRelativePath()))
 	if err != nil {
 		return m, err
 	}
-	if strings.TrimPrefix(strings.TrimSpace(string(v)), "v") != m.Electron {
-		return m, fail("invalid_package", "bundled Electron version differs")
-	}
-	engine := "electron"
-	if runtime.GOOS == "windows" {
-		engine = "electron.exe"
-	}
-	if runtime.GOOS == "darwin" {
-		engine = filepath.Join("Electron.app", "Contents", "MacOS", "Electron")
-	}
-	for _, name := range []string{filepath.Join(runtimeDir, engine), filepath.Join(dir, "renderer", "main.cjs"), filepath.Join(dir, "renderer", "preload.cjs")} {
-		info, e := os.Stat(name)
-		if e != nil {
-			return m, e
-		}
-		if !info.Mode().IsRegular() {
-			return m, fail("invalid_package", "required package entry is not a regular file: "+name)
-		}
+	if got != m.RendererSHA256 {
+		return m, fail("invalid_package", "window helper SHA-256 differs")
 	}
 	return m, nil
 }
@@ -366,11 +336,8 @@ func probePackage(dir string, manifest packageManifest) error {
 	if err = json.Unmarshal(b, &reply); err != nil || reply.Protocol != 1 || reply.Kind != "version" || reply.Version != manifest.Version {
 		return fail("release_probe_failed", "new executable does not match release metadata")
 	}
-	if manifest.Format == 2 {
-		_, err := checkRenderer(filepath.Join(dir, rendererRelativePath()))
-		return err
-	}
-	return nil
+	_, err = checkRenderer(filepath.Join(dir, rendererRelativePath()))
+	return err
 }
 
 func copyExecutable(source, destination string) error {

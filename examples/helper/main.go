@@ -1,4 +1,4 @@
-// A tiny native executable implementing the same protocol as Electron.
+// A tiny native executable implementing the same protocol as the window renderer.
 // Build: go build -o /tmp/fungi-helper ./examples/helper
 package main
 
@@ -39,7 +39,7 @@ func main() {
 		}
 		time.Sleep(time.Duration(seconds) * time.Second)
 	}
-	b := []byte("A native helper can return files without Electron.\n")
+	b := []byte("A native helper can return files through Fungi.\n")
 	if err := os.WriteFile(filepath.Join(launch.OutputDir, "note.txt"), b, 0600); err != nil {
 		panic(err)
 	}

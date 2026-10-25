@@ -659,3 +659,15 @@ unchanged API. Independent fresh-agent transfer remains untested; no agent
 delegation was invoked. Release qualification, cleanup policy and rich grill-form port
 remain separate work. No further product decision blocks this documentation
 implementation.
+
+## Stale-artifact cleanup on 2026-10-26
+
+The user requested clearing stale and unused material after the inventory of
+remaining Electron files. No active project processes or ordinary user install
+were found. Old build/test trees, the stale root command and unused Electron
+node_modules were removed after preserving completed feedback and recorded
+evidence. One fresh Wails build will be retained. The Electron format-1 package
+reader and rollback compatibility were retired; current Wails update/rollback
+remains covered by tests. No automatic session-deletion policy or cleanup daemon
+was added. [Cleanup verification](verification/runs/2026-10-26-cleanup.md) records
+space usage, retained feedback, source hashes and test status.

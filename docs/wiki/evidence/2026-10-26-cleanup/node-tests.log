@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: slow attachment encoding cannot reorder saves, submit or cancel
+ok 1 - slow attachment encoding cannot reorder saves, submit or cancel
+  ---
+  duration_ms: 5.361584
+  type: 'test'
+  ...
+# Subtest: rejected save does not poison a later submit retry
+ok 2 - rejected save does not poison a later submit retry
+  ---
+  duration_ms: 0.825417
+  type: 'test'
+  ...
+# Subtest: simple committed question format normalizes stable IDs and rich source
+ok 3 - simple committed question format normalizes stable IDs and rich source
+  ---
+  duration_ms: 1.450709
+  type: 'test'
+  ...
+# Subtest: notes-only answers work; empty answers and Other without notes cannot submit
+ok 4 - notes-only answers work; empty answers and Other without notes cannot submit
+  ---
+  duration_ms: 0.288583
+  type: 'test'
+  ...
+# Subtest: reopen preserves partial notes but refuses a mismatched questionnaire
+ok 5 - reopen preserves partial notes but refuses a mismatched questionnaire
+  ---
+  duration_ms: 0.819959
+  type: 'test'
+  ...
+# Subtest: invalid spec and reserved IDs fail before a usable questionnaire is shown
+ok 6 - invalid spec and reserved IDs fail before a usable questionnaire is shown
+  ---
+  duration_ms: 0.139458
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 120.666125

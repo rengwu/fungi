@@ -205,37 +205,17 @@ func TestReleaseDownloadFailures(t *testing.T) {
 	}
 }
 
-// Old preview packages stay readable for rollback; new archives use format 2.
-func TestLegacyPackageRemainsReadable(t *testing.T) {
-	dir := t.TempDir()
-	if err := copyExecutable(testBinary, filepath.Join(dir, binaryName())); err != nil {
-		t.Fatal(err)
-	}
-	engine := "electron"
-	if runtime.GOOS == "windows" {
-		engine = "electron.exe"
-	}
-	if runtime.GOOS == "darwin" {
-		engine = "Electron.app/Contents/MacOS/Electron"
-	}
-	for name, data := range map[string]string{"renderer/runtime/" + engine: "legacy fixture", "renderer/runtime/version": "1.0.0", "renderer/main.cjs": "", "renderer/preload.cjs": ""} {
-		file := filepath.Join(dir, filepath.FromSlash(name))
-		if err := os.MkdirAll(filepath.Dir(file), 0700); err != nil {
+func TestUnsupportedPackageFormatsAreRejected(t *testing.T) {
+	for _, format := range []int{0, 1, 3} {
+		dir := t.TempDir()
+		manifest := packageManifest{Format: format, Version: "v0.1.0-unsupported", Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: strings.Repeat("0", 64)}
+		if err := atomicJSON(filepath.Join(dir, "RELEASE.json"), manifest); err != nil {
 			t.Fatal(err)
 		}
-		if err := os.WriteFile(file, []byte(data), 0600); err != nil {
-			t.Fatal(err)
+		// Reject before reading or executing any legacy/future package binary.
+		_, err := inspectPackage(dir, manifest.Version)
+		if err == nil || asProblem(err).Code != "invalid_package" || !strings.Contains(err.Error(), "format 2") {
+			t.Fatalf("format %d: %v", format, err)
 		}
-	}
-	digest, err := fileDigest(filepath.Join(dir, binaryName()))
-	if err != nil {
-		t.Fatal(err)
-	}
-	manifest := packageManifest{Format: 1, Version: "v0.1.0-legacy", Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: digest, Electron: "1.0.0"}
-	if err := atomicJSON(filepath.Join(dir, "RELEASE.json"), manifest); err != nil {
-		t.Fatal(err)
-	}
-	if _, err := inspectPackage(dir, manifest.Version); err != nil {
-		t.Fatal(err)
 	}
 }

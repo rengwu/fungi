@@ -50,7 +50,7 @@ type launch struct {
 }
 
 // Bridge exposes only the operations needed by bridge.js. Wails' own runtime
-// is also exposed by upstream; this is not the Electron isolation boundary.
+// is also exposed by upstream; pages are trusted local application code.
 type Bridge struct {
 	mu       sync.Mutex
 	launch   launch

@@ -48,6 +48,15 @@ The successful clipboard fixture used a separate form with one image field, keep
 
 Do not overwrite the user's edits while they are trying a demo. Preserve acknowledged drafts. A changing desktop focus or failed clipboard setup is a driver limitation until separately diagnosed; it is not a product pass.
 
+## Scratch output lifecycle
+
+The 2026-10-26 cleanup retired the old `dist/` packages, root executable,
+Electron dependencies and `verification-output/` scratch trees. Completed
+feedback and dated evidence remain in this wiki. Historical absolute paths in
+reports identify their original runs; they are not current launch commands.
+For a new run, build a fresh package and use the maintained drivers above.
+There is no general dependency on a pre-existing root `./fungi` executable.
+
 ## Historical harness probes
 
 Commands installed at the time of the run:

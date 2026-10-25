@@ -1,0 +1,9 @@
+{
+  "elapsedSeconds": 7200.01478275,
+  "finishedAt": "2026-10-20T11:46:08.980722Z",
+  "marker": "TWO-HOUR-IDLE-CALLBACK",
+  "requestedSeconds": 7200,
+  "restoredDraft": null,
+  "session": "622f59b42e05840dd408622f23c8416a",
+  "startedAt": "2026-10-20T09:41:51.107501Z"
+}

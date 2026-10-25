@@ -31,8 +31,10 @@ Run `go test -race -v . ./examples/helper` from the repository. The tests build 
 For a visible result:
 
 ```sh
+mkdir -p verification-output
+go build -o verification-output/fungi .
 go build -o verification-output/helper ./examples/helper
-FUNGI_STATE_DIR="$PWD/verification-output/sessions" ./fungi open --exec "$PWD/verification-output/helper" --delivery wait
+FUNGI_STATE_DIR="$PWD/verification-output/sessions" ./verification-output/fungi open --exec "$PWD/verification-output/helper" --delivery wait
 ```
 
 Read the returned artifact path. Run `collect` with the exact returned session and the same state directory; it must return the same envelope. Keep the result/draft directories until evidence is saved. Never use repeated collection to wait for human input.

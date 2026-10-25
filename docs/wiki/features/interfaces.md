@@ -41,7 +41,7 @@ Submission closes the window after acknowledgement. Persistence failure retains 
 
 Follow [setup](../verification/setup.md). Launch a new isolated form:
 
-1. Enter text, move the slider and select the generated `verification-output/reference.png`.
+1. Enter text, move the slider and select the committed `docs/wiki/evidence/2026-10-20-first-proof/reference.png`.
 2. Observe “Draft saved” and inspect `draft.json` plus the saved artifact hash.
 3. Close the native window. Collect once: expect `closed`, without answer data.
 4. Reopen that exact session. Expect a new session, restored values and the image preview.

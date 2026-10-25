@@ -18,6 +18,7 @@ and explicit Linux runtime setup. Public release qualification remains separate.
 The [first end-to-end proof](proposal.md#first-proof) records the original
 Electron/Go scope and automatic-return checks.
 
+- [Stale-artifact and Electron cleanup](verification/runs/2026-10-26-cleanup.md)
 - [Requirements and discussion](planning.md)
 - [Documentation interview: offline reference, small examples and creative freedom](journal/2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284.md)
 - [First implementation contract](contract.md)

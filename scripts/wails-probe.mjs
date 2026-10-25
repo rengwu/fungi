@@ -1,4 +1,4 @@
-// Experimental host diagnostics, not a claim of Electron-equivalent isolation.
+// Diagnostics for the accepted Wails host behavior.
 // Every page and localStorage key belongs to this disposable run.
 import {mkdtemp,mkdir,writeFile,readFile} from 'node:fs/promises';
 import {execFile} from 'node:child_process';

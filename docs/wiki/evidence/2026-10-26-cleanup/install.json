@@ -1,0 +1,337 @@
+{
+  "evidence": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/evidence.json",
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm",
+  "platform": "darwin",
+  "arch": "arm64",
+  "archiveA": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-clean.1/fungi-darwin-arm64.tar.gz",
+  "checksumA": "a5d774c97cba59e761842051d00dc0fdc37b31f42bcf2a18c6f7b844ed4deaf4",
+  "archiveB": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-clean.2/fungi-darwin-arm64.tar.gz",
+  "checksumB": "f7139269e159495075ef5f8822dbc1b63747c2efc17abcfaac598824b9ae9992",
+  "requests": [
+    "/download/v0.1.0-clean.1/fungi-darwin-arm64.tar.gz.sha256",
+    "/download/v0.1.0-clean.1/fungi-darwin-arm64.tar.gz"
+  ],
+  "scope": "bootstrap, active Wails session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/bin/fungi\",\"current\":\"v0.1.0-clean.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 569
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-clean.1"
+  },
+  "discoveryBefore": {
+    "version": "v0.1.0-clean.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/index.html",
+        "input": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/index.html",
+          "--input",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/review.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "2423160aeb21f27307799f711c2ba867",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/bin/fungi",
+      "collect",
+      "2423160aeb21f27307799f711c2ba867"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/sessions/2423160aeb21f27307799f711c2ba867/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/bin/fungi",
+    "current": "v0.1.0-clean.2",
+    "kind": "installation",
+    "previous": "v0.1.0-clean.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-clean.2"
+  },
+  "discoveryAfter": {
+    "version": "v0.1.0-clean.2",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/reply/index.html",
+        "input": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/reply/index.html",
+          "--input",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/review.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.2/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WKWebView"
+  },
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-clean.2",
+    "platform": "darwin",
+    "arch": "arm64",
+    "wails": "v2.17.0",
+    "binarySHA256": "700f31a80f9dedaba2d1fa97efd70837b318a9ad6b6f844ee8d56a5efc32a6c5",
+    "rendererSHA256": "7246526a91f104adc5b3b0f1e9cb1973351e0425a441c22f81444bbbfb1aec45"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "2423160aeb21f27307799f711c2ba867",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-clean.2"
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/sessions/2423160aeb21f27307799f711c2ba867/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/bin/fungi",
+    "current": "v0.1.0-clean.1",
+    "kind": "installation",
+    "previous": "v0.1.0-clean.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "discoveryRollback": {
+    "version": "v0.1.0-clean.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/index.html",
+        "input": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/index.html",
+          "--input",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/review.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-IoMERm/install with spaces/versions/v0.1.0-clean.1/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "passed": true
+}

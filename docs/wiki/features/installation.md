@@ -86,11 +86,11 @@ A missing runtime, failed setup or failed preactivation check leaves an existing
 Fungi installation selected. System package managers own any partial runtime
 setup and updates; Fungi does not roll back OS packages.
 
-Format-1 Electron preview packages remain readable for rollback. Their old
-updater does not accept format 2: use the new bootstrap once to migrate, keeping
-the existing installation directory. The stable launcher/layout and session
-records remain compatible. This is a preview migration, not an update path from
-an already published release.
+Only format-2 Wails packages are accepted. Format-1 Electron preview support
+was removed during the 2026-10-26 cleanup; unsupported packages are rejected
+before any package executable is run. Rollback between retained Wails releases
+continues to work. Historical migration/rollback evidence below describes older
+builds, not current compatibility.
 
 An update lock serializes mutations. Short activation locks coordinate version
 selection and cleanup; downloads do not hold this lock. Each running process
@@ -161,6 +161,8 @@ inferred from a local or hosted success. Full Fungi-native jstack integration
 remains deferred.
 
 ## Verification history
+
+- [2026-10-26 cleanup](../verification/runs/2026-10-26-cleanup.md) — removed Electron preview compatibility; current Wails installation/update/rollback checks.
 
 - [2026-10-26 offline discovery](../verification/runs/2026-10-26-discovery.md) — installed help, examples, update/rollback and native throwaway reply.
 

@@ -1,0 +1,35 @@
+{
+  "base": "2c18ef57ec5c6817c93882c2695b5b12f2eaf98b",
+  "beforeAllocatedBytes": 1329639424,
+  "removedRoots": [
+    "fungi",
+    "renderer/node_modules",
+    "dist",
+    "verification-output"
+  ],
+  "activeFungiProcesses": 0,
+  "normalUserInstallationPresent": false,
+  "preservedFeedbackResults": 5,
+  "extraPreservedArtifacts": [
+    {
+      "session": "622f59b42e05840dd408622f23c8416a",
+      "key": "timing",
+      "file": "feedback-2a8c5a13db37.txt",
+      "sha256": "2a8c5a13db37e81205254dcbd69a067fdebb27d963e8471ca31e34bd91dc2138"
+    }
+  ],
+  "interruptedFixture": "34856b05b81b6488efacb8d709559dba: synthetic GRILL-DRAFT-RECOVER, no running owner; source was already absent.",
+  "removedDSStoreFiles": 7,
+  "afterOldArtifactsRemovedBytes": 22171648,
+  "sourceSHA256": {
+    "update.go": "1d22b7581cc7657dc77098201ffc1e2ca1c6293d1e790194ebcb829f9ce12841",
+    "update_test.go": "44075fc31aa29e6f76c2bce8c62a7cf2ec319def501a9f4fed215e52395d4867",
+    "owner.go": "b3b29eef88967911c614e255b7cdddfedc4d495a465ea5e7ec93b5f0b75b1cff",
+    "examples/helper/main.go": "a09d67b0b1463bf00bcba914cdc5b9f8c00b6cc7372bfb540b230fa6c40ed27d",
+    "renderer/wails/main.go": "c5259939ed666760577518665fbfe6bc7da82e3428e1362be8354fd084d6b8a4",
+    "scripts/wails-probe.mjs": "b0af5cd14c570b5b374809555bbe8344607716bef87392e56756f8c2f5ed1ef9",
+    "docs/manual/installation.md": "d204d4a3c03be4455fa2dee749f28f68b5437694eadec250112fe326067d9beb"
+  },
+  "retainedBuild": "dist/release-v0.1.0-clean.2/fungi-darwin-arm64",
+  "localInstallVerified": true
+}

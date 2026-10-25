@@ -62,10 +62,8 @@ Public installer URLs and releases are not published yet. For local archives:
 ./fungi install --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
 ```
 
-Existing Electron preview installs need the new bootstrap once to migrate to
-package format 2; their older updater rejects the new format. The managed layout,
-legacy rollback support and saved sessions are retained. See
-[installation](docs/wiki/features/installation.md).
+Packages use format 2 (Wails). Older Electron preview packages are no longer
+accepted for installation or rollback. See [installation](docs/wiki/features/installation.md).
 
 ## Develop
 

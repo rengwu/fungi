@@ -212,7 +212,7 @@ func childEnv() []string {
 			}
 		}
 		switch name {
-		case "CODEX_THREAD_ID", "ELECTRON_RUN_AS_NODE", "NODE_OPTIONS":
+		case "CODEX_THREAD_ID":
 			continue
 		default:
 			env = append(env, v)
