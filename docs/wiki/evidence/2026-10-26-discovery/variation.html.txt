@@ -1,0 +1,28 @@
+<!doctype html><meta charset="utf-8"><title>Priority order verification</title>
+<style>:root{font:18px system-ui;color-scheme:light dark}body{max-width:640px;margin:40px auto;padding:20px}li{padding:12px}button{font:inherit;margin-left:16px;padding:6px}svg{display:block;width:100%;height:180px}#error{color:tomato}</style>
+<h1>Priority order verification</h1><p>Move a task up, then return the order and an SVG.</p>
+<ol id="tasks"></ol><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" aria-label="Priority preview"></svg>
+<button id="send" disabled>Send order</button><p id="delivery"></p><p id="error" role="alert"></p>
+<script type="module">
+const error=document.querySelector('#error'),send=document.querySelector('#send');
+try{
+ const {input,delivery}=await fungi.ready();let order=[...input.tasks],busy=false;
+ const list=document.querySelector('#tasks'),svg=document.querySelector('svg');
+ if(delivery.mode==='manual')document.querySelector('#delivery').textContent='After sending, tell your agent “done”.';
+ function render(){
+  list.replaceChildren();svg.replaceChildren();
+  order.forEach((label,i)=>{
+   const row=document.createElement('li');row.append(label);
+   const up=document.createElement('button');up.textContent='Move '+label+' up';up.disabled=i===0||busy;
+   up.onclick=()=>{[order[i-1],order[i]]=[order[i],order[i-1]];render();};row.append(up);list.append(row);
+   const text=document.createElementNS('http://www.w3.org/2000/svg','text');text.setAttribute('x','20');text.setAttribute('y',String(40+i*50));text.setAttribute('fill','#865ce6');text.textContent=(i+1)+'. '+label;svg.append(text);
+  });
+ }
+ render();send.disabled=false;
+ send.onclick=async()=>{
+  if(busy)return;busy=true;send.disabled=true;render();error.textContent='';
+  try{const blob=new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml'});await fungi.submit({order},[{key:'priority',name:'priority.svg',blob}]);}
+  catch(e){error.textContent=e.message;busy=false;send.disabled=false;render();}
+ };
+}catch(e){error.textContent=e.message;}
+</script>

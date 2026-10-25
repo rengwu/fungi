@@ -1,0 +1,24 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "01fa6996b1fe863d40cd5f081cb659fb",
+  "outcome": "submitted",
+  "data": {
+    "order": [
+      "Verify",
+      "Research",
+      "Build"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "8c4ecbb743767dcbb9bcb5b487e950b61ad365fd2b7872b8c2d368144fdfd748",
+      "key": "priority",
+      "name": "priority.svg",
+      "mediaType": "image/svg+xml",
+      "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/docs-2026-10-26/sessions/01fa6996b1fe863d40cd5f081cb659fb/artifacts/8c4ecbb743767dcbb9bcb5b487e950b61ad365fd2b7872b8c2d368144fdfd748",
+      "bytes": 253,
+      "sha256": "8c4ecbb743767dcbb9bcb5b487e950b61ad365fd2b7872b8c2d368144fdfd748"
+    }
+  ]
+}

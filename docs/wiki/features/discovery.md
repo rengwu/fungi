@@ -56,4 +56,4 @@ maintainer's own test; do not label one as the other.
 
 ## Verification history
 
-- [2026-10-26 offline discovery](../verification/runs/2026-10-26-discovery.md) — local offline/install/native checks; platform CI status and independent-agent limits are explicit.
+- [2026-10-26 offline discovery](../verification/runs/2026-10-26-discovery.md) — offline/install/native checks and all five platform CI jobs passed; independent-agent usability remains untested.

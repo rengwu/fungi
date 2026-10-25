@@ -652,8 +652,10 @@ maintained contract instead of duplicating it.
 
 [Discovery verification](verification/runs/2026-10-26-discovery.md) records exact
 builds and results. Local offline help, installation/update/rollback discovery
-and native input/cancel/close/reopen passed. Platform CI is pending. Independent
-fresh-agent transfer to a new interface remains untested; no agent delegation
-was invoked. Release qualification, cleanup policy and rich grill-form port
+and native input/cancel/close/reopen/write-retry passed. All five CI jobs passed
+at `9572d80`, including the same Ubuntu 22 archive on Ubuntu 24. A maintainer-built
+priority-ordering interface also returned ordered data and SVG through the
+unchanged API. Independent fresh-agent transfer remains untested; no agent
+delegation was invoked. Release qualification, cleanup policy and rich grill-form port
 remain separate work. No further product decision blocks this documentation
 implementation.

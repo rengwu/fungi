@@ -1,0 +1,8 @@
+{
+  "session": "78dfa6da3904ad5020263fbf53a890ed",
+  "fault": "Only test session root chmod 0500",
+  "visibleError": "permission denied",
+  "retainedText": "DOCS-RETRY: keep this text after a save failure.",
+  "resultAbsentBeforeRetry": true,
+  "permissionsRestored": "0700"
+}

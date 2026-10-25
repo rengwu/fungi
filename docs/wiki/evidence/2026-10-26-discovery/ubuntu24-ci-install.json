@@ -1,0 +1,337 @@
+{
+  "evidence": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/evidence.json",
+  "directory": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ",
+  "platform": "linux",
+  "arch": "x64",
+  "archiveA": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.1/fungi-linux-amd64.tar.gz",
+  "checksumA": "10df748ecc26243b30ff5df9a8dbc1d2b1692aa0d2e2f3349210f17dee618557",
+  "archiveB": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.2/fungi-linux-amd64.tar.gz",
+  "checksumB": "2fbf5e8677966767f5ac7836bf2ecbc6a73ce9c0b04d508c222e3d172a2d5c73",
+  "requests": [
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz.sha256",
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz"
+  ],
+  "scope": "bootstrap, active Wails session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/bin/fungi\",\"current\":\"v0.1.0-ci.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 501
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.1"
+  },
+  "discoveryBefore": {
+    "version": "v0.1.0-ci.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/index.html",
+        "input": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/index.html",
+          "--input",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/review.html",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "d472c776c965264fbcae5bec4ee783f9",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/bin/fungi",
+      "collect",
+      "d472c776c965264fbcae5bec4ee783f9"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/sessions/d472c776c965264fbcae5bec4ee783f9/artifacts/643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "bytes": 137,
+        "sha256": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.2",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.2"
+  },
+  "discoveryAfter": {
+    "version": "v0.1.0-ci.2",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/reply/index.html",
+        "input": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/reply/index.html",
+          "--input",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/review.html",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.2/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WebKitGTK 4.1"
+  },
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-ci.2",
+    "platform": "linux",
+    "arch": "amd64",
+    "wails": "v2.17.0",
+    "binarySHA256": "fb2dfcab3db8ffd82628a274c7f0c48de9d1deeac7bc1ef62702f57f07e87649",
+    "rendererSHA256": "9b0646c6d168fb9ff3d6b30bda0366383f24bf7f46ae40061893b1ca3d9c6505"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "d472c776c965264fbcae5bec4ee783f9",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-ci.2"
+    },
+    "artifacts": [
+      {
+        "id": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/sessions/d472c776c965264fbcae5bec4ee783f9/artifacts/643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "bytes": 137,
+        "sha256": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.1",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "discoveryRollback": {
+    "version": "v0.1.0-ci.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/index.html",
+        "input": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/index.html",
+          "--input",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/review.html",
+        "available": true,
+        "argv": [
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/fungi",
+          "open",
+          "/home/runner/work/fungi/fungi/verification-output/install-smoke-wxULyJ/install with spaces/versions/v0.1.0-ci.1/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "passed": true
+}

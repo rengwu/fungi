@@ -1,0 +1,10 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "78dfa6da3904ad5020263fbf53a890ed",
+  "outcome": "submitted",
+  "data": {
+    "notes": "DOCS-RETRY: keep this text after a save failure."
+  },
+  "artifacts": []
+}
