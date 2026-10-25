@@ -1,0 +1,62 @@
+{
+  "core": "/Users/runner/work/fungi/fungi/verification-output/fungi-wails-core",
+  "helper": "/Users/runner/work/fungi/fungi/verification-output/fungi-wails",
+  "directory": "/Users/runner/work/fungi/fungi/verification-output/wails-probe-hR3Lrf",
+  "closed": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "f56fb44c819c5436a4adb5bc792fcc4e",
+    "outcome": "closed",
+    "artifacts": []
+  },
+  "restored": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "733f55a949fa73ae1e2694930bab83f2",
+    "outcome": "submitted",
+    "data": {
+      "restoredEmpty": true,
+      "restoredType": "text/plain",
+      "diagnostics": {
+        "native": {
+          "browserOpenURL": "function",
+          "clipboardGetText": "function",
+          "quit": "function",
+          "boundPersist": "function",
+          "lowLevelInvoke": "undefined"
+        },
+        "localMedia": {
+          "ok": true,
+          "duration": 1
+        },
+        "blobMedia": {
+          "ok": true,
+          "duration": 1
+        },
+        "mediaType": "audio/x-wav"
+      }
+    },
+    "artifacts": [
+      {
+        "id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "key": "empty",
+        "name": "empty.txt",
+        "mediaType": "text/plain",
+        "path": "/Users/runner/work/fungi/fungi/verification-output/wails-probe-hR3Lrf/sessions/733f55a949fa73ae1e2694930bab83f2/artifacts/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "independent": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "82951205059704118b672f5a19f7595f",
+    "outcome": "submitted",
+    "data": {
+      "inheritedStorage": "written-by-another-fungi-session"
+    },
+    "artifacts": []
+  },
+  "scope": "native close hook, empty artifact round trip, media and cross-session storage diagnostics"
+}

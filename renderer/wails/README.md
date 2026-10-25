@@ -29,12 +29,18 @@ owner persistence and delivery modes are reused. For user waits, follow
 Fungi's usual automatic-delivery instructions; `wait` above is a local demo,
 not a recommendation to poll a model tool.
 
-**Use trusted local pages only.** Wails exposes its own native runtime and
-Go bindings in addition to `window.fungi`. The content policy and root-confined
-asset handler do not establish Electron-equivalent native isolation, navigation
-control or private storage. Windows uses a per-session WebView2 profile;
-macOS/Linux tests confirmed storage shared across independent sessions. Do not ship
-this as the default renderer on the strength of rendering tests alone.
+Skill pages are trusted local application code. Wails exposes its native
+runtime and Go bindings in addition to `window.fungi`; this access is accepted.
+Fungi keeps each session's process, drafts, results and artifacts separate.
+Windows also uses a per-session WebView2 profile. Browser storage isolation is
+best effort: macOS/Linux can share `localStorage`. Use `saveDraft` for recoverable
+state and `sessionStorage` for window-local state. No framework fork or storage
+wrapper is required.
+
+Recovery is explicit. After a crash, collect once to retrieve any committed
+result, or reopen the session's acknowledged draft. If a blank/crashed window
+remains open, close it first; active sessions cannot be reopened. Unsaved edits
+are not recoverable. There is no automatic restart or model polling.
 
 Run the existing real-owner rendering/recovery fixture:
 
@@ -52,9 +58,14 @@ An available but incorrect WebGL result still fails. The manual **Wails proof**
 GitHub workflow (also triggered by prototype changes on `foundation-hardening`)
 builds and exercises each platform without building Electron.
 Hosted runners with prerequisites are not clean-machine installation proof.
-The current Mac/Windows fixture passes all 21 checks. Both Linux fixtures fail
-direct local media loading; a separate diagnostic loads the same WAV through
-a Blob URL. This is a compatibility gap, not an automatic media workaround.
+Mac/Windows pass all 21 checks. Both Linux fixtures fail direct local media
+loading while the same WAV's metadata loads through a Blob URL. An experiment
+adding `wails` to `WEBKIT_GST_ALLOWED_URI_PROTOCOLS` did not fix this and was
+removed. WebKit's GStreamer web source registers HTTP, HTTPS and Blob schemes,
+not Wails' custom scheme. See the wiki follow-up for evidence. There is no
+transparent media workaround; Blob loading preloads the file and is not a
+replacement for streaming large media. Codec availability also depends on the
+installed engine.
 
 The prototype is intentionally outside release packaging/updating. See the
 project wiki's renderer research and dated verification record for measured

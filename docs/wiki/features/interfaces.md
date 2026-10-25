@@ -22,6 +22,14 @@ The local renderer supports ES modules, custom elements, Canvas/SVG/WebGL, local
 
 The Electron page has context isolation and sandboxing. Local assets are confined beneath the source directory; remote requests, navigation and OS permission requests are denied. Inline `srcdoc` frames support skill-owned previews, while frame document requests remain blocked. Skills provide their preview sandbox; the bridge accepts only the main frame. Native helpers remain trusted executables with ordinary OS access. Reference image fields have a file picker and an explicit editable paste target.
 
+The experimental Wails helper treats skill pages as trusted local application
+code and exposes native Wails APIs. The user accepts this access and best-effort
+browser storage isolation. Fungi's per-session drafts/results stay separate;
+macOS/Linux `localStorage` can be shared. Prefer `saveDraft` for durable state
+and `sessionStorage` for window-local state. These
+[accepted requirements](../planning.md#wails-simplicity-clarification-on-2026-10-25)
+do not require an Electron-equivalent native boundary or a framework fork.
+
 Submission closes the window after acknowledgement. Persistence failure retains the input and permits retry. Manual delivery is stated in the form. Window close saves a `closed` result; it preserves acknowledged drafts. A custom page must opt into saving its state.
 
 ## Verification recipe
@@ -51,7 +59,9 @@ File selection, image paste, image draft recovery, submission, cancellation, loc
 
 ## Verification history
 
-- [2026-10-25 Wails assessment](../verification/runs/2026-10-25-wails.md) — separate experimental helper preserves the page API and exercises the existing renderer fixture; native/isolation/runtime gaps prevent treating it as an equivalent default.
+- [2026-10-25 Wails follow-up](../verification/runs/2026-10-25-wails-followup.md) — accepted simpler requirements, confirmed Linux custom-scheme media loader failure, and local full-host-exit draft recovery.
+
+- [2026-10-25 Wails assessment](../verification/runs/2026-10-25-wails.md) — historical replacement-equivalence proof. Later user decisions accept native access and best-effort browser storage; Linux media and installation integration still require follow-up.
 
 - [2026-10-22/23 Windows desktop handoff](../verification/runs/windows-2026-10-22-203907.md) — agent-operated native input, visible draft restoration and comparison PNG/hash passed with an empty child PATH; the full renderer fixture remained unexecuted because symlink creation lacked privilege. Aggregate Untested.
 

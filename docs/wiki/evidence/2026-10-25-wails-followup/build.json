@@ -1,0 +1,21 @@
+{
+  "productRevision": "639db19aff51fc2c9579355a1bfe1d9047a3e6b9",
+  "diagnosticRevision": "3b62acb188e01a81b3ef518d2724f83d2bc1c33b",
+  "platform": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A5368g",
+  "files": {
+    "renderer/wails/main.go": "bae928ee27a8df5cf8fd65574aede80f93fad0f07762333c77a6030cb72b0fad",
+    "renderer/wails/bridge.js": "1be3218153e50e581d2ee91cadb9e6f63e13ba545a257272564a0891f650dc67",
+    "renderer/wails/assets.go": "548de03f71407391c363219ad97b1a3275a42563e5376c32a4989e9cded5efa2",
+    "renderer/go.mod": "223810a64cc7d6ac84606ccb2acf1a4b6407958e789f4df21f465c1295b4d7cc",
+    "scripts/renderer-smoke.mjs": "d7eb9ee8206bc47c491201996169449e8c68c33d83b530da972ddf794ea94672",
+    "scripts/wails-probe.mjs": "a2ec4a52ffb018308f1e81f6b918c6765c9c10a52ca0a6682ef3bbe8b4ec131d",
+    "verification-output/fungi-wails": "5a088f79ebc59eab6662605a16609a4753d14916d04a880944cca7a35c530e09",
+    "verification-output/fungi-wails-core": "6c3ae4fb237292011561862e25f0fd92f2dcee7a98e476eb4cf49b2ff56a6928"
+  },
+  "note": "Local tests use 639db19 renderer. Host-probe driver gains Linux-only diagnostics at 3b62acb; the Mac driver behavior is unchanged.",
+  "restoredRendererSource": {
+    "sha256": "812f80a1494f94597a4a3e08f447a6e9c097efae27754274c4e060377f8c6107",
+    "matchesRevision": "24faa41",
+    "matches": true
+  }
+}

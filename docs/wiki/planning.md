@@ -359,3 +359,85 @@ storage, Wails-native APIs available to pages, Linux media differences and
 external runtime prerequisites. These must be resolved or explicitly accepted
 before promoting the host. Do not introduce a plugin registry or new skill
 API to compensate for renderer-specific behavior.
+
+## Wails continuation and setup decision (completed)
+
+The user requested `work-until-grill`, with only actual user decisions routed
+to a grill-form. This follow-up initially retained strict storage/native API
+isolation requirements. The user's later clarification below supersedes those
+requirements; it is not necessary to reproduce Electron's boundaries.
+
+Source inspection of Wails v2.17 confirms that its public options do not
+provide an equivalent per-session Mac/Linux data-store control or a general
+native message-policy hook. The pinned v3.0.0-beta.34 source was also inspected
+as a candidate: it adds permission/lifecycle/transport hooks, but no equivalent
+data-store setting was identified in the reviewed window/application options.
+No dependency upgrade, framework patch or production behavior changed in this
+follow-up. The later clarification removes the need for a new host boundary.
+
+Question 22 asks how a future Wails install command should handle missing
+system runtimes. The first interview explicitly rejected separately installed
+WebView2/WebKitGTK; selecting a Wails experiment did not settle whether that
+release constraint should change. The recommendation is optional, explicit
+setup from official Microsoft/distro sources during installation, with normal
+agent-invoked UI launches reporting missing prerequisites without installing
+anything. Preinstalled-runtime-only support and a separate larger Electron
+edition are the alternatives. This is a proposal, not an accepted decision or
+authorization to install anything on this machine.
+
+The one-question form used the existing Electron-backed Fungi path. Fungi
+session `23e0ae93b5fbfc94abe8cc6fb7363e96` returned through its exact-origin
+Codex callback. Its receipt, question spec and adapted page are in
+`verification-output/wails-next-decision/`; the state root is that directory's
+`sessions/`. The jstack session is
+`/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/grill-form-0DR7ru`,
+spec session ID `0c9ff503-ec52-4e82-9d79-b867491f89ae`. Native accessibility
+inspection confirmed the question, three alternatives and blank notes;
+no answer was selected or submitted by the agent.
+
+The [submitted answer to question 22](journal/2026-10-25-grill-0c9ff503-ec52-4e82-9d79-b867491f89ae.md)
+selects **allow explicit runtime setup in the install command**, with no
+additional notes. The Fungi callback was collected once, the matching jstack
+submission was validated and finished, and no waiter remains pending.
+
+This revises the earlier prohibition on separate WebView2/WebKitGTK setup:
+the future install command may offer explicit, opt-in setup from official
+Microsoft/distro sources and reuse installed runtimes. Normal agent-invoked
+UI launches must report missing prerequisites without installing software.
+This accepts a release policy, not installation of anything on this Mac.
+
+## Wails simplicity clarification on 2026-10-25
+
+The user explicitly accepts native access: skill pages are trusted local
+application code, and users choose what they run. Wails' native capabilities
+are not a migration blocker. Do not add a framework fork, native-call filter
+or restrictive host layer merely to reproduce Electron's page boundary.
+
+Session isolation is best effort. Keep Fungi's separate processes, session
+directories, drafts/results/artifacts and the existing per-session Windows
+webview profile. Shared macOS/Linux browser storage is an accepted rough edge.
+Skills should use `saveDraft` for recoverable state and `sessionStorage` for
+window-local browser state; do not add a storage virtualization layer.
+
+Browser crashes are acceptable. Preserve committed results and acknowledged
+drafts, then use explicit user-driven recovery. A user saying “done” prompts
+one collection; it does not turn missing/unsaved answers into a submission.
+“Open again” reopens the saved draft in a new session. If only the web-content
+process crashes and the native host stays alive, close that window before
+reopening; no automatic restart, heartbeat or model polling is required.
+
+Linux media remains a compatibility issue to investigate, not an assumed
+reason to change frameworks. The existing fixture distinguishes direct local
+URL loading from the same bytes loaded through a Blob. Investigate the
+upstream WebKit media scheme configuration before adding an asset server or
+rewriting authored pages. Runtime setup remains the accepted opt-in policy
+above. Continue the bounded Wails assessment under these simpler requirements.
+
+The [follow-up](verification/runs/2026-10-25-wails-followup.md) confirms the
+Linux cause: GStreamer has no URI handler for Wails' custom scheme. Adding the
+scheme to WebKit's allowlist did not fix it and was removed. Identical WAV
+bytes load metadata through a Blob; full playback and large-media streaming
+are not established by that check. Mac/Windows retain all 21 renderer checks;
+both Linux targets remain 20/21. Whole-host failure and explicit saved-draft
+reopen passed locally. No new policy decision was needed to accept native
+access, best-effort storage or manual recovery; these are now settled.

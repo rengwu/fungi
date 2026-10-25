@@ -167,7 +167,40 @@ runtime observations. Electron is still the default; production migration
 has not been accepted or completed.
 
 The strongest benefit is a much smaller payload without changing skill
-authoring. The demonstrated obstacles are broader native page capabilities,
-shared browser storage and Linux direct-media loading, alongside the runtime
-availability question above. The proof does not assume framework adoption
-alone establishes Fungi's reliability or isolation requirements.
+authoring. The proof found broader native page capabilities, shared browser
+storage and Linux direct-media loading failures. The user's
+[subsequent clarification](../planning.md#wails-simplicity-clarification-on-2026-10-25)
+accepts native access, best-effort browser storage isolation and manual crash
+recovery. Missing runtimes may be set up with explicit opt-in at installation.
+Those choices supersede the earlier restrictive assumptions; no framework
+fork or storage virtualization is needed.
+
+## Linux media follow-up
+
+The failing Ubuntu 24.04 job uses WebKitGTK 2.52.6. WebKit's
+[media protocol change](https://github.com/WebKit/WebKit/commit/7e871b506eaba52c7d74519aeb0047d702101331)
+allows a limited set of URL schemes by default and accepts additional schemes
+through `WEBKIT_GST_ALLOWED_URI_PROTOCOLS` (comma-separated). Wails v2 uses
+`wails://wails/` for local assets. The restriction is a concrete candidate
+cause for direct WAV failure alongside successful Blob loading. Testing that
+setting on both Ubuntu targets did not fix direct loading, so the change was
+removed rather than retained as an ineffective workaround.
+
+The matching WebKitGTK 2.52.6
+[GStreamer web source](https://github.com/WebKit/WebKit/blob/webkitgtk-2.52.6/Source/WebCore/platform/graphics/gstreamer/WebKitWebSourceGStreamer.cpp#L888)
+registers HTTP, HTTPS and Blob schemes, not custom schemes. An allowlist cannot
+by itself supply a loader for `wails://`. A second real run with GStreamer
+diagnostics confirms `No URI handler implemented for "wails"` on both Ubuntu
+targets. The upstream
+[custom-scheme media issue](https://bugs.webkit.org/show_bug.cgi?id=146351)
+also distinguishes direct source loading from fetch-to-Blob loading. Our
+[follow-up verification](../verification/runs/2026-10-25-wails-followup.md)
+preserves the failed experiment and separates observed behavior from source
+analysis. Small-media Blob loading is a possible authored-page workaround;
+preloading an entire file is not equivalent to large-media streaming.
+
+This sits at the Wails/WebKit integration boundary, not evidence that Linux
+cannot play audio. [Wry also uses WebKitGTK on Linux](https://docs.rs/wry/latest/wry/#linux),
+so changing to Wry/Tauri alone does not guarantee different media behavior.
+Chromium uses a different engine but reintroduces the bundle the user wants
+to remove. No renderer guarantees every codec across every installed runtime.

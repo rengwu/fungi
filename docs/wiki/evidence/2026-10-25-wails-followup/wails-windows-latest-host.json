@@ -1,0 +1,62 @@
+{
+  "core": "D:\\a\\fungi\\fungi\\verification-output\\fungi-wails-core.exe",
+  "helper": "D:\\a\\fungi\\fungi\\verification-output\\fungi-wails.exe",
+  "directory": "D:\\a\\fungi\\fungi\\verification-output\\wails-probe-x6SnXJ",
+  "closed": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "24a16c11ef10b277d654e9a7cf1ad8dd",
+    "outcome": "closed",
+    "artifacts": []
+  },
+  "restored": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "8a621bc9d2fa6d9f3a54ed7c33dff14f",
+    "outcome": "submitted",
+    "data": {
+      "restoredEmpty": true,
+      "restoredType": "text/plain",
+      "diagnostics": {
+        "native": {
+          "browserOpenURL": "function",
+          "clipboardGetText": "function",
+          "quit": "function",
+          "boundPersist": "function",
+          "lowLevelInvoke": "function"
+        },
+        "localMedia": {
+          "ok": true,
+          "duration": 1
+        },
+        "blobMedia": {
+          "ok": true,
+          "duration": 1
+        },
+        "mediaType": "audio/wav"
+      }
+    },
+    "artifacts": [
+      {
+        "id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "key": "empty",
+        "name": "empty.txt",
+        "mediaType": "text/plain",
+        "path": "D:\\a\\fungi\\fungi\\verification-output\\wails-probe-x6SnXJ\\sessions\\8a621bc9d2fa6d9f3a54ed7c33dff14f\\artifacts\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "independent": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "5c1440f9574fa9492feab85e280047e8",
+    "outcome": "submitted",
+    "data": {
+      "inheritedStorage": null
+    },
+    "artifacts": []
+  },
+  "scope": "native close hook, empty artifact round trip, media and cross-session storage diagnostics"
+}

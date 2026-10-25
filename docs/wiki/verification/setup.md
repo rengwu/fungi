@@ -173,6 +173,9 @@ The second starts disposable sessions, saves/restores a zero-byte attachment,
 invokes the native quit/close hook, and checks whether one independent session
 inherits another's run-specific localStorage value. It removes only that key.
 Native API names are inspected without reading the clipboard or opening URLs.
+On Linux, the host probe enables targeted GStreamer logging in its child
+environment; `worker.log` identifies media loader failures. This does not
+change normal Fungi launches or the user's shell environment.
 Both drivers have bounded execution, save `evidence.json` in unique local
 directories, and send no harness callbacks.
 

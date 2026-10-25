@@ -20,6 +20,7 @@ Electron/Go scope and automatic-return checks.
 - [Verified environments and portable distribution](platforms.md)
 - [Command installation and updates](features/installation.md)
 - [Wails prototype: rendering fit, size and remaining gaps](verification/runs/2026-10-25-wails.md)
+- [Wails follow-up: simpler requirements, Linux media diagnosis and manual recovery](verification/runs/2026-10-25-wails-followup.md)
 - [Distribution proof and remaining release checks](verification/runs/2026-10-23-distribution.md)
 - [Verified baseline checks and startup diagnostics](verification/runs/2026-10-22-baselines.md)
 - [Windows 11 desktop handoff: desktop passed, symlink-dependent checks unexecuted](verification/runs/windows-2026-10-22-203907.md)

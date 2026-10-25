@@ -1,0 +1,46 @@
+{
+  "scope": "local macOS full Wails host exit, one collection and explicit saved-draft reopen; web-content-only crash not exercised",
+  "core": "/Users/rengwu/Desktop/Projects/fungi/verification-output/fungi-wails-core",
+  "helper": "/Users/rengwu/Desktop/Projects/fungi/verification-output/fungi-wails",
+  "opened": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "b6c3368070c3f1cd50381e0a7cf5d4ed",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/fungi-wails-core",
+      "collect",
+      "b6c3368070c3f1cd50381e0a7cf5d4ed"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/wails-recovery-tTclkQ/sessions"
+    }
+  },
+  "failed": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "b6c3368070c3f1cd50381e0a7cf5d4ed",
+    "outcome": "failed",
+    "artifacts": [],
+    "error": {
+      "code": "helper_exited",
+      "message": "signal: killed"
+    }
+  },
+  "restored": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "9081aa6dce42af21248783960c3d2f11",
+    "outcome": "submitted",
+    "data": {
+      "restored": {
+        "note": "saved before renderer host exit"
+      }
+    },
+    "artifacts": []
+  },
+  "pid": 91326
+}

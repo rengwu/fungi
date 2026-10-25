@@ -1,6 +1,6 @@
 ---
 title: Sessions, results and recovery
-updated: 2026-10-23
+updated: 2026-10-25
 ---
 # Sessions, results and recovery
 
@@ -20,6 +20,7 @@ Use `open`, `collect` and `reopen` in the Go CLI. An executable helper uses `ope
 - Collect is repeatable and non-destructive. A held OS lock identifies a live owner; a saved launch without an owner/result is interrupted.
 - Losing the waiting CLI does not cancel the owner. The worker uses a detached process, ordinary pipes and an OS file lock; there is no local HTTP server.
 - Reopen creates a new linked session and restores the latest acknowledged JSON/image draft.
+- Recovery is user-driven: “done” means collect once, and “open again” means explicit reopen. Neither recovers unsaved edits. If a crashed page leaves its native window/owner active, close the window first. No automatic restart or polling is required.
 - Native helper output is drained before interpreting exit. The helper need not depend on Electron.
 - Malformed output or a closed stdout ends the helper protocol and terminates the helper, even if its process would otherwise keep running. Persisted JSON is bounded including its final newline, so acknowledged boundary-sized records remain readable.
 
@@ -41,6 +42,8 @@ Read the returned artifact path. Run `collect` with the exact returned session a
 The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also passed on Windows and Linux x64; the follow-up report records target-specific failures and repairs. Failure injection covers publication before acknowledgement; the UI separately exercised an actual filesystem permission error. One user-controlled macOS sleep/wake cycle preserved the note and image, accepted a new edit and returned the result. These tests do not establish power-loss or storage-hardware durability. Windows skips directory flushing after flushing and renaming each file; no directory-entry durability across power loss is promised.
 
 ## Verification history
+
+- [2026-10-25 Wails follow-up](../verification/runs/2026-10-25-wails-followup.md) — entire native helper terminated, failure collected once, saved draft restored by explicit reopen; web-content-only crashes remain a separate case.
 
 - [2026-10-23 installation/update proof](../verification/runs/2026-10-23-distribution.md) — stable receipts, active sessions, package-owned draft assets and artifact preservation through version switches.
 

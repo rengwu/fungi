@@ -1,0 +1,420 @@
+
+(fungi-wails:9118): dbind-WARNING **: 12:15:25.877: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+Overriding existing handler for signal 10. Set JSC_SIGNAL_FOR_GC if you want WebKit to use a different signal
+0:00:00.008091355  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3262:supportsType: Checking mime-type "audio/x-wav"
+0:00:00.009456997  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3269:supportsType: Supported: MayBeSupported
+0:00:00.012171548  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:884:setPreload: Setting preload to Auto
+0:00:00.012185454  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:875:setPreservesPitch: Preserving audio pitch: true
+0:00:00.012202586  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3383:createGSTPlayBin: Creating pipeline for audio player
+0:00:00.013315433  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3415:createGSTPlayBin:<media-player-0> WebCore logs identifier for this pipeline is: 5F5E5DF66114FE7
+0:00:00.013330161  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4321:setStreamVolumeElement:<media-player-0> Not setting stream volume, trusting system one
+0:00:00.013336513  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4324:setStreamVolumeElement:<media-player-0> Setting stream muted false
+0:00:00.013346722  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3428:createGSTPlayBin:<media-player-0> Using legacy playbin element: true
+0:00:00.013358223  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3364:setPlaybackFlags:<media-player-0> text true, audio true (native false), video true (native false, software color balance true)
+0:00:00.013366008  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3369:setPlaybackFlags:<media-player-0> current pipeline flags 617
+0:00:00.013408297  9145 0x559f62b832c0 WARN            webkitcommon GStreamerCommon.cpp:1071:isGStreamerPluginAvailable: Plugin subenc not found. Please check your GStreamer installation
+WebKit wasn't able to find a WebVTT encoder. Subtitles handling will be degraded unless gst-plugins-bad is installed.
+0:00:00.013499248  9145 0x559f62b832c0 WARN     GST_ELEMENT_FACTORY gstelementfactory.c:701:gst_element_factory_make_with_properties: no such element factory "fakevideosink"!
+GStreamer element fakevideosink not found. Please install it
+0:00:00.013510909  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4268:createVideoSink:<media-player-0> Falling back to fakesink for video rendering
+0:00:00.014085507  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1162:setPlaybinURL:<media-player-0> Load wails://wails/sample.wav
+0:00:00.014103902  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4026:setVisibleInViewport:<media-player-0> Un-muted audio player no longer visible in viewport
+0:00:00.014108941  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:381:load:<media-player-0> preload: Auto
+0:00:00.014116044  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1411:commitLoad:<media-player-0> Committing load.
+0:00:00.014121695  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1126:changePipelineState:<media-player-0> Changing state change to PAUSED from NULL with VOID_PENDING pending
+0:00:00.018871824  9145 0x559f62b832c0 WARN                   pulse pulsesink.c:615:gst_pulseringbuffer_open_device:<autoaudiosink0-actual-sink-pulse> error: Failed to connect: Connection refused
+0:00:00.060957447  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: Cannot connect to server socket err = No such file or directory
+0:00:00.060997612  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: Cannot connect to server request channel
+0:00:00.063077914  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: jack server is not running or cannot be started
+0:00:00.066065888  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+0:00:00.066079704  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+0:00:00.066155646  9145 0x559f62b832c0 WARN              jackclient gstjackaudioclient.c:381:gst_jack_audio_get_connection: could not create connection
+0:00:00.066211661  9145 0x559f62b832c0 WARN                jacksink gstjackaudiosink.c:358:gst_jack_ring_buffer_open_device:<autoaudiosink0-actual-sink-jackaudio> error: Jack server not found
+0:00:00.066216540  9145 0x559f62b832c0 WARN                jacksink gstjackaudiosink.c:358:gst_jack_ring_buffer_open_device:<autoaudiosink0-actual-sink-jackaudio> error: Cannot connect to the Jack server (status 17)
+0:00:00.088499692  9145 0x559f62b832c0 WARN                 default oss4-property-probe.c:302:gst_oss4_property_probe_get_values:<autoaudiosink0-actual-sink-oss4> Can't open file descriptor to probe available devices: No such file or directory
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.237: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.237: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.237: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.237: gst_debug_log_valist: assertion 'category != NULL' failed
+0:00:00.093641936  9145 0x559f62b832c0 WARN                     oss gstosssink.c:401:gst_oss_sink_open:<autoaudiosink0-actual-sink-oss> error: Could not open audio device for playback.
+0:00:00.093658687  9145 0x559f62b832c0 WARN                     oss gstosssink.c:401:gst_oss_sink_open:<autoaudiosink0-actual-sink-oss> error: system error: No such file or directory
+0:00:00.093974830  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<media-player-0> Element set-up for uridecodebin0
+0:00:00.094171790  9145 0x559f62b832c0 WARN            uridecodebin gsturidecodebin.c:1465:gen_source_element:<uridecodebin0> error: No URI handler implemented for "wails".
+0:00:00.094294901  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1130:changePipelineState:<media-player-0> Changing state returned FAILURE
+0:00:00.094302655  9145 0x559f62b832c0 WARN       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1134:changePipelineState:<media-player-0> Changing state to PAUSED from NULL with VOID_PENDING pending failed
+0:00:00.094312614  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3286:isMediaDiskCacheDisabled: Should disable media disk cache: false
+0:00:00.094316972  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3327:updateDownloadBufferingFlag:<media-player-0> Media on-disk cache is enabled
+0:00:00.094320539  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3331:updateDownloadBufferingFlag:<media-player-0> Enabling on-disk buffering
+0:00:00.094332912  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2972:updateStates:<media-player-0> Failure: State: READY, pending: PAUSED
+0:00:00.094414325  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element streamsynchronizer0
+0:00:00.094431437  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element playsink
+0:00:00.094458387  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element media-player-0
+0:00:00.094462826  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2212:handleMessage:<media-player-0> Changed state from NULL to READY
+0:00:00.094467374  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2972:updateStates:<media-player-0> Failure: State: READY, pending: PAUSED
+0:00:00.094479707  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element streamsynchronizer0
+0:00:00.094492040  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message warning received from element autoaudiosink0
+0:00:00.094498773  9145 0x559f62b832c0 WARN       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2126:handleMessage:<media-player-0> Failed to connect: Connection refused (url=wails://wails/sample.wav) (code=1)
+0:00:00.094511357  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element autoaudiosink0
+0:00:00.094523159  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element audioresample1
+0:00:00.094534741  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element audioconvert1
+0:00:00.094546282  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element volume
+0:00:00.094557784  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element audioresample0
+0:00:00.094569245  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element audioconvert0
+0:00:00.094580777  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element queue0
+0:00:00.094633015  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element audioTee
+0:00:00.094646821  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element audio-sink
+0:00:00.094658563  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element fakesink0
+0:00:00.094670435  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element webkitappsinkwithworkarounds0
+0:00:00.094682167  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element webkittextsink0
+0:00:00.094693558  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message state-changed received from element uridecodebin0
+0:00:00.094704789  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message element received from element uridecodebin0
+0:00:00.094714047  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2323:handleMessage:<media-player-0> Unhandled element message: missing-plugin, type=(string)urisource, detail=(string)wails, name=(string)"WAILS\ protocol\ source";
+0:00:00.094739574  9145 0x559f62b832c0 WARN               structure gststructure.c:2091:priv_gst_structure_append_to_gstring: No value transform to serialize field 'gerror' of type 'GError'
+0:00:00.094746979  9145 0x559f62b832c0 ERROR           webkitcommon GStreamerCommon.cpp:1018:operator():<media-player-0> Got message: error message: 0x559f62def040, time 99:99:99.999999999, seq-num 55, element 'uridecodebin0', GstMessageError, gerror=(GError)NULL, debug=(string)"../gst/playback/gsturidecodebin.c\(1465\):\ gen_source_element\ \(\):\ /GstPlayBin:media-player-0/GstURIDecodeBin:uridecodebin0";
+0:00:00.094760083  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-0> Message error received from element uridecodebin0
+0:00:00.094765663  9145 0x559f62b832c0 ERROR      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2080:handleMessage:<media-player-0> No URI handler implemented for "wails". (url=wails://wails/sample.wav) (code=12)
+0:00:00.094788106  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:423:cancelLoad:<media-player-0> cancelLoad() requested
+0:00:00.094791552  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:427:cancelLoad:<media-player-0> Setting pipeline to READY state
+0:00:00.094796501  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1126:changePipelineState:<media-player-0> Changing state change to READY from READY with PAUSED pending
+0:00:00.094820717  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1130:changePipelineState:<media-player-0> Changing state returned SUCCESS
+0:00:00.095044146  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:217:tearDown:<media-player-0> Disposing player
+0:00:00.095129626  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:336:mediaPlayerWillBeDestroyed: Parent MediaPlayer is about to be destroyed
+0:00:00.095274277  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:884:setPreload: Setting preload to Auto
+0:00:00.095279948  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:875:setPreservesPitch: Preserving audio pitch: true
+0:00:00.096530080  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3262:supportsType: Checking mime-type "audio/wave"
+0:00:00.096545650  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3269:supportsType: Supported: IsNotSupported
+0:00:00.096821096  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:217:tearDown: Disposing player
+0:00:00.096833920  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:336:mediaPlayerWillBeDestroyed: Parent MediaPlayer is about to be destroyed
+0:00:00.096912478  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:884:setPreload: Setting preload to Auto
+0:00:00.096921484  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:875:setPreservesPitch: Preserving audio pitch: true
+0:00:00.096937785  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3383:createGSTPlayBin: Creating pipeline for audio player
+0:00:00.096994621  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3415:createGSTPlayBin:<media-player-1> WebCore logs identifier for this pipeline is: 5F5E5DF66114FE7
+0:00:00.097000252  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4321:setStreamVolumeElement:<media-player-1> Not setting stream volume, trusting system one
+0:00:00.097004089  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4324:setStreamVolumeElement:<media-player-1> Setting stream muted false
+0:00:00.097011273  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3428:createGSTPlayBin:<media-player-1> Using legacy playbin element: true
+0:00:00.097024888  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3364:setPlaybackFlags:<media-player-1> text true, audio true (native false), video true (native false, software color balance true)
+0:00:00.097030098  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3369:setPlaybackFlags:<media-player-1> current pipeline flags 617
+0:00:00.097073840  9145 0x559f62b832c0 WARN            webkitcommon GStreamerCommon.cpp:1071:isGStreamerPluginAvailable: Plugin subenc not found. Please check your GStreamer installation
+WebKit wasn't able to find a WebVTT encoder. Subtitles handling will be degraded unless gst-plugins-bad is installed.
+0:00:00.097122942  9145 0x559f62b832c0 WARN     GST_ELEMENT_FACTORY gstelementfactory.c:701:gst_element_factory_make_with_properties: no such element factory "fakevideosink"!
+0:00:00.097128563  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4268:createVideoSink:<media-player-1> Falling back to fakesink for video rendering
+0:00:00.097159571  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1162:setPlaybinURL:<media-player-1> Load wails://wails/sample.wav
+0:00:00.097176062  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4026:setVisibleInViewport:<media-player-1> Un-muted audio player no longer visible in viewport
+0:00:00.097183075  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:381:load:<media-player-1> preload: Auto
+0:00:00.097190960  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1411:commitLoad:<media-player-1> Committing load.
+0:00:00.097198875  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1126:changePipelineState:<media-player-1> Changing state change to PAUSED from NULL with VOID_PENDING pending
+0:00:00.098625272  9145 0x559f62b832c0 WARN                   pulse pulsesink.c:615:gst_pulseringbuffer_open_device:<autoaudiosink2-actual-sink-pulse> error: Failed to connect: Connection refused
+0:00:00.114225069  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: Cannot connect to server socket err = No such file or directory
+0:00:00.114248724  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: Cannot connect to server request channel
+0:00:00.116320159  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: jack server is not running or cannot be started
+0:00:00.118525515  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+0:00:00.118536124  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+0:00:00.118749355  9145 0x559f62b832c0 WARN              jackclient gstjackaudioclient.c:381:gst_jack_audio_get_connection: could not create connection
+0:00:00.118775754  9145 0x559f62b832c0 WARN                jacksink gstjackaudiosink.c:358:gst_jack_ring_buffer_open_device:<autoaudiosink2-actual-sink-jackaudio> error: Jack server not found
+0:00:00.118783218  9145 0x559f62b832c0 WARN                jacksink gstjackaudiosink.c:358:gst_jack_ring_buffer_open_device:<autoaudiosink2-actual-sink-jackaudio> error: Cannot connect to the Jack server (status 17)
+0:00:00.118951764  9145 0x559f62b832c0 WARN                 default oss4-property-probe.c:302:gst_oss4_property_probe_get_values:<autoaudiosink2-actual-sink-oss4> Can't open file descriptor to probe available devices: No such file or directory
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.268: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.268: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.268: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.268: gst_debug_log_valist: assertion 'category != NULL' failed
+0:00:00.119066199  9145 0x559f62b832c0 WARN                     oss gstosssink.c:401:gst_oss_sink_open:<autoaudiosink2-actual-sink-oss> error: Could not open audio device for playback.
+0:00:00.119071579  9145 0x559f62b832c0 WARN                     oss gstosssink.c:401:gst_oss_sink_open:<autoaudiosink2-actual-sink-oss> error: system error: No such file or directory
+0:00:00.119294236  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<media-player-1> Element set-up for uridecodebin1
+0:00:00.119422036  9145 0x559f62b832c0 WARN            uridecodebin gsturidecodebin.c:1465:gen_source_element:<uridecodebin1> error: No URI handler implemented for "wails".
+0:00:00.119537643  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1130:changePipelineState:<media-player-1> Changing state returned FAILURE
+0:00:00.119545287  9145 0x559f62b832c0 WARN       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1134:changePipelineState:<media-player-1> Changing state to PAUSED from NULL with VOID_PENDING pending failed
+0:00:00.119554575  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3286:isMediaDiskCacheDisabled: Should disable media disk cache: false
+0:00:00.119558843  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3327:updateDownloadBufferingFlag:<media-player-1> Media on-disk cache is enabled
+0:00:00.119562409  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3331:updateDownloadBufferingFlag:<media-player-1> Enabling on-disk buffering
+0:00:00.119574893  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2972:updateStates:<media-player-1> Failure: State: READY, pending: PAUSED
+0:00:00.119693165  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element streamsynchronizer1
+0:00:00.119717550  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element playsink
+0:00:00.119737397  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element media-player-1
+0:00:00.119741726  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2212:handleMessage:<media-player-1> Changed state from NULL to READY
+0:00:00.119746164  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2972:updateStates:<media-player-1> Failure: State: READY, pending: PAUSED
+0:00:00.119758637  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element streamsynchronizer1
+0:00:00.119770369  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message warning received from element autoaudiosink2
+0:00:00.119776851  9145 0x559f62b832c0 WARN       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2126:handleMessage:<media-player-1> Failed to connect: Connection refused (url=wails://wails/sample.wav) (code=1)
+0:00:00.119789114  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element autoaudiosink2
+0:00:00.119800686  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element audioresample5
+0:00:00.119812057  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element audioconvert5
+0:00:00.119829891  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element volume
+0:00:00.119841062  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element audioresample4
+0:00:00.119852573  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element audioconvert4
+0:00:00.119863604  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element queue2
+0:00:00.119874685  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element audioTee
+0:00:00.119885655  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element audio-sink
+0:00:00.119896796  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element fakesink1
+0:00:00.119907948  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element webkitappsinkwithworkarounds1
+0:00:00.119918958  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element webkittextsink1
+0:00:00.119929869  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message state-changed received from element uridecodebin1
+0:00:00.119941039  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message element received from element uridecodebin1
+0:00:00.119949575  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2323:handleMessage:<media-player-1> Unhandled element message: missing-plugin, type=(string)urisource, detail=(string)wails, name=(string)"WAILS\ protocol\ source";
+0:00:00.119966297  9145 0x559f62b832c0 WARN               structure gststructure.c:2091:priv_gst_structure_append_to_gstring: No value transform to serialize field 'gerror' of type 'GError'
+0:00:00.119973911  9145 0x559f62b832c0 ERROR           webkitcommon GStreamerCommon.cpp:1018:operator():<media-player-1> Got message: error message: 0x559f62dd6ea0, time 99:99:99.999999999, seq-num 187, element 'uridecodebin1', GstMessageError, gerror=(GError)NULL, debug=(string)"../gst/playback/gsturidecodebin.c\(1465\):\ gen_source_element\ \(\):\ /GstPlayBin:media-player-1/GstURIDecodeBin:uridecodebin1";
+0:00:00.119980223  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<media-player-1> Message error received from element uridecodebin1
+0:00:00.119985293  9145 0x559f62b832c0 ERROR      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2080:handleMessage:<media-player-1> No URI handler implemented for "wails". (url=wails://wails/sample.wav) (code=12)
+0:00:00.120006342  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:423:cancelLoad:<media-player-1> cancelLoad() requested
+0:00:00.120009748  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:427:cancelLoad:<media-player-1> Setting pipeline to READY state
+0:00:00.120014427  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1126:changePipelineState:<media-player-1> Changing state change to READY from READY with PAUSED pending
+0:00:00.120039664  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1130:changePipelineState:<media-player-1> Changing state returned SUCCESS
+0:00:00.120219141  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:217:tearDown:<media-player-1> Disposing player
+0:00:00.120301626  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:336:mediaPlayerWillBeDestroyed: Parent MediaPlayer is about to be destroyed
+0:00:00.120446778  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:884:setPreload: Setting preload to Auto
+0:00:00.120452358  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:875:setPreservesPitch: Preserving audio pitch: true
+0:00:00.121515883  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:336:mediaPlayerWillBeDestroyed: Parent MediaPlayer is about to be destroyed
+0:00:00.121529118  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:217:tearDown: Disposing player
+0:00:00.121535129  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:336:mediaPlayerWillBeDestroyed: Parent MediaPlayer is about to be destroyed
+0:00:00.122682712  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:884:setPreload: Setting preload to Auto
+0:00:00.122696968  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:875:setPreservesPitch: Preserving audio pitch: true
+0:00:00.122716114  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3383:createGSTPlayBin: Creating pipeline for audio player
+0:00:00.122841710  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3415:createGSTPlayBin:<blob-media-player-2> WebCore logs identifier for this pipeline is: 29A4653C6CD0D343
+0:00:00.122847971  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4321:setStreamVolumeElement:<blob-media-player-2> Not setting stream volume, trusting system one
+0:00:00.122851749  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4324:setStreamVolumeElement:<blob-media-player-2> Setting stream muted false
+0:00:00.122858601  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3428:createGSTPlayBin:<blob-media-player-2> Using legacy playbin element: false
+0:00:00.122865945  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3364:setPlaybackFlags:<blob-media-player-2> text true, audio true (native false), video true (native false, software color balance true)
+0:00:00.122871025  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3369:setPlaybackFlags:<blob-media-player-2> current pipeline flags 717
+0:00:00.122903335  9145 0x559f62b832c0 WARN            webkitcommon GStreamerCommon.cpp:1071:isGStreamerPluginAvailable: Plugin subenc not found. Please check your GStreamer installation
+WebKit wasn't able to find a WebVTT encoder. Subtitles handling will be degraded unless gst-plugins-bad is installed.
+0:00:00.122952497  9145 0x559f62b832c0 WARN     GST_ELEMENT_FACTORY gstelementfactory.c:701:gst_element_factory_make_with_properties: no such element factory "fakevideosink"!
+0:00:00.122958318  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4268:createVideoSink:<blob-media-player-2> Falling back to fakesink for video rendering
+0:00:00.122988745  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1162:setPlaybinURL:<blob-media-player-2> Load blob:wails://wails/5de72100-ebfe-45ac-87b8-1aa8c5852584
+0:00:00.122996320  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:4026:setVisibleInViewport:<blob-media-player-2> Un-muted audio player no longer visible in viewport
+0:00:00.123000157  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:381:load:<blob-media-player-2> preload: Auto
+0:00:00.123005156  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1411:commitLoad:<blob-media-player-2> Committing load.
+0:00:00.123015786  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1126:changePipelineState:<blob-media-player-2> Changing state change to PAUSED from NULL with VOID_PENDING pending
+0:00:00.127837429  9145 0x559f62b832c0 WARN                   pulse pulsesink.c:615:gst_pulseringbuffer_open_device:<autoaudiosink4-actual-sink-pulse> error: Failed to connect: Connection refused
+0:00:00.138607779  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: Cannot connect to server socket err = No such file or directory
+0:00:00.138629529  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: Cannot connect to server request channel
+0:00:00.140706214  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: jack server is not running or cannot be started
+0:00:00.188688844  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+0:00:00.188726424  9145 0x559f62b832c0 ERROR             jackclient gstjackaudioclient.c:35:jack_log_error: JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+0:00:00.188736794  9145 0x559f62b832c0 WARN              jackclient gstjackaudioclient.c:381:gst_jack_audio_get_connection: could not create connection
+0:00:00.188765287  9145 0x559f62b832c0 WARN                jacksink gstjackaudiosink.c:358:gst_jack_ring_buffer_open_device:<autoaudiosink4-actual-sink-jackaudio> error: Jack server not found
+0:00:00.188770718  9145 0x559f62b832c0 WARN                jacksink gstjackaudiosink.c:358:gst_jack_ring_buffer_open_device:<autoaudiosink4-actual-sink-jackaudio> error: Cannot connect to the Jack server (status 17)
+0:00:00.188951947  9145 0x559f62b832c0 WARN                 default oss4-property-probe.c:302:gst_oss4_property_probe_get_values:<autoaudiosink4-actual-sink-oss4> Can't open file descriptor to probe available devices: No such file or directory
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.338: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.338: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.338: gst_debug_log_valist: assertion 'category != NULL' failed
+
+(WebKitWebProcess:9145): GStreamer-CRITICAL **: 12:15:26.338: gst_debug_log_valist: assertion 'category != NULL' failed
+0:00:00.189060932  9145 0x559f62b832c0 WARN                     oss gstosssink.c:401:gst_oss_sink_open:<autoaudiosink4-actual-sink-oss> error: Could not open audio device for playback.
+0:00:00.189066302  9145 0x559f62b832c0 WARN                     oss gstosssink.c:401:gst_oss_sink_open:<autoaudiosink4-actual-sink-oss> error: system error: No such file or directory
+0:00:00.189493483  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for uridecodebin3-0
+0:00:00.189517809  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for decodebin3-0
+0:00:00.189524011  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for multiqueue0
+0:00:00.189628456  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for urisourcebin0
+0:00:00.189760394  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:270:webkitWebSrcReset:<webkitwebsrc0> Resetting internal state
+0:00:00.189803154  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for webkitwebsrc0
+0:00:00.189821969  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1085:sourceSetup:<blob-media-player-2> Source element set-up for webkitwebsrc0
+0:00:00.189882803  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for typefindelement0
+0:00:00.189924762  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:735:webKitWebSrcGetSize:<webkitwebsrc0> haveSize: false, size: 18446744073709551615
+0:00:00.189931424  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:748:webKitWebSrcIsSeekable:<webkitwebsrc0> isSeekable: false
+0:00:00.189944700  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:764:webKitWebSrcDoSeek:<webkitwebsrc0> Seek segment: (0-18446744073709551615) Position previous to seek: 0
+0:00:00.190051870  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1130:changePipelineState:<blob-media-player-2> Changing state returned ASYNC
+0:00:00.190065135  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3315:updateDownloadBufferingFlag:<blob-media-player-2> Blob URI detected. Disabling on-disk buffering
+0:00:00.190070525  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3301:operator():<blob-media-player-2> Disabling on-disk buffering
+0:00:00.190088990  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2959:updateStates:<blob-media-player-2> Async: State: READY, pending: PAUSED
+0:00:00.190164038  9145 0x559f62b9b5e0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:628:webKitWebSrcMakeRequest:<webkitwebsrc0> Posting task to request R1 blob:wails://wails/5de72100-ebfe-45ac-87b8-1aa8c5852584 requestedPosition=0 stopPosition=18446744073709551615
+0:00:00.190258646  9145 0x559f62b9b5e0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:663:webKitWebSrcMakeRequest:<webkitwebsrc0> Persistent connection support disabled
+0:00:00.190266263  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element streamsynchronizer2
+0:00:00.190669757  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:712:operator():<webkitwebsrc0> Started request R1
+0:00:00.190689985  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element playsink
+0:00:00.190717927  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element blob-media-player-2
+0:00:00.190725041  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2212:handleMessage:<blob-media-player-2> Changed state from NULL to READY
+0:00:00.190732214  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2959:updateStates:<blob-media-player-2> Async: State: READY, pending: PAUSED
+0:00:00.190752903  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element streamsynchronizer2
+0:00:00.190771337  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message warning received from element autoaudiosink4
+0:00:00.190780735  9145 0x559f62b832c0 WARN       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2126:handleMessage:<blob-media-player-2> Failed to connect: Connection refused (url=blob:wails://wails/5de72100-ebfe-45ac-87b8-1aa8c5852584) (code=1)
+0:00:00.190799921  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element autoaudiosink4
+0:00:00.190825659  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioresample9
+0:00:00.190843332  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioconvert9
+0:00:00.190862128  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element volume
+0:00:00.190879771  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioresample8
+0:00:00.190897434  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioconvert8
+0:00:00.190914045  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element queue4
+0:00:00.190930977  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioTee
+0:00:00.190947819  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audio-sink
+0:00:00.190963798  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element fakesink2
+0:00:00.190980600  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element webkitappsinkwithworkarounds2
+0:00:00.190998203  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element webkittextsink2
+0:00:00.191016016  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element multiqueue0
+0:00:00.191033028  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element decodebin3-0
+0:00:00.191050521  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element uridecodebin3-0
+0:00:00.191067263  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element multiqueue0
+0:00:00.191084956  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element decodebin3-0
+0:00:00.191102449  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element urisourcebin0
+0:00:00.191119601  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element typefindelement0
+0:00:00.191137394  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element typefindelement0
+0:00:00.191155007  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element webkitwebsrc0
+0:00:00.191172500  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.191185334  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.191202987  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element webkitwebsrc0
+0:00:00.191220169  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element urisourcebin0
+0:00:00.191237191  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element uridecodebin3-0
+0:00:00.191257910  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.191263671  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.191492613  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:1029:responseReceived:<webkitwebsrc0> R1: Received response: 200
+0:00:00.191516918  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:1063:responseReceived:<webkitwebsrc0> R1: Request headers going downstream: request-headers, Referer=(string)"", Connection=(string)close, Icy-Metadata=(string)1;
+0:00:00.191534010  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:1074:responseReceived:<webkitwebsrc0> R1: Response headers going downstream: response-headers, Content-Type=(string)audio/wav, Content-Length=(guint64)16044, Content-Security-Policy=(string)"default-src\ \'self\'\ data:\ blob:\;\ script-src\ \'self\'\ \'unsafe-inline\'\ \'wasm-unsafe-eval\'\;\ style-src\ \'self\'\ \'unsafe-inline\'\;\ connect-src\ \'self\'\ data:\ blob:\;\ worker-src\ \'self\'\ blob:\;\ frame-src\ \'self\'\;\ object-src\ \'none\'\;\ base-uri\ \'none\'\;\ form-action\ \'none\'", Referrer-Policy=(string)strict-origin-when-cross-origin;
+0:00:00.191542657  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:1103:responseReceived:<webkitwebsrc0> R1: Size: 16044, isSeekable: true
+0:00:00.191574754  9145 0x559f62b9b5e0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:519:webKitWebSrcCreate:<webkitwebsrc0> Setting duration to 16044
+0:00:00.191636693  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message duration-changed received from element webkitwebsrc0
+0:00:00.191666218  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message element received from element webkitwebsrc0
+0:00:00.191692027  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2261:handleMessage:<blob-media-player-2> Processing HTTP headers: http-headers, uri=(string)blob:wails://wails/5de72100-ebfe-45ac-87b8-1aa8c5852584, http-status-code=(uint)200, request-headers=(structure)"request-headers\,\ Referer\=\(string\)\"\"\,\ Connection\=\(string\)close\,\ Icy-Metadata\=\(string\)1\;", response-headers=(structure)"response-headers\,\ Content-Type\=\(string\)audio/wav\,\ Content-Length\=\(guint64\)16044\,\ Content-Security-Policy\=\(string\)\"default-src\\\ \\\'self\\\'\\\ data:\\\ blob:\\\;\\\ script-src\\\ \\\'self\\\'\\\ \\\'unsafe-inline\\\'\\\ \\\'wasm-unsafe-eval\\\'\\\;\\\ style-src\\\ \\\'self\\\'\\\ \\\'unsafe-inline\\\'\\\;\\\ connect-src\\\ \\\'self\\\'\\\ data:\\\ blob:\\\;\\\ worker-src\\\ \\\'self\\\'\\\ blob:\\\;\\\ frame-src\\\ \\\'self\\\'\\\;\\\ object-src\\\ \\\'none\\\'\\\;\\\ base-uri\\\ \\\'none\\\'\\\;\\\ form-action\\\ \\\'none\\\'\"\,\ Referrer-Policy\=\(string\)strict-origin-when-cross-origin\;";
+0:00:00.191714379  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2276:handleMessage:<blob-media-player-2> Is range request: false
+0:00:00.191723035  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2297:handleMessage:<blob-media-player-2> Non-live stream detected
+0:00:00.191731000  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3315:updateDownloadBufferingFlag:<blob-media-player-2> Blob URI detected. Disabling on-disk buffering
+0:00:00.191735739  9145 0x559f62b832c0 INFO       webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3301:operator():<blob-media-player-2> Disabling on-disk buffering
+0:00:00.256899570  9145 0x559f62b832c0 LOG             webkitwebsrc WebKitWebSourceGStreamer.cpp:1200:dataReceived:<webkitwebsrc0> R1: Have 16044 bytes of data
+0:00:00.256968680  9145 0x559f62b832c0 LOG             webkitwebsrc WebKitWebSourceGStreamer.cpp:984:checkUpdateBlocksize:<webkitwebsrc0> Checking to update blocksize. Read: 16044, current blocksize: 4096
+0:00:00.272447409  9145 0x559f62b832c0 LOG             webkitwebsrc WebKitWebSourceGStreamer.cpp:1265:loadFinished:<webkitwebsrc0> R1: Load finished. Read position: 16044
+0:00:00.272561203  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message element received from element webkitwebsrc0
+0:00:00.272576361  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2303:handleMessage:<blob-media-player-2> Updated network read position 16044, size: 16044
+0:00:00.293980677  9145 0x559f62b9b5e0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for queue2-0
+0:00:00.294153762  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element queue2-0
+0:00:00.294250423  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.294258238  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.294463543  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element queue2-0
+0:00:00.294517193  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.294523284  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.294799994  9145 0x559f62b9b5e0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for parsebin0
+0:00:00.294841221  9145 0x559f62b9b5e0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for typefind
+0:00:00.294900752  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element typefind
+0:00:00.294961987  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element parsebin0
+0:00:00.295315881  9145 0x559f62b9b5e0 WARN                  queue2 gstqueue2.c:2444:gst_queue2_locked_enqueue:<queue2-0> custom-downstream-sticky event can't be added to temp file: custom-downstream-sticky event: 0x559f62df28b0, time 99:99:99.999999999, seq-num 336, http-headers, uri=(string)blob:wails://wails/5de72100-ebfe-45ac-87b8-1aa8c5852584, http-status-code=(uint)200, request-headers=(structure)"request-headers\,\ Referer\=\(string\)\"\"\,\ Connection\=\(string\)close\,\ Icy-Metadata\=\(string\)1\;", response-headers=(structure)"response-headers\,\ Content-Type\=\(string\)audio/wav\,\ Content-Length\=\(guint64\)16044\,\ Content-Security-Policy\=\(string\)\"default-src\\\ \\\'self\\\'\\\ data:\\\ blob:\\\;\\\ script-src\\\ \\\'self\\\'\\\ \\\'unsafe-inline\\\'\\\ \\\'wasm-unsafe-eval\\\'\\\;\\\ style-src\\\ \\\'self\\\'\\\ \\\'unsafe-inline\\\'\\\;\\\ connect-src\\\ \\\'self\\\'\\\ data:\\\ blob:\\\;\\\ worker-src\\\ \\\'self\\\'\\\ blob:\\\;\\\ frame-src\\\ \\\'self\\\'\\\;\\\ object-src\\\ \\\'none\\\'\\\;\\\ base-uri\\\ \\\'none\\\'\\\;\\\ form-action\\\ \\\'none\\\'\"\,\ Referrer-Policy\=\(string\)strict-origin-when-cross-origin\;";
+0:00:00.295526416  9145 0x559f62b9b5e0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:573:webKitWebSrcCreate:<webkitwebsrc0> Reached the end of the response, signalling EOS
+0:00:00.295608149  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.295619420  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.295643926  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element sink
+0:00:00.295651100  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.295670747  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element typefind
+0:00:00.295689431  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element parsebin0
+0:00:00.295709179  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message element received from element webkitwebsrc0
+0:00:00.295714749  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2320:handleMessage:<blob-media-player-2> WebKitWebSrc has EOS
+0:00:00.296139125  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element sink
+0:00:00.296147741  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.297128991  9145 0x559f62daa860 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2623:determineContainerTypeFromCaps:<blob-media-player-2> Determining container type from audio/x-wav
+0:00:00.298536321  9145 0x559f62daa860 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for wavparse0
+0:00:00.298712762  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element wavparse0
+0:00:00.298897328  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element sink
+0:00:00.298905784  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.298933676  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element wavparse0
+0:00:00.299905729  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element sink
+0:00:00.299926338  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.317499746  9145 0x7f8cfc038b00 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audiotee
+0:00:00.317695263  9145 0x7f8cfc038b00 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audio-concat
+0:00:00.317741409  9145 0x7f8cfc038b00 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1863:handleStreamCollectionMessage:<blob-media-player-2> Updating tracks
+0:00:00.317796202  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1813:updateTracks:<blob-media-player-2> Received STREAM_COLLECTION message with upstream id "(null)" from <decodebin3-0> defining the following streams:
+0:00:00.317816751  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1821:updateTracks:<blob-media-player-2> #0 audio track with ID 239 and caps audio/x-raw, format=(string)S16LE, layout=(string)interleaved, channels=(int)1, rate=(int)8000
+0:00:00.317857958  9145 0x559f62b832c0 DEBUG      webkitmediaplayer TrackPrivateBaseGStreamer.cpp:216:tagsChanged: Inspecting track 239 with tags: taglist, container-format=(string)WAV, bitrate=(uint)128000, audio-codec=(string)"Uncompressed\ 16-bit\ PCM\ audio";
+0:00:00.318025533  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1701:playbin3SendSelectStreamsIfAppropriate:<blob-media-player-2> Checking if to send SELECT_STREAMS, m_waitingForStreamsSelectedEvent = true, haveDifferentStreamIds = true, m_currentState = READY... shouldSendSelectStreams = false
+0:00:00.318044268  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:560:paused:<blob-media-player-2> paused true
+0:00:00.318064606  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audiotee
+0:00:00.318128806  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audiotee
+0:00:00.318148012  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audio-concat
+0:00:00.318169202  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audio-concat
+0:00:00.318195060  9145 0x7f8cfc038b00 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1865:handleStreamCollectionMessage:<blob-media-player-2> Updating tracks DONE
+0:00:00.318225558  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-collection received from element decodebin3-0
+0:00:00.318231148  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-collection
+0:00:00.318384045  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src_0
+0:00:00.318391138  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.319581460  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for abin
+0:00:00.319678292  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for aconv
+0:00:00.319698640  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for resample
+0:00:00.319706966  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for conv
+0:00:00.319714871  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for identity
+0:00:00.319722335  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for aqueue
+0:00:00.319730380  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for scaletempo2
+0:00:00.319738505  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for filter-convert
+0:00:00.319746160  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audio-sink
+0:00:00.319753754  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for autoaudiosink4
+0:00:00.319761398  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for fake-audio-sink
+0:00:00.319769012  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audioresample9
+0:00:00.319776456  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audioconvert9
+0:00:00.319783830  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for volume
+0:00:00.319791505  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audioresample8
+0:00:00.319799029  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audioconvert8
+0:00:00.319806382  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for queue4
+0:00:00.319813666  9145 0x7f8cf001f640 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2719:configureElementPlatformQuirks:<blob-media-player-2> Element set-up for audioTee
+0:00:00.320284830  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src_0
+0:00:00.320293115  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.320314976  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message streams-selected received from element decodebin3-0
+0:00:00.320320106  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2333:handleMessage:<blob-media-player-2> Received STREAMS_SELECTED message selecting the following streams:
+0:00:00.320327500  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2337:handleMessage:<blob-media-player-2> #0 audio 239f766682d4c66495fa410021bb4eec135761fcae0b75d3da2d3fb0c223ac98
+0:00:00.320341005  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2340:handleMessage:<blob-media-player-2> Setting m_waitingForStreamsSelectedEvent to false.
+0:00:00.320347868  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1701:playbin3SendSelectStreamsIfAppropriate:<blob-media-player-2> Checking if to send SELECT_STREAMS, m_waitingForStreamsSelectedEvent = false, haveDifferentStreamIds = false, m_currentState = READY... shouldSendSelectStreams = false
+0:00:00.320365201  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element resample
+0:00:00.320381471  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element conv
+0:00:00.320397100  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element identity
+0:00:00.320412539  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element aconv
+0:00:00.320428018  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element aqueue
+0:00:00.320443487  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element scaletempo2
+0:00:00.320459037  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element filter-convert
+0:00:00.320474435  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element abin
+0:00:00.320491928  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioresample9
+0:00:00.320508579  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioconvert9
+0:00:00.320543224  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element volume
+0:00:00.320558854  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioresample8
+0:00:00.320574503  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioconvert8
+0:00:00.320591685  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.320601744  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.320618425  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element queue4
+0:00:00.320652409  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audioTee
+0:00:00.320668610  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element resample
+0:00:00.320683988  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element conv
+0:00:00.320704727  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element identity
+0:00:00.320720407  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element aconv
+0:00:00.320735655  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.320740645  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.320755983  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element aqueue
+0:00:00.320771673  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element scaletempo2
+0:00:00.320790248  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element filter-convert
+0:00:00.320880687  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.320887600  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.322793662  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-status received from element src
+0:00:00.322807479  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: stream-status
+0:00:00.322829500  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message buffering received from element queue2-0
+0:00:00.322841402  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2404:updateBufferingStatus:<blob-media-player-2> [Buffering] mode: GST_BUFFERING_TIMESHIFT, status: 100.000000%
+0:00:00.322850780  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2959:updateStates:<blob-media-player-2> Async: State: READY, pending: PAUSED
+0:00:00.322872881  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message stream-start received from element blob-media-player-2
+0:00:00.324298307  9145 0x7f8ccc008060 WARN         audio-resampler audio-resampler.c:274:convert_taps_gint16_c: can't find exact taps
+0:00:00.325140564  9145 0x7f8ccc008120 WARN         audio-resampler audio-resampler.c:274:convert_taps_gint16_c: can't find exact taps
+0:00:00.325473899  9145 0x7f8ccc008120 WARN         audio-resampler audio-resampler.c:274:convert_taps_gint16_c: can't find exact taps
+0:00:00.328205462  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message tag received from element fake-audio-sink
+0:00:00.328218627  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2367:handleMessage:<blob-media-player-2> Unhandled GStreamer message type: tag
+0:00:00.328297655  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element fake-audio-sink
+0:00:00.328354131  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element autoaudiosink4
+0:00:00.328415476  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element audio-sink
+0:00:00.328464448  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element abin
+0:00:00.328512779  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element playsink
+0:00:00.328572521  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2076:handleMessage:<blob-media-player-2> Message state-changed received from element blob-media-player-2
+0:00:00.328579243  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2212:handleMessage:<blob-media-player-2> Changed state from READY to PAUSED
+0:00:00.328612576  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2855:updateStates:<blob-media-player-2> State: PAUSED, pending: VOID_PENDING
+0:00:00.328629728  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1967:volume:<blob-media-player-2> Volume: 1.000000
+0:00:00.328640859  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:2935:updateStates:<blob-media-player-2> Old state: READY, new state: PAUSED (requested: VOID_PENDING)
+0:00:00.328648343  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3013:updateStates:<blob-media-player-2> Network State Changed from Loading to Loaded
+0:00:00.328669232  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:3018:updateStates:<blob-media-player-2> Ready State Changed from HaveNothing to HaveEnoughData
+0:00:00.328740546  9145 0x559f62b832c0 LOG        webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:1398:platformDuration:<blob-media-player-2> Duration: 0:00:01.000000000
+0:00:00.328768579  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:560:paused:<blob-media-player-2> paused true
+0:00:00.329141748  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:336:mediaPlayerWillBeDestroyed:<blob-media-player-2> Parent MediaPlayer is about to be destroyed
+0:00:00.329152568  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:217:tearDown:<blob-media-player-2> Disposing player
+0:00:00.331841001  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:840:webKitWebSrcUnLock:<webkitwebsrc0> Unlock
+0:00:00.331855207  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:845:webKitWebSrcUnLock:<webkitwebsrc0> Resource request R1 will be stopped
+0:00:00.331913326  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:869:webKitWebSrcUnLockStop:<webkitwebsrc0> Unlock stop
+0:00:00.331920189  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:270:webkitWebSrcReset:<webkitwebsrc0> Resetting internal state
+0:00:00.331927964  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:270:webkitWebSrcReset:<webkitwebsrc0> Resetting internal state
+0:00:00.331933294  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:726:webKitWebSrcStop:<webkitwebsrc0> Stopped WebKitWebSrc
+0:00:00.332452888  9145 0x559f62b832c0 DEBUG      webkitmediaplayer MediaPlayerPrivateGStreamer.cpp:336:mediaPlayerWillBeDestroyed: Parent MediaPlayer is about to be destroyed
+0:00:00.336542621  9145 0x559f62b832c0 DEBUG           webkitwebsrc WebKitWebSourceGStreamer.cpp:847:operator(): Stopping resource request R1
