@@ -21,8 +21,9 @@ func describe(args []string, w io.Writer) error {
 			"assets":      "Local files beneath the page directory; relative URLs, ES modules and dynamic import. No build or registration required. Bundle any libraries with the skill.",
 			"draftImages": "ready() exposes restored attachments as {key,name,blob}; save bytes with saveDraft(data,attachments).",
 			"ordering":    "saveDraft/submit/cancel execute in call order, including Blob encoding. Each failure rejects its own Promise; later calls may retry. Close/crash restores only acknowledged saves.",
-			"rendering":   []string{"HTML/CSS and custom elements", "Canvas 2D/SVG/WebGL", "local and Blob workers", "WebAssembly", "local audio/video with byte-range seeking", "sandboxed inline srcdoc previews"},
-			"boundaries":  "Main frame owns the bridge. Outbound network, URL/file frames, popups, navigation, Node, eval and OS permissions are unavailable. Use sandbox=allow-scripts for untrusted srcdoc previews; use a trusted native helper for OS integration.",
+			"rendering":   []string{"HTML/CSS and custom elements", "Canvas 2D/SVG/WebGL", "local and Blob workers", "WebAssembly", "audio/video subject to system codec and URL support", "sandboxed inline srcdoc previews"},
+			"boundaries":  "Skill pages are trusted local code and can access Wails native APIs. Fungi confines served assets to the source root; browser storage isolation is best effort. Use saveDraft for durable state and sessionStorage for window-local state. Sandbox untrusted inline previews.",
+			"media":       "Linux WebKitGTK cannot load direct wails:// media URLs. Fetch-to-Blob can work for small files but loads them fully; no transparent workaround or universal codec support is promised.",
 			"examples":    []string{"examples/review.html", "examples/compare/index.html"},
 			"authoring":   "docs/wiki/authoring.md",
 			"platforms":   "docs/wiki/platforms.md: verified environments and startup diagnostics. Feature-detect WebGL and codecs; their availability depends on the host.",
@@ -58,7 +59,8 @@ func describe(args []string, w io.Writer) error {
 			"limits":   "No harness setup required. Use manual when native capabilities are insufficient. See verification records; short probes do not establish indefinite AFK reliability.",
 		},
 		"installation": map[string]any{
-			"install":  "fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]; complete platform package, no runtime download",
+			"install":  "fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]; one platform package with Go CLI and Wails helper",
+			"runtime":  "fungi doctor checks the installed system webview without a window. Exit 3 means a missing runtime. Bootstrap install.sh --setup-runtime or install.ps1 -SetupRuntime opts into official runtime installation; normal launches never install software.",
 			"update":   "fungi update [--version vX.Y.Z]; verified GitHub release, or --archive FILE --sha256 HASH for an explicit local package",
 			"rollback": "fungi rollback; switches to the previous retained release",
 			"prune":    "fungi prune; retains current, previous, active processes and package assets referenced by recoverable sessions",
@@ -75,5 +77,5 @@ func describe(args []string, w io.Writer) error {
 		}
 		return emit(w, map[string]any{"protocol": 1, "topic": args[0], "capability": v, "limits": limits()})
 	}
-	return emit(w, map[string]any{"protocol": 1, "version": buildVersion, "topics": []string{"html", "form", "helper", "delivery", "installation"}, "commands": []string{"describe", "open", "collect", "reopen", "version", "install", "update", "rollback", "prune"}, "outcomes": []string{"submitted", "cancelled", "closed", "failed"}, "limits": limits(), "next": "fungi describe html"})
+	return emit(w, map[string]any{"protocol": 1, "version": buildVersion, "topics": []string{"html", "form", "helper", "delivery", "installation"}, "commands": []string{"doctor", "describe", "open", "collect", "reopen", "version", "install", "update", "rollback", "prune"}, "outcomes": []string{"submitted", "cancelled", "closed", "failed"}, "limits": limits(), "next": "fungi describe html"})
 }

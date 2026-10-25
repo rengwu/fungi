@@ -9,10 +9,9 @@ import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const {values,positionals}=parseArgs({allowPositionals:true,options:{'allow-unavailable-webgl':{type:'boolean'},'expect-startup-failure':{type:'boolean'},helper:{type:'string'}}});
-assert.ok(positionals.length<=1,'usage: renderer-smoke.mjs [binary] [--helper PATH] [--allow-unavailable-webgl | --expect-startup-failure]');
-assert.ok(!(values['allow-unavailable-webgl']&&values['expect-startup-failure']),'choose one scope');
-assert.ok(!(values.helper&&values['expect-startup-failure']),'startup-failure scope is specific to the bundled Electron renderer');
+const {values,positionals}=parseArgs({allowPositionals:true,options:{'allow-unavailable-webgl':{type:'boolean'},'allow-unavailable-local-media':{type:'boolean'},helper:{type:'string'}}});
+assert.ok(positionals.length<=1,'usage: renderer-smoke.mjs [binary] [--helper PATH] [--allow-unavailable-webgl] [--allow-unavailable-local-media]');
+assert.ok(!values['allow-unavailable-local-media']||process.platform==='linux','local-media exception is Linux-only');
 const binary=path.resolve(positionals[0]??path.join(root,'fungi'));
 const parent=path.join(root,'verification-output');await mkdir(parent,{recursive:true});
 const directory=await mkdtemp(path.join(parent,'renderer-smoke-')),assets=path.join(directory,'assets');
@@ -37,23 +36,9 @@ const run=async args=>{
   return JSON.parse(stdout);
 };
 async function verify(){try {
-let closed;
-try{closed=await run(values.helper
+const closed=await run(values.helper
   ? ['open','--exec',path.resolve(values.helper),'--delivery','wait','--',path.join(assets,'index.html')]
-  : ['open',path.join(assets,'index.html'),'--delivery','wait']);}
-catch(error){
-  if(!values['expect-startup-failure'])throw error;
-  const result=JSON.parse(error.stdout),session=path.join(env.FUNGI_STATE_DIR,result.session);
-  assert.equal(error.code,1);assert.equal(result.outcome,'failed');assert.equal(result.error?.code,'renderer_startup_failed');
-  assert.deepEqual(JSON.parse(await readFile(path.join(session,'result.json'),'utf8')),result);
-  const log=path.join(session,'worker.log');assert.ok(result.error.message.includes(log));
-  const diagnostics=await readFile(log,'utf8');assert.match(diagnostics,/sandbox/i);
-  const evidence={binary,directory,scope:'unsupported renderer startup failure; no UI support established',result,diagnostics,childPathEmpty:true};
-  await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
-  console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),...evidence},null,2));
-  return;
-}
-assert.ok(!values['expect-startup-failure'],'renderer now starts: review the platform support matrix and run the full fixture');
+  : ['open',path.join(assets,'index.html'),'--delivery','wait']);
 assert.equal(closed.outcome,'cancelled');
 const result=await run(['reopen',closed.session,'--delivery','wait']);
 assert.equal(result.outcome,'submitted');
@@ -61,8 +46,8 @@ const bytes=await readFile(result.artifacts[0].path);
 assert.equal(createHash('sha256').update(bytes).digest('hex'),result.artifacts[0].sha256);
 // Only context absence is optional on the explicitly selected virtual display.
 // An available WebGL context that renders incorrectly still fails the check.
-const excluded=values['allow-unavailable-webgl']?result.data.checks.filter(check=>check.name==='WebGL rendering context'&&check.unavailable):[];
-const evidence={binary,helper:values.helper?path.resolve(values.helper):null,directory,scope:values['allow-unavailable-webgl']?'workflow with optional WebGL availability':'workflow including WebGL',excluded,closed,result,artifactVerified:true,childPathEmpty:true};
+const excluded=result.data.checks.filter(check=> (values['allow-unavailable-webgl']&&check.name==='WebGL rendering context'&&check.unavailable) || (values['allow-unavailable-local-media']&&check.name==='media metadata and seek'&&!check.passed));
+const evidence={binary,helper:values.helper?path.resolve(values.helper):null,directory,scope:values['allow-unavailable-local-media']?'Linux workflow; direct local media is an accepted limitation':'workflow including WebGL',excluded,closed,result,artifactVerified:true,childPathEmpty:true};
 await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
 console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),scope:evidence.scope,excluded,checks:result.data.checks},null,2));
 assert.equal(result.data.checks.length,21,'incomplete renderer fixture');

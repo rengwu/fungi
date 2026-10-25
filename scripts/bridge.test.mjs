@@ -3,21 +3,19 @@ import vm from 'node:vm';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-const source=await readFile(new URL('../renderer/preload.cjs',import.meta.url),'utf8');
+const source=await readFile(new URL('../renderer/wails/bridge.js',import.meta.url),'utf8');
 function bridge(invoke) {
-  let api;
-  vm.runInNewContext(source,{
-    require:()=>({contextBridge:{exposeInMainWorld:(_name,value)=>api=value},ipcRenderer:{invoke}}),
-    Blob,Uint8Array,TextEncoder,
-  });
-  return api;
+  const window={go:{main:{Bridge:{Ready:()=>invoke('ready'),Persist:(type,data)=>invoke(type,data)}}},runtime:{Quit(){}}};
+  window.top=window;
+  vm.runInNewContext(source,{window,Blob,Uint8Array,btoa,atob,setTimeout(){}});
+  return window.fungi;
 }
 const ready={attachments:[],limits:{jsonBytes:1048576,artifactBytes:20971520,totalArtifactBytes:104857600}};
 
 test('slow attachment encoding cannot reorder saves, submit or cancel',async()=>{
   const calls=[];
   const api=bridge(async(channel,data)=>{
-    if(channel==='fungi:ready')return structuredClone(ready);
+    if(channel==='ready')return structuredClone(ready);
     calls.push([channel,data?.version]);
   });
   let release;
@@ -32,13 +30,13 @@ test('slow attachment encoding cannot reorder saves, submit or cancel',async()=>
   assert.deepEqual(calls,[],'later mutations overtook encoding');
   release();
   await Promise.all([first,second,third,fourth]);
-  assert.deepEqual(calls,[['fungi:save',1],['fungi:save',2],['fungi:submit',3],['fungi:cancel',undefined]]);
+  assert.deepEqual(calls,[['draft',1],['draft',2],['submitted',3],['cancelled',undefined]]);
 });
 
 test('rejected save does not poison a later submit retry',async()=>{
   const api=bridge(async(channel)=>{
-    if(channel==='fungi:ready')return structuredClone(ready);
-    if(channel==='fungi:save')throw new Error('disk full');
+    if(channel==='ready')return structuredClone(ready);
+    if(channel==='draft')throw new Error('disk full');
     return {outcome:'submitted'};
   });
   await assert.rejects(api.saveDraft({notes:'keep me'}),/disk full/);

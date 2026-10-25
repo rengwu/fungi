@@ -245,19 +245,15 @@ func TestHelperExitAndStdoutDrain(t *testing.T) {
 func TestRendererStartupFailureIsSavedAndDiagnosable(t *testing.T) {
 	root := t.TempDir()
 	renderer := filepath.Join(root, "renderer")
-	runtimeDir := filepath.Join(renderer, "runtime")
-	if err := os.MkdirAll(runtimeDir, 0700); err != nil {
+	helper := filepath.Join(root, rendererRelativePath())
+	if err := os.MkdirAll(filepath.Dir(helper), 0700); err != nil {
 		t.Fatal(err)
-	}
-	name := "electron"
-	if runtime.GOOS == "windows" {
-		name += ".exe"
 	}
 	bytes, err := os.ReadFile(testFixture)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if err = os.WriteFile(filepath.Join(runtimeDir, name), bytes, 0700); err != nil {
+	if err = os.WriteFile(helper, bytes, 0700); err != nil {
 		t.Fatal(err)
 	}
 	source := filepath.Join(root, "index.html")

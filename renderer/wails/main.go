@@ -1,5 +1,4 @@
-// Experimental Wails renderer, invoked through Fungi's existing --exec protocol.
-// This prototype is for trusted local pages; see README.md for isolation gaps.
+// Wails window helper. Skill pages are trusted local application code.
 package main
 
 import (
@@ -209,10 +208,14 @@ func run() error {
 	if b.launch.Protocol != 1 {
 		return errors.New("unsupported protocol")
 	}
-	if len(os.Args) != 2 {
-		return errors.New("usage: fungi open --exec fungi-wails -- PATH_TO_HTML_OR_JSON")
+	source := b.launch.Source
+	if len(os.Args) == 2 {
+		source = os.Args[1]
 	}
-	path, err := filepath.Abs(os.Args[1])
+	if source == "" || len(os.Args) > 2 {
+		return errors.New("missing HTML or JSON source")
+	}
+	path, err := filepath.Abs(source)
 	if err != nil {
 		return err
 	}
@@ -239,7 +242,7 @@ func run() error {
 	m.Append(menu.AppMenu())
 	m.Append(menu.EditMenu())
 	return wails.Run(&options.App{
-		Title: "Fungi · Wails preview", Width: 820, Height: 780, MinWidth: 420, MinHeight: 420,
+		Title: "Fungi", Width: 820, Height: 780, MinWidth: 420, MinHeight: 420,
 		BackgroundColour: options.NewRGB(24, 25, 28), Menu: m,
 		AssetServer: &assetserver.Options{Handler: handler}, Bind: []interface{}{b},
 		Logger: stderrLogger{}, LogLevel: logger.ERROR, LogLevelProduction: logger.ERROR,
@@ -250,6 +253,22 @@ func run() error {
 }
 
 func main() {
+	runtime, err := availableRuntime()
+	if len(os.Args) == 2 && os.Args[1] == "--check-runtime" {
+		message := ""
+		if err != nil {
+			message = err.Error()
+		}
+		_ = json.NewEncoder(os.Stdout).Encode(map[string]any{"protocol": 1, "available": err == nil, "runtime": runtime, "message": message})
+		if err != nil {
+			os.Exit(3)
+		}
+		return
+	}
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(3)
+	}
 	if err := run(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)

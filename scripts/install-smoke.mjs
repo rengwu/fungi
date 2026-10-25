@@ -35,7 +35,7 @@ const server=createServer(async(req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const bootstrapEnv={...process.env,FUNGI_RELEASE_BASE_URL:`http://127.0.0.1:${server.address().port}`,FUNGI_INSTALL_DIR:installation};
-const evidence={directory,platform:process.platform,arch:process.arch,archiveA,checksumA,archiveB,checksumB,requests,scope:values['core-only']?'bootstrap and version switching; UI omitted':'bootstrap, active Electron session, draft/artifact, update and rollback',childPathEmpty:true};
+const evidence={directory,platform:process.platform,arch:process.arch,archiveA,checksumA,archiveB,checksumB,requests,scope:values['core-only']?'bootstrap and version switching; UI omitted':'bootstrap, active Wails session, draft/artifact, update and rollback',childPathEmpty:true};
 async function untilFile(file){
   // A finite automated fixture wait, never an agent-facing wait for a person.
   const deadline=Date.now()+60000;
@@ -83,12 +83,11 @@ try{
   }
   evidence.update=await run(['update','--archive',archiveB,'--sha256',checksumB]);
   evidence.after=await run(['--version']);assert.equal(evidence.after.version,versionB);
-  assert.ok(evidence.update.reusedRuntimeBytes>0,'matching runtime files were not shared');
-  const engine=process.platform==='darwin'?'Electron.app/Contents/MacOS/Electron':process.platform==='win32'?'electron.exe':'electron';
-  const runtimeFile=version=>path.join(installation,'versions',version,'renderer','runtime',engine);
-  const [oldEngine,newEngine]=await Promise.all([stat(runtimeFile(versionA),{bigint:true}),stat(runtimeFile(versionB),{bigint:true})]);
-  assert.equal(oldEngine.dev,newEngine.dev);assert.equal(oldEngine.ino,newEngine.ino);
-  evidence.runtimeShared={bytes:evidence.update.reusedRuntimeBytes,engine,sameFile:true};
+  evidence.runtime=await run(['doctor']);assert.equal(evidence.runtime.available,true);
+  const manifest=JSON.parse(await readFile(path.join(installation,'versions',versionB,'RELEASE.json'),'utf8'));
+  assert.equal(manifest.format,2);assert.ok(manifest.wails);assert.ok(!manifest.electron);
+  assert.equal(await stat(path.join(installation,'versions',versionB,'renderer','runtime')).then(()=>true,()=>false),false,'package must not bundle a browser engine');
+  evidence.manifest=manifest;
   if(receipt){
     await writeFile(path.join(assets,'gate.json'),JSON.stringify({submit:true,version:versionB}));
     const saved=await untilFile(path.join(state,receipt.session,'result.json'));

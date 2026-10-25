@@ -80,7 +80,7 @@ be implemented in any language that can read/write pipes and files.
 | Components and modules | Custom elements/shadow DOM; relative ES modules and dynamic imports |
 | Charts, diagrams, drawings, 3D | Skill-owned libraries using SVG, Canvas or WebGL |
 | Heavy local computation | Local module workers, Blob workers or WebAssembly |
-| Audio/video review | Local assets; streaming and single byte-range requests support seeking; codec support follows the bundled Chromium |
+| Audio/video review | System-webview codec support varies; Linux direct media URLs are unsupported. Fetch-to-Blob may suit small files, at the cost of loading the entire file |
 | Isolated inline prototypes | `iframe srcdoc` with `sandbox="allow-scripts"`; communicate through `postMessage` and validate the sending frame |
 | Native capture or OS integration | Trusted executable helper with the same session/draft/result lifecycle |
 
@@ -92,17 +92,16 @@ are rejected. Keep this directory limited to intended UI assets. Production
 bundles can be built ahead of distribution, but Fungi itself does not install
 packages or fetch a CDN. The bridge is available only to the main page.
 
-The browser surface denies outbound network, file/URL frame documents,
-popups, navigation, Node integration, JavaScript `eval`/`Function`, and OS
-permission requests. WebAssembly is enabled separately. Native helpers are
-ordinary trusted programs with OS access. This is not a promise to host every
-website, codec or desktop API. The [rendering verification](verification/runs/2026-10-22-platform.md)
-lists the exact exercised features and platform.
+Skill pages are trusted local application code and can access Wails native APIs.
+The asset handler confines files to the source root and applies a local-content
+policy; it is not a sandbox for untrusted applications. Browser storage isolation
+is best effort. Use Fungi drafts for recoverable state and `sessionStorage` for
+window-local state. Native helpers are ordinary programs with OS access.
 
 Feature-detect graphics and codec capabilities. For example, WebGL context
 creation may return null on a virtual display or unsupported GPU; provide an
 appropriate alternative or explain that the interface needs that capability.
-The Electron runtime does not guarantee every graphics feature on every host.
+The system webview does not guarantee every graphics feature on every host.
 See [verified environments](platforms.md) for platform limits and startup
 diagnostics. An unavailable graphics context is not a successful render.
 

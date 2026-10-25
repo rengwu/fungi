@@ -1,9 +1,11 @@
 param(
     [string]$Version = 'latest',
     [string]$Directory = $(if ($env:FUNGI_INSTALL_DIR) { $env:FUNGI_INSTALL_DIR } else { Join-Path $HOME '.fungi' }),
-    [switch]$NoPath
+    [switch]$NoPath,
+    [switch]$SetupRuntime
 )
 $ErrorActionPreference = 'Stop'
+$rendererOverride = $env:FUNGI_RENDERER_DIR
 # Windows PowerShell's per-chunk progress rendering can dominate large downloads.
 # Emit a few stage messages instead, also useful when an agent captures output.
 $ProgressPreference = 'SilentlyContinue'
@@ -16,6 +18,7 @@ $location = if ($Version -eq 'latest') { "$base/latest/download" } else { "$base
 $temp = Join-Path ([IO.Path]::GetTempPath()) ('fungi-install-' + [guid]::NewGuid().ToString('N'))
 [IO.Directory]::CreateDirectory($temp) | Out-Null
 try {
+    $env:FUNGI_RENDERER_DIR = ''
     # Windows PowerShell 5.1: no legacy HTML parsing or browser dependency.
     [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
     $checksum = Join-Path $temp 'checksum'
@@ -30,6 +33,22 @@ try {
     $package = Join-Path $temp 'package'
     [Console]::Error.WriteLine('Extracting bootstrap package...')
     Expand-Archive -LiteralPath $archive -DestinationPath $package
+    $runtimeReport = & (Join-Path $package 'fungi.exe') doctor
+    $runtimeExit = $LASTEXITCODE
+    if ($runtimeExit -ne 0) {
+        [Console]::Error.WriteLine(($runtimeReport -join "`n"))
+        if ($runtimeExit -ne 3) { throw 'Window helper check failed; no runtime setup attempted.' }
+        if (-not $SetupRuntime) { throw 'Runtime missing. Re-run with -SetupRuntime to install Microsoft WebView2 explicitly.' }
+        $bootstrapper = Join-Path $temp 'MicrosoftEdgeWebview2Setup.exe'
+        [Console]::Error.WriteLine('Installing the official Microsoft WebView2 Runtime...')
+        Invoke-WebRequest -UseBasicParsing -Uri 'https://go.microsoft.com/fwlink/p/?LinkId=2124703' -OutFile $bootstrapper -TimeoutSec 900
+        $signature = Get-AuthenticodeSignature -LiteralPath $bootstrapper
+        if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'O=Microsoft Corporation(?:,|$)') { throw 'WebView2 installer does not have a valid Microsoft signature.' }
+        $setup = Start-Process -FilePath $bootstrapper -ArgumentList '/silent','/install' -Wait -PassThru
+        if ($setup.ExitCode -ne 0) { throw "WebView2 setup failed with exit code $($setup.ExitCode)." }
+        & (Join-Path $package 'fungi.exe') doctor | Out-Host
+        if ($LASTEXITCODE -ne 0) { throw 'WebView2 is still unavailable after setup.' }
+    }
     [Console]::Error.WriteLine('Creating managed installation...')
     & (Join-Path $package 'fungi.exe') install --archive $archive --sha256 $fields[0] --dir $Directory
     if ($LASTEXITCODE -ne 0) { throw "Fungi installation failed with exit code $LASTEXITCODE" }
@@ -42,5 +61,6 @@ try {
     if ($NoPath) { Write-Host "Fungi is installed at $bin. PATH was left unchanged." }
     else { Write-Host 'Fungi is installed. New terminals inherit its PATH entry. Update with: fungi update' }
 } finally {
+    $env:FUNGI_RENDERER_DIR = $rendererOverride
     Remove-Item -LiteralPath $temp -Recurse -Force
 }

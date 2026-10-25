@@ -1,8 +1,9 @@
 # Fungi portable package
 
 Fungi runs local interfaces authored by agent skills. This package includes
-the Go CLI and Electron runtime for one OS/CPU. Keep the directory together.
-No Go, Node, npm or separate browser is needed to run it on a supported host.
+the Go CLI and Wails window helper for one OS/CPU. Keep the directory together.
+No Go, Node or npm is needed. The OS supplies WKWebView (macOS), WebView2
+(Windows) or WebKitGTK 4.1 (Linux). Run `fungi doctor` to check availability.
 
 ```sh
 ./fungi --version
@@ -29,7 +30,11 @@ This remains a development preview. Public release publication, signing,
 notarization and clean consumer-machine acceptance are not established by
 creating an archive. An updater needs a published release or an explicit
 local archive/checksum. Linux support depends on the documented host baseline;
-Fungi does not install OS libraries or change sandbox policy.
+normal launches never install OS libraries or change sandbox policy. The
+bootstrap offers explicit runtime setup with `--setup-runtime` on supported
+Ubuntu 22.04/24.04, or `-SetupRuntime` on Windows. Other distributions need
+their own WebKitGTK 4.1 setup instructions. Linux direct media URLs are a known
+limitation; browser storage isolation is best effort and pages have native access.
 
 Documentation, skills, source and verification records:
 [rengwu/fungi](https://github.com/rengwu/fungi).

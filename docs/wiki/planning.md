@@ -473,3 +473,19 @@ or Node. Distinguish hosted execution from clean consumer-machine acceptance;
 signing, publication and physical-machine gaps remain explicit release work.
 This is the recommended next implementation scope, not a claim that the
 integration or release qualification already exists.
+
+## Wails integration in progress
+
+The user authorized `work-until-grill` on the integration milestone. Normal
+launches now select the Wails helper; native packages contain the CLI, helper,
+examples and dependency license notices. `fungi doctor` checks runtime
+availability without a window or installation. Installer-only `--setup-runtime`
+and Windows `-SetupRuntime` opt into official Ubuntu/Microsoft setup. Package
+format 2 hashes both executables; legacy format 1 remains readable for rollback,
+but the old preview updater needs a new bootstrap to migrate once.
+
+Local macOS packaged rendering and live-session install/update/rollback have
+passed. The race-enabled core suite and helper asset/bridge checks pass.
+Electron source packaging and runtime file sharing are removed. Hosted Windows,
+Linux and actual missing-runtime setup checks are the next verification step;
+these implementation notes do not yet establish cross-platform acceptance.

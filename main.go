@@ -48,6 +48,9 @@ func run(args []string, out io.Writer) int {
 	if strings.HasPrefix(p.Code, "invalid_") {
 		return 2
 	}
+	if len(args) > 0 && args[0] == "doctor" && p.Code == "runtime_missing" {
+		return 3
+	}
 	return 1
 }
 func command(args []string, out io.Writer) error {
@@ -67,6 +70,7 @@ func command(args []string, out io.Writer) error {
   fungi collect SESSION
   fungi reopen SESSION [--delivery MODE]
   fungi --version
+  fungi doctor
   fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]
   fungi update [--version vX.Y.Z | --archive FILE --sha256 HASH]
   fungi rollback
@@ -78,6 +82,19 @@ FUNGI_STATE_DIR overrides private storage for isolated tests.`)
 		return nil
 	}
 	switch args[0] {
+	case "doctor":
+		if len(args) != 1 {
+			return fail("invalid_arguments", "doctor takes no arguments")
+		}
+		name, err := rendererCommand()
+		if err != nil {
+			return err
+		}
+		report, err := checkRenderer(name)
+		if err != nil {
+			return err
+		}
+		return emit(out, report)
 	case "--version", "version":
 		if len(args) != 1 {
 			return fail("invalid_arguments", "version takes no arguments")
@@ -286,7 +303,7 @@ func parseLaunch(args []string) (launch, string, error) {
 				return l, mode, err
 			}
 		}
-		if _, _, err = rendererCommand(); err != nil {
+		if _, err = rendererCommand(); err != nil {
 			return l, mode, err
 		}
 	}
@@ -416,32 +433,6 @@ func waitResult(s *store, connection *workerPipe) (*result, error) {
 		return saved, nil
 	}
 	return nil, fail("wait_disconnected", "waiting connection ended before a committed result; collect once to diagnose or reopen an interrupted session")
-}
-func rendererCommand() (string, string, error) {
-	exe, err := os.Executable()
-	if err != nil {
-		return "", "", err
-	}
-	dir := os.Getenv("FUNGI_RENDERER_DIR")
-	if dir == "" {
-		dir = filepath.Join(filepath.Dir(exe), "renderer")
-	}
-	dir, err = filepath.Abs(dir)
-	if err != nil {
-		return "", "", err
-	}
-	paths := []string{
-		filepath.Join(dir, "runtime", "Electron.app", "Contents", "MacOS", "Electron"),
-		filepath.Join(dir, "runtime", "electron.exe"), filepath.Join(dir, "runtime", "electron"),
-		filepath.Join(dir, "node_modules", "electron", "dist", "Electron.app", "Contents", "MacOS", "Electron"),
-		filepath.Join(dir, "node_modules", "electron", "dist", "electron.exe"), filepath.Join(dir, "node_modules", "electron", "dist", "electron"),
-	}
-	for _, p := range paths {
-		if info, e := os.Stat(p); e == nil && info.Mode().IsRegular() {
-			return p, dir, nil
-		}
-	}
-	return "", "", fail("renderer_unavailable", "bundled Electron runtime missing beside fungi; development setup: npm ci --prefix renderer")
 }
 
 // Scanner is shared by helper protocol tests and the owner.

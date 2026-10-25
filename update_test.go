@@ -30,27 +30,22 @@ func releaseFixture(t *testing.T, version string) (string, string) {
 			t.Fatal(e)
 		}
 	}
-	engine := "electron"
-	if runtime.GOOS == "windows" {
-		engine = "electron.exe"
+	helperPath := filepath.Join(dir, rendererRelativePath())
+	if err := os.MkdirAll(filepath.Dir(helperPath), 0700); err != nil {
+		t.Fatal(err)
 	}
-	if runtime.GOOS == "darwin" {
-		engine = "Electron.app/Contents/MacOS/Electron"
+	if err := copyExecutable(testFixture, helperPath); err != nil {
+		t.Fatal(err)
 	}
-	for name, data := range map[string]string{"renderer/runtime/" + engine: "synthetic runtime for core-only tests", "renderer/runtime/version": "1.0.0", "renderer/main.cjs": "", "renderer/preload.cjs": ""} {
-		p := filepath.Join(dir, filepath.FromSlash(name))
-		if e := os.MkdirAll(filepath.Dir(p), 0700); e != nil {
-			t.Fatal(e)
-		}
-		if e := os.WriteFile(p, []byte(data), 0600); e != nil {
-			t.Fatal(e)
-		}
+	rendererDigest, err := fileDigest(helperPath)
+	if err != nil {
+		t.Fatal(err)
 	}
 	digest, e := fileDigest(filepath.Join(dir, binaryName()))
 	if e != nil {
 		t.Fatal(e)
 	}
-	if e = atomicJSON(filepath.Join(dir, "RELEASE.json"), packageManifest{1, version, runtime.GOOS, runtime.GOARCH, digest, "1.0.0"}); e != nil {
+	if e = atomicJSON(filepath.Join(dir, "RELEASE.json"), packageManifest{Format: 2, Version: version, Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: digest, Wails: "test", RendererSHA256: rendererDigest}); e != nil {
 		t.Fatal(e)
 	}
 	archive := filepath.Join(t.TempDir(), releaseAssetName())
@@ -103,6 +98,13 @@ func TestManagedInstallUpdateRollbackAndSessions(t *testing.T) {
 	if got := installedCLI(t, entry, state, true, "--version"); !strings.Contains(string(got), "v0.1.0-test.1") {
 		t.Fatal(string(got))
 	}
+	// A runtime failure must not activate a new release or break the CLI.
+	t.Setenv("FUNGI_TEST_RUNTIME_MISSING", "1")
+	installedCLI(t, entry, state, false, "update", "--archive", b, "--sha256", shaB)
+	if got := installedCLI(t, entry, state, true, "--version"); !strings.Contains(string(got), "v0.1.0-test.1") {
+		t.Fatal(string(got))
+	}
+	t.Setenv("FUNGI_TEST_RUNTIME_MISSING", "")
 	gate := filepath.Join(t.TempDir(), "gate")
 	helper := filepath.Join(versionDir(root, "v0.1.0-test.1"), "helper"+strings.TrimPrefix(binaryName(), "fungi"))
 	var receipt opened
@@ -203,41 +205,37 @@ func TestReleaseDownloadFailures(t *testing.T) {
 	}
 }
 
-func TestRuntimeReusePreservesChangedFilesAndSurvivesPruning(t *testing.T) {
-	old, next := t.TempDir(), t.TempDir()
-	for _, root := range []string{old, next} {
-		if e := os.MkdirAll(filepath.Join(root, "renderer", "runtime"), 0700); e != nil {
-			t.Fatal(e)
+// Old preview packages stay readable for rollback; new archives use format 2.
+func TestLegacyPackageRemainsReadable(t *testing.T) {
+	dir := t.TempDir()
+	if err := copyExecutable(testBinary, filepath.Join(dir, binaryName())); err != nil {
+		t.Fatal(err)
+	}
+	engine := "electron"
+	if runtime.GOOS == "windows" {
+		engine = "electron.exe"
+	}
+	if runtime.GOOS == "darwin" {
+		engine = "Electron.app/Contents/MacOS/Electron"
+	}
+	for name, data := range map[string]string{"renderer/runtime/" + engine: "legacy fixture", "renderer/runtime/version": "1.0.0", "renderer/main.cjs": "", "renderer/preload.cjs": ""} {
+		file := filepath.Join(dir, filepath.FromSlash(name))
+		if err := os.MkdirAll(filepath.Dir(file), 0700); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(file, []byte(data), 0600); err != nil {
+			t.Fatal(err)
 		}
 	}
-	file := func(root, name string) string { return filepath.Join(root, "renderer", "runtime", name) }
-	for name, content := range map[string]string{"engine": "same engine", "changed": "old data"} {
-		if e := os.WriteFile(file(old, name), []byte(content), 0755); e != nil {
-			t.Fatal(e)
-		}
+	digest, err := fileDigest(filepath.Join(dir, binaryName()))
+	if err != nil {
+		t.Fatal(err)
 	}
-	if e := os.WriteFile(file(next, "engine"), []byte("same engine"), 0755); e != nil {
-		t.Fatal(e)
+	manifest := packageManifest{Format: 1, Version: "v0.1.0-legacy", Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: digest, Electron: "1.0.0"}
+	if err := atomicJSON(filepath.Join(dir, "RELEASE.json"), manifest); err != nil {
+		t.Fatal(err)
 	}
-	if e := os.WriteFile(file(next, "changed"), []byte("new data"), 0755); e != nil {
-		t.Fatal(e)
-	}
-	probe := filepath.Join(t.TempDir(), "hardlink-probe")
-	supportsLinks := os.Link(file(old, "engine"), probe) == nil
-	_ = os.Remove(probe)
-	reused := reuseRuntimeFiles(old, next)
-	before, _ := os.Stat(file(old, "engine"))
-	after, _ := os.Stat(file(next, "engine"))
-	if supportsLinks && (!os.SameFile(before, after) || reused != int64(len("same engine"))) {
-		t.Fatal("identical runtime was not shared", reused)
-	}
-	if b, e := os.ReadFile(file(next, "changed")); e != nil || string(b) != "new data" {
-		t.Fatal("changed file overwritten", e)
-	}
-	if e := os.RemoveAll(old); e != nil {
-		t.Fatal(e)
-	}
-	if b, e := os.ReadFile(file(next, "engine")); e != nil || string(b) != "same engine" {
-		t.Fatal("pruning old version broke new runtime", e)
+	if _, err := inspectPackage(dir, manifest.Version); err != nil {
+		t.Fatal(err)
 	}
 }

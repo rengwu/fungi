@@ -13,9 +13,17 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
+		fmt.Fprintln(os.Stderr, "protocol fixture: unknown mode")
 		os.Exit(2)
 	}
 	switch os.Args[1] {
+	case "--check-runtime":
+		missing := os.Getenv("FUNGI_TEST_RUNTIME_MISSING") == "1"
+		json.NewEncoder(os.Stdout).Encode(map[string]any{"protocol": 1, "available": !missing, "runtime": "test", "message": "synthetic missing runtime"})
+		if missing {
+			os.Exit(3)
+		}
+		return
 	case "update-session":
 		// A bounded synthetic session controlled by a test-owned file. This is
 		// never a human-facing waiter and is not part of the shipped helper API.

@@ -1,11 +1,14 @@
 # Fungi
 
-A small Go session engine with an Electron window for skill-authored human interaction. This is a development preview. The [compatibility record](docs/wiki/verification/runs/2026-10-20-no-setup.md) covers tested native return paths and manual fallback. The [skill proof](docs/wiki/verification/runs/2026-10-20-skill-proof.md) adds one macOS sleep/wake cycle and a two-hour helper wait with automatic Codex return. The [foundation run](docs/wiki/verification/runs/2026-10-22-platform.md) verifies broader rendering and recovery. [Hosted platform checks](docs/wiki/verification/runs/2026-10-22-hosted.md) exercise Windows and Linux and record current failures. Arbitrary-duration reliability and clean-machine distribution remain unverified.
+A small Go session engine with a Wails window for skill-authored human interaction.
+Skills bring ordinary HTML/CSS/JavaScript or a native helper; Fungi owns the
+session, saves responses and returns them to the calling agent without polling.
+This is a development preview, not a published or signed release.
 
-Run a local HTML file or a flat JSON form. A native executable can implement the same lifecycle without using Electron. No registration, plugin SDK or frontend framework is required.
-
-The no-install distribution supports [explicitly verified environments](docs/wiki/platforms.md). Ubuntu 22.04's hosted workflow passes without WebGL; the tested Ubuntu 24.04 sandbox policy prevents renderer startup. Fungi does not install OS dependencies or change security policy. A renderer startup failure returns a saved error with the diagnostic log location.
-The [baseline follow-up](docs/wiki/verification/runs/2026-10-22-baselines.md) passes those declared scopes, including the unsupported-startup error check; it does not replace the earlier failed broad matrix.
+Each platform package contains the CLI and a native window helper. It uses
+WKWebView on macOS, WebView2 on Windows and WebKitGTK 4.1 on Linux. End users
+need no Go, Node, npm or bundled Electron. Keep the package directory together.
+Run `fungi doctor` to check the runtime without opening a window.
 
 ```sh
 ./fungi describe
@@ -35,7 +38,14 @@ Results are durable JSON envelopes with `submitted`, `cancelled`, `closed` or `f
 
 The bridge has four methods: `ready()`, `saveDraft(data, attachments?)`, `submit(data, attachments?)`, and `cancel()`. An attachment is `{key, name, blob}`. `ready()` returns restored attachments in that shape. Save drafts explicitly in custom HTML. Mutations run in call order, including Blob conversion; failed saves can be retried. Only acknowledged drafts are recoverable after close or interruption.
 
-Skills can use local HTML/CSS/JS, modules, custom elements, Canvas/SVG/WebGL, workers, WebAssembly and local streaming media. Inline `srcdoc` previews work; frame document requests, outbound network, popups, navigation and OS permission requests are denied. Skills should sandbox their previews; only the main page can call the bridge. Trusted native helpers have ordinary OS access. See the compact [authoring guide](docs/wiki/authoring.md) and the [comparison example](examples/compare/README.md), which exports a custom canvas as a PNG without engine changes.
+Skills can use local HTML/CSS/JS, modules, custom elements, Canvas/SVG/WebGL,
+workers and WebAssembly. Pages are trusted local application code and can access
+Wails native APIs. Fungi keeps drafts/results separate; browser storage isolation
+is best effort. Use `saveDraft` for durable state and `sessionStorage` for
+window-local state. Linux direct media URLs have a known WebKitGTK limitation;
+Blob loading can help with small files, but no transparent workaround is promised.
+See the [authoring guide](docs/wiki/authoring.md) and
+[comparison example](examples/compare/README.md).
 
 The JSON renderer supports flat `text`, `textarea`, `range` and `image` fields. Its schema is experimental. See the examples and `describe form` / `describe helper`.
 
@@ -51,35 +61,52 @@ It supports choices, plain notes, offline Markdown/diagrams, acknowledged drafts
 
 The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the newer generated form, including visual choices, prototype controls, region comments and inline images. The simpler bundled skill remains available.
 
-## Develop
+## Install and update
 
-Command installation and updates now have a [development implementation](docs/wiki/features/installation.md).
-Build a versioned archive with `node scripts/package.mjs --release v0.1.0-test.1`.
-The shell/PowerShell bootstraps select one platform package; managed installs
-support `fungi update`, `fungi rollback` and `fungi prune`. Public releases and
-signing are not available merely because these commands exist. See the
-[distribution verification](docs/wiki/verification/runs/2026-10-23-distribution.md)
-for actual coverage and limits.
+The shell/PowerShell installers download one OS/CPU package and verify its
+checksum. If the system webview is missing, installation stops with instructions.
+Explicitly opt into setup with `install.sh --setup-runtime` or
+`install.ps1 -SetupRuntime`. Linux automatic setup currently supports Ubuntu
+22.04/24.04; Windows uses Microsoft's official WebView2 bootstrapper. Normal
+`open`, `doctor` and `update` commands never install system runtimes.
 
-For the physical Windows check after pulling this repository, start with the
-[Windows agent handoff](docs/wiki/verification/windows.md). It covers the
-`foundation-hardening` branch, building the portable folder and recording the
-desktop results. Git does not include built executables or the Electron runtime.
-
-Build dependencies are Go 1.26 and Node 22.12+; they are not end-user runtime dependencies.
+Managed installs support `fungi update`, `fungi rollback` and `fungi prune`.
+Public installer URLs and releases are not published yet. For local archives:
 
 ```sh
-npm ci --prefix renderer
-node renderer/node_modules/electron/install.js
-go build -o fungi .
-go test -race . ./examples/helper
-node --test scripts/*.test.mjs
-node scripts/renderer-smoke.mjs
-node scripts/package.mjs
+./fungi install --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
 ```
 
-The pinned Electron 44 package uses an explicit runtime download command. Packaging copies that runtime into a new `dist/fungi-PLATFORM-ARCH-…/` directory beside the executable and renderer code. Copy the whole directory. Cross-package with `node scripts/package.mjs --platform win32 --arch x64` (or `linux` / `darwin`, `x64` / `arm64`); this uses Electron's build-time downloader and pinned checksums. Cross-packaging does not prove that the target runs. Public signing/notarization and clean-machine Gatekeeper verification remain outstanding; these are development packages. The [desktop verification recipe](docs/wiki/verification/desktop.md) needs no Go, Node or npm on the target.
+Existing Electron preview installs need the new bootstrap once to migrate to
+package format 2; their older updater rejects the new format. The managed layout,
+legacy rollback support and saved sessions are retained. See
+[installation](docs/wiki/features/installation.md).
 
-Set `FUNGI_STATE_DIR` to isolate verification sessions. Otherwise data lives beneath the OS config directory in `fungi/sessions`. Sessions remain until explicitly removed. No background service runs after a completed session. `FUNGI_RENDERER_DIR` selects a renderer directory during development.
+## Develop
 
-The source and current verification record live in [the project wiki](docs/wiki/index.md). The [contract](docs/wiki/contract.md) distinguishes intended behavior from verified coverage.
+Build on the target OS/CPU with Go 1.26, Node 22+ and native build tools.
+Linux needs the GTK3/WebKitGTK 4.1 development packages. No npm install is needed.
+
+```sh
+go test -race ./...
+node --test
+node scripts/package.mjs
+node scripts/package.mjs --release v0.1.0-test.1
+```
+
+Packaging prints the output directory or archive path. Use its `fungi` command,
+not a standalone core build lacking its window helper. For a versioned build:
+
+```sh
+dist/release-v0.1.0-test.1/fungi-darwin-arm64/fungi doctor
+node scripts/renderer-smoke.mjs dist/release-v0.1.0-test.1/fungi-darwin-arm64/fungi
+```
+
+Adjust the target path for Windows/Linux. Linux checks explicitly record the
+accepted direct-media limitation with `--allow-unavailable-local-media`.
+`FUNGI_STATE_DIR` selects isolated session storage; `FUNGI_RENDERER_DIR` is a
+local development override for the packaged renderer directory. Sessions remain
+until explicitly removed. No service remains after a completed session.
+
+The [wiki](docs/wiki/index.md) records exact build verification and remaining
+limits. Hosted execution is not clean-machine, signing or indefinite-idle proof.

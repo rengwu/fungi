@@ -9,29 +9,13 @@ permissions:
 
 jobs:
   core:
-    name: Foundation (${{ matrix.scope }})
+    name: Fungi (${{ matrix.os }})
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - os: ubuntu-22.04
-            scope: Ubuntu 22.04 workflow; WebGL optional
-            renderer-args: --allow-unavailable-webgl
-            archive: tar.gz
-          - os: ubuntu-24.04
-            scope: Ubuntu 24.04 core and unsupported-startup error
-            renderer-args: --expect-startup-failure
-            archive: tar.gz
-          - os: macos-latest
-            scope: macOS workflow including WebGL
-            renderer-args: ''
-            archive: tar.gz
-          - os: windows-latest
-            scope: Windows workflow including WebGL
-            renderer-args: ''
-            archive: zip
+        os: [ubuntu-22.04, ubuntu-24.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
@@ -42,7 +26,11 @@ jobs:
         with:
           node-version: '22.19.0'
           package-manager-cache: false
-      - run: go version
+      - name: Linux build prerequisites (disposable runner)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev
       - run: go vet ./...
       - if: runner.os != 'Windows'
         run: go test -race -v ./...
@@ -50,56 +38,57 @@ jobs:
         run: go test -v ./...
       - run: node --test
       - run: node docs/wiki/_build.mjs --check
-      - run: npm ci --prefix renderer
-      - run: node renderer/node_modules/electron/install.js
-      - shell: bash
-        run: go build -o fungi${{ runner.os == 'Windows' && '.exe' || '' }} .
-      - name: Linux sandbox prerequisites (diagnostic only)
-        if: runner.os == 'Linux'
+      - name: Window helper checks
         shell: bash
         run: |
-          cat /proc/sys/kernel/unprivileged_userns_clone
-          if [[ -f /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]]; then
-            cat /proc/sys/kernel/apparmor_restrict_unprivileged_userns
-          fi
-          unshare --user --map-root-user true || true
-      # Ubuntu 24.04 is not a supported UI environment. Its check verifies the
-      # saved startup error and sandbox diagnostics, not successful rendering.
-      - name: Exercise renderer (${{ matrix.scope }})
-        shell: bash
-        run: |
-          if [[ "$RUNNER_OS" == "Linux" ]]; then
-            xvfb-run -a node scripts/renderer-smoke.mjs ./fungi ${{ matrix.renderer-args }}
-          elif [[ "$RUNNER_OS" == "Windows" ]]; then
-            node scripts/renderer-smoke.mjs ./fungi.exe
-          else
-            node scripts/renderer-smoke.mjs ./fungi
-          fi
-      - name: Renderer failure evidence
-        if: failure()
-        shell: bash
-        run: |
-          if [[ -d verification-output ]]; then
-            find verification-output -type f \( -name result.json -o -name worker.log -o -name evidence.json \) -exec cat {} \;
-          fi
-      - name: Build two local release packages (no publication)
+          tags=production
+          if [[ "$RUNNER_OS" == 'Linux' ]]; then tags=production,webkit2_41; fi
+          if [[ "$RUNNER_OS" == 'Windows' ]]; then tags=production,wv2runtime.error; fi
+          cd renderer
+          go vet -tags "$tags" ./...
+          go test -tags "$tags" ./...
+      - name: Build two native packages (no publication)
         run: |
           node scripts/package.mjs --release v0.1.0-ci.1
           node scripts/package.mjs --release v0.1.0-ci.2
-      - name: Install, update and roll back a prebuilt package
+      - name: Exercise the packaged CLI and window
         shell: bash
         run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-24.04" ]]; then
-            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.${{ matrix.archive }} dist/release-v0.1.0-ci.2/*.${{ matrix.archive }} --core-only
-          elif [[ "$RUNNER_OS" == "Linux" ]]; then
-            xvfb-run -a node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.${{ matrix.archive }} dist/release-v0.1.0-ci.2/*.${{ matrix.archive }}
+          target="$(go env GOOS)-$(go env GOARCH)"
+          suffix=''
+          if [[ "$RUNNER_OS" == 'Windows' ]]; then suffix=.exe; fi
+          binary="dist/release-v0.1.0-ci.1/fungi-$target/fungi$suffix"
+          "$binary" doctor
+          if [[ "$RUNNER_OS" == 'Linux' ]]; then
+            xvfb-run -a node scripts/renderer-smoke.mjs "$binary" --allow-unavailable-webgl --allow-unavailable-local-media
           else
-            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.${{ matrix.archive }} dist/release-v0.1.0-ci.2/*.${{ matrix.archive }}
+            node scripts/renderer-smoke.mjs "$binary"
           fi
-      - name: Installer failure evidence
-        if: failure()
+      - name: Install, update and roll back with an active UI
         shell: bash
         run: |
-          if [[ -d verification-output ]]; then
-            find verification-output -path '*/install-smoke-*/evidence.json' -exec cat {} \;
+          if [[ "$RUNNER_OS" == 'Linux' ]]; then
+            xvfb-run -a node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.tar.gz dist/release-v0.1.0-ci.2/*.tar.gz
+          elif [[ "$RUNNER_OS" == 'Windows' ]]; then
+            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.zip dist/release-v0.1.0-ci.2/*.zip
+          else
+            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.tar.gz dist/release-v0.1.0-ci.2/*.tar.gz
           fi
+      - name: Missing Linux runtime and explicit setup (disposable container)
+        if: runner.os == 'Linux'
+        run: node scripts/runtime-setup-smoke.mjs dist/release-v0.1.0-ci.1/*.tar.gz ${{ matrix.os }}
+      - name: Preserve evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: fungi-${{ matrix.os }}
+          path: |
+            dist/**/BUILD.json
+            dist/**/*.tar.gz
+            dist/**/*.zip
+            dist/**/*.sha256
+            verification-output/**/evidence.json
+            verification-output/**/worker.log
+            verification-output/runtime-setup-*/*.log
+            verification-output/runtime-setup-*/*.json
+          if-no-files-found: warn

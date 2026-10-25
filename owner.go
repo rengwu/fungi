@@ -9,7 +9,6 @@ import (
 	"os/exec"
 	"os/signal"
 	"regexp"
-	"runtime"
 	"syscall"
 	"time"
 )
@@ -37,19 +36,23 @@ func serveSession(id string, readyOut io.Writer) error {
 	defer unlock()
 	cmd := exec.Command(l.Exec, l.Args...)
 	if l.Exec == "" {
-		p, dir, e := rendererCommand()
+		p, e := rendererCommand()
+		if e == nil {
+			_, e = checkRenderer(p)
+		}
 		if e != nil {
+			r, saveErr := s.commit(id, message{Outcome: "failed", Error: asProblem(e)})
+			if saveErr != nil {
+				return saveErr
+			}
+			_ = emit(readyOut, r)
+			notifyResult(s, l)
 			return e
 		}
-		cmd = exec.Command(p, dir, "--fungi-data="+s.path("browser"))
+		cmd = exec.Command(p)
 	}
 	// A renderer/helper does not need the caller routing environment.
 	cmd.Env = childEnv()
-	if l.Exec == "" && runtime.GOOS == "windows" {
-		// Electron must retain the inherited protocol pipes, not attach stdio
-		// to a Windows console. Helpers already use their own normal stdio.
-		cmd.Env = append(cmd.Env, "ELECTRON_NO_ATTACH_CONSOLE=1")
-	}
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
 		return err
@@ -144,7 +147,7 @@ loop:
 				e := commit(m)
 				ack(m, e)
 				// Keep the process alive briefly so duplicate submissions receive
-				// the same receipt. Electron exits after its acknowledgement.
+				// the same receipt. The window helper exits after acknowledgement.
 				if e == nil {
 					timer.Reset(2 * time.Second)
 				}
@@ -170,7 +173,7 @@ loop:
 					code = "renderer_startup_failed"
 					detail = "bundled renderer exited before readiness: " + detail +
 						". Diagnostics: " + s.path("worker.log") +
-						". Check docs/wiki/platforms.md in the portable package for verified environments; Fungi does not install OS dependencies or change sandbox policy."
+						". Run fungi doctor to check runtime availability; a desktop session is also required."
 				}
 				err = commit(message{Outcome: "failed", Error: &problem{code, detail}})
 			}

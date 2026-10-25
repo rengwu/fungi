@@ -20,19 +20,20 @@ import (
 const releaseBase = "https://github.com/rengwu/fungi/releases"
 
 type packageManifest struct {
-	Format       int    `json:"format"`
-	Version      string `json:"version"`
-	Platform     string `json:"platform"`
-	Arch         string `json:"arch"`
-	BinarySHA256 string `json:"binarySHA256"`
-	Electron     string `json:"electron"`
+	Format         int    `json:"format"`
+	Version        string `json:"version"`
+	Platform       string `json:"platform"`
+	Arch           string `json:"arch"`
+	BinarySHA256   string `json:"binarySHA256"`
+	Electron       string `json:"electron,omitempty"` // format 1, retained for rollback
+	Wails          string `json:"wails,omitempty"`
+	RendererSHA256 string `json:"rendererSHA256,omitempty"`
 }
 
 func manageInstallation(args []string, out io.Writer) error {
 	action := args[0]
 	root, _, _ := executableInstallation()
 	archive, digest, version := "", "", ""
-	var reusedRuntimeBytes int64
 	seen := map[string]bool{}
 	for i := 1; i < len(args); i++ {
 		key := args[i]
@@ -190,7 +191,7 @@ func manageInstallation(args []string, out io.Writer) error {
 		if e != nil {
 			return e
 		}
-		if err = probePackage(contents, manifest.Version); err != nil {
+		if err = probePackage(contents, manifest); err != nil {
 			return err
 		}
 		if err = os.MkdirAll(filepath.Join(root, "versions"), 0700); err != nil {
@@ -213,13 +214,6 @@ func manageInstallation(args []string, out io.Writer) error {
 		} else if !os.IsNotExist(e) {
 			return e
 		} else {
-			if state.Current != "" {
-				oldDir := versionDir(root, state.Current)
-				var old packageManifest
-				if readJSON(filepath.Join(oldDir, "RELEASE.json"), &old) == nil && old.Electron == manifest.Electron {
-					reusedRuntimeBytes = reuseRuntimeFiles(oldDir, contents)
-				}
-			}
 			if err = atomicJSON(filepath.Join(contents, ".archive.json"), map[string]string{"sha256": digest}); err != nil {
 				return err
 			}
@@ -255,52 +249,7 @@ func manageInstallation(args []string, out io.Writer) error {
 		}
 	}
 	removed, warnings := pruneVersions(root, state)
-	return emit(out, map[string]any{"protocol": 1, "kind": "installation", "action": action, "current": state.Current, "previous": state.Previous, "command": installedBinary(root), "removed": removed, "warnings": warnings, "reusedRuntimeBytes": reusedRuntimeBytes})
-}
-
-// Package files are immutable. Reuse identical regular renderer files without
-// a runtime registry or privileged symlinks on Windows. Failure is an ordinary
-// copy fallback; the new, verified bytes remain untouched until a link exists.
-func reuseRuntimeFiles(previous, staged string) int64 {
-	oldRoot, newRoot := filepath.Join(previous, "renderer", "runtime"), filepath.Join(staged, "renderer", "runtime")
-	var reused int64
-	_ = filepath.WalkDir(newRoot, func(name string, entry os.DirEntry, err error) error {
-		if err != nil || !entry.Type().IsRegular() {
-			return nil
-		}
-		info, err := entry.Info()
-		if err != nil {
-			return nil
-		}
-		rel, err := filepath.Rel(newRoot, name)
-		if err != nil {
-			return nil
-		}
-		old := filepath.Join(oldRoot, rel)
-		oldInfo, err := os.Lstat(old)
-		if err != nil || !oldInfo.Mode().IsRegular() || oldInfo.Mode().Perm() != info.Mode().Perm() || oldInfo.Size() != info.Size() {
-			return nil
-		}
-		newHash, err := fileDigest(name)
-		if err != nil {
-			return nil
-		}
-		oldHash, err := fileDigest(old)
-		if err != nil || newHash != oldHash {
-			return nil
-		}
-		link := name + ".reuse-" + newID()
-		if os.Link(old, link) != nil {
-			return nil
-		}
-		if os.Rename(link, name) != nil {
-			_ = os.Remove(link)
-			return nil
-		}
-		reused += info.Size()
-		return nil
-	})
-	return reused
+	return emit(out, map[string]any{"protocol": 1, "kind": "installation", "action": action, "current": state.Current, "previous": state.Previous, "command": installedBinary(root), "removed": removed, "warnings": warnings, "reusedRuntimeBytes": 0})
 }
 
 func snapshotArchive(source, destination string) error {
@@ -346,7 +295,7 @@ func inspectPackage(dir, expected string) (packageManifest, error) {
 	if err != nil {
 		return m, err
 	}
-	if m.Format != 1 || !versionPattern.MatchString(m.Version) || (expected != "" && m.Version != expected) || m.Platform != runtime.GOOS || m.Arch != runtime.GOARCH || !validDigest(m.BinarySHA256) || m.Electron == "" {
+	if (m.Format != 1 && m.Format != 2) || !versionPattern.MatchString(m.Version) || (expected != "" && m.Version != expected) || m.Platform != runtime.GOOS || m.Arch != runtime.GOARCH || !validDigest(m.BinarySHA256) {
 		return m, fail("invalid_package", "release identity, protocol or OS/CPU does not match this machine")
 	}
 	digest, err := fileDigest(filepath.Join(dir, binaryName()))
@@ -355,6 +304,24 @@ func inspectPackage(dir, expected string) (packageManifest, error) {
 	}
 	if digest != m.BinarySHA256 {
 		return m, fail("invalid_package", "release executable SHA-256 differs")
+	}
+	if m.Format == 2 {
+		if m.Wails == "" || !validDigest(m.RendererSHA256) {
+			return m, fail("invalid_package", "missing Wails renderer identity")
+		}
+		got, err := fileDigest(filepath.Join(dir, rendererRelativePath()))
+		if err != nil {
+			return m, err
+		}
+		if got != m.RendererSHA256 {
+			return m, fail("invalid_package", "window helper SHA-256 differs")
+		}
+		return m, nil
+	}
+	// Read-only compatibility for existing pre-release Electron installations.
+	// New packages never contain this runtime; preserve explicit rollback.
+	if m.Electron == "" {
+		return m, fail("invalid_package", "missing legacy renderer identity")
 	}
 	runtimeDir := filepath.Join(dir, "renderer", "runtime")
 	v, err := os.ReadFile(filepath.Join(runtimeDir, "version"))
@@ -383,7 +350,7 @@ func inspectPackage(dir, expected string) (packageManifest, error) {
 	return m, nil
 }
 
-func probePackage(dir, version string) error {
+func probePackage(dir string, manifest packageManifest) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 	cmd := exec.CommandContext(ctx, filepath.Join(dir, binaryName()), "--version")
@@ -396,8 +363,12 @@ func probePackage(dir, version string) error {
 		Kind     string `json:"kind"`
 		Version  string `json:"version"`
 	}
-	if err = json.Unmarshal(b, &reply); err != nil || reply.Protocol != 1 || reply.Kind != "version" || reply.Version != version {
+	if err = json.Unmarshal(b, &reply); err != nil || reply.Protocol != 1 || reply.Kind != "version" || reply.Version != manifest.Version {
 		return fail("release_probe_failed", "new executable does not match release metadata")
+	}
+	if manifest.Format == 2 {
+		_, err := checkRenderer(filepath.Join(dir, rendererRelativePath()))
+		return err
 	}
 	return nil
 }
