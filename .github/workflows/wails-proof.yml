@@ -1,0 +1,70 @@
+name: Wails proof
+on:
+  workflow_dispatch:
+  push:
+    branches: [foundation-hardening]
+    paths:
+      - '.github/workflows/wails-proof.yml'
+      - 'renderer/go.*'
+      - 'renderer/builtin.go'
+      - 'renderer/wails/**'
+      - 'scripts/renderer-smoke.mjs'
+
+permissions:
+  contents: read
+
+jobs:
+  renderer:
+    name: Wails (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-22.04, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version: '1.26.4'
+          cache: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22.19.0'
+          package-manager-cache: false
+      - name: Linux build and runtime prerequisites (disposable runner)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev
+      - name: Build core and renderer
+        shell: bash
+        run: |
+          suffix=''
+          tags=production
+          if [[ "$RUNNER_OS" == "Windows" ]]; then suffix=.exe; fi
+          if [[ "$RUNNER_OS" == "Linux" ]]; then tags=production,webkit2_41; fi
+          go build -trimpath -ldflags '-s -w' -o "verification-output/fungi-wails-core$suffix" .
+          cd renderer
+          go vet -tags "$tags" ./...
+          go build -tags "$tags" -trimpath -ldflags '-s -w' -o "../verification-output/fungi-wails$suffix" ./wails
+      - name: Exercise real page, drafts, cancel, reopen and image submission
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            xvfb-run -a node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails --allow-unavailable-webgl
+          elif [[ "$RUNNER_OS" == "Windows" ]]; then
+            node scripts/renderer-smoke.mjs verification-output/fungi-wails-core.exe --helper verification-output/fungi-wails.exe
+          else
+            node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails
+          fi
+      - name: Preserve run evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wails-${{ matrix.os }}
+          path: |
+            verification-output/renderer-smoke-*/evidence.json
+            verification-output/renderer-smoke-*/sessions/**/worker.log
+            verification-output/renderer-smoke-*/sessions/**/result.json
+          if-no-files-found: warn

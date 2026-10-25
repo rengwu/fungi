@@ -1,4 +1,4 @@
-// Runs the real CLI/owner/Electron bridge. No browser automation dependency,
+// Runs the real CLI/owner/page bridge. No browser automation dependency,
 // callback, model polling, or synthetic input in a user's session.
 import {mkdtemp,writeFile,readFile,cp,mkdir,symlink,readdir} from 'node:fs/promises';
 import {execFile} from 'node:child_process';
@@ -9,9 +9,10 @@ import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const {values,positionals}=parseArgs({allowPositionals:true,options:{'allow-unavailable-webgl':{type:'boolean'},'expect-startup-failure':{type:'boolean'}}});
-assert.ok(positionals.length<=1,'usage: renderer-smoke.mjs [binary] [--allow-unavailable-webgl | --expect-startup-failure]');
+const {values,positionals}=parseArgs({allowPositionals:true,options:{'allow-unavailable-webgl':{type:'boolean'},'expect-startup-failure':{type:'boolean'},helper:{type:'string'}}});
+assert.ok(positionals.length<=1,'usage: renderer-smoke.mjs [binary] [--helper PATH] [--allow-unavailable-webgl | --expect-startup-failure]');
 assert.ok(!(values['allow-unavailable-webgl']&&values['expect-startup-failure']),'choose one scope');
+assert.ok(!(values.helper&&values['expect-startup-failure']),'startup-failure scope is specific to the bundled Electron renderer');
 const binary=path.resolve(positionals[0]??path.join(root,'fungi'));
 const parent=path.join(root,'verification-output');await mkdir(parent,{recursive:true});
 const directory=await mkdtemp(path.join(parent,'renderer-smoke-')),assets=path.join(directory,'assets');
@@ -37,7 +38,9 @@ const run=async args=>{
 };
 async function verify(){try {
 let closed;
-try{closed=await run(['open',path.join(assets,'index.html'),'--delivery','wait']);}
+try{closed=await run(values.helper
+  ? ['open','--exec',path.resolve(values.helper),'--delivery','wait','--',path.join(assets,'index.html')]
+  : ['open',path.join(assets,'index.html'),'--delivery','wait']);}
 catch(error){
   if(!values['expect-startup-failure'])throw error;
   const result=JSON.parse(error.stdout),session=path.join(env.FUNGI_STATE_DIR,result.session);
@@ -59,7 +62,7 @@ assert.equal(createHash('sha256').update(bytes).digest('hex'),result.artifacts[0
 // Only context absence is optional on the explicitly selected virtual display.
 // An available WebGL context that renders incorrectly still fails the check.
 const excluded=values['allow-unavailable-webgl']?result.data.checks.filter(check=>check.name==='WebGL rendering context'&&check.unavailable):[];
-const evidence={binary,directory,scope:values['allow-unavailable-webgl']?'workflow with optional WebGL availability':'workflow including WebGL',excluded,closed,result,artifactVerified:true,childPathEmpty:true};
+const evidence={binary,helper:values.helper?path.resolve(values.helper):null,directory,scope:values['allow-unavailable-webgl']?'workflow with optional WebGL availability':'workflow including WebGL',excluded,closed,result,artifactVerified:true,childPathEmpty:true};
 await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
 console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),scope:evidence.scope,excluded,checks:result.data.checks},null,2));
 assert.equal(result.data.checks.length,21,'incomplete renderer fixture');
