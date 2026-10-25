@@ -1,6 +1,6 @@
 ---
 title: Verification setup
-updated: 2026-10-23
+updated: 2026-10-25
 ---
 # Verification setup
 
@@ -12,25 +12,35 @@ recording without relying on this Mac's paths or a sibling jstack checkout.
 
 ## Build and launch
 
-Development prerequisites on the tested machine: Go 1.26.4, Node 22.19.0, npm 10.9.3, macOS arm64. Electron is pinned to 44.9.0 in `renderer/package-lock.json`.
+Development tools used here are Go 1.26.4 and Node 22.19.0. The nested
+`renderer/go.mod` pins Wails v2.17.0. Build on the target OS/CPU: macOS needs
+Xcode command-line tools, Linux needs GTK3/WebKitGTK 4.1 development packages,
+and Windows needs no C compiler. These are build prerequisites, not end-user
+requirements. No npm installation or Electron download is used.
 
 ```sh
-npm ci --prefix renderer
-node renderer/node_modules/electron/install.js
-go build -o fungi .
-./fungi describe
-go test -race -v . ./examples/helper
-go vet . ./examples/helper
+go vet ./...
+go test -race ./... # Windows CI uses go test ./...
+node --test
 node scripts/package.mjs
+# Use the exact complete package path printed by the command:
+/absolute/package/fungi doctor
+/absolute/package/fungi describe
 ```
 
-The explicit Electron download is a **build** step; the portable output includes the runtime. Packaging produces a unique directory under `dist/`, preserving framework symlinks. Do not test a half-built directory. Read its `BUILD.json` and hash its `fungi` executable.
+Packaging creates a unique directory under `dist/`. Do not use a partial
+build or guess the latest directory. Read its `BUILD.json` and verify both
+CLI and helper SHA-256. Use the complete package; `go build .` alone does
+not supply the window helper.
 
 Use `FUNGI_STATE_DIR="$PWD/verification-output/sessions"` for local UI fixtures. Use a separate root for each harness batch. `open` returns only after readiness, or keeps one pending pipe in `wait` mode. Never poll `collect` while awaiting a person.
 
 ## UI driver and fixtures
 
-Native UI verification used the connected desktop driver against the exact Electron app path. Multiple Electron development apps share a bundle ID, so select the full app path and verify the window title. Bringing up an app through the driver sometimes also launched Electron's default page; terminate only the extra test-created launcher process, never unrelated Electron apps.
+For current macOS UI checks, select the exact packaged or installed
+`renderer/Fungi.app` path through the connected desktop driver. Match its
+window title and disposable session before typing. The following original
+clipboard/PNG observations used Electron; retain their build-specific scope.
 
 The generated PNG fixture is 64×64 RGB, 180 bytes, with SHA-256 `1bd7e798fbfd3bd20de881435c7bfa7811db8466e73714a8ab7c1af6b7460e9a`. Its source bytes are retained in evidence. The current reference form exposes accessible labels for text fields, the native file picker, and “Paste image for Reference image.”
 
@@ -38,7 +48,7 @@ The successful clipboard fixture used a separate form with one image field, keep
 
 Do not overwrite the user's edits while they are trying a demo. Preserve acknowledged drafts. A changing desktop focus or failed clipboard setup is a driver limitation until separately diagnosed; it is not a product pass.
 
-## Harness probes
+## Historical harness probes
 
 Commands installed at the time of the run:
 
@@ -55,7 +65,7 @@ Pi's configured default model was rejected by its provider. The invocation-only 
 
 The probe driver imposes a finite external test deadline (120 or 240 seconds) and terminates only its own process groups on timeout. This is a test bound, not a Fungi human timeout.
 
-## No-setup follow-up fixtures
+## Historical no-setup follow-up fixtures
 
 The follow-up lives under `verification-output/no-setup-verification/`. `run-ui-probe.py` launches one disposable harness conversation with an explicit fixture command and a 240-second external test bound. Each form has a unique title, response marker and state directory; the connected desktop driver chooses the exact packaged Electron app path. The user-edited source demo is separate.
 
@@ -69,7 +79,7 @@ For manual delivery, let the launch return and the harness end its turn, submit 
 
 Inspect `launch.json`, `draft.json`, `result.json`, artifact bytes/hashes and `delivery.json` separately. The OS file lock proves owner liveness without a PID guess. Preserve the result and evidence before removing disposable data.
 
-Do not delete a user-modified demo draft. No persistent harness configuration or authentication was changed. Public signing/notarization, a clean machine with network disabled, Windows runtime and Linux desktop UI verification, long sleep/wake cycles and abrupt power-loss behavior remain outside current evidence. The later Linux core run is recorded below.
+Do not delete a user-modified demo draft. No persistent harness configuration or authentication was changed. Public signing/notarization, clean consumer-machine journeys, physical Windows/Linux Wails input, long sleep/wake cycles and abrupt power-loss behavior remain outside current evidence. Historical results below retain their original renderer/build scope.
 
 ## Skill authoring and idle probes
 
@@ -78,7 +88,7 @@ The simpler questionnaire lives at `skills/grill-form/assets/form.html`; pass it
 ```sh
 node --test scripts/grill-form.test.mjs
 go build -o verification-output/idle-helper ./scripts/idle-helper
-./fungi open skills/grill-form/assets/form.html --input skills/grill-form/example.json --delivery manual
+/absolute/package/fungi open skills/grill-form/assets/form.html --input skills/grill-form/example.json --delivery manual
 ```
 
 For native recovery: enter a choice/note, select the known reference image, wait for “Draft saved,” close, collect once, and reopen. The initial session must stay `closed`. To test abrupt owner loss, identify the exact `_run SESSION` process in this disposable root before killing it; never terminate by generic Electron/Fungi process name. Collect the interrupted session once, reopen it, and verify the acknowledged draft and image. The submitted result must preserve the image hash.
@@ -94,95 +104,67 @@ The user manually completed sleep/wake fixture `1897358a56ceff72064a252004170716
 ## Platform foundation checks
 
 ```sh
-node --test scripts/*.test.mjs
-go test -race -v . ./examples/helper ./scripts/protocol-fixture
-go vet . ./examples/helper ./scripts/protocol-fixture
+node --test
+go test -race ./... # omit -race for the Windows fixture
+go vet ./...
 node scripts/package.mjs
 node scripts/renderer-smoke.mjs /absolute/package/fungi
-node scripts/package.mjs --platform win32 --arch x64
-node scripts/package.mjs --platform linux --arch x64
 ```
 
-The renderer driver writes a new directory beneath `verification-output/`,
-opens only its disposable fixture, checks browser features, cancels, reopens
-and submits. It uses one pending CLI call per interaction; it does not invoke
-a model callback or poll a person. `evidence.json` records results and artifact
-hashes. Its 45-second process bound is a test timeout, not a product wait limit.
-It clears the child executable search path, preserves worker diagnostics on
-failure, and does not turn unavailable WebGL into a passing rendering check.
-Its default scope requires all 21 checks. `--allow-unavailable-webgl` permits
-only a null WebGL context and records it explicitly as unavailable; an
-incorrect render still fails. `--expect-startup-failure` instead requires one
-saved `renderer_startup_failed` result and the indicated sandbox diagnostic
-log. It fails if startup succeeds, prompting review of the platform record.
+The renderer driver opens a disposable page through ordinary `open`, checks
+21 browser features, cancels, reopens and submits. It verifies the PNG hash,
+clears the child PATH, preserves diagnostics and uses finite fixture bounds.
+It does not call a model or poll a human. `--allow-unavailable-webgl` permits
+only a null context; an incorrect render still fails. Linux's explicit
+`--allow-unavailable-local-media` records the known direct-media failure in
+`excluded`, never as passed. Neither exception is used on Mac/Windows.
 
-`.github/workflows/verify.yml` runs the core, Node and wiki checks before the
-actual Electron fixture on hosted macOS, Windows, Ubuntu 22.04 and Ubuntu
-24.04. The renderer sandbox stays enabled. Linux uses the runner's existing
-Xvfb; diagnostic namespace checks do not change its security policy. See the
-[hosted report](runs/2026-10-22-hosted.md) for failures and tested revisions.
-After the user's [Linux decision](../planning.md#linux-distribution-decision),
-Ubuntu 22.04 uses the optional-WebGL scope; Ubuntu 24.04 tests the unsupported
-startup error, not successful rendering. CI job names state those scopes.
-
-The portable core test fixture replaces shell-only helpers. Desktop execution
-uses the [handoff recipe](desktop.md). The packaging command can download a
-pinned official target runtime during development; a completed package does
-not need a runtime download, Node, npm or Go on the user's machine.
+`.github/workflows/verify.yml` builds native packages on macOS, Windows,
+Ubuntu 22.04 and 24.04. It checks the core, JS bridge, wiki, native helper,
+actual packaged renderer and installation/update path. Linux uses Xvfb.
+No host security policy is changed. A package built for one Linux version
+must also be tested on the other before claiming a single shared archive.
 
 ## Installation and updates
 
-Follow the [managed installation recipe](../features/installation.md#build-and-verification-recipe)
+Use the [managed installation recipe](../features/installation.md#build-and-verification-recipe)
 to build two versioned archives and run `scripts/install-smoke.mjs`. It serves
-one actual archive/checksum from a local fixture server, executes the platform
-bootstrap in a fresh directory with spaces in its name, holds a real Electron
-session through an update, checks its saved PNG, verifies runtime file sharing
-and rolls back. Installed CLI children have an empty PATH. The driver emits
-full evidence and saves it beneath its new `verification-output/install-smoke-*`
-directory. It sends no model callback and changes no persistent PATH.
+actual archives/checksums from a local fixture server, runs the real platform
+bootstrap in a fresh path with spaces, holds a Wails session through update,
+checks its saved PNG and rolls back. Installed CLI children have an empty
+PATH. It sends no model callback and changes no persistent PATH. Both Linux
+versions exercise the actual UI under Xvfb, not a core-only substitute.
 
-CI runs this after its renderer check on each target. Ubuntu 24.04 uses
-`--core-only`; Ubuntu 22.04 uses its existing Xvfb. Neither test changes host
-sandbox policy. These fixtures prove local release archives and bootstrap
-downloads, not public GitHub assets, signing or clean consumer-machine setup.
+On a Linux host with Docker, `node scripts/runtime-setup-smoke.mjs ARCHIVE
+ubuntu-22.04` (or `ubuntu-24.04`) starts a disposable official container with
+no WebKit libraries. It checks doctor and ordinary-open failures, declined
+setup, an injected package-manager failure without activation, then real
+opt-in official runtime installation and reuse. Only this test container
+installs prerequisites. It makes no desktop/input claim. Windows CI with an
+already installed WebView2 runtime does not prove the missing-runtime
+Microsoft bootstrap path.
 
-## Experimental Wails renderer
+These fixtures verify local release archives and bootstrap downloads, not
+public GitHub release assets, signing or a clean consumer desktop.
 
-The nested `renderer/go.mod` pins Wails v2.17.0. From the repository root:
+## Wails diagnostics
+
+For standalone helper work, build `./wails` from `renderer/` with tags
+`production` (macOS), `production,wv2runtime.error` (Windows), or
+`production,webkit2_41` (Linux). Use `.exe` names on Windows.
 
 ```sh
-go build -o verification-output/fungi-wails-core .
-cd renderer
-go build -tags production -trimpath -ldflags '-s -w' -o ../verification-output/fungi-wails ./wails
-cd ..
-node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails
-node scripts/wails-probe.mjs verification-output/fungi-wails-core verification-output/fungi-wails
+node scripts/renderer-smoke.mjs CORE --helper HELPER
+node scripts/wails-probe.mjs CORE HELPER
 ```
 
-Use `.exe` output names on Windows. Linux builds use
-`-tags production,webkit2_41`, GTK3/WebKitGTK 4.1 development packages and
-Xvfb for the hosted fixture. Real desktop use needs compatible installed
-runtime libraries; the CI prerequisite installation is not consumer setup
-proof. The existing smoke fixture can explicitly permit unavailable WebGL,
-but does not waive media/module failures. The host probe records direct and
-Blob media separately without redefining the original expectation.
+The host probe checks native close, zero-byte Blob recovery and whether a
+second session inherits a run-specific localStorage value; it removes only
+that key. Native API names are inspected without reading clipboard contents
+or opening URLs. Targeted Linux GStreamer logs diagnose direct/Blob media
+separately. Known limits are accepted, not changed into passing results.
+Both drivers have finite bounds, unique evidence directories and no callbacks.
 
-The first driver starts the actual CLI/owner with an empty child PATH,
-cancels, reopens and submits a PNG with an independently checked SHA-256.
-The second starts disposable sessions, saves/restores a zero-byte attachment,
-invokes the native quit/close hook, and checks whether one independent session
-inherits another's run-specific localStorage value. It removes only that key.
-Native API names are inspected without reading the clipboard or opening URLs.
-On Linux, the host probe enables targeted GStreamer logging in its child
-environment; `worker.log` identifies media loader failures. This does not
-change normal Fungi launches or the user's shell environment.
-Both drivers have bounded execution, save `evidence.json` in unique local
-directories, and send no harness callbacks.
-
-For native UI, invoke the helper with `fungi open --exec ABSOLUTE_HELPER
---delivery manual -- ABSOLUTE_HTML_OR_JSON`, then follow the existing
-form/file/close/reopen recipe. A minimal `.app` bundle was used to identify the
-Mac prototype through accessibility tools; it does not change the binary.
-Use `collect` once after observed completion. Do not treat synthetic answers
-as user decisions. Exact builds, observations and outstanding scope are in
-the [Wails report](runs/2026-10-25-wails.md).
+For visible input, use ordinary `fungi open PAGE --delivery manual`, then
+follow the [desktop recipe](desktop.md). Collect once after an observed
+close/submit/cancel. Never submit synthetic answers into a real interview.

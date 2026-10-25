@@ -287,7 +287,7 @@ Current receipts embed absolute executable paths, and reopened sessions can
 reference package-owned assets. Resolve and test that compatibility before
 automatic pruning implements this retention policy.
 
-The [platform plan](platforms.md#planned-command-installation-and-updates)
+The [platform plan](features/installation.md)
 records the proposed delivery flow and acceptance checks. Signing, release
 publication and clean-machine verification remain outstanding. Full jstack
 authoring integration remains deferred.

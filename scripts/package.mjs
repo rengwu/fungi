@@ -33,7 +33,13 @@ const modules=execFileSync('go',['list','-m','-f','{{.Path}}|{{.Version}}|{{.Dir
 const wails=modules.find(line=>line.startsWith('github.com/wailsapp/wails/v2|')).split('|')[1];
 const goRoot=execFileSync('go',['env','GOROOT'],{encoding:'utf8'}).trim();
 await mkdir(path.join(dest,'licenses','go'),{recursive:true});
-await cp(path.join(goRoot,'LICENSE'),path.join(dest,'licenses','go','LICENSE'));
+try{
+  await cp(path.join(goRoot,'LICENSE'),path.join(dest,'licenses','go','LICENSE'));
+}catch(error){
+  if(error.code!=='ENOENT')throw error;
+  // Homebrew keeps the toolchain license beside libexec (GOROOT).
+  await cp(path.join(goRoot,'..','LICENSE'),path.join(dest,'licenses','go','LICENSE'));
+}
 for(const line of modules){
   const [name,,directory]=line.split('|');if(!directory||name==='fungi/renderer')continue;
   const notices=(await readdir(directory)).filter(name=>/^(licen[cs]e|copying|notice|authors)(\.|$)/i.test(name));

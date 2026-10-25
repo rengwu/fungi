@@ -111,9 +111,9 @@ The page gets a deliberately small bridge:
 | `await fungi.submit(data, attachments?)` | Commit JSON and optional `{key, name, blob}` attachments; resolve with a receipt after persistence |
 | `await fungi.cancel()` | Commit a cancelled outcome |
 
-The renderer handles Blob/File transfer internally. Page authors do not choose output paths, callback destinations or shell commands. Relative local assets remain usable; the default example needs no network or build step. Native helpers are trusted executables with ordinary OS access, not sandboxed web pages.
+The renderer handles Blob/File transfer internally. Page authors do not choose output paths, callback destinations or shell commands. Relative local assets remain usable; the default example needs no network or build step. Wails skill pages and native helpers are trusted local application code with native access. Browser storage isolation is best effort; Linux direct-media limitations are accepted.
 
-Save, submit and cancel calls are ordered from invocation, before asynchronous Blob encoding. A failure rejects its own call and does not poison later retries. Each save/submit supplies a complete state and attachment list; omitted attachments mean none. Closing or crashing recovers only acknowledged saves, including with queued calls. Library bundles, local/Blob workers, WebAssembly, canvas and streamed media remain page capabilities rather than new bridge methods.
+Save, submit and cancel calls are ordered from invocation, before asynchronous Blob encoding. A failure rejects its own call and does not poison later retries. Each save/submit supplies a complete state and attachment list; omitted attachments mean none. Closing or crashing recovers only acknowledged saves, including with queued calls. Library bundles, local/Blob workers, WebAssembly, canvas and media (subject to the system engine) remain page capabilities rather than new bridge methods.
 
 After successful submission, the reference renderer closes the window. If persistence fails, it stays open, shows the failure and retains the user's current input for retry. A committed response remains successful even if agent notification later fails; the interface can report that collection is still available.
 

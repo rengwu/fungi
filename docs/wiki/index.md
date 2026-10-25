@@ -6,11 +6,13 @@ updated: 2026-10-25
 
 Fungi is a prototype portable interaction engine for skill-driven agents. Skills define workflows; fungi runs their interaction sessions and returns human responses to the originating agent.
 
-This wiki records the accepted design, implementation and verification. A Go core and Electron reference renderer now exist. The latest decision requires no harness setup, with manual fallback on unsupported versions. Native return checks and remaining limits are recorded explicitly.
+This wiki records the accepted design, implementation and verification. A Go core and Wails window helper now exist. The latest decision requires no harness setup, with manual fallback on unsupported versions. Native return checks and remaining limits are recorded explicitly.
 
-Electron remains the default renderer. The user has now authorized a
-[Wails replacement experiment](verification/runs/2026-10-25-wails.md) to assess
-smaller system-webview delivery while preserving the Go core and skill API.
+Wails is now the default development renderer. Native packages use system
+webviews and preserve the Go core and skill API. The
+[initial assessment](verification/runs/2026-10-25-wails.md) and
+[accepted limits](planning.md#accepted-wails-limits-and-next-milestone-on-2026-10-25)
+explain the change; distribution integration verification is in progress.
 The [first end-to-end proof](proposal.md#first-proof) records the original
 Electron/Go scope and automatic-return checks.
 
