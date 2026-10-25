@@ -13,6 +13,10 @@ await mkdir('verification-output',{recursive:true});
 const directory=await mkdtemp(path.resolve('verification-output/wails-probe-'));
 const env={...process.env,FUNGI_STATE_DIR:path.join(directory,'sessions')};
 delete env.CODEX_THREAD_ID;
+if(process.platform==='linux'){
+  env.GST_DEBUG='2,webkitmediaplayer:6,webkitwebsrc:6';
+  env.GST_DEBUG_NO_COLOR='1';
+}
 const core=path.resolve(corePath),helper=path.resolve(helperPath),entry=path.join(directory,'index.html');
 const key='fungi-disposable-'+randomUUID();
 const wave=Buffer.alloc(16044);wave.write('RIFF');wave.writeUInt32LE(wave.length-8,4);wave.write('WAVEfmt ',8);wave.writeUInt32LE(16,16);
