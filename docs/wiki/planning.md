@@ -676,4 +676,7 @@ space usage, retained feedback, source hashes and test status.
 The first cleanup CI run exposed an unrelated fixed-sleep assumption in the
 manual-owner integration test on Ubuntu 22. The existing gated fixture replaces
 that sleep; repeated race-enabled checks pass without changing production
-waiting behavior. A replacement platform run verifies the final test suite.
+waiting behavior. The replacement platform run passed all five jobs at `0b45cc7`, including the
+previously failing Ubuntu 22 case and the shared Linux archive check. Final
+cleanup retains only `dist/release-v0.1.0-clean.2/` locally and removes the new
+verification scratch output too; the checkout is about 42 MiB.

@@ -1,0 +1,6 @@
+2026-10-25T19:02:12.0020830Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+2026-10-25T19:02:12.0021663Z --- PASS: TestManualOwnerSurvivesLauncherAndCollects (0.04s)
+2026-10-25T19:02:12.0053678Z === RUN   TestManagedInstallUpdateRollbackAndSessions
+2026-10-25T19:02:12.0054605Z --- PASS: TestManagedInstallUpdateRollbackAndSessions (94.74s)
+2026-10-25T19:02:12.0062429Z === RUN   TestUnsupportedPackageFormatsAreRejected
+2026-10-25T19:02:12.0063626Z --- PASS: TestUnsupportedPackageFormatsAreRejected (0.00s)

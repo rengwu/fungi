@@ -33,7 +33,11 @@
   "retainedBuild": "dist/release-v0.1.0-clean.2/fungi-darwin-arm64",
   "localInstallVerified": true,
   "retainedVersion": "v0.1.0-clean.2",
-  "currentAllocatedBytes": 43868160,
-  "bytesReclaimedBeforeFinalLogs": 1285771264,
-  "removedElectronCompatibility": true
+  "removedElectronCompatibility": true,
+  "finalAllocatedBytes": 44220416,
+  "bytesReclaimed": 1285419008,
+  "finalSourceRevision": "0b45cc745eb86fb52a3441a4bfab1693df4401fe",
+  "integrationTestSHA256": "661613907b800c0b39c59469bf2295a3e553b9afe2bc9b8adf13f37376dab4ef",
+  "allFiveCIJobsPassed": true,
+  "scratchOutputRemoved": true
 }
