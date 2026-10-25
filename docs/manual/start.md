@@ -1,0 +1,46 @@
+# Fungi — local interfaces for agent workflows
+
+Skills supply the interaction; Fungi opens a window, saves the submitted JSON
+and files, and returns them to the calling agent. No Fungi skill, registration,
+UI framework or end-user build tools are required.
+
+Bring ordinary HTML/CSS/JavaScript and local libraries: forms, live controls,
+custom elements, diagrams, Canvas/SVG, WebGL, workers and WebAssembly. Use a
+native executable helper for OS-specific interaction. Graphics and media depend
+on the system webview; see `fungi help html` for boundaries.
+
+## Common starting points
+
+| Task | Read |
+| --- | --- |
+| Try a complete input → interface → response flow | `fungi help examples` |
+| Build or adapt any HTML interface | `fungi help html` |
+| Return to an agent without polling | `fungi help delivery` |
+| Use the small built-in JSON form | `fungi help form` |
+| Run a native helper | `fungi help helper` |
+| Find commands, flags, storage and exit codes | `fungi help cli` |
+| Install, update or diagnose a missing runtime | `fungi help installation` |
+
+These are starting points, not a catalogue of allowed workflows. Compose the
+interface around the user's task. Keep frequent interactions inside the page;
+the agent receives the finished response.
+
+```sh
+fungi describe                 # machine-readable capabilities and reference routes
+fungi describe examples        # installed paths and executable argument arrays
+fungi open ./ui/index.html --input ./input.json --delivery auto
+```
+
+Inspect the launch receipt's delivery mode. For `callback`, end the turn and
+collect once on notification. For `manual`, ask the user to say “done,” end the
+turn, then collect once. Use `wait` only with a host that keeps one call pending
+or automatically delivers its completion. Never poll `collect`.
+
+All `help` topics work offline, even without a renderer. The same Markdown is
+in `docs/manual/` in the package. `describe TOPIC` gives compact JSON; its
+`reference` argument array opens the corresponding full reference.
+
+For a consuming skill, keep its methodology, available presentation choices,
+input example, launch instructions and result interpretation together. Read
+Fungi's reference when authoring or changing the integration; executing the
+skill should follow its fixed invocation. See `fungi help examples`.

@@ -1,0 +1,10 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "fc07965d3262887e5ccc0b40ce6c87aa",
+  "outcome": "submitted",
+  "data": {
+    "notes": "DOCS-REPLY: shorten the opening fade."
+  },
+  "artifacts": []
+}

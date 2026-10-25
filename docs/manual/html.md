@@ -1,0 +1,79 @@
+# HTML page API
+
+Put `index.html` and local assets in a directory. Launch with
+`fungi open ./ui/index.html --input ./input.json`; the input file may live
+elsewhere. No manifest, registration or framework adapter is needed.
+
+## Four methods on `window.fungi`
+
+| Awaitable method | Contract |
+| --- | --- |
+| `ready()` | Returns `{input, draft, attachments, limits, delivery}`. Input/draft are `null` when absent; restored attachments are `{key,name,blob}`. Repeated calls reuse readiness. |
+| `saveDraft(data, attachments?)` | Optional. Resolves after saving; ignore its return value. |
+| `submit(data, attachments?)` | Commits a `submitted` result, resolves with the result, then closes the window. |
+| `cancel()` | Commits `cancelled`, resolves with the result, then closes. |
+
+`data` is any JSON-serializable value; skills define its schema. Each save or
+submit replaces the whole payload and attachment list. Omitted attachments
+mean none, not “keep previous files.” An attachment is `{key,name,blob}` with
+unique nonempty key (up to 200 UTF-8 bytes), nonempty name (up to 255 bytes)
+and a Blob/File; Blob type supplies mediaType.
+
+```js
+const {input, draft, attachments, limits, delivery} = await fungi.ready();
+const state = draft ?? input ?? {notes: ''};
+// Use your own controls. Draft saving is optional:
+await fungi.saveDraft(state, attachments);
+// At submission, send the current complete state:
+await fungi.submit(state, attachments);
+```
+
+Mutations execute in invocation order, including Blob encoding. A rejected
+save does not poison later calls. Await calls, show failures, preserve input
+and allow retry. Prevent duplicate clicks and editing during submission.
+Only display “saved” after acknowledgement. The complete reply example has
+error handling and no draft; find it with `fungi describe examples`.
+
+## Images and other files
+
+```js
+const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+if (!blob) throw new Error('Could not export the canvas');
+await fungi.submit({selection: 'after'}, [
+  {key: 'comparison', name: 'comparison.png', blob}
+]);
+```
+
+Discover limits through `ready().limits`: `jsonBytes` (currently 1 MiB),
+`artifactBytes` (20 MiB), `totalArtifactBytes` (100 MiB retained in the session).
+Leave room for envelope metadata. Keep binary data in attachments, not base64
+inside JSON. Saving new bytes repeatedly can consume the retained-artifact limit.
+
+Fungi does not autosave custom pages, DOM state or browser storage. To support
+recovery, explicitly save meaningful state/attachments and restore them from
+`ready()`. A close preserves only acknowledged drafts. Drafts are unnecessary
+for throwaway interactions; final results are durable independently.
+
+## Assets and rendering
+
+Relative assets must stay beneath the entry page's directory, including
+symlink targets. Local modules/dynamic imports, CSS, fonts, custom elements,
+Canvas/SVG/WebGL, workers and WebAssembly are supported routes. Bundle any
+libraries with the skill; no CDN, remote fetch or package installation is
+provided. Build framework bundles ahead of distribution if they need a build.
+
+The bridge is exposed only to the main page. For untrusted inline previews,
+use `iframe srcdoc` with `sandbox="allow-scripts"` and validate the sending
+frame when using `postMessage`. Skill pages themselves are trusted application
+code with Wails native API access. Asset confinement is not an application sandbox.
+
+Browser storage isolation is best effort. Use `sessionStorage` for window-local
+state and Fungi drafts for durable state. Feature-detect graphics/codecs; an
+unavailable WebGL context must not be treated as a successful render. Linux
+WebKitGTK cannot load direct `wails:` media URLs. Fetching a small file to a Blob
+may help, but loads all bytes and does not guarantee codecs or audible playback.
+See `fungi help installation` for supported runtime baselines.
+
+Protocol 1 covers these page methods, CLI receipts/results and helper messages.
+Optional metadata may be added; breaking meanings require a new protocol.
+The built-in form schema is separately experimental.

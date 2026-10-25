@@ -162,6 +162,8 @@ remains deferred.
 
 ## Verification history
 
+- [2026-10-26 offline discovery](../verification/runs/2026-10-26-discovery.md) — installed help, examples, update/rollback and native throwaway reply.
+
 - [2026-10-25 Wails integration](../verification/runs/2026-10-25-wails-integration.md) — default packages, installed native input, update/rollback and explicit Linux runtime setup.
 
 - [2026-10-23 distribution proof](../verification/runs/2026-10-23-distribution.md)

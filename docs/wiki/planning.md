@@ -1,6 +1,6 @@
 ---
 title: Requirements and discussion
-updated: 2026-10-25
+updated: 2026-10-26
 ---
 # Requirements and discussion
 
@@ -505,3 +505,155 @@ They are not silently inferred from hosted success. Broader skill authoring
 integration remains deferred as requested. The system-webview replacement no
 longer needs another renderer-fit spike; the existing four-method interface is
 available for skill-owned UIs under its accepted limits.
+
+## Throwaway interactions and discovery discussion on 2026-10-26
+
+The user envisions simple, throwaway interactions and asks why drafts were
+included; this is a request to revisit the rationale, not an instruction to
+remove recovery. The original first-milestone close decision retained saved
+drafts for explicit reopening. Drafts protect work after an accidental close
+or interruption. Custom pages opt into `saveDraft`; the reference form
+currently autosaves. A person need not perform a separate save step. Saving
+submitted answers/artifacts before notification is separate from draft recovery
+and preserves results if agent delivery is delayed or fails.
+
+The user also raises discoverability as a concern. Current implementation has
+`fungi describe` and focused `html`, `form`, `helper`, `delivery`, and
+`installation` topics. These include API shapes, examples and limits.
+`fungi doctor` checks runtime presence; it does not certify every browser API
+or discover third-party UI libraries. The authoring guide and examples exist,
+but the previously requested mechanical rich-skill authoring integration
+remains deferred. Some discovery references point to repository docs omitted
+from the small installed package; installed-only authoring needs qualification.
+
+Proposed direction, not an accepted implementation change:
+
+- Describe the normal human flow as open, interact, submit/close. Keep draft
+  recovery optional and unobtrusive. Decide disk cleanup separately: current
+  session records persist until explicitly removed, including after collect.
+  No automatic deletion or new retention policy is approved by this question.
+- Have Fungi-based skills explicitly introduce the CLI and its short discovery
+  command. A CLI cannot teach an agent that it exists without that entry point;
+  no mandatory harness configuration or plugin is needed.
+- Keep a compact engine capability index with focused details on demand.
+  Essential launch/API/result/delivery instructions and a complete minimal
+  example must be available with the installed distribution, without reading
+  implementation source or relying on a missing repository path. Distinguish
+  built-in interfaces, supported web techniques and host-dependent features.
+- Let each reusable UI/skill supply a compact capability menu, input/output
+  shapes, working examples and limits. For grill-form, enumerate question and
+  presentation variants and when each is useful. Ordinary HTML remains valid
+  without registration or a mandatory manifest.
+- Supply one mechanical skill procedure for authoring/validation, launch,
+  completion and result interpretation. Validation helpers are proposed where
+  they remove repeated agent work; no general validation command or capability
+  registry is claimed implemented.
+- Qualify discoverability with a fresh-context agent using only the installed
+  package and skill instructions: choose appropriate variants, create a useful
+  interface, launch, wait without polling and interpret its returned data/files.
+
+No product behavior, draft policy or implementation scope changes in this
+planning discussion. Acceptance and priority of the discovery work remain open.
+
+## Documentation direction clarified on 2026-10-26
+
+The user does not want a required separate Fungi skill. Fungi is infrastructure
+for independently authored skills; requiring the executing agent to read two
+skills adds friction. They suggest a manpage/API reference and use a hypothetical
+`grill-form-fungi` to explore how the consumer skill would retain its methodology,
+capability guidance and Fungi invocation examples. The subsequent clarification
+explicitly keeps this as brainstorming about Fungi's docs/API surface, not an
+instruction to rewrite or port grill-form.
+
+Proposed documentation shape (not yet implemented): distinguish the person/agent
+authoring a reusable interface from the agent executing its skill. Interface
+authors need the Fungi CLI/page/helper contracts, a complete minimal example,
+input/output and attachment shapes, optional draft recovery, completion/error
+behavior and platform limits. An executing agent ordinarily needs the consumer
+skill's methodology, relevant UI variants, input example, fixed launch and result
+interpretation. It consults focused Fungi reference topics only when extending
+an interface or resolving uncertainty.
+
+Keep `--help` and `describe [topic]` as the available offline entry points.
+A conventional manpage or API site can be another presentation of the same
+maintained contract; do not require a POSIX man viewer on Windows or invent a
+second procedural Fungi skill. Essential installed documentation must stand on
+its own. Generic lifecycle/transport belongs to Fungi; question validation,
+visual variants, preview-state semantics and project decision recording belong
+to the consuming skill. Document those boundaries with one concrete worked
+example before committing to more commands, schemas or registries.
+
+A future grill-form example would supply a prepared UI directory, author a
+round's JSON, call ordinary `fungi open ... --input ...`, and interpret Fungi's
+saved result. The repeated agent task should not include reconstructing the UI
+adapter, starting a second collector/waiter or learning the entire renderer API.
+The rich static UI port and any separate validation helper remain hypothetical;
+the existing experimental adapter is not presented as that finished workflow.
+No skill, CLI or runtime code is changed by this discussion.
+
+## Documentation interview completed on 2026-10-26
+
+The [submitted answers](journal/2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284.md)
+settle questions 23–26. The exact session was collected once after its completion
+notice and finished through jstack's returned action; its transcript and visual
+review source are saved. The journal filename uses the collector's UTC date.
+
+Accepted direction:
+
+- Start with task-oriented navigation. The user explicitly raises a concern
+  that agents could treat examples or task categories as strict prescriptions;
+  preserve creative freedom and do not define an exhaustive list of allowed UIs.
+- Ship the complete Fungi-specific reference and a few small working examples
+  offline. Third-party manuals, the development wiki and test evidence are not
+  part of this requirement.
+- Prefer a few small, complete flows that show input, launch, completion and
+  returned data together, rather than making one rich skill the main tutorial.
+- Keep the documentation simple and concise. The outline review adds no new
+  sections or features. No separate Fungi skill is required, and the rich
+  grill-form port remains outside this discussion.
+
+The user accepted the response to the creativity concern in the follow-up:
+introduce the general rendering
+and communication capabilities before links labelled as common starting points.
+Keep task navigation as a way to find relevant reference material. Label examples
+as non-exhaustive and adaptable; reserve mandatory language for actual API,
+submission and delivery requirements. Interface layout, component/library choice
+and workflow methodology remain with the consuming skill. Draft recovery stays
+optional in authoring guidance. A later discovery check should include an
+interface variation absent from the examples, so success measures transfer of
+the contract as well as copying a sample.
+
+The precise writing and fresh-context verification are proposed next work,
+not newly implemented behavior. This round continues documentation design;
+it does not authorize a runtime change or a skill port.
+
+No further consequential documentation-shape decision is needed before a first
+draft. Exact topic names, file layout and reuse of existing `--help`/`describe`
+entry points can follow ordinary implementation judgment within this direction.
+Review concrete drafts and discoverability evidence before adding more pages or
+CLI surfaces. Release qualification, session cleanup policy and rich grill-form
+integration remain separate work; they do not block writing these docs.
+
+## Offline documentation implementation on 2026-10-26
+
+The user requested work-until-grill after accepting the documentation direction.
+The first implementation keeps ordinary `help` and `describe`: eight focused
+Markdown topics, embedded in the core and copied verbatim into each package;
+JSON discovery points to those topics and locates installed examples. There is
+no new Fungi skill, registry, documentation generator or renderer API.
+
+The capability overview precedes common starting points. Complete reply and
+comparison flows show input, launch, completion and returned data together.
+The reply example is intentionally throwaway, with no autosave. The comparison
+example retains optional recovery and PNG export. Consuming skills own their
+methodology, UI variants/schema and interpretation; the engine reference covers
+transport and lifecycle. Existing wiki authoring material now points to that
+maintained contract instead of duplicating it.
+
+[Discovery verification](verification/runs/2026-10-26-discovery.md) records exact
+builds and results. Local offline help, installation/update/rollback discovery
+and native input/cancel/close/reopen passed. Platform CI is pending. Independent
+fresh-agent transfer to a new interface remains untested; no agent delegation
+was invoked. Release qualification, cleanup policy and rich grill-form port
+remain separate work. No further product decision blocks this documentation
+implementation.

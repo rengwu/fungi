@@ -1,0 +1,12 @@
+{
+  "format": 2,
+  "version": "v0.1.0-docs.2",
+  "platform": "darwin",
+  "arch": "arm64",
+  "wails": "v2.17.0",
+  "binarySHA256": "f7ea4650982a2ee2c2586d02c31efe7589c807af753ac2cd96c452074456f773",
+  "rendererSHA256": "73533cb725abfdd6c3d19891a786c0a78912eaff56921b74851559c79c4cb8bd",
+  "created": "2026-10-25T18-04-06-557Z",
+  "publicRelease": false,
+  "runtimeVerified": false
+}

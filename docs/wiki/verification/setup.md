@@ -168,3 +168,21 @@ Both drivers have finite bounds, unique evidence directories and no callbacks.
 For visible input, use ordinary `fungi open PAGE --delivery manual`, then
 follow the [desktop recipe](desktop.md). Collect once after an observed
 close/submit/cancel. Never submit synthetic answers into a real interview.
+
+## Offline discovery verification
+
+`go test -run TestOfflineHelpAndDiscovery .` runs the embedded reference without
+adjacent docs/renderer or PATH tools. For actual packages, use two unique release
+versions, then `node scripts/install-smoke.mjs ARCHIVE_A ARCHIVE_B`. Its discovery
+checks run through the stable launcher before update, after update and after
+rollback, under a path with spaces, unrelated working directory and empty child
+PATH. Each help output must match its installed Markdown, and each example's
+absolute launch paths must select the active version.
+
+For native reply verification, run the installed CLI's `describe examples`,
+select `reply` and execute its argument array with `--delivery manual` and a
+fresh `FUNGI_STATE_DIR` outside the install. Use the actual window to type
+synthetic notes and Send; collect once from its receipt. Check exact result data,
+empty artifacts and absence of `draft.json`. Also exercise Cancel, window close
+and explicit reopen (which should be blank without a draft). Keep result JSON
+and the CLI/helper hashes as evidence. Close all fixture windows when finished.

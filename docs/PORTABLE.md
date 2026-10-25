@@ -7,12 +7,16 @@ No Go, Node or npm is needed. The OS supplies WKWebView (macOS), WebView2
 
 ```sh
 ./fungi --version
-./fungi describe html
-./fungi open examples/review.html
+./fungi help
+./fungi help examples
+./fungi describe examples
 ```
 
 On Windows use `fungi.exe`. For custom workflows, supply your own HTML/assets
-or a trusted native helper. `fungi describe` lists the CLI's capabilities.
+or a trusted native helper. [Start here](docs/manual/start.md), or read any
+reference offline with `fungi help TOPIC`. `fungi describe` lists capabilities;
+`fungi describe examples` returns absolute example paths and launch arguments
+from any working directory. Draft saving is optional for custom HTML.
 
 To create a managed installation from a downloaded release archive:
 

@@ -62,24 +62,11 @@ func command(args []string, out io.Writer) error {
 	if handled {
 		return nil
 	}
-	if len(args) == 0 || args[0] == "--help" || args[0] == "help" {
-		fmt.Fprintln(out, `Fungi — local interfaces for agent workflows
-  fungi describe [html|form|helper|delivery|installation]
-  fungi open SOURCE [--input FILE] [--delivery auto|wait|manual]
-  fungi open --exec HELPER [--delivery MODE] -- [ARGS...]
-  fungi collect SESSION
-  fungi reopen SESSION [--delivery MODE]
-  fungi --version
-  fungi doctor
-  fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]
-  fungi update [--version vX.Y.Z | --archive FILE --sha256 HASH]
-  fungi rollback
-  fungi prune
-
-Use one pending --delivery wait call when your harness supports it.
-Never poll collect. Auto uses an exact Codex callback or reports manual fallback.
-FUNGI_STATE_DIR overrides private storage for isolated tests.`)
-		return nil
+	if len(args) == 0 {
+		return help(nil, out)
+	}
+	if args[0] == "--help" || args[0] == "help" {
+		return help(args[1:], out)
 	}
 	switch args[0] {
 	case "doctor":

@@ -1,0 +1,30 @@
+{
+  "base": "aad403d4b293a6d199720e72b908338724f2abeb",
+  "files": {
+    "help.go": "cd86ea445b8be16ddb0ca044c1e86aed9c3d74add8af61e49177d6b71c0fa8fc",
+    "help_test.go": "a1fe1767d8ffd126c7fc97d3e5948216f127a4f172b89735b788f70b1ec25bd9",
+    "main.go": "06660769d7c5b8c752e5b2bc6157bf86417dc483f2d63b0df1cb9ad8448531a4",
+    "describe.go": "4d56848446aa93407508fbbfd9c2ad15ba3c510aa48b3d2f540d4101262caf27",
+    "scripts/package.mjs": "4dafa1ea3261123d9dd314263783a1ff02d3b4b8f87047c3bac872b5a0aed230",
+    "scripts/install-smoke.mjs": "de0b59199e1808a719d95fd6527b41e087f6b15732bd5c83402a47b4c4797103",
+    "docs/manual/helper.md": "05737033a5e75257256ce96a06380a37268e9a8bed3985db923ddca553a5d77a",
+    "docs/manual/examples.md": "bb80ea3b6d4c4246603d8d75566ea12048f0f40514775c9af47bd1a4b0459a0e",
+    "docs/manual/cli.md": "8bb739f00fc18a6e0248097094e113d5c631917f8b6027057a12165bdbca37e2",
+    "docs/manual/form.md": "856211c4401d0f910519908882eaf2072ad876d8aa012a81b2e8f261762f4771",
+    "docs/manual/delivery.md": "13fb8d08a71ceaded863ff136771abe5295163211539a82dc269b10b958211e4",
+    "docs/manual/start.md": "eabf9fc41bf66ccbd14f47e561ccd185e6207017bd957b2cae51675dc6a94904",
+    "docs/manual/installation.md": "8936e0ac2b0e0468c1858aad51b5db088344ad45d76cfd94e11ad145bca0ba96",
+    "docs/manual/html.md": "ffb5f88b10449ab57660933c2ff67465b145691ef381d25a913d0bc842ccaecb",
+    "examples/reply/index.html": "942a2b6e195658d48723206a27a2fb7c68e5698b3243db021503a9289c63e9e3",
+    "examples/reply/input.json": "d254fd253e679c52524d06c5b8f38e0a598ea7e90cf2f1c0dceb40b57d1c65d3"
+  },
+  "observations": [
+    "Native reply title and prompt matched JSON input; synthetic notes submitted exactly.",
+    "Reply and cancellation produced no draft.json.",
+    "Native close returned closed; unsaved throwaway text was absent after explicit reopen.",
+    "Reopened reply was cancelled; all four results collected once with receipt argv/env.",
+    "Reopen writes an empty draft placeholder (data null, artifacts []); the page itself never autosaved. The verification assertion was corrected to distinguish this engine placeholder from saved user text."
+  ],
+  "packageBytes": 6070202,
+  "independentFreshAgent": "Not run; these checks are maintainer-operated, not an independent fresh-context evaluation."
+}

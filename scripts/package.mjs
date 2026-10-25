@@ -49,7 +49,8 @@ for(const line of modules){
 }
 await mkdir(path.join(dest,'examples'));
 for(const file of ['feedback.json','review.html'])await cp(path.join(root,'examples',file),path.join(dest,'examples',file));
-await cp(path.join(root,'examples/compare'),path.join(dest,'examples/compare'),{recursive:true});
+for(const name of ['compare','reply'])await cp(path.join(root,'examples',name),path.join(dest,'examples',name),{recursive:true});
+await cp(path.join(root,'docs/manual'),path.join(dest,'docs/manual'),{recursive:true});
 await cp(path.join(root,'docs/PORTABLE.md'),path.join(dest,'README.md'));
 const hash=async file=>createHash('sha256').update(await readFile(file)).digest('hex');
 const identity={format:2,version,platform:goos,arch:goarch,wails,binarySHA256:await hash(binary),rendererSHA256:await hash(helper)};

@@ -1,0 +1,337 @@
+{
+  "evidence": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/evidence.json",
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN",
+  "platform": "darwin",
+  "arch": "arm64",
+  "archiveA": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-docs.1/fungi-darwin-arm64.tar.gz",
+  "checksumA": "b54d7e4b23f7c9756832035be93853fe65f5744c70544292132c6d5105191c53",
+  "archiveB": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-docs.2/fungi-darwin-arm64.tar.gz",
+  "checksumB": "ee8c82ab17342fb887535d131b426fc86ac09a5cf7e0c1e1b053881f1382c98d",
+  "requests": [
+    "/download/v0.1.0-docs.1/fungi-darwin-arm64.tar.gz.sha256",
+    "/download/v0.1.0-docs.1/fungi-darwin-arm64.tar.gz"
+  ],
+  "scope": "bootstrap, active Wails session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/bin/fungi\",\"current\":\"v0.1.0-docs.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 557
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-docs.1"
+  },
+  "discoveryBefore": {
+    "version": "v0.1.0-docs.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/index.html",
+        "input": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/index.html",
+          "--input",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/review.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "62f33407ba64904367e7fd35f6972b8d",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/bin/fungi",
+      "collect",
+      "62f33407ba64904367e7fd35f6972b8d"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/sessions/62f33407ba64904367e7fd35f6972b8d/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/bin/fungi",
+    "current": "v0.1.0-docs.2",
+    "kind": "installation",
+    "previous": "v0.1.0-docs.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-docs.2"
+  },
+  "discoveryAfter": {
+    "version": "v0.1.0-docs.2",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/reply/index.html",
+        "input": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/reply/index.html",
+          "--input",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/review.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.2/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WKWebView"
+  },
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-docs.2",
+    "platform": "darwin",
+    "arch": "arm64",
+    "wails": "v2.17.0",
+    "binarySHA256": "f7ea4650982a2ee2c2586d02c31efe7589c807af753ac2cd96c452074456f773",
+    "rendererSHA256": "73533cb725abfdd6c3d19891a786c0a78912eaff56921b74851559c79c4cb8bd"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "62f33407ba64904367e7fd35f6972b8d",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-docs.2"
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/sessions/62f33407ba64904367e7fd35f6972b8d/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/bin/fungi",
+    "current": "v0.1.0-docs.1",
+    "kind": "installation",
+    "previous": "v0.1.0-docs.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "discoveryRollback": {
+    "version": "v0.1.0-docs.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "form",
+      "helper",
+      "html",
+      "installation",
+      "start"
+    ],
+    "examples": [
+      {
+        "name": "reply",
+        "purpose": "Parameterised HTML response, no draft",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/index.html",
+        "input": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/input.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/index.html",
+          "--input",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/reply/input.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "compare",
+        "purpose": "Canvas comparison, PNG export and optional recovery",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/compare/index.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/compare/index.html",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "form",
+        "purpose": "Experimental flat JSON form",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/feedback.json",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/feedback.json",
+          "--delivery",
+          "auto"
+        ]
+      },
+      {
+        "name": "review",
+        "purpose": "Animation timing, notes and image attachment",
+        "source": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/review.html",
+        "available": true,
+        "argv": [
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/fungi",
+          "open",
+          "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-bsj0HN/install with spaces/versions/v0.1.0-docs.1/examples/review.html",
+          "--delivery",
+          "auto"
+        ]
+      }
+    ]
+  },
+  "passed": true
+}

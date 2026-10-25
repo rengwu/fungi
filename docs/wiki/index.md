@@ -1,6 +1,6 @@
 ---
 title: Fungi
-updated: 2026-10-25
+updated: 2026-10-26
 ---
 # Fungi
 
@@ -19,6 +19,7 @@ The [first end-to-end proof](proposal.md#first-proof) records the original
 Electron/Go scope and automatic-return checks.
 
 - [Requirements and discussion](planning.md)
+- [Documentation interview: offline reference, small examples and creative freedom](journal/2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284.md)
 - [First implementation contract](contract.md)
 - [Author a Fungi interface](authoring.md)
 - [Verified environments and portable distribution](platforms.md)

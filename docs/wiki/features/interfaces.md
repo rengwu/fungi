@@ -12,7 +12,7 @@ Skills can bring a local HTML directory or a small JSON form. The shared page br
 
 `fungi open examples/review.html` shows a local animation preview, slider, notes and an optional image file. `fungi open examples/feedback.json` renders flat text, textarea, range and image fields. `fungi describe html` and `fungi describe form` expose the actual API and examples.
 
-The portable package also includes `skills/grill-form/`. Run `fungi open skills/grill-form/assets/form.html --input skills/grill-form/example.json` for a complete skill-owned questionnaire. It accepts the older jstack question schema, renders Markdown and Mermaid offline, saves plain notes and one optional image, and returns readable question/choice labels in `data.answers`. This does not extend the engine's built-in JSON form schema. [Migration decision](../planning.md#skill-authoring-and-longer-waits)
+The source repository includes `skills/grill-form/`; it is not shipped in the slim portable package. Run `fungi open skills/grill-form/assets/form.html --input skills/grill-form/example.json` for a complete skill-owned questionnaire. It accepts the older jstack question schema, renders Markdown and Mermaid offline, saves plain notes and one optional image, and returns readable question/choice labels in `data.answers`. This does not extend the engine's built-in JSON form schema. [Migration decision](../planning.md#skill-authoring-and-longer-waits)
 
 The bridge is `ready`, `saveDraft`, `submit` and `cancel`. Draft saving optionally takes attachments, so image bytes survive explicit reopen. HTML authors need no build system or registration manifest. The JSON schema remains experimental.
 
@@ -63,6 +63,8 @@ not infer a cause or retry with a different security policy.
 File selection, image paste, image draft recovery, submission, cancellation, local HTML controls and actual write-failure recovery were observed through the native UI. Killing the isolated page renderer produced `failed` with `renderer_crashed`; explicit reopen restored `DRAFT-CRASH-RECOVER`, and closing that new window produced `closed`. The app uses a minimal native menu without development reload. The comparison example exports a custom canvas; a drawing editor, screenshot capture, nested JSON components and external live updates remain deferred. Feature-detect GPU and codec capabilities; hosted rendering results vary by platform.
 
 ## Verification history
+
+- [2026-10-26 offline discovery](../verification/runs/2026-10-26-discovery.md) — installed help, examples, update/rollback and native throwaway reply.
 
 - [2026-10-25 Wails integration](../verification/runs/2026-10-25-wails-integration.md) — normal packaged launches, native input and recovery, artifact return, and updates with an active UI.
 

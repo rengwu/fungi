@@ -11,43 +11,28 @@ need no Go, Node, npm or bundled Electron. Keep the package directory together.
 Run `fungi doctor` to check the runtime without opening a window.
 
 ```sh
-./fungi describe
-./fungi describe html
-./fungi open examples/feedback.json
-./fungi open examples/review.html --delivery wait
-./fungi collect EXACT_SESSION_ID
-./fungi reopen EXACT_SESSION_ID
+./fungi help                   # short capability overview and task navigation
+./fungi help examples          # complete input → interface → response flows
+./fungi describe examples      # absolute installed paths and launch argv
+./fungi open ./ui/index.html --input ./input.json --delivery auto
 ```
 
-`auto` targets an inherited exact Codex conversation when `codex queue` is available; otherwise it returns an explicit manual fallback. `wait` holds **one** command until completion, with no Fungi human timeout. Use it only through a harness that keeps the call pending or automatically delivers background completion. A tool session ID alone is not an automatic return mechanism. **Never poll `collect`.** In manual mode, the user says “done,” then the agent executes the receipt's `collect` argument array once with its `collectEnv` environment.
+The [offline manual](docs/manual/start.md) is embedded in `fungi help TOPIC`
+and shipped as Markdown. It covers the [four-method page API](docs/manual/html.md),
+[completion and results](docs/manual/delivery.md), [CLI](docs/manual/cli.md),
+[native helpers](docs/manual/helper.md), [experimental forms](docs/manual/form.md)
+and [installation](docs/manual/installation.md). No separate Fungi skill is needed.
 
-Fungi requires no harness plugin or configuration step. `describe delivery` explains the native routes and limits. Use manual mode when the installed harness cannot sustain the intended human wait; a successful short tool call does not make a bounded route AFK-safe.
+Use ordinary local HTML/CSS/JS and libraries for any interaction the webview
+can render. Skills own the UI and meaning of its data. Draft saving is optional;
+submitted JSON and file artifacts are durable independently. The small
+[reply](examples/reply/index.html) and [canvas comparison](examples/compare/README.md)
+examples are starting points, not a list of allowed workflows.
 
-Results are durable JSON envelopes with `submitted`, `cancelled`, `closed` or `failed` outcomes. Attachments are saved files referenced by key and absolute path. Collection does not delete anything. Reopening creates a new session from the last acknowledged draft; it never changes the original result.
-
-```html
-<button id="send">Send</button>
-<script>
-(async () => {
-  const { input, draft } = await fungi.ready();
-  document.querySelector('#send').onclick = () =>
-    fungi.submit({ notes: draft?.notes ?? 'Looks good' });
-})();
-</script>
-```
-
-The bridge has four methods: `ready()`, `saveDraft(data, attachments?)`, `submit(data, attachments?)`, and `cancel()`. An attachment is `{key, name, blob}`. `ready()` returns restored attachments in that shape. Save drafts explicitly in custom HTML. Mutations run in call order, including Blob conversion; failed saves can be retried. Only acknowledged drafts are recoverable after close or interruption.
-
-Skills can use local HTML/CSS/JS, modules, custom elements, Canvas/SVG/WebGL,
-workers and WebAssembly. Pages are trusted local application code and can access
-Wails native APIs. Fungi keeps drafts/results separate; browser storage isolation
-is best effort. Use `saveDraft` for durable state and `sessionStorage` for
-window-local state. Linux direct media URLs have a known WebKitGTK limitation;
-Blob loading can help with small files, but no transparent workaround is promised.
-See the [authoring guide](docs/wiki/authoring.md) and
-[comparison example](examples/compare/README.md).
-
-The JSON renderer supports flat `text`, `textarea`, `range` and `image` fields. Its schema is experimental. See the examples and `describe form` / `describe helper`.
+Inspect the launch receipt: automatic delivery can fall back to manual.
+End the turn and collect once on notification or the user's “done.” Use
+`--delivery wait` only if the host keeps one call pending or automatically
+returns background completion. **Never poll `collect`.**
 
 ## Skill example
 

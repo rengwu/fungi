@@ -2,18 +2,31 @@ package main
 
 import (
 	"io"
+	"os"
 )
 
 func limits() map[string]int {
 	return map[string]int{"jsonBytes": maxJSON, "artifactBytes": maxArtifact, "totalArtifactBytes": maxArtifacts}
 }
 func describe(args []string, w io.Writer) error {
+	executable, err := os.Executable()
+	if err != nil {
+		return err
+	}
+	items := examples(executable)
+	paths := []string{}
+	for _, item := range items {
+		if item.Name != "form" && item.Available {
+			paths = append(paths, item.Source)
+		}
+	}
 	topics := map[string]any{
+		"examples": map[string]any{"items": items, "guide": "fungi help examples", "note": "Adapt these starting points; they are not a list of allowed workflows. Unavailable examples require a complete package."},
 		"html": map[string]any{
 			"launch": "fungi open ./index.html --delivery wait",
 			"bridge": map[string]string{
 				"ready()":                       "Promise<{input,draft,attachments,limits,delivery}>",
-				"saveDraft(data, attachments?)": "Promise<void>; attachments: [{key,name,blob}]. Acknowledged only after saving.",
+				"saveDraft(data, attachments?)": "Promise<unknown>; ignore the return value; attachments: [{key,name,blob}]. Acknowledged only after saving.",
 				"submit(data, attachments?)":    "Promise<result>; attachments: [{key,name,blob}]",
 				"cancel()":                      "Promise<result>",
 			},
@@ -24,9 +37,9 @@ func describe(args []string, w io.Writer) error {
 			"rendering":   []string{"HTML/CSS and custom elements", "Canvas 2D/SVG/WebGL", "local and Blob workers", "WebAssembly", "audio/video subject to system codec and URL support", "sandboxed inline srcdoc previews"},
 			"boundaries":  "Skill pages are trusted local code and can access Wails native APIs. Fungi confines served assets to the source root; browser storage isolation is best effort. Use saveDraft for durable state and sessionStorage for window-local state. Sandbox untrusted inline previews.",
 			"media":       "Linux WebKitGTK cannot load direct wails:// media URLs. Fetch-to-Blob can work for small files but loads them fully; no transparent workaround or universal codec support is promised.",
-			"examples":    []string{"examples/review.html", "examples/compare/index.html"},
-			"authoring":   "docs/wiki/authoring.md",
-			"platforms":   "docs/wiki/platforms.md: verified environments and startup diagnostics. Feature-detect WebGL and codecs; their availability depends on the host.",
+			"examples":    paths,
+			"authoring":   "fungi help html",
+			"platforms":   "fungi help installation: runtime requirements and startup diagnostics. Feature-detect WebGL and codecs; their availability depends on the host.",
 		},
 		"form": map[string]any{
 			"experimental": true, "launch": "fungi open ./form.json --input ./values.json --delivery wait",
@@ -75,7 +88,7 @@ func describe(args []string, w io.Writer) error {
 		if !ok {
 			return fail("invalid_arguments", "unknown topic")
 		}
-		return emit(w, map[string]any{"protocol": 1, "topic": args[0], "capability": v, "limits": limits()})
+		return emit(w, map[string]any{"protocol": 1, "topic": args[0], "capability": v, "limits": limits(), "reference": []string{executable, "help", args[0]}})
 	}
-	return emit(w, map[string]any{"protocol": 1, "version": buildVersion, "topics": []string{"html", "form", "helper", "delivery", "installation"}, "commands": []string{"doctor", "describe", "open", "collect", "reopen", "version", "install", "update", "rollback", "prune"}, "outcomes": []string{"submitted", "cancelled", "closed", "failed"}, "limits": limits(), "next": "fungi describe html"})
+	return emit(w, map[string]any{"protocol": 1, "version": buildVersion, "topics": []string{"html", "form", "helper", "delivery", "installation", "examples"}, "commands": []string{"help", "doctor", "describe", "open", "collect", "reopen", "version", "install", "update", "rollback", "prune"}, "outcomes": []string{"submitted", "cancelled", "closed", "failed"}, "limits": limits(), "documentation": map[string]any{"entry": []string{executable, "help", "start"}, "topics": manualTopics()}, "next": "fungi help start"})
 }

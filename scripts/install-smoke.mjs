@@ -24,7 +24,25 @@ const binary=path.join(installation,'bin',process.platform==='win32'?'fungi.exe'
 const env={...process.env,FUNGI_STATE_DIR:state};
 for(const key of Object.keys(env))if(['path','codex_thread_id','fungi_renderer_dir'].includes(key.toLowerCase()))delete env[key];
 env.PATH='';
-const run=async args=>JSON.parse((await promisify(execFile)(binary,args,{env,timeout:120000,maxBuffer:2**20})).stdout);
+const invoke=async args=>(await promisify(execFile)(binary,args,{cwd:directory,env,timeout:120000,maxBuffer:2**20})).stdout;
+const run=async args=>JSON.parse(await invoke(args));
+async function discovery(version){
+  const base=path.join(installation,'versions',version);
+  const index=await run(['describe']);
+  for(const topic of index.documentation.topics){
+    assert.equal(await invoke(['help',topic]),await readFile(path.join(base,'docs/manual',topic+'.md'),'utf8'));
+  }
+  const result=await run(['describe','examples']);
+  assert.equal(result.capability.items.length,4);
+  for(const item of result.capability.items){
+    assert.equal(item.available,true);assert.ok(path.isAbsolute(item.source));
+    assert.equal(path.relative(base,item.source).startsWith('..'),false);
+    assert.ok((await stat(item.source)).isFile());
+    assert.deepEqual(item.argv.slice(0,3),[path.join(base,path.basename(binary)),'open',item.source]);
+    if(item.input)JSON.parse(await readFile(item.input,'utf8'));
+  }
+  return {version,topics:index.documentation.topics,examples:result.capability.items};
+}
 const requests=[];
 const server=createServer(async(req,res)=>{
   requests.push(req.url);
@@ -56,6 +74,7 @@ try{
   }
   evidence.bootstrap={stdout:installer.stdout,stderr:installer.stderr,elapsedMs:Date.now()-bootstrapStarted};
   evidence.before=await run(['--version']);assert.equal(evidence.before.version,versionA);
+  evidence.discoveryBefore=await discovery(versionA);
   assert.deepEqual(requests,[`/download/${versionA}/${path.basename(archiveA)}.sha256`,`/download/${versionA}/${path.basename(archiveA)}`]);
   let receipt;
   if(!values['core-only']){
@@ -83,6 +102,7 @@ try{
   }
   evidence.update=await run(['update','--archive',archiveB,'--sha256',checksumB]);
   evidence.after=await run(['--version']);assert.equal(evidence.after.version,versionB);
+  evidence.discoveryAfter=await discovery(versionB);
   evidence.runtime=await run(['doctor']);assert.equal(evidence.runtime.available,true);
   const manifest=JSON.parse(await readFile(path.join(installation,'versions',versionB,'RELEASE.json'),'utf8'));
   assert.equal(manifest.format,2);assert.ok(manifest.wails);assert.ok(!manifest.electron);
@@ -97,6 +117,7 @@ try{
     evidence.result=result;evidence.artifactVerified=true;
   }
   evidence.rollback=await run(['rollback']);assert.equal((await run(['--version'])).version,versionA);
+  evidence.discoveryRollback=await discovery(versionA);
   evidence.passed=true;
 }catch(error){evidence.passed=false;evidence.error={message:error.message,code:error.code,signal:error.signal,killed:error.killed,stdout:error.stdout,stderr:error.stderr};throw error;}
 finally{

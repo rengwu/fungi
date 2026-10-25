@@ -1,0 +1,143 @@
+{
+  "specDigest": "01a80014b46b2b9a6bf06a22a4745d2fc80fa4e580e137f68787602ff260d8e3",
+  "spec": {
+    "title": "Fungi documentation — first decisions",
+    "questions": [
+      {
+        "id": "docs_entry",
+        "number": 23,
+        "prompt": "What should an unfamiliar agent see first?",
+        "context": "Both approaches still provide the full API reference. This chooses the starting point. These cards are illustrative documentation layouts.",
+        "recommendation": "Start with tasks. An agent can choose a path before loading the relevant details.",
+        "options": [
+          {
+            "id": "tasks",
+            "label": "Task-oriented starting page (recommended)",
+            "preview": {
+              "html": "<style>body{margin:0;padding:16px;background:#17191f;color:#ececf3;font:15px/1.5 system-ui}h3{margin:0 0 10px;font-size:16px}ul{margin:0;padding-left:20px}code{font-family:ui-monospace,monospace;color:#bfb1ff}.muted{color:#b1b4c0}.row{padding:10px 12px;border:1px solid #454957;border-radius:7px;margin:8px 0}strong{color:#d6ccff}</style><h3>What do you want to do?</h3><ul><li>Run a prepared interface</li><li>Create a one-off interface</li><li>Build a reusable skill interface</li><li>Look up a command or API</li></ul>",
+              "height": 205,
+              "anchors": [],
+              "state": {}
+            }
+          },
+          {
+            "id": "reference",
+            "label": "Command/API index first",
+            "preview": {
+              "html": "<style>body{margin:0;padding:16px;background:#17191f;color:#ececf3;font:15px/1.5 system-ui}h3{margin:0 0 10px;font-size:16px}ul{margin:0;padding-left:20px}code{font-family:ui-monospace,monospace;color:#bfb1ff}.muted{color:#b1b4c0}.row{padding:10px 12px;border:1px solid #454957;border-radius:7px;margin:8px 0}strong{color:#d6ccff}</style><h3>Fungi reference</h3><ul><li>CLI: <code>open · collect · reopen</code></li><li>Page API: <code>ready · submit · cancel</code></li><li>Delivery modes and result format</li><li>Optional drafts, attachments and limits</li></ul>",
+              "height": 205,
+              "anchors": [],
+              "state": {}
+            }
+          }
+        ],
+        "required": false
+      },
+      {
+        "id": "docs_offline",
+        "number": 24,
+        "prompt": "How much documentation should an installed copy include offline?",
+        "context": "This concerns Fungi-specific documentation, not copies of third-party framework manuals. The development wiki and test evidence do not need to ship.",
+        "recommendation": "Include the complete Fungi reference and a few small working examples. An agent should be able to use or author an interface without finding the source checkout.",
+        "options": [
+          {
+            "id": "option1",
+            "label": "Complete Fungi reference + small working examples (recommended)"
+          },
+          {
+            "id": "option2",
+            "label": "Core reference offline; tutorials and examples mainly online"
+          }
+        ],
+        "required": false
+      },
+      {
+        "id": "docs_examples",
+        "number": 25,
+        "prompt": "What should the main examples teach?",
+        "context": "This chooses example depth. It does not add a new component library or authorize a grill-form port.",
+        "recommendation": "Use a few small, complete flows: a plain response, an image/canvas result, and a reusable skill interface. Show the input, launch, completion and returned data together.",
+        "options": [
+          {
+            "id": "option1",
+            "label": "A few small, complete flows (recommended)"
+          },
+          {
+            "id": "option2",
+            "label": "Mostly short snippets for individual APIs"
+          },
+          {
+            "id": "option3",
+            "label": "One rich workflow explained in depth, such as grill-form"
+          }
+        ],
+        "required": false
+      },
+      {
+        "id": "docs_outline",
+        "number": 26,
+        "prompt": "What feels missing or unnecessary in this outline?",
+        "context": "Use Notes, or Comment on preview to mark a section. The structure is a proposal. A consuming skill keeps its own methodology and short launch/response recipe; Fungi supplies reference documentation.",
+        "recommendation": "Keep this small and expand when a real workflow needs more explanation.",
+        "options": [],
+        "required": false,
+        "preview": {
+          "html": "<style>body{margin:0;padding:16px;background:#17191f;color:#ececf3;font:15px/1.5 system-ui}h3{margin:0 0 10px;font-size:16px}ul{margin:0;padding-left:20px}code{font-family:ui-monospace,monospace;color:#bfb1ff}.muted{color:#b1b4c0}.row{padding:10px 12px;border:1px solid #454957;border-radius:7px;margin:8px 0}strong{color:#d6ccff}</style><h3>Proposed Fungi documentation</h3><div class=\"row\"><strong>Start here</strong><br>What Fungi does · choose a task · minimal round trip</div><div class=\"row\"><strong>Run an interface</strong><br>Launch · wait without polling · read the result</div><div class=\"row\"><strong>Author an interface</strong><br>HTML + input · results and files · optional recovery · native helpers</div><div class=\"row\"><strong>Reference</strong><br>CLI and page API · result shapes · errors and platform limits</div><div class=\"row\"><strong>Examples and troubleshooting</strong><br>Complete examples · missing runtime · failed delivery · interrupted session</div>",
+          "height": 485,
+          "anchors": [],
+          "state": {}
+        }
+      }
+    ]
+  },
+  "answers": [
+    {
+      "questionId": "docs_entry",
+      "number": 23,
+      "question": "What should an unfamiliar agent see first?",
+      "choiceId": "tasks",
+      "choice": "Task-oriented starting page (recommended)",
+      "notes": "i'm just concerned that the task-oriented way will stunt or constrain an agent's own creativity. we will have much more consistent results, sure, but some agents might blindly follow or even take it as a rule of law or strict instruction. i like the consistency but i also like to allow freedom of thought (creativity). anyway just me rambling, tell me what you think and push back if you need to.",
+      "status": "feedback",
+      "states": {},
+      "comments": []
+    },
+    {
+      "questionId": "docs_offline",
+      "number": 24,
+      "question": "How much documentation should an installed copy include offline?",
+      "choiceId": "option1",
+      "choice": "Complete Fungi reference + small working examples (recommended)",
+      "notes": "",
+      "status": "feedback",
+      "states": {},
+      "comments": []
+    },
+    {
+      "questionId": "docs_examples",
+      "number": 25,
+      "question": "What should the main examples teach?",
+      "choiceId": "option1",
+      "choice": "A few small, complete flows (recommended)",
+      "notes": "",
+      "status": "feedback",
+      "states": {},
+      "comments": []
+    },
+    {
+      "questionId": "docs_outline",
+      "number": 26,
+      "question": "What feels missing or unnecessary in this outline?",
+      "choiceId": null,
+      "choice": null,
+      "notes": "yep keep it simple and concise. don't bloat it.",
+      "status": "feedback",
+      "states": {},
+      "comments": []
+    }
+  ],
+  "preview": {
+    "file": "2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284-review.html",
+    "sha256": "94cb8694f5a7b0ec31ef4e886ab4ed9efae42f6f72c836810c723417fa05fdf0"
+  }
+}
