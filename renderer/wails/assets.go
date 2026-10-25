@@ -75,7 +75,16 @@ func (a *assets) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		if !entry {
-			if t := mime.TypeByExtension(filepath.Ext(name)); t != "" {
+			// Windows may have no .mjs association. Module loading must not
+			// depend on a user's registry or MIME database.
+			t := mime.TypeByExtension(filepath.Ext(name))
+			switch strings.ToLower(filepath.Ext(name)) {
+			case ".js", ".mjs":
+				t = "text/javascript; charset=utf-8"
+			case ".wasm":
+				t = "application/wasm"
+			}
+			if t != "" {
 				w.Header().Set("Content-Type", t)
 			}
 			http.ServeContent(w, r, name, info.ModTime(), f)

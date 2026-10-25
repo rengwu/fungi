@@ -74,7 +74,7 @@ if(ready.draft){
     frame.srcdoc='<script>let blocked=false;try{parent.document.body}catch{blocked=true}parent.postMessage({blocked,bridge:typeof fungi,node:typeof require},"*")<\/script>';
     document.body.append(frame);const value=await result;frame.remove();assert(value.blocked&&value.bridge==='undefined'&&value.node==='undefined');
   });
-  await check('page has no Node or IPC',async()=>assert(typeof require==='undefined'&&typeof process==='undefined'&&typeof ipcRenderer==='undefined'));
+  await check('page has no Node or Electron IPC',async()=>assert(typeof require==='undefined'&&typeof process==='undefined'&&typeof ipcRenderer==='undefined'));
   await check('external and file requests denied',async()=>{
     await rejects(()=>fetch('https://example.com'));await rejects(()=>fetch('file:///etc/hosts'));
   });

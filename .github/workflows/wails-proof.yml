@@ -9,6 +9,7 @@ on:
       - 'renderer/builtin.go'
       - 'renderer/wails/**'
       - 'scripts/renderer-smoke.mjs'
+      - 'scripts/wails-probe.mjs'
 
 permissions:
   contents: read
@@ -58,6 +59,17 @@ jobs:
           else
             node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails
           fi
+      - name: Diagnose native host, empty artifacts and media
+        if: success() || failure()
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            xvfb-run -a node scripts/wails-probe.mjs verification-output/fungi-wails-core verification-output/fungi-wails
+          elif [[ "$RUNNER_OS" == "Windows" ]]; then
+            node scripts/wails-probe.mjs verification-output/fungi-wails-core.exe verification-output/fungi-wails.exe
+          else
+            node scripts/wails-probe.mjs verification-output/fungi-wails-core verification-output/fungi-wails
+          fi
       - name: Preserve run evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -67,4 +79,7 @@ jobs:
             verification-output/renderer-smoke-*/evidence.json
             verification-output/renderer-smoke-*/sessions/**/worker.log
             verification-output/renderer-smoke-*/sessions/**/result.json
+            verification-output/wails-probe-*/evidence.json
+            verification-output/wails-probe-*/sessions/**/worker.log
+            verification-output/wails-probe-*/sessions/**/result.json
           if-no-files-found: warn
