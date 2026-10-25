@@ -1,0 +1,53 @@
+{
+  "driver": "Codex native computer use, real input and file chooser",
+  "fixture": "examples/feedback.json",
+  "nativeClose": "window close button, owner saved closed",
+  "restoration": {
+    "name": "Wails native smoke",
+    "duration": 550,
+    "notes": "Synthetic native input — prese",
+    "imagePreview": true
+  },
+  "submitted": {
+    "name": "Wails native smoke",
+    "duration": 550,
+    "notes": "Synthetic native input — preserved after close.",
+    "reference": {
+      "artifact": "reference"
+    }
+  },
+  "artifactHashVerified": true,
+  "inputCaveat": "Initial batched typeText followed immediately by chooser action left a truncated note. Reopen preserved exactly that acknowledged value; separate native paste was visibly complete before submit. Typing-speed loss cause not established.",
+  "richForm": {
+    "fixture": "preexisting disposable platform-2026-10-22/rich.html",
+    "controls": "sandboxed preview duration slider and easing menu; native note paste",
+    "submitted": {
+      "schemaVersion": 1,
+      "sessionId": "295378ad-5644-44ac-9398-6ca1d0670871",
+      "specDigest": "e164a0cd55d8506590483905d707705e1262b358b42fbd9396b8118d9fdf9b64",
+      "title": "Disposable verification — rich image and retry",
+      "answers": [
+        {
+          "questionId": "animation",
+          "choiceId": null,
+          "notes": "Synthetic Wails rich-form check",
+          "comments": [],
+          "states": {
+            "main": {
+              "duration": 540,
+              "easing": "ease-in-out"
+            }
+          },
+          "images": []
+        }
+      ]
+    }
+  },
+  "notExercised": [
+    "clipboard image paste",
+    "native Windows/Linux mouse and keyboard",
+    "WebContent crash",
+    "sleep/wake",
+    "automatic harness callback on Wails"
+  ]
+}

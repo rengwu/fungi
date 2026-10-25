@@ -1,0 +1,407 @@
+Wails (windows-latest)	Set up job	﻿2026-10-25T11:14:14.6342282Z Current runner version: '2.338.0'
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6411484Z ##[group]Runner Image Provisioner
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6412997Z Hosted Compute Agent
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6414070Z Version: 20261021.618
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6415145Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6416341Z Build Date: 2026-10-21T00:45:21Z
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6417860Z Worker ID: {ab56c20b-71da-4704-a9b4-7f42e94a0744}
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6419095Z Region: northcentralus
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6420507Z Cloud: Azure
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6421571Z ##[endgroup]
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6423912Z ##[group]Operating System
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6425012Z Microsoft Windows Server 2025
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6426026Z 10.0.26100
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6426887Z Datacenter
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6427735Z ##[endgroup]
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6428657Z ##[group]Runner Image
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6429772Z Image: windows-2025-vs2026
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6430804Z Version: 20261021.278.1
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6432808Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261021.278/images/windows/Windows2025-VS2026-Readme.md
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6436689Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261021.278
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6438545Z ##[endgroup]
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6441057Z ##[group]GITHUB_TOKEN Permissions
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6444146Z Contents: read
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6445136Z Metadata: read
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6446088Z ##[endgroup]
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6449243Z Secret source: Actions
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6450804Z Cache mode: write
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.6452060Z Prepare workflow directory
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.7055565Z Prepare all required actions
+Wails (windows-latest)	Set up job	2026-10-25T11:14:14.7132055Z Getting action download info
+Wails (windows-latest)	Set up job	2026-10-25T11:14:15.0102355Z Download action repository 'actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+Wails (windows-latest)	Set up job	2026-10-25T11:14:15.1812969Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+Wails (windows-latest)	Set up job	2026-10-25T11:14:15.5423476Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+Wails (windows-latest)	Set up job	2026-10-25T11:14:15.7643186Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+Wails (windows-latest)	Set up job	2026-10-25T11:14:16.1438345Z Complete job name: Wails (windows-latest)
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	﻿2026-10-25T11:14:16.3234939Z ##[group]Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3236769Z with:
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3237493Z   repository: rengwu/fungi
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3245371Z   token: ***
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3245867Z   ssh-strict: true
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3246263Z   ssh-user: git
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3246661Z   persist-credentials: true
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3247105Z   clean: true
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3247495Z   sparse-checkout-cone-mode: true
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3247970Z   fetch-depth: 1
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3248389Z   fetch-tags: false
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3248787Z   show-progress: true
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3249192Z   lfs: false
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3249574Z   submodules: false
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3249974Z   set-safe-directory: true
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3250431Z   allow-unsafe-pr-checkout: false
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:16.3251260Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3841510Z Syncing repository: rengwu/fungi
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3845592Z ##[group]Getting Git version info
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3847824Z Working directory is 'D:\a\fungi\fungi'
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3851326Z [command]"C:\Program Files\Git\bin\git.exe" version
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3853765Z git version 2.56.0.windows.2
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3861336Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3871128Z Temporarily overriding HOME='D:\a\_temp\ff231224-0339-44e7-be91-00d08f383c33' before making global git config changes
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3876505Z Adding repository directory to the temporary git global config as a safe directory
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3881095Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\fungi\fungi
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3890047Z Deleting the contents of 'D:\a\fungi\fungi'
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3893520Z ##[group]Initializing the repository
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3896781Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\fungi\fungi
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3900042Z Initialized empty Git repository in D:/a/fungi/fungi/.git/
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3906623Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/rengwu/fungi
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3913870Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3917257Z ##[group]Disabling automatic garbage collection
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3920360Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3957893Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3961357Z ##[group]Setting up auth
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3965153Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:17.3994236Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:18.9378213Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:18.9768496Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:19.5867303Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:19.6253511Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:20.2310033Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:20.2718992Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:20.2721962Z ##[group]Fetching the repository
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:20.2734806Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +af42ecce6ccc089f701a243586e6f3cf49946425:refs/remotes/origin/foundation-hardening
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.4832671Z From https://github.com/rengwu/fungi
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.4838349Z  * [new ref]         af42ecce6ccc089f701a243586e6f3cf49946425 -> origin/foundation-hardening
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.4874530Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.4875605Z ##[group]Determining the checkout info
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.4970949Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.4988702Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.5434727Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.5802824Z ##[group]Checking out the ref
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.5812587Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B foundation-hardening refs/remotes/origin/foundation-hardening
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.7630362Z Switched to a new branch 'foundation-hardening'
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.7731625Z branch 'foundation-hardening' set up to track 'origin/foundation-hardening'.
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.7781446Z ##[endgroup]
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.8253062Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+Wails (windows-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:14:21.8600531Z af42ecce6ccc089f701a243586e6f3cf49946425
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	﻿2026-10-25T11:14:21.9080858Z ##[group]Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:21.9081338Z with:
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:21.9081534Z   go-version: 1.26.4
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:21.9081738Z   cache: false
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:21.9081927Z   check-latest: false
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:21.9084656Z   token: ***
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:21.9084843Z ##[endgroup]
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:22.0814362Z Setup go version spec 1.26.4
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:22.0833248Z Attempting to download 1.26.4...
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:22.7843803Z matching 1.26.4...
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:22.7884474Z Acquiring 1.26.4 from https://github.com/actions/go-versions/releases/download/1.26.4-26891772857/go-1.26.4-win32-x64.zip
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:23.5386941Z Extracting Go...
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:23.6879045Z [command]"C:\Program Files\PowerShell\7\pwsh.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command "$ErrorActionPreference = 'Stop' ; try { Add-Type -AssemblyName System.IO.Compression.ZipFile } catch { } ; try { [System.IO.Compression.ZipFile]::ExtractToDirectory('D:\a\_temp\go-1.26.4-win32-x64.zip', 'D:\a\_temp\d476dd28-58da-4a67-902a-96b573d4478a', $true) } catch { if (($_.Exception.GetType().FullName -eq 'System.Management.Automation.MethodException') -or ($_.Exception.GetType().FullName -eq 'System.Management.Automation.RuntimeException') ){ Expand-Archive -LiteralPath 'D:\a\_temp\go-1.26.4-win32-x64.zip' -DestinationPath 'D:\a\_temp\d476dd28-58da-4a67-902a-96b573d4478a' -Force } else { throw $_ } } ;"
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:30.0116756Z Successfully extracted go to D:\a\_temp\d476dd28-58da-4a67-902a-96b573d4478a
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:30.0117969Z Adding to the cache ...
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:44.5385500Z Created link C:\hostedtoolcache\windows\go\1.26.4\x64 => D:\hostedtoolcache\windows\go\1.26.4\x64
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:44.5388842Z Created link C:\hostedtoolcache\windows\go\1.26.4\x64.complete => D:\hostedtoolcache\windows\go\1.26.4\x64.complete
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:44.5391788Z Successfully cached go to C:\hostedtoolcache\windows\go\1.26.4\x64
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:44.5393203Z Added go to the path
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:44.5399039Z Successfully set up Go version 1.26.4
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:45.0090983Z go version go1.26.4 windows/amd64
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:45.0092647Z
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:45.0096240Z ##[group]go env
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1496692Z set AR=ar
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1497430Z set CC=gcc
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1498085Z set CGO_CFLAGS=-O2 -g
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1502246Z set CGO_CPPFLAGS=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1502961Z set CGO_CXXFLAGS=-O2 -g
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1505523Z set CGO_ENABLED=1
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1509535Z set CGO_FFLAGS=-O2 -g
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1510452Z set CGO_LDFLAGS=-O2 -g
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1510952Z set CXX=g++
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1513662Z set GCCGO=gccgo
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1520588Z set GO111MODULE=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1521096Z set GOAMD64=v1
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1521652Z set GOARCH=amd64
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1528501Z set GOAUTH=netrc
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1529068Z set GOBIN=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1529595Z set GOCACHE=C:\Users\runneradmin\AppData\Local\go-build
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1530238Z set GOCACHEPROG=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1530691Z set GODEBUG=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1531167Z set GOENV=C:\Users\runneradmin\AppData\Roaming\go\env
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1531718Z set GOEXE=.exe
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1532103Z set GOEXPERIMENT=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1532496Z set GOFIPS140=off
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1533324Z set GOFLAGS=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1534743Z set GOGCCFLAGS=-m64 -mthreads -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=C:\Users\RUNNER~1\AppData\Local\Temp\go-build3451323208=/tmp/go-build -gno-record-gcc-switches
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1546860Z set GOHOSTARCH=amd64
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1547417Z set GOHOSTOS=windows
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1547907Z set GOINSECURE=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1548513Z set GOMOD=D:\a\fungi\fungi\go.mod
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1551396Z set GOMODCACHE=C:\Users\runneradmin\go\pkg\mod
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1558651Z set GONOPROXY=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1576077Z set GONOSUMDB=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1588356Z set GOOS=windows
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1589038Z set GOPATH=C:\Users\runneradmin\go
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1594302Z set GOPRIVATE=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1594947Z set GOPROXY=https://proxy.golang.org,direct
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1595677Z set GOROOT=C:\hostedtoolcache\windows\go\1.26.4\x64
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1596309Z set GOSUMDB=sum.golang.org
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1596785Z set GOTELEMETRY=local
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1597447Z set GOTELEMETRYDIR=C:\Users\runneradmin\AppData\Roaming\go\telemetry
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1598605Z set GOTMPDIR=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1599041Z set GOTOOLCHAIN=local
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1599746Z set GOTOOLDIR=C:\hostedtoolcache\windows\go\1.26.4\x64\pkg\tool\windows_amd64
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1600547Z set GOVCS=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1601023Z set GOVERSION=go1.26.4
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1601464Z set GOWORK=
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1601894Z set PKG_CONFIG=pkg-config
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1602263Z
+Wails (windows-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:14:48.1602941Z ##[endgroup]
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	﻿2026-10-25T11:14:48.1901351Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1901842Z with:
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1902024Z   node-version: 22.19.0
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1902251Z   package-manager-cache: false
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1902506Z   check-latest: false
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1905240Z   token: ***
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1905417Z env:
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1905581Z   GOTOOLCHAIN: local
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.1905773Z ##[endgroup]
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:48.3871667Z Attempting to download 22.19.0...
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:49.0078539Z Acquiring 22.19.0 - x64 from https://github.com/actions/node-versions/releases/download/22.19.0-17311483029/node-22.19.0-win32-x64.7z
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:49.4081690Z Extracting ...
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:52.2555821Z Adding to the cache ...
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:14:58.9978828Z ##[group]Environment details
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:15:01.9423741Z node: v22.19.0
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:15:01.9424555Z npm: 10.9.3
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:15:01.9425088Z yarn: 1.22.22
+Wails (windows-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:15:01.9426057Z ##[endgroup]
+Wails (windows-latest)	Build core and renderer	﻿2026-10-25T11:15:01.9784807Z ##[group]Run suffix=''
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9785209Z ^[[36;1msuffix=''^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9785447Z ^[[36;1mtags=production^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9785738Z ^[[36;1mif [[ "$RUNNER_OS" == "Windows" ]]; then suffix=.exe; fi^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9786163Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then tags=production,webkit2_41; fi^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9786725Z ^[[36;1mgo build -trimpath -ldflags '-s -w' -o "verification-output/fungi-wails-core$suffix" .^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9787402Z ^[[36;1mcd renderer^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9787614Z ^[[36;1mgo vet -tags "$tags" ./...^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9788096Z ^[[36;1mgo build -tags "$tags" -trimpath -ldflags '-s -w' -o "../verification-output/fungi-wails$suffix" ./wails^[[0m
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9810024Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9810440Z env:
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9810608Z   GOTOOLCHAIN: local
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:01.9810799Z ##[endgroup]
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:41.4358767Z go: downloading github.com/wailsapp/wails/v2 v2.17.0
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:51.6964873Z go: downloading golang.org/x/net v0.56.0
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:51.7485920Z go: downloading github.com/leaanthony/slicer v1.6.0
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:51.9417725Z go: downloading github.com/leaanthony/u v1.1.1
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:52.1121279Z go: downloading github.com/pkg/errors v0.9.1
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:52.4412128Z go: downloading github.com/samber/lo v1.49.1
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:52.5826980Z go: downloading github.com/leaanthony/go-ansi-parser v1.6.1
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:52.7384106Z go: downloading github.com/wailsapp/go-webview2 v1.0.22
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:54.2291625Z go: downloading github.com/tkrajina/go-reflector v0.5.8
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:54.5407265Z go: downloading git.sr.ht/~jackmordaunt/go-toast/v2 v2.0.3
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:54.6439892Z go: downloading github.com/bep/debounce v1.2.1
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:54.7815139Z go: downloading github.com/google/uuid v1.6.0
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:54.9278094Z go: downloading github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:55.1154192Z go: downloading golang.org/x/sys v0.46.0
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:56.5925313Z go: downloading golang.org/x/text v0.39.0
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:58.2760754Z go: downloading github.com/rivo/uniseg v0.4.7
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:58.2823210Z go: downloading github.com/go-ole/go-ole v1.3.0
+Wails (windows-latest)	Build core and renderer	2026-10-25T11:15:58.8604764Z go: downloading github.com/gabriel-vasile/mimetype v1.4.16
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	﻿2026-10-25T11:17:25.4101460Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4102542Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4103944Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails --allow-unavailable-webgl^[[0m
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4105338Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4106546Z ^[[36;1m  node scripts/renderer-smoke.mjs verification-output/fungi-wails-core.exe --helper verification-output/fungi-wails.exe^[[0m
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4108148Z ^[[36;1melse^[[0m
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4109151Z ^[[36;1m  node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails^[[0m
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4110190Z ^[[36;1mfi^[[0m
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4141107Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4141835Z env:
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4142163Z   GOTOOLCHAIN: local
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:25.4142645Z ##[endgroup]
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0478485Z {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0507039Z   "evidence": "D:\\a\\fungi\\fungi\\verification-output\\renderer-smoke-wxRKVq\\evidence.json",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0512384Z   "scope": "workflow including WebGL",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0515958Z   "excluded": [],
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0575107Z   "checks": [
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0579019Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0582639Z       "name": "ES modules and dynamic import",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0585774Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0603680Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0629537Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0642910Z       "name": "custom elements and shadow DOM",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0645921Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0667781Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0674384Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0675333Z       "name": "Canvas 2D and PNG export",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0676160Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0677632Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0678234Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0678884Z       "name": "SVG image rendering",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0679710Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0680298Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0680857Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0681568Z       "name": "WebGL rendering context",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0682660Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0683375Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0684158Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0685205Z       "name": "local module worker",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0686760Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0687422Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0688550Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0689212Z       "name": "Blob worker",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0689960Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0690560Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0691107Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0691867Z       "name": "WebAssembly streaming compile",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0692659Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0693247Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0693802Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0694694Z       "name": "local JSON fetch",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0698617Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0700335Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0701025Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0701787Z       "name": "Blob fetch",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0702567Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0703204Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0703760Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0704472Z       "name": "media metadata and seek",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0705293Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0705884Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0706404Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0707057Z       "name": "asset byte ranges",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0707777Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0708341Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0708831Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0709526Z       "name": "sandboxed inline preview",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0710277Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0710878Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0711461Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0712276Z       "name": "page has no Node or Electron IPC",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0713208Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0713854Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0718397Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0720444Z       "name": "external and file requests denied",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0721385Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0722034Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0722717Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0723440Z       "name": "asset symlink escape denied",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0724259Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0724802Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0725288Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0726093Z       "name": "oversized JSON rejected without closing",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0726922Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0727558Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0728069Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0728931Z       "name": "envelope overhead rejected without killing owner",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0729735Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0730302Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0730834Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0731569Z       "name": "oversized attachment rejected",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0732315Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0732863Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0733385Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0734053Z       "name": "draft data restored",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0734809Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0735397Z     },
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0735958Z     {
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0736697Z       "name": "draft attachment restored as Blob",
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0737758Z       "passed": true
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0738364Z     }
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0738874Z   ]
+Wails (windows-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:17:33.0739433Z }
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	﻿2026-10-25T11:17:33.0985398Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.0986147Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.0987239Z ^[[36;1m  xvfb-run -a node scripts/wails-probe.mjs verification-output/fungi-wails-core verification-output/fungi-wails^[[0m
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.0988344Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.0989432Z ^[[36;1m  node scripts/wails-probe.mjs verification-output/fungi-wails-core.exe verification-output/fungi-wails.exe^[[0m
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.0990446Z ^[[36;1melse^[[0m
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.0991293Z ^[[36;1m  node scripts/wails-probe.mjs verification-output/fungi-wails-core verification-output/fungi-wails^[[0m
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.0992225Z ^[[36;1mfi^[[0m
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.1017722Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.1018432Z env:
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.1018795Z   GOTOOLCHAIN: local
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:33.1019188Z ##[endgroup]
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8886920Z {
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8930136Z   "evidence": "D:\\a\\fungi\\fungi\\verification-output\\wails-probe-pViteU\\evidence.json",
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8935682Z   "restored": {
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8938065Z     "restoredEmpty": true,
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8939757Z     "restoredType": "text/plain",
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8942334Z     "diagnostics": {
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8943005Z       "native": {
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8943724Z         "browserOpenURL": "function",
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8944555Z         "clipboardGetText": "function",
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8945292Z         "quit": "function",
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8946085Z         "boundPersist": "function",
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8946878Z         "lowLevelInvoke": "function"
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8947519Z       },
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8948424Z       "localMedia": {
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8949106Z         "ok": true,
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8949780Z         "duration": 1
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8950393Z       },
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8950990Z       "blobMedia": {
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8951615Z         "ok": true,
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8952174Z         "duration": 1
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8952704Z       },
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8953331Z       "mediaType": "audio/wav"
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8953912Z     }
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8954347Z   },
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8954843Z   "independent": {
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8955444Z     "inheritedStorage": null
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8956047Z   }
+Wails (windows-latest)	Diagnose native host, empty artifacts and media	2026-10-25T11:17:37.8956521Z }
+Wails (windows-latest)	Preserve run evidence	﻿2026-10-25T11:17:37.9436015Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9436692Z with:
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9437225Z   name: wails-windows-latest
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9439593Z   path: verification-output/renderer-smoke-*/evidence.json
+Wails (windows-latest)	Preserve run evidence	verification-output/renderer-smoke-*/sessions/**/worker.log
+Wails (windows-latest)	Preserve run evidence	verification-output/renderer-smoke-*/sessions/**/result.json
+Wails (windows-latest)	Preserve run evidence	verification-output/wails-probe-*/evidence.json
+Wails (windows-latest)	Preserve run evidence	verification-output/wails-probe-*/sessions/**/worker.log
+Wails (windows-latest)	Preserve run evidence	verification-output/wails-probe-*/sessions/**/result.json
+Wails (windows-latest)	Preserve run evidence
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9442107Z   if-no-files-found: warn
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9442463Z   compression-level: 6
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9442802Z   overwrite: false
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9443134Z   include-hidden-files: false
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9443493Z env:
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9443759Z   GOTOOLCHAIN: local
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:37.9444058Z ##[endgroup]
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:38.1917930Z (node:5528) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:38.1921779Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:38.6580996Z With the provided path, there will be 12 files uploaded
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:38.6582732Z Artifact name is valid!
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:38.6583547Z Root directory input is valid!
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:38.9532138Z Beginning upload of artifact content to blob storage
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:38.9724555Z (node:5528) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:39.0746506Z Uploaded bytes 5876
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:39.1239202Z Finished uploading artifact content to blob storage!
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:39.1257789Z SHA256 digest of uploaded artifact zip is ed3510c6081e647134866a86b5f4f8a83e062b57e4528ac341cd867c2477404d
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:39.1260339Z Finalizing artifact upload
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:39.5465539Z Artifact wails-windows-latest.zip successfully finalized. Artifact ID 12597401474
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:39.5467945Z Artifact wails-windows-latest has been successfully uploaded! Final size is 5876 bytes. Artifact ID is 12597401474
+Wails (windows-latest)	Preserve run evidence	2026-10-25T11:17:39.5476315Z Artifact download URL: https://github.com/rengwu/fungi/actions/runs/40188005719/artifacts/12597401474
+Wails (windows-latest)	Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	﻿2026-10-25T11:17:39.5873361Z Post job cleanup.
+Wails (windows-latest)	Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	﻿2026-10-25T11:17:39.7698308Z Post job cleanup.
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	﻿2026-10-25T11:17:39.9860797Z Post job cleanup.
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:40.2876009Z [command]"C:\Program Files\Git\bin\git.exe" version
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:40.3255006Z git version 2.56.0.windows.2
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:40.3336616Z Temporarily overriding HOME='D:\a\_temp\774a3dc2-9999-41cf-bbf5-ff5a05924e7c' before making global git config changes
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:40.3338166Z Adding repository directory to the temporary git global config as a safe directory
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:40.3347459Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\fungi\fungi
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:40.3751054Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:40.4138092Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:41.0126895Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:41.0478739Z http.https://github.com/.extraheader
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:41.0524183Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:41.0912410Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:41.7349487Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+Wails (windows-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:17:41.7730254Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+Wails (windows-latest)	Complete job	﻿2026-10-25T11:17:42.3852022Z Cleaning up orphan processes
+Wails (windows-latest)	Complete job	2026-10-25T11:17:42.4613632Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

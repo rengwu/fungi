@@ -1,0 +1,196 @@
+{
+  "observedDate": "2026-10-23",
+  "method": "Read public GitHub repository metadata and sampled default-branch commits using gh api; source snapshots, not integration tests. Push timestamps alone are not maintenance evidence. Stars indicate interest, not reliability.",
+  "repositories": [
+    {
+      "repository": "wailsapp/wails",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-10-23T00:27:30Z",
+      "stars": 36662
+    },
+    {
+      "repository": "webview/webview",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2026-10-22T01:30:29Z",
+      "stars": 14304
+    },
+    {
+      "repository": "webview/webview_go",
+      "archived": false,
+      "default_branch": "master",
+      "pushed_at": "2024-08-31T12:06:34Z",
+      "stars": 458
+    },
+    {
+      "repository": "tauri-apps/tauri",
+      "archived": false,
+      "default_branch": "dev",
+      "pushed_at": "2026-10-23T04:47:08Z",
+      "stars": 112135
+    },
+    {
+      "repository": "tauri-apps/wry",
+      "archived": false,
+      "default_branch": "dev",
+      "pushed_at": "2026-10-20T11:02:55Z",
+      "stars": 5024
+    },
+    {
+      "repository": "webui-dev/webui",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-22T16:23:22Z",
+      "stars": 4631
+    },
+    {
+      "repository": "neutralinojs/neutralinojs",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-23T00:40:11Z",
+      "stars": 8671
+    },
+    {
+      "repository": "obsidianmd/pele",
+      "archived": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-22T22:41:25Z",
+      "stars": 3146
+    }
+  ],
+  "recentCommits": [
+    {
+      "repository": "wailsapp/wails",
+      "commits": [
+        {
+          "date": "2026-10-23T00:27:28Z",
+          "sha": "b3ff94ad5b3d9721454e1d1e4505361092eb2575",
+          "subject": "chore: update sponsors.svg and contributors.svg [skip ci]"
+        },
+        {
+          "date": "2026-10-22T00:26:16Z",
+          "sha": "a90f7e7f50bf3d7db5552fcaf9eeec6fd3d4e626",
+          "subject": "chore: update sponsors.svg and contributors.svg [skip ci]"
+        },
+        {
+          "date": "2026-10-21T00:25:34Z",
+          "sha": "73242d1eca0d7d940321e1a42fdf1df6605edab9",
+          "subject": "chore: update sponsors.svg and contributors.svg [skip ci]"
+        }
+      ],
+      "source": "https://api.github.com/repos/wailsapp/wails/commits?per_page=3"
+    },
+    {
+      "repository": "webview/webview",
+      "commits": [
+        {
+          "date": "2026-10-22T01:30:29Z",
+          "sha": "f244320ab0d82fdab98a094e02996fc26d0ffd0c",
+          "subject": "Replace deprecated std::aligned_storage with alignas in optional<T> (#1381)"
+        },
+        {
+          "date": "2026-10-20T00:01:05Z",
+          "sha": "e98ad229413544744d7cd904b70c017b50cb2bef",
+          "subject": "Add new Python webview repository to README (#1367)"
+        },
+        {
+          "date": "2026-10-19T23:59:29Z",
+          "sha": "da461a14f37ab19ef921cc1c4985f03c994b9240",
+          "subject": "Null-terminate the version string of the built-in WebView2 loader (#1379)"
+        }
+      ],
+      "source": "https://api.github.com/repos/webview/webview/commits?per_page=3"
+    },
+    {
+      "repository": "webview/webview_go",
+      "commits": [
+        {
+          "date": "2024-08-31T12:06:33Z",
+          "sha": "6173450d4dd61511002d897d55e4d0b6e75aeb96",
+          "subject": "Expand CI job matrix (#56)"
+        },
+        {
+          "date": "2024-08-31T09:35:39Z",
+          "sha": "95daa0e0325f15a229044dd56852ca306cd1d7bb",
+          "subject": "Add dummy files to allow vendoring (#54)"
+        },
+        {
+          "date": "2024-08-31T09:31:03Z",
+          "sha": "8a7a3c16a50a1db86776b3f53e52340c7cc1e167",
+          "subject": "Update CI config (#55)"
+        }
+      ],
+      "source": "https://api.github.com/repos/webview/webview_go/commits?per_page=3"
+    },
+    {
+      "repository": "tauri-apps/wry",
+      "commits": [
+        {
+          "date": "2026-10-20T11:00:43Z",
+          "sha": "acafd84bc8b6425e4ac323365e7fda29b67ec24a",
+          "subject": "chore(macos): fix most clippy warnings (#1898)"
+        },
+        {
+          "date": "2026-10-20T08:51:09Z",
+          "sha": "926dd150b13beff4dc5d2647d577aedf910affb2",
+          "subject": "fix(macos): don't add scripts or IPC handler to an opener's shared controller (#1876)"
+        },
+        {
+          "date": "2026-10-20T07:19:53Z",
+          "sha": "1f86475c0154aeb14af7ad5710fdc72be4c139be",
+          "subject": "fix(android): run initialization scripts once on non-intercepted URLs (#1895)"
+        }
+      ],
+      "source": "https://api.github.com/repos/tauri-apps/wry/commits?per_page=3"
+    },
+    {
+      "repository": "webui-dev/webui",
+      "commits": [
+        {
+          "date": "2026-10-22T16:22:19Z",
+          "sha": "2b35db13f864031543f61816c496b1035c026340",
+          "subject": "Core - Fix multiple bugs"
+        },
+        {
+          "date": "2026-10-22T16:11:04Z",
+          "sha": "9125b207c1b92f638f05d88ad879ac0261a44e09",
+          "subject": "Core - Adding tcp_nodelay to HTTP options"
+        },
+        {
+          "date": "2026-10-22T15:50:14Z",
+          "sha": "74aaf9f53e46cd4486ca2bc7c7f370ce5918a2ea",
+          "subject": "Merge pull request #726 from ViktorJannicke/fix/navigation-event-count"
+        }
+      ],
+      "source": "https://api.github.com/repos/webui-dev/webui/commits?per_page=3"
+    },
+    {
+      "repository": "neutralinojs/neutralinojs",
+      "commits": [
+        {
+          "date": "2026-10-06T08:23:58Z",
+          "sha": "d265bf2deaea01f7f58a247556b8d0b29224c857",
+          "subject": "Update changelog for v6.10.0 (#1853)"
+        },
+        {
+          "date": "2026-09-28T10:32:55Z",
+          "sha": "4361b63eb1157fc7dedb29b92815a08ec0002767",
+          "subject": "Rename getGPUInfo() to getGPUs() (#1850)"
+        },
+        {
+          "date": "2026-09-28T06:21:37Z",
+          "sha": "14e19bdd00c074e86758a16c6a7dabf01206f27e",
+          "subject": "Bump js-yaml from 4.3.1 to 4.3.2 in /spec (#1841)"
+        }
+      ],
+      "source": "https://api.github.com/repos/neutralinojs/neutralinojs/commits?per_page=3"
+    }
+  ],
+  "wailsAdditional": "[{\"date\":\"2026-10-20T15:13:56Z\",\"sha\":\"2bdf60a266de9ed835d6998cd695c66e2c37d15a\",\"subject\":\"chore(v3): bump to v3.0.0-beta.34 and update changelog\"},{\"date\":\"2026-10-20T09:18:42Z\",\"sha\":\"6ee8e1289949280a601a8fbe31d9211db3736807\",\"subject\":\"fix(v3/windows): restore WebView focus and handle Tab handoff (#6306)\"},{\"date\":\"2026-10-20T09:08:40Z\",\"sha\":\"b76481d84af9d9e38c1b0e74ac235cf48a8f02f1\",\"subject\":\"fix(v3/webview2): preserve inherited COM vtable slots (#6309)\"},{\"date\":\"2026-10-19T15:13:57Z\",\"sha\":\"b710765493d2d541d1388d83a6731391fd9f2219\",\"subject\":\"chore(v3): bump to v3.0.0-beta.33 and update changelog\"},{\"date\":\"2026-10-19T12:23:15Z\",\"sha\":\"6702ff837c72a7907d6c74e90e639cdd0437a89a\",\"subject\":\"fix(v3/generator): emit importable typed event names (#6307)\"},{\"date\":\"2026-10-19T12:19:54Z\",\"sha\":\"6a30eae8ef9407ac75f7edb4468982ab23f58968\",\"subject\":\"fix(v3/windows): support custom question dialog buttons (#6308)\"},{\"date\":\"2026-10-19T11:04:13Z\",\"sha\":\"eeadece36d99ee33df403f074bce75d0f472a875\",\"subject\":\"fix(v3/dev): avoid Vite readiness probe timeouts (#6305)\"},{\"date\":\"2026-10-19T09:00:50Z\",\"sha\":\"d677ccefdc0caa8a8de9e9cbcc39e752e71a13c6\",\"subject\":\"chore(changelog): auto-add entry for PR #6301 — fix(v3): keep systray menus working when updated while open (#4719)\"}]\n[{\"prerelease\":true,\"published_at\":\"2026-10-20T15:14:01Z\",\"tag_name\":\"v3.0.0-beta.34\"},{\"prerelease\":true,\"published_at\":\"2026-10-19T15:14:01Z\",\"tag_name\":\"v3.0.0-beta.33\"},{\"prerelease\":true,\"published_at\":\"2026-10-18T15:11:45Z\",\"tag_name\":\"v3.0.0-beta.32\"},{\"prerelease\":true,\"published_at\":\"2026-10-18T03:34:17Z\",\"tag_name\":\"v3.0.0-beta.31\"}]\n",
+  "caveats": [
+    "Wails first three commits were automated sponsor updates; inspected 35 commits and releases to find substantive Windows focus and WebView2 fixes dated October 20. Those fixes belong to v3 beta, not evidence they exist in stable v2.",
+    "webview C/C++ and its Go binding are distinct maintenance surfaces. The sampled Go binding last commits date to August 2024.",
+    "No alternative renderer was built, installed, benchmarked or exercised in Fungi during this research."
+  ]
+}

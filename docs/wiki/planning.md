@@ -1,6 +1,6 @@
 ---
 title: Requirements and discussion
-updated: 2026-10-23
+updated: 2026-10-25
 ---
 # Requirements and discussion
 
@@ -325,3 +325,37 @@ returned through Fungi callbacks and were collected once each. No automatic
 retry or pending callback remains; the next verification action is the same
 Mac job after hosted capacity recovers. This is an external verification
 blocker, not a user design decision or a completed release qualification.
+
+## Renderer decision reopened on 2026-10-23
+
+The user identifies bundled Electron as a significant drawback and asks how
+to remove it while preserving cross-platform behavior. The
+[follow-up research](research/system-renderers.md) separates the existing Go
+session/delivery engine from the replaceable window host. It proposes a
+bounded system-webview renderer proof, with Wails as the first candidate,
+keeping the four-method authoring bridge and process protocol intact.
+
+No replacement is accepted or implemented yet. System webviews reduce bundled
+bytes but require an OS-dependent runtime; Linux availability and missing
+Windows WebView2 are unresolved distribution cases. An installed-browser
+fallback changes native window/lifecycle expectations. Required runtime setup,
+browser fallback and restricted support remain choices to resolve; the prior
+no-runtime-install constraint has not been implicitly withdrawn. Existing
+Electron verification remains evidence for its recorded builds only.
+
+## Wails experiment on 2026-10-25
+
+The user explicitly selected Wails for a practical fit assessment. A bounded
+Wails v2.17 renderer now runs through the existing native-helper protocol,
+outside the core Go module. Skills retain the four-method page bridge. The
+default Electron host and release/update packaging are unchanged. This choice
+authorizes investigation and a prototype, not an implicit relaxation of the
+no-runtime-install or page-isolation requirements.
+
+The [dated proof](verification/runs/2026-10-25-wails.md) records actual
+macOS/Windows/Linux execution, native Mac form/recovery and rich-preview
+interactions, size measurements and failures. It exposes cross-session browser
+storage, Wails-native APIs available to pages, Linux media differences and
+external runtime prerequisites. These must be resolved or explicitly accepted
+before promoting the host. Do not introduce a plugin registry or new skill
+API to compensate for renderer-specific behavior.

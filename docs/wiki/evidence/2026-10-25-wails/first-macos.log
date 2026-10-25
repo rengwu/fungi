@@ -1,0 +1,380 @@
+Wails (macos-latest)	Set up job	﻿2026-10-25T11:08:48.2217120Z Current runner version: '2.338.0'
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2230130Z ##[group]Runner Image Provisioner
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2230610Z Hosted Compute Agent
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2230970Z Version: 20261021.618
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2231340Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2231770Z Build Date: 2026-10-21T00:45:21Z
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2232190Z Worker ID: {f8b80ff4-2414-4486-a1f7-f6e47efb473c}
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2232610Z Region: westus
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2232930Z Cloud: MacCloud
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2233260Z ##[endgroup]
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2234010Z ##[group]Operating System
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2234360Z macOS
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2234660Z 26.6.2
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2234950Z 25G83
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2271630Z ##[endgroup]
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2272050Z ##[group]Runner Image
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2272390Z Image: macos-26-arm64
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2272720Z Version: 20261021.0445.8
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2273390Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20261021.0445/images/macos/macos-26-arm64-Readme.md
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2274380Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20261021.0445
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2275000Z ##[endgroup]
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2275650Z ##[group]GITHUB_TOKEN Permissions
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2276730Z Contents: read
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2277060Z Metadata: read
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2277450Z ##[endgroup]
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2278870Z Secret source: Actions
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2279360Z Cache mode: write
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2279750Z Prepare workflow directory
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2454060Z Prepare all required actions
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.2485680Z Getting action download info
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.5019300Z Download action repository 'actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+Wails (macos-latest)	Set up job	2026-10-25T11:08:48.7195950Z Download action repository 'actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16' (SHA:924ae3a1cded613372ab5595356fb5720e22ba16)
+Wails (macos-latest)	Set up job	2026-10-25T11:08:49.3799190Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+Wails (macos-latest)	Set up job	2026-10-25T11:08:49.4538780Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+Wails (macos-latest)	Set up job	2026-10-25T11:08:49.6698200Z Complete job name: Wails (macos-latest)
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	﻿2026-10-25T11:08:49.7123040Z ##[group]Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7123620Z with:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7123940Z   repository: rengwu/fungi
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7126300Z   token: ***
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7126590Z   ssh-strict: true
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7126920Z   ssh-user: git
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7127230Z   persist-credentials: true
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7127570Z   clean: true
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7127940Z   sparse-checkout-cone-mode: true
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7128340Z   fetch-depth: 1
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7128620Z   fetch-tags: false
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7128940Z   show-progress: true
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7129240Z   lfs: false
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7129590Z   submodules: false
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7129890Z   set-safe-directory: true
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7130360Z   allow-unsafe-pr-checkout: false
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.7130890Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8272190Z Syncing repository: rengwu/fungi
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8273430Z ##[group]Getting Git version info
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8273970Z Working directory is '/Users/runner/work/fungi/fungi'
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8274760Z [command]/opt/homebrew/bin/git version
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8451020Z git version 2.56.0
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8461490Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8467540Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/5b675698-9a64-4fcf-9ee7-7d5f850854d9/.gitconfig'
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8474460Z Temporarily overriding HOME='/Users/runner/work/_temp/5b675698-9a64-4fcf-9ee7-7d5f850854d9' before making global git config changes
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8475380Z Adding repository directory to the temporary git global config as a safe directory
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8477600Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/fungi/fungi
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8551130Z Deleting the contents of '/Users/runner/work/fungi/fungi'
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8554040Z ##[group]Initializing the repository
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8557010Z [command]/opt/homebrew/bin/git init /Users/runner/work/fungi/fungi
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8693950Z hint: Using 'master' as the name for the initial branch. This default branch name
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8694670Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8695320Z hint: to use in all of your new repositories, which will suppress this warning,
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8695830Z hint: call:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8696120Z hint:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8696500Z hint: 	git config --global init.defaultBranch <name>
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8696910Z hint:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8697340Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8706300Z hint: 'development'. The just-created branch can be renamed via this command:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8706890Z hint:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8707160Z hint: 	git branch -m <name>
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8707470Z hint:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8707900Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8708510Z Initialized empty Git repository in /Users/runner/work/fungi/fungi/.git/
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8709540Z [command]/opt/homebrew/bin/git remote add origin https://github.com/rengwu/fungi
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8760950Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8761540Z ##[group]Disabling automatic garbage collection
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8762940Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8808770Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8809360Z ##[group]Setting up auth
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8812920Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.8858660Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.9534650Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:49.9583140Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.0193950Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.0240220Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.1111890Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.1245360Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.1246090Z ##[group]Fetching the repository
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.1251140Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a18a11c52a1116bf0e5bdf54acbec81fd204036a:refs/remotes/origin/foundation-hardening
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9470650Z From https://github.com/rengwu/fungi
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9471900Z  * [new ref]         a18a11c52a1116bf0e5bdf54acbec81fd204036a -> origin/foundation-hardening
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9474350Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9475260Z ##[group]Determining the checkout info
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9476200Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9479690Z [command]/opt/homebrew/bin/git sparse-checkout disable
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9541580Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9583990Z ##[group]Checking out the ref
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:50.9586400Z [command]/opt/homebrew/bin/git checkout --progress --force -B foundation-hardening refs/remotes/origin/foundation-hardening
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:51.0019560Z Switched to a new branch 'foundation-hardening'
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:51.0121940Z branch 'foundation-hardening' set up to track 'origin/foundation-hardening'.
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:51.0288490Z ##[endgroup]
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:51.0290170Z [command]/opt/homebrew/bin/git log -1 --format=%H
+Wails (macos-latest)	Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:08:51.0291440Z a18a11c52a1116bf0e5bdf54acbec81fd204036a
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	﻿2026-10-25T11:08:51.0514030Z ##[group]Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.0515110Z with:
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.0515610Z   go-version: 1.26.4
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.0516340Z   cache: false
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.0516880Z   check-latest: false
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.0523220Z   token: ***
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.0523770Z ##[endgroup]
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.1480510Z Setup go version spec 1.26.4
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:51.1488000Z Attempting to download 1.26.4...
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:52.1285150Z matching 1.26.4...
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:52.1315750Z Acquiring 1.26.4 from https://github.com/actions/go-versions/releases/download/1.26.4-26891772857/go-1.26.4-darwin-arm64.tar.gz
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:52.7970950Z Extracting Go...
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:52.8064430Z [command]/usr/bin/tar xz -C /Users/runner/work/_temp/5f00bbd1-175c-4bed-aa04-247acc4bd946 -f /Users/runner/work/_temp/98b83771-6ba5-4e6a-b94a-1ef453e49875
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:54.5837930Z Successfully extracted go to /Users/runner/work/_temp/5f00bbd1-175c-4bed-aa04-247acc4bd946
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:54.5853320Z Adding to the cache ...
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:58.6822580Z Successfully cached go to /Users/runner/hostedtoolcache/go/1.26.4/arm64
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:58.6823730Z Added go to the path
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:58.6825330Z Successfully set up Go version 1.26.4
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:58.7538240Z go version go1.26.4 darwin/arm64
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:58.7638250Z
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:08:58.7739430Z ##[group]go env
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1287440Z AR='ar'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1318740Z CC='clang'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1335870Z CGO_CFLAGS='-O2 -g'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1384620Z CGO_CPPFLAGS=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1436370Z CGO_CXXFLAGS='-O2 -g'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1491750Z CGO_ENABLED='1'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1534090Z CGO_FFLAGS='-O2 -g'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1579040Z CGO_LDFLAGS='-O2 -g'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1616500Z CXX='clang++'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1652810Z GCCGO='gccgo'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1653580Z GO111MODULE=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1653930Z GOARCH='arm64'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1654170Z GOARM64='v8.0'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1654370Z GOAUTH='netrc'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1654600Z GOBIN=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1654780Z GOCACHE='/Users/runner/Library/Caches/go-build'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1655010Z GOCACHEPROG=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1655150Z GODEBUG=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1655360Z GOENV='/Users/runner/Library/Application Support/go/env'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1655590Z GOEXE=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1655720Z GOEXPERIMENT=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1655870Z GOFIPS140='off'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1656000Z GOFLAGS=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1656770Z GOGCCFLAGS='-fPIC -arch arm64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -ffile-prefix-map=/var/folders/n6/hn37q6pj7sj_9dmqqc2113800000gn/T/go-build460547634=/tmp/go-build -gno-record-gcc-switches -fno-common'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1657590Z GOHOSTARCH='arm64'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1657730Z GOHOSTOS='darwin'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1657890Z GOINSECURE=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1658050Z GOMOD='/Users/runner/work/fungi/fungi/go.mod'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1658300Z GOMODCACHE='/Users/runner/go/pkg/mod'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1658530Z GONOPROXY=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1658660Z GONOSUMDB=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1658800Z GOOS='darwin'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1658940Z GOPATH='/Users/runner/go'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1659100Z GOPRIVATE=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1659310Z GOPROXY='https://proxy.golang.org,direct'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1659710Z GOROOT='/Users/runner/hostedtoolcache/go/1.26.4/arm64'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1659960Z GOSUMDB='sum.golang.org'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1660120Z GOTELEMETRY='local'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1660380Z GOTELEMETRYDIR='/Users/runner/Library/Application Support/go/telemetry'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1660670Z GOTMPDIR=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1661170Z GOTOOLCHAIN='local'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1661440Z GOTOOLDIR='/Users/runner/hostedtoolcache/go/1.26.4/arm64/pkg/tool/darwin_arm64'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1661740Z GOVCS=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1661870Z GOVERSION='go1.26.4'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1662010Z GOWORK=''
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1662200Z PKG_CONFIG='pkg-config'
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1662300Z
+Wails (macos-latest)	Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	2026-10-25T11:09:00.1662640Z ##[endgroup]
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	﻿2026-10-25T11:09:00.1742240Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1742620Z with:
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1742800Z   node-version: 22.19.0
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1743030Z   package-manager-cache: false
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1743220Z   check-latest: false
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1745140Z   token: ***
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1745270Z env:
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1745390Z   GOTOOLCHAIN: local
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.1745530Z ##[endgroup]
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:00.2803250Z Attempting to download 22.19.0...
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:01.1707660Z Acquiring 22.19.0 - arm64 from https://github.com/actions/node-versions/releases/download/22.19.0-17311483029/node-22.19.0-darwin-arm64.tar.gz
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:01.7322420Z Extracting ...
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:01.7424980Z [command]/usr/bin/tar xz --strip 1 -C /Users/runner/work/_temp/eb126bdc-496e-4a0f-88c5-f0d73d52cfc9 -f /Users/runner/work/_temp/7cdf489b-035d-4dfe-85a5-454414db7a60
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:03.4007030Z Adding to the cache ...
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:04.9887740Z ##[group]Environment details
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:05.1567610Z node: v22.19.0
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:05.1567900Z npm: 10.9.3
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:05.1568030Z yarn: 1.22.22
+Wails (macos-latest)	Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	2026-10-25T11:09:05.1568400Z ##[endgroup]
+Wails (macos-latest)	Build core and renderer	﻿2026-10-25T11:09:05.1649660Z ##[group]Run suffix=''
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1649900Z ^[[36;1msuffix=''^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1650060Z ^[[36;1mtags=production^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1656430Z ^[[36;1mif [[ "$RUNNER_OS" == "Windows" ]]; then suffix=.exe; fi^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1656820Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then tags=production,webkit2_41; fi^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1657320Z ^[[36;1mgo build -trimpath -ldflags '-s -w' -o "verification-output/fungi-wails-core$suffix" .^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1657650Z ^[[36;1mcd renderer^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1657800Z ^[[36;1mgo vet -tags "$tags" ./...^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1658140Z ^[[36;1mgo build -tags "$tags" -trimpath -ldflags '-s -w' -o "../verification-output/fungi-wails$suffix" ./wails^[[0m
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1697640Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1697890Z env:
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1698010Z   GOTOOLCHAIN: local
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:05.1698150Z ##[endgroup]
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:10.7708260Z go: downloading github.com/wailsapp/wails/v2 v2.17.0
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.6350670Z go: downloading golang.org/x/net v0.56.0
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.6416630Z go: downloading github.com/leaanthony/slicer v1.6.0
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.6422490Z go: downloading github.com/leaanthony/u v1.1.1
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.6477210Z go: downloading github.com/pkg/errors v0.9.1
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.6477670Z go: downloading github.com/samber/lo v1.49.1
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.7839460Z go: downloading github.com/leaanthony/go-ansi-parser v1.6.1
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.7859340Z go: downloading github.com/tkrajina/go-reflector v0.5.8
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.7924590Z go: downloading github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.7946190Z go: downloading golang.org/x/text v0.39.0
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.9133220Z go: downloading github.com/gabriel-vasile/mimetype v1.4.16
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:11.9545620Z go: downloading github.com/rivo/uniseg v0.4.7
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:28.2599520Z # github.com/wailsapp/wails/v2/internal/frontend/desktop/darwin
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:28.2601110Z WailsContext.m:197:18: warning: 'setShowsBaselineSeparator:' is deprecated: first deprecated in macOS 15.0 - No longer supported [-Wdeprecated-declarations]
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:28.2602820Z /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbar.h:299:16: note: property 'showsBaselineSeparator' is declared deprecated here
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:28.2605260Z /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbar.h:299:16: note: 'setShowsBaselineSeparator:' has been explicitly marked deprecated here
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:38.6951670Z # github.com/wailsapp/wails/v2/internal/frontend/desktop/darwin
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:38.7052460Z WailsContext.m:197:18: warning: 'setShowsBaselineSeparator:' is deprecated: first deprecated in macOS 15.0 - No longer supported [-Wdeprecated-declarations]
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:38.7153730Z /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbar.h:299:16: note: property 'showsBaselineSeparator' is declared deprecated here
+Wails (macos-latest)	Build core and renderer	2026-10-25T11:09:38.7255360Z /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbar.h:299:16: note: 'setShowsBaselineSeparator:' has been explicitly marked deprecated here
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	﻿2026-10-25T11:09:39.5544450Z ##[group]Run if [[ "$RUNNER_OS" == "Linux" ]]; then
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5544720Z ^[[36;1mif [[ "$RUNNER_OS" == "Linux" ]]; then^[[0m
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5545220Z ^[[36;1m  xvfb-run -a node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails --allow-unavailable-webgl^[[0m
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5545740Z ^[[36;1melif [[ "$RUNNER_OS" == "Windows" ]]; then^[[0m
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5546170Z ^[[36;1m  node scripts/renderer-smoke.mjs verification-output/fungi-wails-core.exe --helper verification-output/fungi-wails.exe^[[0m
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5546560Z ^[[36;1melse^[[0m
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5546880Z ^[[36;1m  node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails^[[0m
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5547290Z ^[[36;1mfi^[[0m
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5577040Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5577270Z env:
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5577380Z   GOTOOLCHAIN: local
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:39.5577520Z ##[endgroup]
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8078850Z {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8094830Z   "evidence": "/Users/runner/work/fungi/fungi/verification-output/renderer-smoke-rTDixO/evidence.json",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8096580Z   "scope": "workflow including WebGL",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8105320Z   "excluded": [],
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8118640Z   "checks": [
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8120850Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8122030Z       "name": "ES modules and dynamic import",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8122570Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8123240Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8123530Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8124000Z       "name": "custom elements and shadow DOM",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8124680Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8125020Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8125190Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8125480Z       "name": "Canvas 2D and PNG export",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8125730Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8125940Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8126130Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8126420Z       "name": "SVG image rendering",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8126680Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8126880Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8127150Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8127530Z       "name": "WebGL rendering context",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8127780Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8128030Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8128180Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8128460Z       "name": "local module worker",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8128720Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8128900Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8129040Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8129270Z       "name": "Blob worker",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8129520Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8129770Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8129920Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8130230Z       "name": "WebAssembly streaming compile",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8130500Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8130750Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8130910Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8131150Z       "name": "local JSON fetch",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8132440Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8132650Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8132830Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8133030Z       "name": "Blob fetch",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8133310Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8147510Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8148660Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8149540Z       "name": "media metadata and seek",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8150040Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8151020Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8151850Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8156550Z       "name": "asset byte ranges",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8179570Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8180140Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8181110Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8181580Z       "name": "sandboxed inline preview",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8182270Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8182480Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8183370Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8183840Z       "name": "page has no Node or IPC",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8184170Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8184420Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8197540Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8198740Z       "name": "external and file requests denied",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8200060Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8200260Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8200500Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8200880Z       "name": "asset symlink escape denied",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8201210Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8201390Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8201520Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8202320Z       "name": "oversized JSON rejected without closing",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8202830Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8203020Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8203210Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8204010Z       "name": "envelope overhead rejected without killing owner",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8204510Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8204700Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8205000Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8205430Z       "name": "oversized attachment rejected",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8205730Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8205910Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8206210Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8206500Z       "name": "draft data restored",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8207170Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8207430Z     },
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8207830Z     {
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8208290Z       "name": "draft attachment restored as Blob",
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8208860Z       "passed": true
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8209020Z     }
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8209160Z   ]
+Wails (macos-latest)	Exercise real page, drafts, cancel, reopen and image submission	2026-10-25T11:09:43.8209300Z }
+Wails (macos-latest)	Preserve run evidence	﻿2026-10-25T11:09:43.8637760Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8638100Z with:
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8643370Z   name: wails-macos-latest
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8643900Z   path: verification-output/renderer-smoke-*/evidence.json
+Wails (macos-latest)	Preserve run evidence	verification-output/renderer-smoke-*/sessions/**/worker.log
+Wails (macos-latest)	Preserve run evidence	verification-output/renderer-smoke-*/sessions/**/result.json
+Wails (macos-latest)	Preserve run evidence
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8644450Z   if-no-files-found: warn
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8644600Z   compression-level: 6
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8644760Z   overwrite: false
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8644950Z   include-hidden-files: false
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8645110Z env:
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8645230Z   GOTOOLCHAIN: local
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.8645360Z ##[endgroup]
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.9850600Z (node:5467) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.9851460Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.9917530Z With the provided path, there will be 5 files uploaded
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.9920780Z Artifact name is valid!
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:43.9921100Z Root directory input is valid!
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.2361190Z Beginning upload of artifact content to blob storage
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.2556010Z (node:5467) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.3947970Z Uploaded bytes 2704
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.4285920Z Finished uploading artifact content to blob storage!
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.4286760Z SHA256 digest of uploaded artifact zip is b2e3deb97a6925298639a6449d6c840b67fdc7eef07b36b27b7b9f60dd9652f2
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.4287290Z Finalizing artifact upload
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.9292500Z Artifact wails-macos-latest.zip successfully finalized. Artifact ID 12596665991
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.9293430Z Artifact wails-macos-latest has been successfully uploaded! Final size is 2704 bytes. Artifact ID is 12596665991
+Wails (macos-latest)	Preserve run evidence	2026-10-25T11:09:44.9300260Z Artifact download URL: https://github.com/rengwu/fungi/actions/runs/40187638667/artifacts/12596665991
+Wails (macos-latest)	Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38	﻿2026-10-25T11:09:44.9419120Z Post job cleanup.
+Wails (macos-latest)	Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16	﻿2026-10-25T11:09:45.0319370Z Post job cleanup.
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	﻿2026-10-25T11:09:45.1163150Z Post job cleanup.
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.1846970Z [command]/opt/homebrew/bin/git version
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.1898650Z git version 2.56.0
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.1914350Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/473e0608-8aa1-4ab4-b88f-02210f21a34e/.gitconfig'
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.1920910Z Temporarily overriding HOME='/Users/runner/work/_temp/473e0608-8aa1-4ab4-b88f-02210f21a34e' before making global git config changes
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.1921760Z Adding repository directory to the temporary git global config as a safe directory
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.1924000Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/fungi/fungi
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.1975140Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.2022860Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.2593390Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.2631650Z http.https://github.com/.extraheader
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.2638290Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.2686620Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.3294960Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Wails (macos-latest)	Post Run actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09	2026-10-25T11:09:45.3340970Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Wails (macos-latest)	Complete job	﻿2026-10-25T11:09:45.4036470Z Cleaning up orphan processes
+Wails (macos-latest)	Complete job	2026-10-25T11:09:45.6576920Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

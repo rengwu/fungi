@@ -18,6 +18,7 @@ Keep ordinary HTML/CSS/JavaScript available directly, and provide the equally su
 - [Rendering and packaging](rendering.md): system webviews, Wails, niche engines, native toolkits, and the real meaning of one binary.
 - [Bundled renderer follow-up](bundled-renderers.md): revised shortlist, actual Sciter binary inspection, licensing constraints, and the accepted Chromium/Electron fallback.
 - [Renderer adoption and maintenance](renderer-health.md): dated GitHub/API evidence, releases, contributor samples, wrapper health, and the current recommendation.
+- [Reconsidering the bundled renderer](system-renderers.md): October 23–25 system-webview research, followed by the user-authorized Wails prototype; production migration remains open.
 - [Composition and component libraries](components.md): standard controls, forms, drawing, charts, editors, and agent-oriented UI formats.
 - [Pele follow-up](pele.md): user-suggested optional diagram asset, maintenance signals and a bounded local probe.
 - [Agent delivery and waiting](delivery.md): current harness mechanisms, their limits, and the no-model-polling contract.

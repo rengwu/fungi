@@ -1,0 +1,23 @@
+json: cannot unmarshal number into Go struct field attachment.draftArtifacts.bytes of type []uint8
+
+node:internal/errors:983
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /Users/rengwu/Desktop/Projects/fungi/verification-output/fungi-wails-core reopen 29f9ac3440189dabd6209ed616e5f55d --delivery wait
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:519:28)
+    at maybeClose (node:internal/child_process:1101:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:304:5) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: '/Users/rengwu/Desktop/Projects/fungi/verification-output/fungi-wails-core reopen 29f9ac3440189dabd6209ed616e5f55d --delivery wait',
+  stdout: '{"protocol":1,"kind":"result","session":"4fd8b5184b6f7b28546d5e105eff1e9d","outcome":"failed","artifacts":[],"error":{"code":"helper_exited","message":"exit status 1"}}\n',
+  stderr: ''
+}
+
+Node.js v22.19.0

@@ -145,3 +145,41 @@ CI runs this after its renderer check on each target. Ubuntu 24.04 uses
 `--core-only`; Ubuntu 22.04 uses its existing Xvfb. Neither test changes host
 sandbox policy. These fixtures prove local release archives and bootstrap
 downloads, not public GitHub assets, signing or clean consumer-machine setup.
+
+## Experimental Wails renderer
+
+The nested `renderer/go.mod` pins Wails v2.17.0. From the repository root:
+
+```sh
+go build -o verification-output/fungi-wails-core .
+cd renderer
+go build -tags production -trimpath -ldflags '-s -w' -o ../verification-output/fungi-wails ./wails
+cd ..
+node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails
+node scripts/wails-probe.mjs verification-output/fungi-wails-core verification-output/fungi-wails
+```
+
+Use `.exe` output names on Windows. Linux builds use
+`-tags production,webkit2_41`, GTK3/WebKitGTK 4.1 development packages and
+Xvfb for the hosted fixture. Real desktop use needs compatible installed
+runtime libraries; the CI prerequisite installation is not consumer setup
+proof. The existing smoke fixture can explicitly permit unavailable WebGL,
+but does not waive media/module failures. The host probe records direct and
+Blob media separately without redefining the original expectation.
+
+The first driver starts the actual CLI/owner with an empty child PATH,
+cancels, reopens and submits a PNG with an independently checked SHA-256.
+The second starts disposable sessions, saves/restores a zero-byte attachment,
+invokes the native quit/close hook, and checks whether one independent session
+inherits another's run-specific localStorage value. It removes only that key.
+Native API names are inspected without reading the clipboard or opening URLs.
+Both drivers have bounded execution, save `evidence.json` in unique local
+directories, and send no harness callbacks.
+
+For native UI, invoke the helper with `fungi open --exec ABSOLUTE_HELPER
+--delivery manual -- ABSOLUTE_HTML_OR_JSON`, then follow the existing
+form/file/close/reopen recipe. A minimal `.app` bundle was used to identify the
+Mac prototype through accessibility tools; it does not change the binary.
+Use `collect` once after observed completion. Do not treat synthetic answers
+as user decisions. Exact builds, observations and outstanding scope are in
+the [Wails report](runs/2026-10-25-wails.md).

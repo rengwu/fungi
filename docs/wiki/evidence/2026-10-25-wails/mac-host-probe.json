@@ -1,0 +1,62 @@
+{
+  "core": "/Users/rengwu/Desktop/Projects/fungi/verification-output/fungi-wails-core",
+  "helper": "/Users/rengwu/Desktop/Projects/fungi/verification-output/fungi-wails",
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/wails-probe-YpsySn",
+  "closed": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "1206cc9b7c50ef9dc955e9abf5094e86",
+    "outcome": "closed",
+    "artifacts": []
+  },
+  "restored": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "f27aafd38d1d67230a907c134205c57c",
+    "outcome": "submitted",
+    "data": {
+      "restoredEmpty": true,
+      "restoredType": "text/plain",
+      "diagnostics": {
+        "native": {
+          "browserOpenURL": "function",
+          "clipboardGetText": "function",
+          "quit": "function",
+          "boundPersist": "function",
+          "lowLevelInvoke": "undefined"
+        },
+        "localMedia": {
+          "ok": true,
+          "duration": 1
+        },
+        "blobMedia": {
+          "ok": true,
+          "duration": 1
+        },
+        "mediaType": "audio/x-wav"
+      }
+    },
+    "artifacts": [
+      {
+        "id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "key": "empty",
+        "name": "empty.txt",
+        "mediaType": "text/plain",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/wails-probe-YpsySn/sessions/f27aafd38d1d67230a907c134205c57c/artifacts/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "independent": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "8ecad652a6f95eed71799b38decd077c",
+    "outcome": "submitted",
+    "data": {
+      "inheritedStorage": "written-by-another-fungi-session"
+    },
+    "artifacts": []
+  },
+  "scope": "native close hook, empty artifact round trip, media and cross-session storage diagnostics"
+}

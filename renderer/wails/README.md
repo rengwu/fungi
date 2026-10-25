@@ -33,7 +33,7 @@ not a recommendation to poll a model tool.
 Go bindings in addition to `window.fungi`. The content policy and root-confined
 asset handler do not establish Electron-equivalent native isolation, navigation
 control or private storage. Windows uses a per-session WebView2 profile;
-equivalent isolation on other platforms is still being evaluated. Do not ship
+macOS/Linux tests confirmed storage shared across independent sessions. Do not ship
 this as the default renderer on the strength of rendering tests alone.
 
 Run the existing real-owner rendering/recovery fixture:
@@ -42,10 +42,19 @@ Run the existing real-owner rendering/recovery fixture:
 node scripts/renderer-smoke.mjs verification-output/fungi-wails-core --helper verification-output/fungi-wails
 ```
 
+For native-host diagnostics, run `node scripts/wails-probe.mjs CORE HELPER`.
+This checks native close, empty-Blob recovery, media loading and shared storage
+using disposable pages and one run-specific localStorage key. API availability
+is observed without reading the user's clipboard or opening external URLs.
+
 Linux CI uses Xvfb and explicitly permits an unavailable WebGL context.
 An available but incorrect WebGL result still fails. The manual **Wails proof**
-GitHub workflow builds and exercises each platform without building Electron.
+GitHub workflow (also triggered by prototype changes on `foundation-hardening`)
+builds and exercises each platform without building Electron.
 Hosted runners with prerequisites are not clean-machine installation proof.
+The current Mac/Windows fixture passes all 21 checks. Both Linux fixtures fail
+direct local media loading; a separate diagnostic loads the same WAV through
+a Blob URL. This is a compatibility gap, not an automatic media workaround.
 
 The prototype is intentionally outside release packaging/updating. See the
 project wiki's renderer research and dated verification record for measured

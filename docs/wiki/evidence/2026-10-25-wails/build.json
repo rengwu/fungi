@@ -1,0 +1,101 @@
+{
+  "revision": "af42ecce6ccc089f701a243586e6f3cf49946425",
+  "productSourcesClean": true,
+  "documentationDirty": true,
+  "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "macOS": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A5368g\n",
+  "go": "go version go1.26.4 darwin/arm64",
+  "wails": "2.17.0",
+  "sources": [
+    {
+      "path": "renderer/go.mod",
+      "bytes": 1458,
+      "sha256": "223810a64cc7d6ac84606ccb2acf1a4b6407958e789f4df21f465c1295b4d7cc"
+    },
+    {
+      "path": "renderer/go.sum",
+      "bytes": 6446,
+      "sha256": "721131ed35cedfcc6135e1db4963c946996b344a026d783d1c8f9b59864e39b3"
+    },
+    {
+      "path": "renderer/builtin.go",
+      "bytes": 162,
+      "sha256": "d3987fae1d49675bca62a66d871490f43ed394c873e7074183a8fb681a962df5"
+    },
+    {
+      "path": "renderer/wails/main.go",
+      "bytes": 7593,
+      "sha256": "812f80a1494f94597a4a3e08f447a6e9c097efae27754274c4e060377f8c6107"
+    },
+    {
+      "path": "renderer/wails/assets.go",
+      "bytes": 3580,
+      "sha256": "548de03f71407391c363219ad97b1a3275a42563e5376c32a4989e9cded5efa2"
+    },
+    {
+      "path": "renderer/wails/bridge.js",
+      "bytes": 2231,
+      "sha256": "1be3218153e50e581d2ee91cadb9e6f63e13ba545a257272564a0891f650dc67"
+    },
+    {
+      "path": "renderer/wails/link_darwin.go",
+      "bytes": 147,
+      "sha256": "4781187f8e26837ab5a2b210a957001b967905500f258e1ea21045ccd2b2adc3"
+    },
+    {
+      "path": "scripts/renderer-smoke.mjs",
+      "bytes": 5802,
+      "sha256": "d7eb9ee8206bc47c491201996169449e8c68c33d83b530da972ddf794ea94672"
+    },
+    {
+      "path": "scripts/wails-probe.mjs",
+      "bytes": 4232,
+      "sha256": "cb0da8c844edbe61952c126a9fc9003c93854e8a09531acc0fe1da3371373da9"
+    },
+    {
+      "path": "scripts/fixtures/rendering.html",
+      "bytes": 7016,
+      "sha256": "00085fed34d53eddc58380a17829586b0517b051e400ada445fb85eaf69acd6e"
+    },
+    {
+      "path": ".github/workflows/wails-proof.yml",
+      "bytes": 3632,
+      "sha256": "3abf702ab4406301cd63aa573315d97e1af89a5429c72dd7ce3ef7d659014335"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "verification-output/fungi-wails",
+      "bytes": 7805746,
+      "sha256": "aee02fc6441c9b2cf9fe9416db926fb35562466cf5e1140792d46f99b455b4c3"
+    },
+    {
+      "path": "verification-output/fungi-wails-core",
+      "bytes": 9607266,
+      "sha256": "6c3ae4fb237292011561862e25f0fd92f2dcee7a98e476eb4cf49b2ff56a6928"
+    },
+    {
+      "path": "verification-output/fungi-wails-core-stripped",
+      "bytes": 6560610,
+      "sha256": "00f2a6f11b63420eee22b7ef74a0641739116f102bc6f65f147da0e4b8a5f93e"
+    },
+    {
+      "path": "verification-output/Fungi Wails Preview.app/Contents/MacOS/fungi-wails",
+      "bytes": 7805746,
+      "sha256": "b7c0adea40204075f44eaeda4581fe74b897af8bdf34c33f7cfb75a4fab13345"
+    },
+    {
+      "path": "verification-output/wails-two-executables.tar.gz",
+      "bytes": 5884199,
+      "sha256": "2f20f3a040e913063803ed32268b044c20d25f36e461cb7b0ba1175ba1695a30"
+    }
+  ],
+  "nativeBinaryRevision": "a18a11c52a1116bf0e5bdf54acbec81fd204036a",
+  "nativeArtifactHashVerified": true,
+  "richFixture": {
+    "path": "verification-output/platform-2026-10-22/rich.html",
+    "bytes": 129260,
+    "sha256": "0634aee4fdbee85c050de39931654ede810f44bb9f1aaf362adc498c56bc170d"
+  },
+  "packageScope": "two stripped executables only; not a signed release package or updated installer"
+}

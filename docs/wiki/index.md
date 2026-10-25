@@ -1,6 +1,6 @@
 ---
 title: Fungi
-updated: 2026-10-23
+updated: 2026-10-25
 ---
 # Fungi
 
@@ -8,13 +8,18 @@ Fungi is a prototype portable interaction engine for skill-driven agents. Skills
 
 This wiki records the accepted design, implementation and verification. A Go core and Electron reference renderer now exist. The latest decision requires no harness setup, with manual fallback on unsupported versions. Native return checks and remaining limits are recorded explicitly.
 
-Electron + Go is the accepted direction. The [first end-to-end proof](proposal.md#first-proof) targets macOS and automatic return in six harnesses, with small HTML/flat-JSON forms, image attachments and a native helper contract test.
+Electron remains the default renderer. The user has now authorized a
+[Wails replacement experiment](verification/runs/2026-10-25-wails.md) to assess
+smaller system-webview delivery while preserving the Go core and skill API.
+The [first end-to-end proof](proposal.md#first-proof) records the original
+Electron/Go scope and automatic-return checks.
 
 - [Requirements and discussion](planning.md)
 - [First implementation contract](contract.md)
 - [Author a Fungi interface](authoring.md)
 - [Verified environments and portable distribution](platforms.md)
 - [Command installation and updates](features/installation.md)
+- [Wails prototype: rendering fit, size and remaining gaps](verification/runs/2026-10-25-wails.md)
 - [Distribution proof and remaining release checks](verification/runs/2026-10-23-distribution.md)
 - [Verified baseline checks and startup diagnostics](verification/runs/2026-10-22-baselines.md)
 - [Windows 11 desktop handoff: desktop passed, symlink-dependent checks unexecuted](verification/runs/windows-2026-10-22-203907.md)
