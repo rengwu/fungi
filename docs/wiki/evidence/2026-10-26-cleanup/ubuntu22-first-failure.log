@@ -1,0 +1,9 @@
+2026-10-25T18:55:00.6887214Z === RUN   TestNativeRoundTripAndConcurrentIsolation
+2026-10-25T18:55:00.6887983Z --- PASS: TestNativeRoundTripAndConcurrentIsolation (0.02s)
+2026-10-25T18:55:00.6888697Z === RUN   TestManualOwnerSurvivesLauncherAndCollects
+2026-10-25T18:55:00.6890390Z     integration_test.go:106: open /tmp/TestManualOwnerSurvivesLauncherAndCollects3722568616/001/63794932cf4609d1faad9b2f0b39e12f/result.json: no such file or directory
+2026-10-25T18:55:00.6892784Z --- FAIL: TestManualOwnerSurvivesLauncherAndCollects (11.22s)
+2026-10-25T18:55:00.6893400Z === RUN   TestInterruptedSessionReopenPreservesOldRecord
+2026-10-25T18:55:00.6895038Z --- PASS: TestInterruptedSessionReopenPreservesOldRecord (2.13s)
+2026-10-25T18:55:00.6897276Z === RUN   TestWaitConnectionHasNoHumanTimeout
+2026-10-25T18:55:00.6897754Z --- PASS: TestWaitConnectionHasNoHumanTimeout (10.12s)

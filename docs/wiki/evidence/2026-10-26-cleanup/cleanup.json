@@ -31,5 +31,9 @@
     "docs/manual/installation.md": "d204d4a3c03be4455fa2dee749f28f68b5437694eadec250112fe326067d9beb"
   },
   "retainedBuild": "dist/release-v0.1.0-clean.2/fungi-darwin-arm64",
-  "localInstallVerified": true
+  "localInstallVerified": true,
+  "retainedVersion": "v0.1.0-clean.2",
+  "currentAllocatedBytes": 43868160,
+  "bytesReclaimedBeforeFinalLogs": 1285771264,
+  "removedElectronCompatibility": true
 }

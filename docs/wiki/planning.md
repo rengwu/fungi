@@ -671,3 +671,9 @@ reader and rollback compatibility were retired; current Wails update/rollback
 remains covered by tests. No automatic session-deletion policy or cleanup daemon
 was added. [Cleanup verification](verification/runs/2026-10-26-cleanup.md) records
 space usage, retained feedback, source hashes and test status.
+
+
+The first cleanup CI run exposed an unrelated fixed-sleep assumption in the
+manual-owner integration test on Ubuntu 22. The existing gated fixture replaces
+that sleep; repeated race-enabled checks pass without changing production
+waiting behavior. A replacement platform run verifies the final test suite.

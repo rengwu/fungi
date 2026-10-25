@@ -89,8 +89,10 @@ func TestNativeRoundTripAndConcurrentIsolation(t *testing.T) {
 }
 func TestManualOwnerSurvivesLauncherAndCollects(t *testing.T) {
 	root := t.TempDir()
+	gate := filepath.Join(t.TempDir(), "submit")
+	defer os.WriteFile(gate, []byte("cancelled"), 0600)
 	var opened opened
-	b := cli(t, root, "open", "--exec", testHelper, "--delivery", "manual", "--", "wait")
+	b := cli(t, root, "open", "--exec", testFixture, "--delivery", "manual", "--", "update-session", gate)
 	if err := json.Unmarshal(b, &opened); err != nil {
 		t.Fatal(err)
 	}
@@ -99,8 +101,12 @@ func TestManualOwnerSurvivesLauncherAndCollects(t *testing.T) {
 		t.Fatalf("expected pending: %s", pending)
 	}
 	s := &store{dir: filepath.Join(root, opened.Session)}
-	// Bounded test-driver wait; the product uses no status-polling loop.
-	time.Sleep(11 * time.Second)
+	// Release the synthetic helper only after the launcher has returned and
+	// collection has observed pending. No scheduler-dependent fixed sleep.
+	if err := os.WriteFile(gate, []byte("submitted"), 0600); err != nil {
+		t.Fatal(err)
+	}
+	eventually(t, func() bool { _, err := s.readResult(); return err == nil })
 	r, err := s.readResult()
 	if err != nil {
 		t.Fatal(err)
