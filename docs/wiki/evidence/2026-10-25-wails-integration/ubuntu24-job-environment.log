@@ -1,0 +1,11 @@
+2026-10-25T14:01:39.6197300Z ##[group]Operating System
+2026-10-25T14:01:39.6198458Z Ubuntu
+2026-10-25T14:01:39.6199278Z 24.04.5
+2026-10-25T14:01:39.6200851Z LTS
+2026-10-25T14:01:39.6201764Z ##[endgroup]
+2026-10-25T14:01:39.6202922Z ##[group]Runner Image
+2026-10-25T14:01:39.6204343Z Image: ubuntu-24.04
+2026-10-25T14:01:39.6205442Z Version: 20261012.334.1
+2026-10-25T14:01:39.6207762Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-25T14:01:39.6210721Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-25T14:01:39.6212429Z ##[endgroup]

@@ -64,6 +64,8 @@ File selection, image paste, image draft recovery, submission, cancellation, loc
 
 ## Verification history
 
+- [2026-10-25 Wails integration](../verification/runs/2026-10-25-wails-integration.md) — normal packaged launches, native input and recovery, artifact return, and updates with an active UI.
+
 - [2026-10-25 Wails follow-up](../verification/runs/2026-10-25-wails-followup.md) — accepted simpler requirements, confirmed Linux custom-scheme media loader failure, and local full-host-exit draft recovery.
 
 - [2026-10-25 Wails assessment](../verification/runs/2026-10-25-wails.md) — historical replacement-equivalence proof. Later user decisions accept native access and best-effort browser storage; Linux media and installation integration still require follow-up.

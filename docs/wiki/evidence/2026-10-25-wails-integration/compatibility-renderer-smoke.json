@@ -1,0 +1,129 @@
+{
+  "binary": "/home/runner/work/fungi/fungi/baseline/package/fungi",
+  "helper": null,
+  "directory": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-ZeUARS",
+  "scope": "Linux workflow; direct local media is an accepted limitation",
+  "excluded": [
+    {
+      "name": "media metadata and seek",
+      "passed": false,
+      "error": "Media failed to load"
+    }
+  ],
+  "closed": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "2196d754bad7607491ff1e7780ec9c02",
+    "outcome": "cancelled",
+    "artifacts": []
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "5080c1fdca4b4c93d5769652fcb2930e",
+    "outcome": "submitted",
+    "data": {
+      "checks": [
+        {
+          "name": "ES modules and dynamic import",
+          "passed": true
+        },
+        {
+          "name": "custom elements and shadow DOM",
+          "passed": true
+        },
+        {
+          "name": "Canvas 2D and PNG export",
+          "passed": true
+        },
+        {
+          "name": "SVG image rendering",
+          "passed": true
+        },
+        {
+          "name": "WebGL rendering context",
+          "passed": true
+        },
+        {
+          "name": "local module worker",
+          "passed": true
+        },
+        {
+          "name": "Blob worker",
+          "passed": true
+        },
+        {
+          "name": "WebAssembly streaming compile",
+          "passed": true
+        },
+        {
+          "name": "local JSON fetch",
+          "passed": true
+        },
+        {
+          "name": "Blob fetch",
+          "passed": true
+        },
+        {
+          "name": "media metadata and seek",
+          "passed": false,
+          "error": "Media failed to load"
+        },
+        {
+          "name": "asset byte ranges",
+          "passed": true
+        },
+        {
+          "name": "sandboxed inline preview",
+          "passed": true
+        },
+        {
+          "name": "page has no Node or Electron IPC",
+          "passed": true
+        },
+        {
+          "name": "external and file requests denied",
+          "passed": true
+        },
+        {
+          "name": "asset symlink escape denied",
+          "passed": true
+        },
+        {
+          "name": "oversized JSON rejected without closing",
+          "passed": true
+        },
+        {
+          "name": "envelope overhead rejected without killing owner",
+          "passed": true
+        },
+        {
+          "name": "oversized attachment rejected",
+          "passed": true
+        },
+        {
+          "name": "draft data restored",
+          "passed": true
+        },
+        {
+          "name": "draft attachment restored as Blob",
+          "passed": true
+        }
+      ],
+      "version": 2
+    },
+    "artifacts": [
+      {
+        "id": "caa359e3955b24d87ef8f31cd1059ed31f0d12d282208aebc17941fcceca8f03",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/home/runner/work/fungi/fungi/verification-output/renderer-smoke-ZeUARS/sessions/5080c1fdca4b4c93d5769652fcb2930e/artifacts/caa359e3955b24d87ef8f31cd1059ed31f0d12d282208aebc17941fcceca8f03",
+        "bytes": 137,
+        "sha256": "caa359e3955b24d87ef8f31cd1059ed31f0d12d282208aebc17941fcceca8f03"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "childPathEmpty": true
+}

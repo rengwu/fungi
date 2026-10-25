@@ -1,0 +1,19 @@
+{
+  "buildHost": "ubuntu-22.04",
+  "executionHost": "ubuntu-24.04",
+  "archive": "fungi-linux-amd64.tar.gz",
+  "bytes": 6626898,
+  "sha256": "de60eeec2cbcb33e819dcdf2be69dbbefb7df5e9c9ba29c31e227abd4e98a4b4",
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-ci.1",
+    "platform": "linux",
+    "arch": "amd64",
+    "wails": "v2.17.0",
+    "binarySHA256": "0c65637447cc2036b8e05c5c6d333cc6896717fd942499da142e7b70e7c10813",
+    "rendererSHA256": "3e5c9774c3d56e58f13aa879ec08054a65c96ad8168b8ec5c1360a7a88ed90b0",
+    "created": "2026-10-25T14-17-46-045Z",
+    "publicRelease": false,
+    "runtimeVerified": false
+  }
+}

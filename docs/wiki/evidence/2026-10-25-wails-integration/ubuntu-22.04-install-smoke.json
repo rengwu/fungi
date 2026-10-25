@@ -1,0 +1,126 @@
+{
+  "directory": "/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp",
+  "platform": "linux",
+  "arch": "x64",
+  "archiveA": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.1/fungi-linux-amd64.tar.gz",
+  "checksumA": "4fc0b3e9763cdac7ebd5638c560ddba3ea8ba730bf0ea8552395060ce3e21ce6",
+  "archiveB": "/home/runner/work/fungi/fungi/dist/release-v0.1.0-ci.2/fungi-linux-amd64.tar.gz",
+  "checksumB": "e41e8a8533f599fab81f169e67ad2c3135358210444b6b56f71f36e56a5c7723",
+  "requests": [
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz.sha256",
+    "/download/v0.1.0-ci.1/fungi-linux-amd64.tar.gz"
+  ],
+  "scope": "bootstrap, active Wails session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/install with spaces/bin/fungi\",\"current\":\"v0.1.0-ci.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 734
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.1"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "fd152bc59b873e59d6859e41a165b1f9",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/install with spaces/bin/fungi",
+      "collect",
+      "fd152bc59b873e59d6859e41a165b1f9"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/sessions/fd152bc59b873e59d6859e41a165b1f9/artifacts/643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "bytes": 137,
+        "sha256": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.2",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.2"
+  },
+  "runtime": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WebKitGTK 4.1"
+  },
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-ci.2",
+    "platform": "linux",
+    "arch": "amd64",
+    "wails": "v2.17.0",
+    "binarySHA256": "bb49fd783527bb7161c7bce96254beaa27d7df34a18ad5a9698beb54f59e83be",
+    "rendererSHA256": "6721a4ae21b1aa0209bb5583267e6243af0710fec7c62fd07ba23a775b15a8cf"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "fd152bc59b873e59d6859e41a165b1f9",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-ci.2"
+    },
+    "artifacts": [
+      {
+        "id": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/sessions/fd152bc59b873e59d6859e41a165b1f9/artifacts/643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e",
+        "bytes": 137,
+        "sha256": "643f66a6a8b7e51da21f2549e25c5fd28f3f3bb19098c0b5317cc6b30a6e042e"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/home/runner/work/fungi/fungi/verification-output/install-smoke-05lzJp/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.1",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}

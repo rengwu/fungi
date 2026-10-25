@@ -1,0 +1,11 @@
+2026-10-25T14:01:38.4881627Z ##[group]Operating System
+2026-10-25T14:01:38.4882218Z Microsoft Windows Server 2025
+2026-10-25T14:01:38.4882711Z 10.0.26100
+2026-10-25T14:01:38.4883147Z Datacenter
+2026-10-25T14:01:38.4883534Z ##[endgroup]
+2026-10-25T14:01:38.4883856Z ##[group]Runner Image
+2026-10-25T14:01:38.4884263Z Image: windows-2025-vs2026
+2026-10-25T14:01:38.4884634Z Version: 20261021.278.1
+2026-10-25T14:01:38.4885824Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261021.278/images/windows/Windows2025-VS2026-Readme.md
+2026-10-25T14:01:38.4886840Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261021.278
+2026-10-25T14:01:38.4887430Z ##[endgroup]

@@ -12,7 +12,9 @@ Wails is now the default development renderer. Native packages use system
 webviews and preserve the Go core and skill API. The
 [initial assessment](verification/runs/2026-10-25-wails.md) and
 [accepted limits](planning.md#accepted-wails-limits-and-next-milestone-on-2026-10-25)
-explain the change; distribution integration verification is in progress.
+explain the change; the [default-package integration](verification/runs/2026-10-25-wails-integration.md)
+now passes its accepted Mac/Windows/Ubuntu scope, including update/rollback
+and explicit Linux runtime setup. Public release qualification remains separate.
 The [first end-to-end proof](proposal.md#first-proof) records the original
 Electron/Go scope and automatic-return checks.
 
@@ -21,6 +23,7 @@ Electron/Go scope and automatic-return checks.
 - [Author a Fungi interface](authoring.md)
 - [Verified environments and portable distribution](platforms.md)
 - [Command installation and updates](features/installation.md)
+- [Wails integration: default packages, runtime setup and updates](verification/runs/2026-10-25-wails-integration.md)
 - [Wails prototype: rendering fit, size and remaining gaps](verification/runs/2026-10-25-wails.md)
 - [Wails follow-up: simpler requirements, Linux media diagnosis and manual recovery](verification/runs/2026-10-25-wails-followup.md)
 - [Distribution proof and remaining release checks](verification/runs/2026-10-23-distribution.md)

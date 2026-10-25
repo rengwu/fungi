@@ -1,0 +1,2 @@
+{"error":{"code":"runtime_missing","message":"/tmp/tmp.DGsF1omkna/package/renderer/fungi-renderer: error while loading shared libraries: libglib-2.0.so.0: cannot open shared object file: No such file or directory. Re-run the Fungi installer with --setup-runtime (Windows: -SetupRuntime), or install the system runtime yourself. Ordinary UI launches never install software."},"kind":"error","protocol":1}
+Installing WebKitGTK 4.1 from configured Ubuntu repositories; administrator permission may be requested.

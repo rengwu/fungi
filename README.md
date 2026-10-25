@@ -51,7 +51,7 @@ The JSON renderer supports flat `text`, `textarea`, `range` and `image` fields. 
 
 ## Skill example
 
-The bundled [grill-form skill](skills/grill-form/SKILL.md) adapts jstack's simpler committed questionnaire. It uses ordinary HTML/assets and the existing bridge, with no generator or registration:
+The repository’s [grill-form skill](skills/grill-form/SKILL.md) adapts jstack's simpler committed questionnaire. It uses ordinary HTML/assets and the existing bridge, with no generator or registration:
 
 ```sh
 ./fungi open skills/grill-form/assets/form.html --input skills/grill-form/example.json
@@ -59,7 +59,7 @@ The bundled [grill-form skill](skills/grill-form/SKILL.md) adapts jstack's simpl
 
 It supports choices, plain notes, offline Markdown/diagrams, acknowledged drafts and one optional image. The current jstack review/editor rework is intentionally outside this example. UI libraries live with the skill; the engine has no questionnaire-specific API.
 
-The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the newer generated form, including visual choices, prototype controls, region comments and inline images. The simpler bundled skill remains available.
+The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the newer generated form, including visual choices, prototype controls, region comments and inline images. The simpler example skill remains available.
 
 ## Install and update
 

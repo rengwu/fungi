@@ -1,6 +1,6 @@
 ---
 title: Windows agent handoff
-updated: 2026-10-23
+updated: 2026-10-25
 ---
 # Windows agent handoff
 
@@ -11,7 +11,8 @@ checkout is needed. [Their response](../journal/2026-10-22-grill-b8ce5a10-7261-4
 requests these instructions; it does **not** report a passing Windows test.
 
 The [2026-10-22/23 execution](runs/windows-2026-10-22-203907.md) passed the
-visible journey on Windows 11 Pro x64 build 26200. Its aggregate remains
+visible Electron journey on Windows 11 Pro x64 build 26200. It does not
+qualify the new Wails renderer on that physical machine. Its aggregate remains
 **Untested** because symlink-dependent automated scenarios could not execute
 under that account. Clean-machine and downloaded-archive acceptance remain
 unverified. Use the steps below for a new run; retain that report as evidence.
@@ -19,8 +20,7 @@ unverified. Use the steps below for a new run; retain that report as evidence.
 Hosted Windows Server already passes the core and renderer fixture. This
 handoff checks the portable package's behavior on the actual desktop: launch,
 visible input, acknowledged drafts, close/reopen, PNG submission and cancel.
-Read [the verified baselines](runs/2026-10-22-baselines.md) and
-[platform limits](../platforms.md) for context. Keep Go + Electron, the four
+Read [current platform evidence and limits](../platforms.md) for context. Keep Go + Wails, the four
 page methods, portable distribution and no-harness-setup behavior intact.
 
 ## 1. Get the correct checkout
@@ -55,9 +55,9 @@ recorded values when opening a new shell.
 
 ## 2. Build the portable folder
 
-`dist/`, executables and `renderer/node_modules/` are ignored by Git. **A pull
+`dist/` and executables are ignored by Git. **A pull
 does not download a ready-to-run package.** From a source checkout, building
-requires Go 1.26.x, Node 22.12+ and npm. The hosted baseline used Go 1.26.4 and
+requires Go 1.26.x and Node 22.12+. The hosted baseline used Go 1.26.4 and
 Node 22.19.0. These are development prerequisites; the completed package must
 run without invoking them. No Visual Studio or C compiler is required by the
 Go packaging command (`CGO_ENABLED=0`).
@@ -70,7 +70,6 @@ stored in this repository. Do not assume the Mac's local archive is present.
 ```powershell
 go version
 node --version
-npm.cmd --version
 node -p "process.platform + ' ' + process.arch"
 ```
 
@@ -80,8 +79,6 @@ native x64 coverage. Run each build command from the repository root and
 check its exit code; stop the dependent build steps on a nonzero exit.
 
 ```powershell
-npm.cmd ci --prefix renderer
-node .\renderer\node_modules\electron\install.js
 $FungiPackage = (node .\scripts\package.mjs --platform win32 --arch x64).Trim()
 if ($LASTEXITCODE -ne 0) { throw 'Portable packaging failed' }
 $FungiExe = Join-Path $FungiPackage 'fungi.exe'
@@ -89,9 +86,10 @@ Get-Content (Join-Path $FungiPackage 'BUILD.json')
 Get-FileHash -Algorithm SHA256 $FungiExe
 ```
 
-The Electron download is a build-time step, pinned by the lockfile. Preserve
-the printed package path and its `BUILD.json`; verify the executable hash
-matches `binarySHA256`. Never select the newest directory by guessing or use
+Wails is pinned in `renderer/go.mod`. Preserve the printed package path and
+its `BUILD.json`; verify the CLI/helper hashes match `binarySHA256` and
+`rendererSHA256`. The completed package uses Microsoft WebView2 from the OS.
+Run `fungi.exe doctor` to check availability. Never select the newest directory by guessing or use
 a partially built folder. `runtimeVerified: false` in build metadata means
 packaging itself does not certify runtime behavior.
 
@@ -111,9 +109,9 @@ The suites include session, installation/update, archive and page tests. The
 real renderer fixture opens disposable windows, cancels, reopens, submits and
 verifies the PNG hash. It requires all 21 renderer checks by default and
 prints its `evidence.json` path. It clears the child PATH and caller ID,
-showing that this packaged workflow uses its bundled runtime. Keep that
-evidence directory. Do not relax WebGL checks or disable the sandbox to
-manufacture a pass.
+showing that the packaged CLI/helper use the installed system runtime without
+invoking development tools. Keep that
+evidence directory. Do not relax WebGL checks or bypass host policy to manufacture a pass.
 
 Some Go/Node tests and the renderer fixture create a file symlink to verify
 path confinement. An ordinary Windows account may lack that privilege. If
@@ -126,8 +124,7 @@ classify them as this known fixture prerequisite without evidence.
 
 ## 4. Exercise the visible desktop journey
 
-Follow [the portable desktop checklist](desktop.md#windows-powershell), also
-copied into `$FungiPackage\VERIFY.md`. Start in the package folder:
+Follow [the portable desktop checklist](desktop.md#windows-powershell). Start in the package folder:
 
 ```powershell
 Set-Location $FungiPackage
@@ -144,7 +141,7 @@ note such as `WINDOWS-ACCEPTANCE-<run ID>`, move the divider, choose a
 preference and observe **Draft saved**. Close, collect once, reopen, inspect
 restored values, submit and verify the PNG visually and by SHA-256. Launch a
 separate comparison and cancel it. Match exact window titles/processes and
-session IDs; do not interact with the user's unrelated Electron windows.
+session IDs; do not interact with the user's unrelated windows.
 
 If the agent has no desktop-control tool, let the user perform those visible
 steps and supply the observations. An automated self-submitting fixture is

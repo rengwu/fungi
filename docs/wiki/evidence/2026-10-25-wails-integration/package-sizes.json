@@ -1,0 +1,26 @@
+[
+  {
+    "host": "macos-latest",
+    "archive": "fungi-darwin-arm64.tar.gz",
+    "bytes": 6039106,
+    "sha256": "14e69bfd13d033c479f144860f3cdb25f9d16ceb8b95e7e13f200914daea8ac1"
+  },
+  {
+    "host": "windows-latest",
+    "archive": "fungi-windows-amd64.zip",
+    "bytes": 7101027,
+    "sha256": "01ae07ebc2c50673ea799b77f4c0eceb4e68159f5e71d38e0a2dcc7266f856f4"
+  },
+  {
+    "host": "ubuntu-22.04",
+    "archive": "fungi-linux-amd64.tar.gz",
+    "bytes": 6626882,
+    "sha256": "4fc0b3e9763cdac7ebd5638c560ddba3ea8ba730bf0ea8552395060ce3e21ce6"
+  },
+  {
+    "host": "ubuntu-24.04",
+    "archive": "fungi-linux-amd64.tar.gz",
+    "bytes": 6626074,
+    "sha256": "5a785405b41aea1aee10d3c53467b00650479d0fd2b4000f969f8ffa4c8d34dc"
+  }
+]

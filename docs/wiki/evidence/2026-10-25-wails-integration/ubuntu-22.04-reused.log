@@ -1,0 +1,4 @@
+
+Fungi is installed. Add this directory to PATH if needed:
+  /fungi/bin
+Then run: fungi update

@@ -1,0 +1,12 @@
+{
+  "format": 2,
+  "version": "v0.1.0-ci.1",
+  "platform": "windows",
+  "arch": "amd64",
+  "wails": "v2.17.0",
+  "binarySHA256": "147a362979fc4f29537454e90b8c2713c5608f9b31a25075b6c514a3d46bc283",
+  "rendererSHA256": "76b247e9d19bf30098f52bee0f1933dbeebf654afe8ee9527503b02ad523890e",
+  "created": "2026-10-25T14-04-18-863Z",
+  "publicRelease": false,
+  "runtimeVerified": false
+}

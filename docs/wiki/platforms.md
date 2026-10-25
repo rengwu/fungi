@@ -22,18 +22,21 @@ alone does not prove display, GPU, codec or input behavior.
 
 The [installation contract](features/installation.md) covers bootstrap,
 updates, rollback and migration from old development previews. The current
-integration is under verification; no public release or signed/notarized
+integration passed its accepted scope; no public release or signed/notarized
 consumer download has been published.
 
 ## Current Wails evidence
 
 The [prototype](verification/runs/2026-10-25-wails.md) and
 [follow-up](verification/runs/2026-10-25-wails-followup.md) preserve measured
-behavior and failures. The default-package integration extends those checks
-through ordinary `open`, installer, update and rollback. Its new report will
-identify the exact revision, artifacts and runner environments.
+behavior and failures. The [default-package integration](verification/runs/2026-10-25-wails-integration.md)
+extends those checks through ordinary `open`, installer, update and rollback,
+with exact revisions, artifacts and runner environments. The Ubuntu 22-built
+archive also passes unchanged on Ubuntu 24, including explicit runtime setup.
 
-macOS arm64 and hosted Windows x64 pass all 21 rendering checks. Ubuntu 22.04
+The archives measured about 5.8 MiB (Mac arm64), 6.3 MiB (Linux amd64) and
+6.8 MiB (Windows amd64), excluding system runtimes. macOS arm64 and hosted
+Windows x64 pass all 21 rendering checks. Ubuntu 22.04
 and 24.04 use Xvfb for hosted checks; unavailable WebGL and direct local media
 remain explicit exclusions. These are tested environments, not a claim that
 every machine with the same OS name works. Physical Windows/Linux Wails input,

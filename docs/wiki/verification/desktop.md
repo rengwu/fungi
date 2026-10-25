@@ -1,24 +1,21 @@
 ---
 title: Verify a portable desktop build
-updated: 2026-10-22
+updated: 2026-10-25
 ---
 # Verify a portable desktop build
 
 Run on the target desktop after copying/extracting the **whole** portable
-directory. Go, Node, npm and a separately installed browser are unnecessary.
-Hosted macOS and Windows renderer fixtures pass; physical input and
-clean-machine journeys still need this separate check. The Ubuntu 24.04
-portable renderer currently fails at sandbox startup; the bundled wiki's
-hosted-platform report records the failure. Record the OS/version/architecture and
-`BUILD.json` with the results. Do not bypass OS security protections or disable
-Chromium's sandbox if startup fails; record the actual error.
+Wails package. Go, Node and npm are unnecessary. macOS uses WKWebView;
+Windows needs WebView2 and Linux needs WebKitGTK 4.1. Run `fungi doctor`
+first. The bootstrap can explicitly install missing Windows/Ubuntu runtimes;
+ordinary launches never do. See [installation](../features/installation.md).
 
-The accepted Linux policy is no-install on explicitly verified environments.
-The bundled `docs/wiki/platforms.md` lists the evidence and limits. A
-`renderer_startup_failed` result identifies its `worker.log`; preserve both.
-Ubuntu 22.04's hosted workflow passes without WebGL, but that is not proof of
-every Linux desktop. A green Ubuntu 24.04 CI job verifies the core and startup
-failure diagnostics, not UI support.
+Record the OS/version/architecture, `BUILD.json` and runtime report. Hosted
+fixtures prove rendering and persistence on their runner environments; this
+recipe separately checks visible input and clean-machine behavior. Preserve
+startup errors and the session's `worker.log`; do not bypass OS security
+protections. Known Linux local-media and best-effort storage limits are in
+[platforms](../platforms.md).
 
 ## Windows PowerShell
 
@@ -27,14 +24,13 @@ Open PowerShell in the extracted directory. Use a disposable state directory:
 ```powershell
 $env:FUNGI_STATE_DIR = Join-Path $env:TEMP ('fungi-check-' + [guid]::NewGuid().ToString('N'))
 Get-Content .\BUILD.json
+.\fungi.exe doctor
 .\fungi.exe describe
-.\fungi.exe open --exec .\examples\helper.exe --delivery wait
 $opened = .\fungi.exe open .\examples\compare\index.html --delivery manual | ConvertFrom-Json
 $opened
 ```
 
-The helper should return `submitted` with a readable text artifact. In the
-comparison window, move the divider, select a preference and enter a test
+In the comparison window, move the divider, select a preference and enter a test
 note. Wait for **Draft saved**, then close using the window's close button.
 Collect once and reopen:
 
@@ -69,8 +65,8 @@ Use the same sequence with POSIX commands and the paths from each receipt:
 ```sh
 export FUNGI_STATE_DIR="$(mktemp -d)/sessions"
 cat BUILD.json
+./fungi doctor
 ./fungi describe
-./fungi open --exec ./examples/helper --delivery wait
 ./fungi open ./examples/compare/index.html --delivery manual
 # After closing the window with an acknowledged draft:
 ./fungi collect EXACT_SESSION_ID
@@ -80,10 +76,10 @@ cat BUILD.json
 ```
 
 Use `sha256sum ARTIFACT_PATH` on Linux or `shasum -a 256 ARTIFACT_PATH` on macOS.
-Linux needs a supported desktop environment and the shared OS libraries used
-by Electron. A container-only Go pass does not validate windowing, graphics,
-clipboard, sandbox startup or a clean distribution. Record missing library or
-sandbox errors instead of prescribing installation as a passing no-setup test.
+Linux needs a graphical desktop and compatible WebKitGTK 4.1 libraries.
+A container-only runtime installation check does not validate physical input,
+clipboard, GPU behavior or clean desktop distribution. Record any failed
+prerequisite and whether explicit runtime setup was used.
 
 ## Return the observations
 

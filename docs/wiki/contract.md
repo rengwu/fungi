@@ -1,13 +1,13 @@
 ---
 title: First implementation contract
-updated: 2026-10-22
+updated: 2026-10-25
 status: Prototype contract
 ---
 # First implementation contract
 
 This contract describes the initial implementation of the [accepted first milestone](planning.md#accepted-first-milestone-scope). The prototype exists; the [verification report](verification/runs/2026-10-20-first-proof.md) identifies passing scenarios and remaining gaps. The result boundary is intended to stabilize before broader UI composition.
 
-Go owns sessions, persistence and delivery. Electron owns the native web window. Skills provide local HTML/assets, a small JSON form, or an executable helper. A skill sequences workflows; the engine runs one interaction at a time per session, with independent sessions allowed concurrently.
+Go owns sessions, persistence and delivery. Wails owns the native web window. Skills provide local HTML/assets, a small JSON form, or an executable helper. A skill sequences workflows; the engine runs one interaction at a time per session, with independent sessions allowed concurrently.
 
 The [authoring guide](authoring.md) is the compact entry point for new skills. Protocol 1's existing meanings are the compatibility boundary: preserve them for additive extensions and explicitly version breaking changes. This does not make the experimental flat form schema or untested platforms stable.
 
@@ -154,7 +154,7 @@ Drain complete output messages before treating process exit as failure. A ready 
 
 ## Persistence and ownership
 
-Use one session-owning Go process and a private session directory. The detached worker returns readiness and completion through a pipe; closing that pipe does not cancel it. An OS file lock establishes ownership. There is no local HTTP listener or permanent daemon. Electron and native helpers feed the same owner-side commit function. No permanent system service is required. Keep input, draft, terminal result, artifact bytes and delivery bookkeeping distinct. Artifact IDs are SHA-256 values; unreferenced copies are removed after a save attempt to bound draft churn. Native helpers remain responsible for their temporary output directory.
+Use one session-owning Go process and a private session directory. The detached worker returns readiness and completion through a pipe; closing that pipe does not cancel it. An OS file lock establishes ownership. There is no local HTTP listener or permanent daemon. Wails and other native helpers feed the same owner-side commit function. No permanent system service is required. Keep input, draft, terminal result, artifact bytes and delivery bookkeeping distinct. Artifact IDs are SHA-256 values; unreferenced copies are removed after a save attempt to bound draft churn. Native helpers remain responsible for their temporary output directory.
 
 For the macOS proof, use staged files and an explicitly tested commit sequence: save/flush referenced artifacts before publishing the terminal result; acknowledge only after the commit completes. Preserve the previous valid draft/result on failure. Cross-platform file replacement and durability need separate verification before Windows/Linux support is claimed. The contract specifies observable behavior, not a new storage framework.
 
@@ -180,7 +180,7 @@ The [six-harness inventory](research/delivery.md#first-milestone-harness-invento
 | Disk failure or interrupted artifact | No success acknowledgement; previous committed state preserved |
 | Owner exit or uncertain callback | Explicit error/delivery state; saved results collectable |
 | Reopen a closed draft | New linked session and current caller, old result unchanged |
-| Portable package, offline launch | No separately installed Node/npm or browser runtime required on the tested baseline |
+| Portable package, offline launch | No Node/npm/Go needed; the system webview must already be available. Missing Windows/Ubuntu runtimes require explicit bootstrap setup |
 
 Record actual wait duration, version, environment and resource measurements. A short test does not prove indefinite reliability.
 
@@ -188,7 +188,7 @@ Record actual wait duration, version, environment and resource measurements. A s
 
 1. Probe return mechanisms in the six harnesses with a minimal fixture, before UI breadth or adapter abstractions. Treat any required setup or unavailable mechanism as a concrete finding.
 2. Implement the Go session/result path and tiny helper fixture, including interrupted commits, duplicate submission and independent sessions.
-3. Add Electron, the page bridge, equivalent HTML/flat-JSON forms and image attachments. Exercise the real human-facing return path.
+3. Add the window renderer, the page bridge, equivalent HTML/flat-JSON forms and image attachments. Exercise the real human-facing return path.
 4. Verify all six harnesses end to end and package the macOS portable build. Record remaining Windows/Linux work explicitly.
 
 The core and reference renderers are implemented. The [current compatibility report](verification/runs/2026-10-20-no-setup.md) applies the accepted no-setup/manual-fallback boundary and identifies exact tested routes. Broader JSON authoring stays open for the user’s later design discussion.

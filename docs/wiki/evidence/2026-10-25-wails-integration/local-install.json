@@ -1,0 +1,126 @@
+{
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3",
+  "platform": "darwin",
+  "arch": "arm64",
+  "archiveA": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-wails.1/fungi-darwin-arm64.tar.gz",
+  "checksumA": "1407a3bea3d551c9e56c7028d9a6eac8908b623956d4d37916ecf76f2b8373a5",
+  "archiveB": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-wails.2/fungi-darwin-arm64.tar.gz",
+  "checksumB": "a166a30f421b33337ca05cb1b318242f79a0f04aa2297746042070ca1bd68943",
+  "requests": [
+    "/download/v0.1.0-wails.1/fungi-darwin-arm64.tar.gz.sha256",
+    "/download/v0.1.0-wails.1/fungi-darwin-arm64.tar.gz"
+  ],
+  "scope": "bootstrap, active Wails session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/install with spaces/bin/fungi\",\"current\":\"v0.1.0-wails.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 702
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-wails.1"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "d1e5791ac7e6359609285a0ed4d984f3",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/install with spaces/bin/fungi",
+      "collect",
+      "d1e5791ac7e6359609285a0ed4d984f3"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/sessions/d1e5791ac7e6359609285a0ed4d984f3/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/install with spaces/bin/fungi",
+    "current": "v0.1.0-wails.2",
+    "kind": "installation",
+    "previous": "v0.1.0-wails.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-wails.2"
+  },
+  "runtime": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WKWebView"
+  },
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-wails.2",
+    "platform": "darwin",
+    "arch": "arm64",
+    "wails": "v2.17.0",
+    "binarySHA256": "601e9c58269f71a244723955f0310b2f6b135a63936f475e9d9d632a660faa06",
+    "rendererSHA256": "fbf3860065c75fd3b9ca7fe4bb08bc8eb52affe45eeeb80032470b6b955ba6b0"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "d1e5791ac7e6359609285a0ed4d984f3",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-wails.2"
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/sessions/d1e5791ac7e6359609285a0ed4d984f3/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-oK1xO3/install with spaces/bin/fungi",
+    "current": "v0.1.0-wails.1",
+    "kind": "installation",
+    "previous": "v0.1.0-wails.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}

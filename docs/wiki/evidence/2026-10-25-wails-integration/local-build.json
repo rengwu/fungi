@@ -1,0 +1,20 @@
+{
+  "gitBase": "737d8595676caa6b1d87458236a25ce8a9e37642",
+  "codeChangeAfterBase": "scripts/package.mjs: Homebrew GOROOT license-path fallback only; core/helper unchanged",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A5368g\n",
+  "arch": "arm64",
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-wails.4",
+    "platform": "darwin",
+    "arch": "arm64",
+    "wails": "v2.17.0",
+    "binarySHA256": "4993c610ba572584e7887649da6bb9da9689c128e02902a485fae3a361bd7cc6",
+    "rendererSHA256": "bb5bfb1317182587d900d182ba934cd496acdfff795149b1e16e215974cace68",
+    "created": "2026-10-25T14-07-31-883Z",
+    "publicRelease": false,
+    "runtimeVerified": false
+  },
+  "packageScriptSHA256": "d1d9ce699a08e88fba87990a91e98de2ca5bdad45ca776c01597c48fbed3c481",
+  "goBuildMetadata": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.1.0-wails.4/fungi-darwin-arm64/fungi: go1.26.4\n\tpath\tfungi\n\tmod\tfungi\tv0.0.0-20261025140129-737d8595676c+dirty\t\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=arm64\n\tbuild\tGOOS=darwin\n\tbuild\tGOARM64=v8.0\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=737d8595676caa6b1d87458236a25ce8a9e37642\n\tbuild\tvcs.time=2026-10-25T14:01:29Z\n\tbuild\tvcs.modified=true\n"
+}

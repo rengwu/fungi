@@ -1,0 +1,126 @@
+{
+  "directory": "/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "archiveA": "/Users/runner/work/fungi/fungi/dist/release-v0.1.0-ci.1/fungi-darwin-arm64.tar.gz",
+  "checksumA": "14e69bfd13d033c479f144860f3cdb25f9d16ceb8b95e7e13f200914daea8ac1",
+  "archiveB": "/Users/runner/work/fungi/fungi/dist/release-v0.1.0-ci.2/fungi-darwin-arm64.tar.gz",
+  "checksumB": "8ea13e65f019e10d5d0cc57f6151c2054bdf1dd481f7b5cee7eca7f03251700c",
+  "requests": [
+    "/download/v0.1.0-ci.1/fungi-darwin-arm64.tar.gz.sha256",
+    "/download/v0.1.0-ci.1/fungi-darwin-arm64.tar.gz"
+  ],
+  "scope": "bootstrap, active Wails session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/install with spaces/bin/fungi\",\"current\":\"v0.1.0-ci.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/install with spaces/bin\nThen run: fungi update\n",
+    "elapsedMs": 282
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.1"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "fc967a6b911a41d6dee125cbccfd3420",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/install with spaces/bin/fungi",
+      "collect",
+      "fc967a6b911a41d6dee125cbccfd3420"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/sessions/fc967a6b911a41d6dee125cbccfd3420/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.2",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.2"
+  },
+  "runtime": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WKWebView"
+  },
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-ci.2",
+    "platform": "darwin",
+    "arch": "arm64",
+    "wails": "v2.17.0",
+    "binarySHA256": "e4e1a0cb6baafae19bb2a3d3e499cbd55d57e5d1d2dd2e904e5a758f552807cd",
+    "rendererSHA256": "4086543e29ebe7fc258ded084764347f8afbec06cdd04e91f353ae114ee6a4ac"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "fc967a6b911a41d6dee125cbccfd3420",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-ci.2"
+    },
+    "artifacts": [
+      {
+        "id": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/sessions/fc967a6b911a41d6dee125cbccfd3420/artifacts/a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52",
+        "bytes": 206,
+        "sha256": "a2a7f6ac76c468a3c3ccbe9da54a42309c3956a9ee9c1b7ce7581a306759fb52"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/Users/runner/work/fungi/fungi/verification-output/install-smoke-KRM1D0/install with spaces/bin/fungi",
+    "current": "v0.1.0-ci.1",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}

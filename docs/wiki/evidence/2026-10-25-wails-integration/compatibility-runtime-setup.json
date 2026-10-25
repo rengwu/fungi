@@ -1,0 +1,22 @@
+{
+  "scope": "real missing Linux libraries, ordinary launch failure, declined setup, injected package-manager failure, official Ubuntu runtime install and reuse; no desktop/UI claim",
+  "archive": "/home/runner/work/fungi/fungi/baseline/dist/release-v0.1.0-ci.1/fungi-linux-amd64.tar.gz",
+  "target": "ubuntu-24.04",
+  "directory": "/home/runner/work/fungi/fungi/verification-output/runtime-setup-j6wvVl",
+  "missing": {
+    "error": {
+      "code": "runtime_missing",
+      "message": "/package/renderer/fungi-renderer: error while loading shared libraries: libglib-2.0.so.0: cannot open shared object file: No such file or directory. Re-run the Fungi installer with --setup-runtime (Windows: -SetupRuntime), or install the system runtime yourself. Ordinary UI launches never install software."
+    },
+    "kind": "error",
+    "protocol": 1
+  },
+  "available": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WebKitGTK 4.1"
+  },
+  "passed": true
+}

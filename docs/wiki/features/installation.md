@@ -151,13 +151,17 @@ No test may delete older user/session-referenced `dist/` packages.
 
 ## Coverage and limits
 
-The [distribution run](../verification/runs/2026-10-23-distribution.md) records
-actual results and build identities. Clean-machine security prompts, public
+The [Wails integration run](../verification/runs/2026-10-25-wails-integration.md)
+records current package/runtime results and build identities. The older
+[distribution run](../verification/runs/2026-10-23-distribution.md) retains
+Electron-specific observations. Clean-machine security prompts, public
 release downloads, signing/notarization, installer PATH behavior in fresh
 interactive shells, power loss and future protocol/launcher migrations are not
 inferred from a local or hosted success. Full Fungi-native jstack integration
 remains deferred.
 
 ## Verification history
+
+- [2026-10-25 Wails integration](../verification/runs/2026-10-25-wails-integration.md) — default packages, installed native input, update/rollback and explicit Linux runtime setup.
 
 - [2026-10-23 distribution proof](../verification/runs/2026-10-23-distribution.md)

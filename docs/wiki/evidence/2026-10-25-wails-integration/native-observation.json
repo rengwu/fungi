@@ -1,0 +1,24 @@
+{
+  "driver": "connected native macOS accessibility/keyboard/mouse via cua_repl",
+  "synthetic": true,
+  "comparison": {
+    "draftBeforeClose": {
+      "split": 65,
+      "preference": "After",
+      "notes": "WAILS-INTEGRATION-NATIVE-2026-10-25: saved through the installed command."
+    },
+    "draftSavedLabelObserved": true,
+    "sameValuesVisibleAfterReopen": true,
+    "submittedOnceThenCollectedOnce": true,
+    "pngInspectedVisually": true,
+    "pngHashVerified": true
+  },
+  "form": {
+    "notes": "Synthetic installed-form check, using the returned comparison PNG.",
+    "nativeFilePicker": "comparison.png",
+    "previewObserved": true,
+    "submittedOnceThenCollectedOnce": true,
+    "returnedBytesMatchSelectedFile": true
+  },
+  "driverLimits": "Slider AX setValue did not change the value; a native drag did. Initial typing and file-path entry required fresh focused controls; corrected before submission. Post-close AX observation timed out because the app had exited."
+}

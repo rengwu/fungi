@@ -1,0 +1,11 @@
+2026-10-25T14:01:38.8316725Z ##[group]Operating System
+2026-10-25T14:01:38.8318227Z Ubuntu
+2026-10-25T14:01:38.8318999Z 22.04.5
+2026-10-25T14:01:38.8319720Z LTS
+2026-10-25T14:01:38.8320471Z ##[endgroup]
+2026-10-25T14:01:38.8321245Z ##[group]Runner Image
+2026-10-25T14:01:38.8322100Z Image: ubuntu-22.04
+2026-10-25T14:01:38.8322998Z Version: 20261012.322.1
+2026-10-25T14:01:38.8324887Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20261012.322/images/ubuntu/Ubuntu2204-Readme.md
+2026-10-25T14:01:38.8327522Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20261012.322
+2026-10-25T14:01:38.8328892Z ##[endgroup]

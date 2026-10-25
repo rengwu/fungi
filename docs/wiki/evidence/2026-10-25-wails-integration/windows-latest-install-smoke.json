@@ -1,0 +1,126 @@
+{
+  "directory": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3",
+  "platform": "win32",
+  "arch": "x64",
+  "archiveA": "D:\\a\\fungi\\fungi\\dist\\release-v0.1.0-ci.1\\fungi-windows-amd64.zip",
+  "checksumA": "01ae07ebc2c50673ea799b77f4c0eceb4e68159f5e71d38e0a2dcc7266f856f4",
+  "archiveB": "D:\\a\\fungi\\fungi\\dist\\release-v0.1.0-ci.2\\fungi-windows-amd64.zip",
+  "checksumB": "d9c01ffa13335595a3b4291454781d7917e7cd30cba46431b88e2508b70f77a7",
+  "requests": [
+    "/download/v0.1.0-ci.1/fungi-windows-amd64.zip.sha256",
+    "/download/v0.1.0-ci.1/fungi-windows-amd64.zip"
+  ],
+  "scope": "bootstrap, active Wails session, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"D:\\\\a\\\\fungi\\\\fungi\\\\verification-output\\\\install-smoke-m8pCC3\\\\install with spaces\\\\bin\\\\fungi.exe\",\"current\":\"v0.1.0-ci.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\nFungi is installed at D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3\\install with spaces\\bin. PATH was left unchanged.\n",
+    "stderr": "Downloading fungi-windows-amd64.zip and its checksum...\r\nVerifying archive checksum...\r\nExtracting bootstrap package...\r\nCreating managed installation...\r\n",
+    "elapsedMs": 4453
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.1"
+  },
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "49166fdd459639f78f6833443ca76739",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3\\install with spaces\\bin\\fungi.exe",
+      "collect",
+      "49166fdd459639f78f6833443ca76739"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3\\sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "notes": "Saved before update",
+      "restored": false
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3\\sessions\\49166fdd459639f78f6833443ca76739\\artifacts\\229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3\\install with spaces\\bin\\fungi.exe",
+    "current": "v0.1.0-ci.2",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.1",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-ci.2"
+  },
+  "runtime": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WebView2 155.0.4283.62"
+  },
+  "manifest": {
+    "format": 2,
+    "version": "v0.1.0-ci.2",
+    "platform": "windows",
+    "arch": "amd64",
+    "wails": "v2.17.0",
+    "binarySHA256": "f49aa07371a77972240d466eeb01ef3f39a6ae0a3926ba6bca5384547dcdc3ab",
+    "rendererSHA256": "76b247e9d19bf30098f52bee0f1933dbeebf654afe8ee9527503b02ad523890e"
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "49166fdd459639f78f6833443ca76739",
+    "outcome": "submitted",
+    "data": {
+      "notes": "Saved before update",
+      "restored": false,
+      "activated": "v0.1.0-ci.2"
+    },
+    "artifacts": [
+      {
+        "id": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "key": "canvas",
+        "name": "canvas.png",
+        "mediaType": "image/png",
+        "path": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3\\sessions\\49166fdd459639f78f6833443ca76739\\artifacts\\229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0",
+        "bytes": 134,
+        "sha256": "229f4824e40ed5d6dbf4ba83b81ec3a4277153481fc5f3e0cb2635d3c048b7c0"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "D:\\a\\fungi\\fungi\\verification-output\\install-smoke-m8pCC3\\install with spaces\\bin\\fungi.exe",
+    "current": "v0.1.0-ci.1",
+    "kind": "installation",
+    "previous": "v0.1.0-ci.2",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "passed": true
+}

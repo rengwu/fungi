@@ -457,9 +457,9 @@ existing Fungi bridge and useful skill interfaces on the exercised platforms,
 with the recorded limitations. Another broad renderer comparison is not the
 recommended next step.
 
-Recommended next milestone: integrate Wails into the normal distribution and
-launch path. Today it still requires explicit `--exec`, while packaging and
-release metadata assume Electron. Build one small OS/CPU package, make ordinary
+The agreed next milestone was to integrate Wails into the normal distribution
+and launch path. At that checkpoint it required explicit `--exec`, while
+packaging and release metadata assumed Electron. Build one small OS/CPU package, make ordinary
 `fungi open` use its Wails helper, reuse the existing installer/updater and
 rollback, and implement the already accepted missing-runtime policy. Normal
 launches report missing runtimes; installation offers explicit opt-in setup
@@ -474,7 +474,7 @@ signing, publication and physical-machine gaps remain explicit release work.
 This is the recommended next implementation scope, not a claim that the
 integration or release qualification already exists.
 
-## Wails integration in progress
+## Wails integration completed on 2026-10-25
 
 The user authorized `work-until-grill` on the integration milestone. Normal
 launches now select the Wails helper; native packages contain the CLI, helper,
@@ -484,8 +484,24 @@ and Windows `-SetupRuntime` opt into official Ubuntu/Microsoft setup. Package
 format 2 hashes both executables; legacy format 1 remains readable for rollback,
 but the old preview updater needs a new bootstrap to migrate once.
 
-Local macOS packaged rendering and live-session install/update/rollback have
-passed. The race-enabled core suite and helper asset/bridge checks pass.
-Electron source packaging and runtime file sharing are removed. Hosted Windows,
-Linux and actual missing-runtime setup checks are the next verification step;
-these implementation notes do not yet establish cross-platform acceptance.
+The [integration report](verification/runs/2026-10-25-wails-integration.md)
+passes the accepted scope. Mac and Windows pass all 21 rendering checks;
+Ubuntu 22/24 pass 20 with the accepted direct-media failure recorded separately.
+Actual bootstraps, a window held through update, saved PNGs and rollback pass
+on all four CI targets. One Ubuntu 22-built archive also passes unchanged on
+Ubuntu 24. Disposable Ubuntu containers verify absent-runtime failure,
+declined setup, package-manager failure, real opt-in installation and reuse.
+
+The installed Mac command also passed native comparison input, acknowledged
+draft close/reopen and exact PNG return, plus the primitive form and native
+file picker. Archives are about 5.8 MiB Mac, 6.3 MiB Linux and 6.8 MiB Windows;
+none contains Electron. No user runtime or OS policy was changed, and no
+public release was published.
+
+The remaining release qualifications are explicit: real absent-WebView2 setup
+on Windows, physical Windows/Linux Wails input, signing/notarization, public
+release downloads, fresh PATH behavior and additional OS/CPU baselines.
+They are not silently inferred from hosted success. Broader skill authoring
+integration remains deferred as requested. The system-webview replacement no
+longer needs another renderer-fit spike; the existing four-method interface is
+available for skill-owned UIs under its accepted limits.

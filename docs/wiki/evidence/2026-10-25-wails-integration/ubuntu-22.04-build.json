@@ -1,0 +1,12 @@
+{
+  "format": 2,
+  "version": "v0.1.0-ci.1",
+  "platform": "linux",
+  "arch": "amd64",
+  "wails": "v2.17.0",
+  "binarySHA256": "ed1cd165ed178f9dec7fab9bc3dffe6887cdb8a3a71afb28e49f4c01723b8902",
+  "rendererSHA256": "6721a4ae21b1aa0209bb5583267e6243af0710fec7c62fd07ba23a775b15a8cf",
+  "created": "2026-10-25T14-06-25-865Z",
+  "publicRelease": false,
+  "runtimeVerified": false
+}

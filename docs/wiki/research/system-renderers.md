@@ -4,16 +4,17 @@ updated: 2026-10-25
 ---
 # Reconsidering the bundled renderer
 
-The user reopened the Electron decision because the bundled runtime is a
-significant cost. This is research and a proposed experiment, not an accepted
-replacement or a verified compatibility claim. Existing Electron proofs remain
-valid for their recorded builds. [Planning](../planning.md)
+This page preserves the October 23 renderer research and subsequent probes.
+The user has since selected Wails, accepted its documented limitations and
+authorized default-package integration. See the [integration report](../verification/runs/2026-10-25-wails-integration.md)
+for current build-specific evidence. Earlier Electron observations and the
+candidate comparison below retain their historical scope.
 
 ## What can stay
 
-The current Go owner launches the renderer as a child and exchanges the same
+The Go owner launches the renderer as a child and exchanges the same
 JSON protocol used by native helpers. Go owns authoritative drafts, answers,
-artifacts and delivery. Electron owns the web window, local asset serving,
+artifacts and delivery. In the original implementation, Electron owned the web window, local asset serving,
 page bridge, temporary attachment transfer and native lifecycle observation.
 Replacing that child does not require redesigning the session protocol or
 asking skill authors to adopt framework-specific APIs.
@@ -50,7 +51,7 @@ Linux is the largest distribution constraint. The webview project's production
 requirements explicitly include GTK and WebKitGTK packages. Build-time headers
 and compilers are distinct from these end-user runtime requirements. There is
 no evidence that a system-webview host runs on every clean Linux desktop with
-no setup. Fungi's current Electron renderer also has an unsupported Ubuntu
+no setup. Fungi's former Electron renderer also had an unsupported Ubuntu
 24.04 sandbox baseline; removing Electron does not by itself establish support.
 [webview prerequisites](https://github.com/webview/webview#prerequisites),
 [Fungi's measured platforms](../platforms.md)
