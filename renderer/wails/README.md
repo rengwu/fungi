@@ -67,6 +67,10 @@ transparent media workaround; Blob loading preloads the file and is not a
 replacement for streaming large media. Codec availability also depends on the
 installed engine.
 
+These known limitations are accepted for now. Add workarounds only when they
+stay simple; they do not block the next packaging/installation integration.
+Keep the failing media observation visible rather than relabel it as working.
+
 The prototype is intentionally outside release packaging/updating. See the
 project wiki's renderer research and dated verification record for measured
 compatibility, sizes and remaining migration work.

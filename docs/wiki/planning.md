@@ -441,3 +441,35 @@ are not established by that check. Mac/Windows retain all 21 renderer checks;
 both Linux targets remain 20/21. Whole-host failure and explicit saved-draft
 reopen passed locally. No new policy decision was needed to accept native
 access, best-effort storage or manual recovery; these are now settled.
+
+## Accepted Wails limits and next milestone on 2026-10-25
+
+The user accepts the remaining discussed Wails issues for now, including Linux
+media loading. Circumvent them only when the solution respects `rule-lean`;
+otherwise document and leave the limitation. This removes direct local media
+parity as a gate on the next milestone. Do not introduce a framework fork,
+transparent media rewriting, storage virtualization or automatic crash
+recovery just to eliminate accepted rough edges. Historical failed checks stay
+visible; accepting a limit does not make a failed behavior pass.
+
+The renderer-fit spike has answered its main question: Wails can host the
+existing Fungi bridge and useful skill interfaces on the exercised platforms,
+with the recorded limitations. Another broad renderer comparison is not the
+recommended next step.
+
+Recommended next milestone: integrate Wails into the normal distribution and
+launch path. Today it still requires explicit `--exec`, while packaging and
+release metadata assume Electron. Build one small OS/CPU package, make ordinary
+`fungi open` use its Wails helper, reuse the existing installer/updater and
+rollback, and implement the already accepted missing-runtime policy. Normal
+launches report missing runtimes; installation offers explicit opt-in setup
+from official sources. Remove obsolete Electron packaging once that replacement
+path is verified rather than maintain a permanent renderer framework.
+
+Acceptance should exercise installation, a normal form and custom canvas/image
+workflow, saved-draft reopen, result delivery, update and rollback through the
+installed command on macOS, Windows and supported Linux. End users need no Go
+or Node. Distinguish hosted execution from clean consumer-machine acceptance;
+signing, publication and physical-machine gaps remain explicit release work.
+This is the recommended next implementation scope, not a claim that the
+integration or release qualification already exists.

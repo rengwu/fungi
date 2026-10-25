@@ -29,6 +29,9 @@ macOS/Linux `localStorage` can be shared. Prefer `saveDraft` for durable state
 and `sessionStorage` for window-local state. These
 [accepted requirements](../planning.md#wails-simplicity-clarification-on-2026-10-25)
 do not require an Electron-equivalent native boundary or a framework fork.
+The user also accepts the known Linux direct-media limitation for now;
+workarounds are optional when simple. This permits progressing with Wails
+integration without claiming that the historical media check passes.
 
 Submission closes the window after acknowledgement. Persistence failure retains the input and permits retry. Manual delivery is stated in the form. Window close saves a `closed` result; it preserves acknowledged drafts. A custom page must opt into saving its state.
 
