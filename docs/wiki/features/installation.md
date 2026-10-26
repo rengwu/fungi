@@ -182,7 +182,7 @@ remains deferred.
 
 ## Verification history
 
-- [First public alpha](../verification/runs/2026-10-26-release.md) — publication and public-download checks; hosted Mac media discrepancy under investigation.
+- [First public alpha](../verification/runs/2026-10-26-release.md) — publication and public-download checks; all public install/update paths passed; an intermittent Mac media probe failure remains recorded.
 
 - [2026-10-26 cleanup](../verification/runs/2026-10-26-cleanup.md) — removed Electron preview compatibility; current Wails installation/update/rollback checks.
 

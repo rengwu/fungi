@@ -43,6 +43,12 @@ every machine with the same OS name works. Physical Windows/Linux Wails input,
 clean consumer-machine setup, other architectures, long sleep/wake and public
 signing remain separate qualification work.
 
+The [public alpha checks](verification/runs/2026-10-26-release.md) passed all
+installer/update paths but observed one intermittent Mac media metadata/seek
+assertion failure. Hosted and repeated local follow-ups passed on the same
+archive; the cause remains unconfirmed. Media behavior remains provisional.
+The first Mac archive's actual deployment target is macOS 26.0.
+
 ## Accepted limits
 
 - Skill pages are trusted local application code and can access Wails native APIs.

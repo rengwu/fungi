@@ -1,0 +1,114 @@
+[
+  {
+    "check": "mac-public-first",
+    "passed": false,
+    "build": {
+      "format": 2,
+      "version": "v0.1.0-alpha.1",
+      "platform": "darwin",
+      "arch": "arm64",
+      "wails": "v2.17.0",
+      "binarySHA256": "6b9e60866ff93d216bde63cbbabc93eb2340674298826fbb3aebab0c21530a29",
+      "rendererSHA256": "db7fdb51ebd1cb712a7bc46a1918a49de677a83fb11b3c2db3e3603692bd77a1",
+      "created": "2026-10-26T05-04-28-663Z",
+      "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+      "sourceDirty": false
+    }
+  },
+  {
+    "check": "mac-followup-public",
+    "passed": true,
+    "build": {
+      "format": 2,
+      "version": "v0.1.0-alpha.1",
+      "platform": "darwin",
+      "arch": "arm64",
+      "wails": "v2.17.0",
+      "binarySHA256": "6b9e60866ff93d216bde63cbbabc93eb2340674298826fbb3aebab0c21530a29",
+      "rendererSHA256": "db7fdb51ebd1cb712a7bc46a1918a49de677a83fb11b3c2db3e3603692bd77a1",
+      "created": "2026-10-26T05-04-28-663Z",
+      "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+      "sourceDirty": false
+    }
+  },
+  {
+    "check": "mac-local",
+    "passed": true,
+    "build": {
+      "format": 2,
+      "version": "v0.1.0-alpha.1",
+      "platform": "darwin",
+      "arch": "arm64",
+      "wails": "v2.17.0",
+      "binarySHA256": "6b9e60866ff93d216bde63cbbabc93eb2340674298826fbb3aebab0c21530a29",
+      "rendererSHA256": "db7fdb51ebd1cb712a7bc46a1918a49de677a83fb11b3c2db3e3603692bd77a1",
+      "created": "2026-10-26T05-04-28-663Z",
+      "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+      "sourceDirty": false
+    }
+  },
+  {
+    "check": "windows-public",
+    "passed": true,
+    "build": {
+      "format": 2,
+      "version": "v0.1.0-alpha.1",
+      "platform": "windows",
+      "arch": "amd64",
+      "wails": "v2.17.0",
+      "binarySHA256": "00e2bbe91043e7301f8f5a679db7abf9ca71df8132b4587f71429ad2884cd0ea",
+      "rendererSHA256": "3cf60ae29dd182cdda693d2e1cd9aa0e383b481d074b1179622b10568050c8db",
+      "created": "2026-10-26T05-03-33-610Z",
+      "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+      "sourceDirty": false
+    }
+  },
+  {
+    "check": "ubuntu22-public",
+    "passed": true,
+    "build": {
+      "format": 2,
+      "version": "v0.1.0-alpha.1",
+      "platform": "linux",
+      "arch": "amd64",
+      "wails": "v2.17.0",
+      "binarySHA256": "6a6664e4119cd60ecd24d422263b8674669e8b0e77ee525802c4e393c57b6cc0",
+      "rendererSHA256": "be3e62db961f352809c1303a247c7254b4bc6edf50dc32fd47c3e5c7234c893c",
+      "created": "2026-10-26T05-04-46-015Z",
+      "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+      "sourceDirty": false
+    }
+  },
+  {
+    "check": "ubuntu24-public",
+    "passed": true,
+    "build": {
+      "format": 2,
+      "version": "v0.1.0-alpha.1",
+      "platform": "linux",
+      "arch": "amd64",
+      "wails": "v2.17.0",
+      "binarySHA256": "6a6664e4119cd60ecd24d422263b8674669e8b0e77ee525802c4e393c57b6cc0",
+      "rendererSHA256": "be3e62db961f352809c1303a247c7254b4bc6edf50dc32fd47c3e5c7234c893c",
+      "created": "2026-10-26T05-04-46-015Z",
+      "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+      "sourceDirty": false
+    }
+  },
+  {
+    "check": "ubuntu24-followup-public",
+    "passed": true,
+    "build": {
+      "format": 2,
+      "version": "v0.1.0-alpha.1",
+      "platform": "linux",
+      "arch": "amd64",
+      "wails": "v2.17.0",
+      "binarySHA256": "6a6664e4119cd60ecd24d422263b8674669e8b0e77ee525802c4e393c57b6cc0",
+      "rendererSHA256": "be3e62db961f352809c1303a247c7254b4bc6edf50dc32fd47c3e5c7234c893c",
+      "created": "2026-10-26T05-04-46-015Z",
+      "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+      "sourceDirty": false
+    }
+  }
+]

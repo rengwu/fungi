@@ -696,3 +696,15 @@ execution. Alpha installs and updates select an explicit version; unqualified
 latest continues to mean stable. No update-channel service or package-manager
 dependency is added. Published bytes stay immutable. A new alpha number carries
 any correction. The workflow and release notes are committed with the source.
+
+
+The alpha is now published with ten assets: three platform archives, two
+installers and their SHA-256 sidecars. `main` was fast-forwarded to the current
+Wails source. Public installer/update checks passed on all four hosted baselines;
+manual workflow runs can recheck an existing release on one platform without
+building or publishing. No artifact bytes or release tag were replaced.
+The [release record](verification/runs/2026-10-26-release.md) conservatively
+retains a Failed aggregate because one Mac media probe failed, despite subsequent
+hosted and repeated local passes. Its cause remains unconfirmed and the release
+notes disclose it. The actual Mac helper deployment target is macOS 26.0, now
+explicit in the release documentation; older Mac qualification is still open.

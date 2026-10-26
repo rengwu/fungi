@@ -1,0 +1,216 @@
+{
+  "version": "v0.1.0-alpha.1",
+  "platform": "win32",
+  "arch": "x64",
+  "anonymous": true,
+  "persistentPathChanged": false,
+  "runtimeSetup": false,
+  "installer": {
+    "url": "https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.1/install.ps1",
+    "sha256": "a65a1d12fc0ab702e2e1aeaf93f19b30a8105eebd2bd624d7f6ac80bd3eecdad",
+    "stdout": "{\"action\":\"install\",\"command\":\"D:\\\\a\\\\fungi\\\\fungi\\\\verification-output\\\\public-release-NfPj6v\\\\install with spaces\\\\bin\\\\fungi.exe\",\"current\":\"v0.1.0-alpha.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":1,\"removed\":null,\"reusedRuntimeBytes\":0,\"warnings\":null}\nFungi is installed at D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\bin. PATH was left unchanged.\nFor alpha updates: fungi update --version vX.Y.Z-alpha.N\n",
+    "stderr": "Downloading fungi-windows-amd64.zip and its checksum...\r\nVerifying archive checksum...\r\nExtracting bootstrap package...\r\nCreating managed installation...\r\n"
+  },
+  "identity": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-alpha.1"
+  },
+  "build": {
+    "format": 2,
+    "version": "v0.1.0-alpha.1",
+    "platform": "windows",
+    "arch": "amd64",
+    "wails": "v2.17.0",
+    "binarySHA256": "00e2bbe91043e7301f8f5a679db7abf9ca71df8132b4587f71429ad2884cd0ea",
+    "rendererSHA256": "3cf60ae29dd182cdda693d2e1cd9aa0e383b481d074b1179622b10568050c8db",
+    "created": "2026-10-26T05-03-33-610Z",
+    "sourceCommit": "239d70e3bbbd82e9b6a81fb32c20ff221a4387c7",
+    "sourceDirty": false
+  },
+  "doctor": {
+    "available": true,
+    "kind": "doctor",
+    "protocol": 1,
+    "renderer": "wails",
+    "runtime": "WebView2 155.0.4283.62"
+  },
+  "update": {
+    "action": "update",
+    "command": "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\bin\\fungi.exe",
+    "current": "v0.1.0-alpha.1",
+    "kind": "installation",
+    "previous": "",
+    "protocol": 1,
+    "removed": null,
+    "reusedRuntimeBytes": 0,
+    "warnings": null
+  },
+  "examples": {
+    "capability": {
+      "guide": "fungi help examples",
+      "items": [
+        {
+          "name": "reply",
+          "purpose": "Parameterised HTML response, no draft",
+          "source": "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\reply\\index.html",
+          "input": "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\reply\\input.json",
+          "available": true,
+          "argv": [
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\fungi.exe",
+            "open",
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\reply\\index.html",
+            "--input",
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\reply\\input.json",
+            "--delivery",
+            "auto"
+          ]
+        },
+        {
+          "name": "compare",
+          "purpose": "Canvas comparison, PNG export and optional recovery",
+          "source": "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\compare\\index.html",
+          "available": true,
+          "argv": [
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\fungi.exe",
+            "open",
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\compare\\index.html",
+            "--delivery",
+            "auto"
+          ]
+        },
+        {
+          "name": "form",
+          "purpose": "Experimental flat JSON form",
+          "source": "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\feedback.json",
+          "available": true,
+          "argv": [
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\fungi.exe",
+            "open",
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\feedback.json",
+            "--delivery",
+            "auto"
+          ]
+        },
+        {
+          "name": "review",
+          "purpose": "Animation timing, notes and image attachment",
+          "source": "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\review.html",
+          "available": true,
+          "argv": [
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\fungi.exe",
+            "open",
+            "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\examples\\review.html",
+            "--delivery",
+            "auto"
+          ]
+        }
+      ],
+      "note": "Adapt these starting points; they are not a list of allowed workflows. Unavailable examples require a complete package."
+    },
+    "limits": {
+      "artifactBytes": 20971520,
+      "jsonBytes": 1048576,
+      "totalArtifactBytes": 104857600
+    },
+    "protocol": 1,
+    "reference": [
+      "D:\\a\\fungi\\fungi\\verification-output\\public-release-NfPj6v\\install with spaces\\versions\\v0.1.0-alpha.1\\fungi.exe",
+      "help",
+      "examples"
+    ],
+    "topic": "examples"
+  },
+  "renderer": {
+    "evidence": "D:\\a\\fungi\\fungi\\verification-output\\renderer-smoke-3Ipmdn\\evidence.json",
+    "scope": "workflow including WebGL",
+    "excluded": [],
+    "checks": [
+      {
+        "name": "ES modules and dynamic import",
+        "passed": true
+      },
+      {
+        "name": "custom elements and shadow DOM",
+        "passed": true
+      },
+      {
+        "name": "Canvas 2D and PNG export",
+        "passed": true
+      },
+      {
+        "name": "SVG image rendering",
+        "passed": true
+      },
+      {
+        "name": "WebGL rendering context",
+        "passed": true
+      },
+      {
+        "name": "local module worker",
+        "passed": true
+      },
+      {
+        "name": "Blob worker",
+        "passed": true
+      },
+      {
+        "name": "WebAssembly streaming compile",
+        "passed": true
+      },
+      {
+        "name": "local JSON fetch",
+        "passed": true
+      },
+      {
+        "name": "Blob fetch",
+        "passed": true
+      },
+      {
+        "name": "media metadata and seek",
+        "passed": true
+      },
+      {
+        "name": "asset byte ranges",
+        "passed": true
+      },
+      {
+        "name": "sandboxed inline preview",
+        "passed": true
+      },
+      {
+        "name": "page has no Node or Electron IPC",
+        "passed": true
+      },
+      {
+        "name": "external and file requests denied",
+        "passed": true
+      },
+      {
+        "name": "asset symlink escape denied",
+        "passed": true
+      },
+      {
+        "name": "oversized JSON rejected without closing",
+        "passed": true
+      },
+      {
+        "name": "envelope overhead rejected without killing owner",
+        "passed": true
+      },
+      {
+        "name": "oversized attachment rejected",
+        "passed": true
+      },
+      {
+        "name": "draft data restored",
+        "passed": true
+      },
+      {
+        "name": "draft attachment restored as Blob",
+        "passed": true
+      }
+    ]
+  },
+  "passed": true
+}

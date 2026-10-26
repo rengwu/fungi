@@ -195,3 +195,19 @@ synthetic notes and Send; collect once from its receipt. Check exact result data
 empty artifacts and absence of `draft.json`. Also exercise Cancel, window close
 and explicit reopen (which should be blank without a draft). Keep result JSON
 and the CLI/helper hashes as evidence. Close all fixture windows when finished.
+
+
+## Public alpha downloads
+
+`node scripts/public-release-smoke.mjs v0.1.0-alpha.1` uses anonymous HTTPS to
+fetch the published installer/checksum, installs to a temporary path with spaces,
+runs doctor and public update, discovers examples, and invokes the real renderer
+fixture. On Linux use `xvfb-run -a` when no physical display is present. The
+runtime must already be installed. The driver changes no persistent PATH and
+deletes its managed test installation; preserve its JSON and renderer evidence
+before removing fixture sessions. Maintainer Node is not an end-user dependency.
+The manual **Publish alpha** workflow runs this check for one selected version
+and platform, skipping build/publication. See the
+[first release record](runs/2026-10-26-release.md) for executed recipes and the
+unexplained intermittent Mac media result. These checks do not establish signing,
+clean-machine security prompts or physical input qualification.
