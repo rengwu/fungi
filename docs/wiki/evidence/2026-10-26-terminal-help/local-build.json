@@ -1,0 +1,13 @@
+{
+  "source": "68e239cdf6f4972d7001f95f810c373e222fe83a",
+  "binarySHA256": "c62bed6989dff20f212e27caf97d90bf18e8bab50c220c1d4200b9c143945314",
+  "version": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-alpha.2"
+  },
+  "go": "go version go1.26.4 darwin/arm64",
+  "ttyObserved": true,
+  "stderr": null,
+  "scope": "terminal output and redirected files; core-only, no renderer required"
+}

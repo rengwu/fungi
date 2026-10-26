@@ -19,6 +19,7 @@ clean consumer-machine qualification remains separate.
 The [first end-to-end proof](proposal.md#first-proof) records the original
 Electron/Go scope and automatic-return checks.
 
+- [Terminal help and one-line installation](verification/runs/2026-10-26-terminal-help.md)
 - [First public alpha distribution](verification/runs/2026-10-26-release.md)
 - [Stale-artifact and Electron cleanup](verification/runs/2026-10-26-cleanup.md)
 - [Requirements and discussion](planning.md)

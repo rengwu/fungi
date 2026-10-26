@@ -1,0 +1,6 @@
+ok  	fungi	1.461s
+?   	fungi/examples/helper	[no test files]
+ok  	fungi/internal/bundle	0.009s [no tests to run]
+?   	fungi/scripts/archive	[no test files]
+?   	fungi/scripts/idle-helper	[no test files]
+?   	fungi/scripts/protocol-fixture	[no test files]

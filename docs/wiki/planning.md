@@ -725,3 +725,10 @@ shell and PowerShell; the release-maintenance recipe records this requirement.
 Current-shell PATH is included for shell installs, while persistent shell
 configuration remains explicit. Publish the CLI formatting change in alpha.2;
 existing published archives and their tags remain unchanged.
+
+
+Alpha.2 is published at source `68e239c`. All 11 release jobs passed, including
+formatted help through installed update/rollback and anonymous public-download
+checks on every supported baseline. [Verification](verification/runs/2026-10-26-terminal-help.md)
+keeps terminal output and exact build evidence. The user's existing installation
+was left for them to update; no published archive was overwritten.

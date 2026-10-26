@@ -1,0 +1,30 @@
+[
+  {
+    "platform": "macos-latest",
+    "version": "v0.1.0-alpha.2",
+    "binarySHA256": "c62bed6989dff20f212e27caf97d90bf18e8bab50c220c1d4200b9c143945314",
+    "rendererSHA256": "4f01f042e350445fea94bcb0cdc7c2c728a605f8e4c8a25996dcf6ae2c22965a",
+    "passed": true
+  },
+  {
+    "platform": "ubuntu-22.04",
+    "version": "v0.1.0-alpha.2",
+    "binarySHA256": "357fd97b79c743f09559b7c8c04981bdefe7edb7b2ba1dfbee3d0a0628521e95",
+    "rendererSHA256": "7dcf21970f6250ca37bf4154ac55432337092eae19d79422544770cd5c50843c",
+    "passed": true
+  },
+  {
+    "platform": "ubuntu-24.04",
+    "version": "v0.1.0-alpha.2",
+    "binarySHA256": "357fd97b79c743f09559b7c8c04981bdefe7edb7b2ba1dfbee3d0a0628521e95",
+    "rendererSHA256": "7dcf21970f6250ca37bf4154ac55432337092eae19d79422544770cd5c50843c",
+    "passed": true
+  },
+  {
+    "platform": "windows-latest",
+    "version": "v0.1.0-alpha.2",
+    "binarySHA256": "70e520fabd3ac2eb3627c41922e39cf20e87c630764f81626ebeaaa63b4bf92d",
+    "rendererSHA256": "ef5158ec1ce554bb0cb07bf0eb487b7f9fc907f937cc072fdb8c9c477371b56e",
+    "passed": true
+  }
+]

@@ -182,6 +182,8 @@ remains deferred.
 
 ## Verification history
 
+- [2026-10-26 terminal help](../verification/runs/2026-10-26-terminal-help.md) — one-line install examples and alpha.2 public installation/update checks.
+
 - [First public alpha](../verification/runs/2026-10-26-release.md) — publication and public-download checks; all public install/update paths passed; an intermittent Mac media probe failure remains recorded.
 
 - [2026-10-26 cleanup](../verification/runs/2026-10-26-cleanup.md) — removed Electron preview compatibility; current Wails installation/update/rollback checks.

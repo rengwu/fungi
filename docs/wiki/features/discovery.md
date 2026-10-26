@@ -61,4 +61,6 @@ maintainer's own test; do not label one as the other.
 
 ## Verification history
 
+- [2026-10-26 terminal help](../verification/runs/2026-10-26-terminal-help.md) — plain terminal formatting, intact examples, one-line installation docs and the published alpha.2 checks.
+
 - [2026-10-26 offline discovery](../verification/runs/2026-10-26-discovery.md) — offline/install/native checks and all five platform CI jobs passed; independent-agent usability remains untested.
