@@ -14,10 +14,12 @@ webviews and preserve the Go core and skill API. The
 [accepted limits](planning.md#accepted-wails-limits-and-next-milestone-on-2026-10-25)
 explain the change; the [default-package integration](verification/runs/2026-10-25-wails-integration.md)
 now passes its accepted Mac/Windows/Ubuntu scope, including update/rollback
-and explicit Linux runtime setup. Public release qualification remains separate.
+and explicit Linux runtime setup. The [first public alpha](verification/runs/2026-10-26-release.md) is published;
+clean consumer-machine qualification remains separate.
 The [first end-to-end proof](proposal.md#first-proof) records the original
 Electron/Go scope and automatic-return checks.
 
+- [First public alpha distribution](verification/runs/2026-10-26-release.md)
 - [Stale-artifact and Electron cleanup](verification/runs/2026-10-26-cleanup.md)
 - [Requirements and discussion](planning.md)
 - [Documentation interview: offline reference, small examples and creative freedom](journal/2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284.md)

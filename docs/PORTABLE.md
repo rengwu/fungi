@@ -2,7 +2,7 @@
 
 Fungi runs local interfaces authored by agent skills. This package includes
 the Go CLI and Wails window helper for one OS/CPU. Keep the directory together.
-No Go, Node or npm is needed. The OS supplies WKWebView (macOS), WebView2
+No Go, Node or npm is needed. The first Mac archive requires macOS 26 or newer. The OS supplies WKWebView (macOS), WebView2
 (Windows) or WebKitGTK 4.1 (Linux). Run `fungi doctor` to check availability.
 
 ```sh

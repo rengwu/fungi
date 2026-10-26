@@ -49,7 +49,7 @@ The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the
 
 ## Install and update
 
-Initial targets: **Mac Apple Silicon**, **Windows x64**, and **Ubuntu
+Initial targets: **macOS 26+ on Apple Silicon**, **Windows x64**, and **Ubuntu
 22.04/24.04 x64**. Download only your platform's archive. Intel Macs and
 Windows/Linux ARM packages are not included in this alpha.
 

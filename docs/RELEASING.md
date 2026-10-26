@@ -53,3 +53,12 @@ xvfb-run -a node scripts/public-release-smoke.mjs v0.1.0-alpha.1
 The driver requires Node only for verification; users need neither Node nor Go.
 It saves evidence under `verification-output/public-release-*` and deletes its
 temporary installation. It opens synthetic test windows, never user interviews.
+
+To check an existing download on a hosted platform with the current verification
+driver, manually run **Publish alpha**, selecting its version and platform.
+Manual runs skip validation/build/publication and perform only the public-download
+check. For example:
+
+```sh
+gh workflow run release.yml --ref main -f version=v0.1.0-alpha.1 -f platform=macos-latest
+```

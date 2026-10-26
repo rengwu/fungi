@@ -10,7 +10,7 @@ The system web engine is a runtime prerequisite:
 
 | Platform | Engine | Missing-runtime setup |
 | --- | --- | --- |
-| macOS | WKWebView supplied by macOS | OS repair/update; no separate runtime installer |
+| macOS 26+ (first alpha, arm64) | WKWebView supplied by macOS | OS repair/update; no separate runtime installer |
 | Windows | Microsoft WebView2 | Explicit bootstrap `-SetupRuntime`, official signed Microsoft installer |
 | Ubuntu 22.04 / 24.04 | WebKitGTK 4.1 and its runtime dependencies | Explicit bootstrap `--setup-runtime`, official Ubuntu apt packages |
 

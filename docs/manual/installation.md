@@ -5,7 +5,7 @@ together: Go CLI, Wails helper, examples, manual and licenses. No Go, Node,
 npm or bundled browser engine is needed by the user. Use `fungi.exe` on Windows.
 Public alpha downloads are at https://github.com/rengwu/fungi/releases.
 They are not publisher-signed or notarized; OS security policy may block them.
-The initial targets are Mac arm64, Windows x64 and Ubuntu 22.04/24.04 x64.
+The initial targets are macOS 26+ arm64, Windows x64 and Ubuntu 22.04/24.04 x64.
 
 `fungi doctor` checks the system webview without a window:
 

@@ -45,7 +45,7 @@ POSIX prints the directory to add, without editing shell startup files.
 change the installed updater's GitHub source. Public alpha assets and installers
 live at `https://github.com/rengwu/fungi/releases`. Alpha install/update commands
 select an explicit version; ordinary `fungi update` means latest stable, which
-is unavailable until a stable release exists. The first release targets Mac
+is unavailable until a stable release exists. The first release targets macOS 26+
 arm64, Windows amd64 and Ubuntu 22.04/24.04 amd64. Unsupported bootstrap targets
 fail with an explanation before downloading.
 
@@ -174,13 +174,15 @@ Published version bytes are never replaced; corrections use a new version.
 The [Wails integration run](../verification/runs/2026-10-25-wails-integration.md)
 records current package/runtime results and build identities. The older
 [distribution run](../verification/runs/2026-10-23-distribution.md) retains
-Electron-specific observations. Clean-machine security prompts, public
+Electron-specific observations. Clean-machine security prompts,
 signing/notarization, installer PATH behavior in fresh
 interactive shells, power loss and future protocol/launcher migrations are not
 inferred from a local or hosted success. Full Fungi-native jstack integration
 remains deferred.
 
 ## Verification history
+
+- [First public alpha](../verification/runs/2026-10-26-release.md) — publication and public-download checks; hosted Mac media discrepancy under investigation.
 
 - [2026-10-26 cleanup](../verification/runs/2026-10-26-cleanup.md) — removed Electron preview compatibility; current Wails installation/update/rollback checks.
 

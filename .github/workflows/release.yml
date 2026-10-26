@@ -2,6 +2,18 @@ name: Publish alpha
 on:
   push:
     tags: ['v*-alpha.*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Existing alpha to check (does not publish)
+        required: true
+        type: string
+        default: v0.1.0-alpha.1
+      platform:
+        description: Hosted platform to check
+        type: choice
+        default: macos-latest
+        options: [macos-latest, windows-latest, ubuntu-22.04, ubuntu-24.04]
 
 permissions:
   contents: read
@@ -12,6 +24,7 @@ concurrency:
 
 jobs:
   validate:
+    if: github.event_name == 'push'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
@@ -65,10 +78,11 @@ jobs:
   public-download:
     name: Public download (${{ matrix.os }})
     needs: publish
+    if: ${{ !cancelled() && (needs.publish.result == 'success' || github.event_name == 'workflow_dispatch') }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04, ubuntu-24.04, macos-latest, windows-latest]
+        os: ${{ fromJSON(github.event_name == 'workflow_dispatch' && format('["{0}"]', inputs.platform) || '["ubuntu-22.04","ubuntu-24.04","macos-latest","windows-latest"]') }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
@@ -83,7 +97,7 @@ jobs:
       - name: Install anonymously, update from GitHub and exercise the window
         shell: bash
         env:
-          VERSION: ${{ github.ref_name }}
+          VERSION: ${{ inputs.version || github.ref_name }}
         run: |
           if [[ "$RUNNER_OS" == 'Linux' ]]; then
             xvfb-run -a node scripts/public-release-smoke.mjs "$VERSION"
