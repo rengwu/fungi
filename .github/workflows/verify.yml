@@ -1,8 +1,17 @@
 name: Foundation checks
 on:
   push:
+    branches: ['**']
   pull_request:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      release_version:
+        type: string
+        default: v0.1.0-ci.1
+
+env:
+  FUNGI_BUILD_VERSION: ${{ inputs.release_version || 'v0.1.0-ci.1' }}
 
 permissions:
   contents: read
@@ -48,8 +57,9 @@ jobs:
           go vet -tags "$tags" ./...
           go test -tags "$tags" ./...
       - name: Build two native packages (no publication)
+        shell: bash
         run: |
-          node scripts/package.mjs --release v0.1.0-ci.1
+          node scripts/package.mjs --release "$FUNGI_BUILD_VERSION"
           node scripts/package.mjs --release v0.1.0-ci.2
       - name: Exercise the packaged CLI and window
         shell: bash
@@ -57,7 +67,7 @@ jobs:
           target="$(go env GOOS)-$(go env GOARCH)"
           suffix=''
           if [[ "$RUNNER_OS" == 'Windows' ]]; then suffix=.exe; fi
-          binary="dist/release-v0.1.0-ci.1/fungi-$target/fungi$suffix"
+          binary="dist/release-$FUNGI_BUILD_VERSION/fungi-$target/fungi$suffix"
           "$binary" doctor
           if [[ "$RUNNER_OS" == 'Linux' ]]; then
             xvfb-run -a node scripts/renderer-smoke.mjs "$binary" --allow-unavailable-webgl --allow-unavailable-local-media
@@ -68,15 +78,15 @@ jobs:
         shell: bash
         run: |
           if [[ "$RUNNER_OS" == 'Linux' ]]; then
-            xvfb-run -a node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.tar.gz dist/release-v0.1.0-ci.2/*.tar.gz
+            xvfb-run -a node scripts/install-smoke.mjs dist/release-"$FUNGI_BUILD_VERSION"/*.tar.gz dist/release-v0.1.0-ci.2/*.tar.gz
           elif [[ "$RUNNER_OS" == 'Windows' ]]; then
-            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.zip dist/release-v0.1.0-ci.2/*.zip
+            node scripts/install-smoke.mjs dist/release-"$FUNGI_BUILD_VERSION"/*.zip dist/release-v0.1.0-ci.2/*.zip
           else
-            node scripts/install-smoke.mjs dist/release-v0.1.0-ci.1/*.tar.gz dist/release-v0.1.0-ci.2/*.tar.gz
+            node scripts/install-smoke.mjs dist/release-"$FUNGI_BUILD_VERSION"/*.tar.gz dist/release-v0.1.0-ci.2/*.tar.gz
           fi
       - name: Missing Linux runtime and explicit setup (disposable container)
         if: runner.os == 'Linux'
-        run: node scripts/runtime-setup-smoke.mjs dist/release-v0.1.0-ci.1/*.tar.gz ${{ matrix.os }}
+        run: node scripts/runtime-setup-smoke.mjs dist/release-"$FUNGI_BUILD_VERSION"/*.tar.gz ${{ matrix.os }}
       - name: Preserve evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -113,11 +123,11 @@ jobs:
       - name: Exercise the unchanged older-baseline archive
         run: |
           mkdir baseline/package
-          tar -xzf baseline/dist/release-v0.1.0-ci.1/fungi-linux-amd64.tar.gz -C baseline/package
+          tar -xzf baseline/dist/release-"$FUNGI_BUILD_VERSION"/fungi-linux-amd64.tar.gz -C baseline/package
           baseline/package/fungi doctor
           xvfb-run -a node scripts/renderer-smoke.mjs baseline/package/fungi --allow-unavailable-webgl --allow-unavailable-local-media
-          xvfb-run -a node scripts/install-smoke.mjs baseline/dist/release-v0.1.0-ci.1/*.tar.gz baseline/dist/release-v0.1.0-ci.2/*.tar.gz
-          node scripts/runtime-setup-smoke.mjs baseline/dist/release-v0.1.0-ci.1/*.tar.gz ubuntu-24.04
+          xvfb-run -a node scripts/install-smoke.mjs baseline/dist/release-"$FUNGI_BUILD_VERSION"/*.tar.gz baseline/dist/release-v0.1.0-ci.2/*.tar.gz
+          node scripts/runtime-setup-smoke.mjs baseline/dist/release-"$FUNGI_BUILD_VERSION"/*.tar.gz ubuntu-24.04
       - name: Preserve compatibility evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

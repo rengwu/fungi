@@ -18,6 +18,7 @@ done
 case "$version" in *[!a-zA-Z0-9.-]*|'') echo "Invalid release version" >&2; exit 2;; esac
 case "$(uname -s)" in Darwin) platform=darwin;; Linux) platform=linux;; *) echo "Use install.ps1 on Windows" >&2; exit 1;; esac
 case "$(uname -m)" in arm64|aarch64) arch=arm64;; x86_64|amd64) arch=amd64;; *) echo "Unsupported CPU" >&2; exit 1;; esac
+case "$platform-$arch" in darwin-arm64|linux-amd64) ;; *) echo "No published package for $platform-$arch; this alpha supports Mac arm64, Linux x64 and Windows x64." >&2; exit 1;; esac
 download() {
   if command -v curl >/dev/null 2>&1; then curl --fail --location --silent --show-error --connect-timeout 20 --max-time 900 "$1" --output "$2"
   elif command -v wget >/dev/null 2>&1; then wget --quiet --timeout=20 --tries=1 "$1" -O "$2"
@@ -68,4 +69,5 @@ if [ "$runtime_status" -ne 0 ]; then
   FUNGI_RENDERER_DIR= "$temp/package/fungi" doctor >&2
 fi
 "$temp/package/fungi" install --archive "$temp/$name" --sha256 "$expected" --dir "$install_dir"
-printf '\nFungi is installed. Add this directory to PATH if needed:\n  %s/bin\nThen run: fungi update\n' "$install_dir" >&2
+printf '\nFungi is installed. Add this directory to PATH if needed:\n  %s/bin\n' "$install_dir" >&2
+case "$version" in *-*) echo 'For alpha updates: fungi update --version vX.Y.Z-alpha.N' >&2;; *) echo 'Update with: fungi update' >&2;; esac

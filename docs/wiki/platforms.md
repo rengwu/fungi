@@ -1,6 +1,6 @@
 ---
 title: Verified environments and portable distribution
-updated: 2026-10-25
+updated: 2026-10-26
 ---
 # Verified environments and portable distribution
 
@@ -22,8 +22,8 @@ alone does not prove display, GPU, codec or input behavior.
 
 The [installation contract](features/installation.md) covers bootstrap,
 updates, rollback and migration from old development previews. The current
-integration passed its accepted scope; no public release or signed/notarized
-consumer download has been published.
+integration passed its accepted scope. The first public distribution is an
+unsigned alpha; signed/notarized consumer downloads remain separate work.
 
 ## Current Wails evidence
 
@@ -87,8 +87,7 @@ Ubuntu 24.04's former Chromium sandbox-startup failure belongs to that
 renderer; it is not the current Wails support policy. The older no-install
 Linux decision was superseded by explicit opt-in runtime setup.
 
-Keep old portable directories referenced by saved receipts. The current
-updater can validate format-1 packages for rollback, but old preview updaters
-cannot activate format-2 Wails packages. Run the new bootstrap once into the
-same managed directory; subsequent updates use the stable `fungi update`
-command. No old session paths are silently migrated or deleted.
+The current updater accepts format-2 Wails packages only. Electron format-1
+installation/rollback support was removed during the cleanup. Old portable
+receipts are historical; any still-needed portable session requires its original
+files. No old session paths are silently migrated.

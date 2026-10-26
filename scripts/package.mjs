@@ -54,7 +54,9 @@ await cp(path.join(root,'docs/manual'),path.join(dest,'docs/manual'),{recursive:
 await cp(path.join(root,'docs/PORTABLE.md'),path.join(dest,'README.md'));
 const hash=async file=>createHash('sha256').update(await readFile(file)).digest('hex');
 const identity={format:2,version,platform:goos,arch:goarch,wails,binarySHA256:await hash(binary),rendererSHA256:await hash(helper)};
-await writeFile(path.join(dest,'BUILD.json'),JSON.stringify({...identity,created:stamp,publicRelease:false,runtimeVerified:false},null,2)+'\n');
+const sourceCommit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
+const sourceDirty=execFileSync('git',['status','--porcelain'],{cwd:root,encoding:'utf8'}).trim()!=='';
+await writeFile(path.join(dest,'BUILD.json'),JSON.stringify({...identity,created:stamp,sourceCommit,sourceDirty},null,2)+'\n');
 if(values.release){
   await writeFile(path.join(dest,'RELEASE.json'),JSON.stringify(identity,null,2)+'\n');
   const archive=dest+(platform==='win32'?'.zip':'.tar.gz');

@@ -13,6 +13,7 @@ if ($Version -notmatch '^[A-Za-z0-9.-]+$') { throw 'Invalid release version' }
 $base = if ($env:FUNGI_RELEASE_BASE_URL) { $env:FUNGI_RELEASE_BASE_URL } else { 'https://github.com/rengwu/fungi/releases' }
 $nativeArch = if ($env:PROCESSOR_ARCHITEW6432) { $env:PROCESSOR_ARCHITEW6432 } else { $env:PROCESSOR_ARCHITECTURE }
 $arch = switch ($nativeArch) { 'AMD64' { 'amd64' }; 'ARM64' { 'arm64' }; default { throw "Unsupported CPU: $nativeArch" } }
+if ($arch -ne 'amd64') { throw "No published package for Windows $arch; this alpha supports Windows x64." }
 $name = "fungi-windows-$arch.zip"
 $location = if ($Version -eq 'latest') { "$base/latest/download" } else { "$base/download/$Version" }
 $temp = Join-Path ([IO.Path]::GetTempPath()) ('fungi-install-' + [guid]::NewGuid().ToString('N'))
@@ -59,7 +60,9 @@ try {
     }
     if (-not $NoPath -and ($env:Path -split ';') -notcontains $bin) { $env:Path += ";$bin" }
     if ($NoPath) { Write-Host "Fungi is installed at $bin. PATH was left unchanged." }
-    else { Write-Host 'Fungi is installed. New terminals inherit its PATH entry. Update with: fungi update' }
+    else { Write-Host 'Fungi is installed. New terminals inherit its PATH entry.' }
+    if ($Version.Contains('-')) { Write-Host 'For alpha updates: fungi update --version vX.Y.Z-alpha.N' }
+    else { Write-Host 'Update with: fungi update' }
 } finally {
     $env:FUNGI_RENDERER_DIR = $rendererOverride
     Remove-Item -LiteralPath $temp -Recurse -Force

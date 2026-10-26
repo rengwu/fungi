@@ -3,7 +3,9 @@
 Obtain only the archive matching this machine's OS/CPU and keep its folder
 together: Go CLI, Wails helper, examples, manual and licenses. No Go, Node,
 npm or bundled browser engine is needed by the user. Use `fungi.exe` on Windows.
-This is still a development preview; public releases/signing are not established.
+Public alpha downloads are at https://github.com/rengwu/fungi/releases.
+They are not publisher-signed or notarized; OS security policy may block them.
+The initial targets are Mac arm64, Windows x64 and Ubuntu 22.04/24.04 x64.
 
 `fungi doctor` checks the system webview without a window:
 
@@ -24,26 +26,40 @@ machine actually lacking WebView2 remains a verification gap.
 
 ## Bootstrap scripts
 
-From a source checkout, the download scripts accept:
+Download the matching install.sh or install.ps1 asset from the chosen release.
+For the first alpha:
+
+```sh
+curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.1/install.sh | sh -s -- --version v0.1.0-alpha.1
+export PATH="$HOME/.fungi/bin:$PATH"
+```
+
+```powershell
+Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.1/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"
+& "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.1
+```
+
+Downloaded scripts (also in the source checkout) accept:
 
 ```text
 sh scripts/install.sh [--version vX.Y.Z] [--dir DIRECTORY] [--setup-runtime]
 powershell -File scripts/install.ps1 [-Version vX.Y.Z] [-Directory DIRECTORY] [-SetupRuntime] [-NoPath]
 ```
 
-Omitted version selects latest. `FUNGI_INSTALL_DIR` supplies the default target;
+Omitted version selects the latest stable release. Alphas require an explicit
+version; there is no stable release yet. `FUNGI_INSTALL_DIR` supplies the default target;
 `FUNGI_RELEASE_BASE_URL` overrides the release download base for local testing.
 The shell script needs curl or wget, tar and shasum or sha256sum. PowerShell uses
 Windows built-ins and adds the user PATH unless `-NoPath` is given; the shell
-script prints PATH instructions. These scripts require published assets (or a
-test release server). They are not extra dependencies for running an extracted
-package.
+script prints PATH instructions. They are not extra dependencies for running
+an extracted package. Neither script bypasses OS security or execution policy.
 
 ## Managed updates
 
 ```sh
 fungi install --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
-fungi update
+fungi update --version v0.1.0-alpha.1
+fungi update # latest stable; available after a stable release is published
 fungi update --version vX.Y.Z
 fungi update --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
 fungi rollback
@@ -52,9 +68,10 @@ fungi prune
 
 Install defaults to `~/.fungi`; override with `--dir DIRECTORY`. Add its `bin`
 directory to PATH. Use the stable `bin/fungi` command thereafter. The updater
-verifies a published GitHub release (latest or selected version), or an explicit
-local archive/checksum. Checksum input is 64 hexadecimal characters. Public
-download commands require actual release assets; local archives work now.
+verifies a published GitHub release (latest stable or selected version), or an
+explicit local archive/checksum. Checksum input is 64 hexadecimal characters.
+Use the new release's exact version for alpha updates. Checksums detect corrupt
+downloads; they are not a separate publisher signature.
 
 Versions are immutable directories. Updates validate the candidate and its
 runtime before activation; existing sessions retain their running version.

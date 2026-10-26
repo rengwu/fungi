@@ -1,0 +1,101 @@
+name: Publish alpha
+on:
+  push:
+    tags: ['v*-alpha.*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Require an alpha version and reviewed notes
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          [[ "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-alpha\.[1-9][0-9]*$ ]]
+          test -s "docs/releases/$VERSION.md"
+
+  verify:
+    needs: validate
+    uses: ./.github/workflows/verify.yml
+    with:
+      release_version: ${{ github.ref_name }}
+
+  publish:
+    needs: verify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          path: artifacts
+          pattern: fungi-*
+      - name: Select the verified packages and publish
+        env:
+          VERSION: ${{ github.ref_name }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir assets
+          for item in 'macos-latest darwin-arm64 tar.gz' 'windows-latest windows-amd64 zip' 'ubuntu-22.04 linux-amd64 tar.gz'; do
+            read -r runner target extension <<< "$item"
+            root="artifacts/fungi-$runner/dist/release-$VERSION"
+            jq -e --arg version "$VERSION" --arg sha "$GITHUB_SHA" \
+              '.version == $version and .sourceCommit == $sha and .sourceDirty == false' \
+              "$root/fungi-$target/BUILD.json"
+            cp "$root/fungi-$target.$extension" "$root/fungi-$target.$extension.sha256" assets/
+          done
+          cp scripts/install.sh scripts/install.ps1 assets/
+          cd assets
+          sha256sum -c ./*.sha256
+          sha256sum install.sh > install.sh.sha256
+          sha256sum install.ps1 > install.ps1.sha256
+          gh release create "$VERSION" ./* --repo "$GITHUB_REPOSITORY" \
+            --verify-tag --prerelease --latest=false --title "Fungi $VERSION" \
+            --notes-file "../docs/releases/$VERSION.md"
+
+  public-download:
+    name: Public download (${{ matrix.os }})
+    needs: publish
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22.19.0'
+          package-manager-cache: false
+      - name: Linux runtime in disposable runner
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-0 xvfb
+      - name: Install anonymously, update from GitHub and exercise the window
+        shell: bash
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          if [[ "$RUNNER_OS" == 'Linux' ]]; then
+            xvfb-run -a node scripts/public-release-smoke.mjs "$VERSION"
+          else
+            node scripts/public-release-smoke.mjs "$VERSION"
+          fi
+      - name: Preserve public-download evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: public-download-${{ matrix.os }}
+          path: |
+            verification-output/**/evidence.json
+            verification-output/**/worker.log
+          if-no-files-found: warn

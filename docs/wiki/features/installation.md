@@ -1,6 +1,6 @@
 ---
 title: Installation and updates
-updated: 2026-10-25
+updated: 2026-10-26
 ---
 # Installation and updates
 
@@ -8,8 +8,8 @@ updated: 2026-10-25
 
 Implement the user's [command installation and update requirement](../planning.md#command-installation-and-updates-on-2026-10-23)
 with one prebuilt package per OS/CPU and shared Go update logic. This is a
-development implementation; published releases, signing and clean consumer
-machine acceptance remain separate work. Skills use the same four page methods.
+public alpha implementation; signing and clean consumer-machine acceptance
+remain separate work. Skills use the same four page methods.
 
 ## Entry points
 
@@ -19,7 +19,7 @@ describes these commands:
 | Command | Behavior |
 | --- | --- |
 | `fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]` | Install a verified local package; default directory is `~/.fungi` |
-| `fungi update` | Fetch the matching archive/checksum from the latest GitHub release |
+| `fungi update` | Fetch the matching archive/checksum from the latest stable GitHub release |
 | `fungi update --version vX.Y.Z` | Select a specific published release |
 | `fungi update --archive FILE --sha256 HASH` | Apply an explicitly supplied local release |
 | `fungi rollback` | Switch to the previous retained release without downloading |
@@ -42,9 +42,12 @@ POSIX prints the directory to add, without editing shell startup files.
 
 `FUNGI_INSTALL_DIR` selects a bootstrap destination. The bootstrap-only
 `FUNGI_RELEASE_BASE_URL` permits an explicit mirror/test server; it does not
-change the installed updater's GitHub source. There is no public installer
-URL or published release claim yet. Ordinary `fungi update` needs release
-assets to exist at `rengwu/fungi`.
+change the installed updater's GitHub source. Public alpha assets and installers
+live at `https://github.com/rengwu/fungi/releases`. Alpha install/update commands
+select an explicit version; ordinary `fungi update` means latest stable, which
+is unavailable until a stable release exists. The first release targets Mac
+arm64, Windows amd64 and Ubuntu 22.04/24.04 amd64. Unsupported bootstrap targets
+fail with an explanation before downloading.
 
 ## Expected behavior
 
@@ -124,7 +127,8 @@ node scripts/package.mjs --release v0.1.0-test.2
 Each creates `dist/release-VERSION/fungi-OS-ARCH`, a `.tar.gz` (Unix) or `.zip`
 (Windows) archive and a `.sha256` sidecar. `RELEASE.json` identifies the version,
 OS/CPU, Wails version and both executable hashes. Archive names use Go OS/CPU names, such
-as `darwin-arm64`, `windows-amd64` and `linux-amd64`. No release is published.
+as `darwin-arm64`, `windows-amd64` and `linux-amd64`. Packaging alone does not publish.
+BUILD.json records the source commit and whether the checkout was dirty.
 The build includes dependency license notices and small HTML examples. It omits
 a browser engine, full wiki/evidence, skill bundles and compiled demo helpers.
 
@@ -149,13 +153,29 @@ Also run the existing renderer smoke driver against the stable installed
 command. Preserve the generated evidence before removing test-owned builds.
 No test may delete older user/session-referenced `dist/` packages.
 
+## Public release workflow
+
+An annotated `vX.Y.Z-alpha.N` tag triggers the alpha workflow. It reuses the
+foundation checks with the actual release version, then publishes those same
+archives after all jobs pass. Only the Ubuntu 22-built Linux archive is shipped;
+it must also pass on Ubuntu 24. Each selected BUILD.json must name the tagged
+commit and clean source. Both bootstrap scripts and all archive/script SHA-256
+sidecars accompany the GitHub prerelease. No release is marked stable or Latest.
+
+Post-publication jobs use anonymous HTTPS downloads on Mac, Windows and both
+Ubuntu baselines. They run the public installer, doctor, the public update path,
+example discovery and the existing renderer fixture. These are hosted-download
+checks, not clean consumer-machine qualification. The complete maintainer recipe
+is in [RELEASING](https://github.com/rengwu/fungi/blob/main/docs/RELEASING.md).
+Published version bytes are never replaced; corrections use a new version.
+
 ## Coverage and limits
 
 The [Wails integration run](../verification/runs/2026-10-25-wails-integration.md)
 records current package/runtime results and build identities. The older
 [distribution run](../verification/runs/2026-10-23-distribution.md) retains
 Electron-specific observations. Clean-machine security prompts, public
-release downloads, signing/notarization, installer PATH behavior in fresh
+signing/notarization, installer PATH behavior in fresh
 interactive shells, power loss and future protocol/launcher migrations are not
 inferred from a local or hosted success. Full Fungi-native jstack integration
 remains deferred.

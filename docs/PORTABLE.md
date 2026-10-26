@@ -26,14 +26,15 @@ To create a managed installation from a downloaded release archive:
 
 The default stable command is `~/.fungi/bin/fungi` (`fungi.exe` on Windows).
 Add its directory to PATH if needed. Managed installations support
-`fungi update`, `fungi rollback` and `fungi prune`. Read
+`fungi update --version v0.1.0-alpha.1`, `fungi rollback` and `fungi prune`. Use
+the new release's exact version for alpha updates; plain `fungi update` selects
+stable releases only (none published yet). Read
 `fungi describe installation` for details. Keep session data outside the
 installation; `FUNGI_STATE_DIR` can select a separate location.
 
-This remains a development preview. Public release publication, signing,
-notarization and clean consumer-machine acceptance are not established by
-creating an archive. An updater needs a published release or an explicit
-local archive/checksum. Linux support depends on the documented host baseline;
+This is an unsigned alpha, not publisher-signed or notarized. OS policy may
+block execution; Fungi does not bypass it. Clean consumer-machine acceptance
+is not established by hosted checks. Linux support depends on the documented host baseline;
 normal launches never install OS libraries or change sandbox policy. The
 bootstrap offers explicit runtime setup with `--setup-runtime` on supported
 Ubuntu 22.04/24.04, or `-SetupRuntime` on Windows. Other distributions need

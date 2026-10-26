@@ -680,3 +680,19 @@ waiting behavior. The replacement platform run passed all five jobs at `0b45cc7`
 previously failing Ubuntu 22 case and the shared Linux archive check. Final
 cleanup retains only `dist/release-v0.1.0-clean.2/` locally and removes the new
 verification scratch output too; the checkout is about 42 MiB.
+
+
+## Public alpha preparation on 2026-10-26
+
+After the release-readiness assessment, the user made the repository public
+and authorized preparing published releases and installation URLs. Proceed
+with v0.1.0-alpha.1 for Mac arm64, Windows amd64 and Ubuntu 22.04/24.04 amd64.
+Keep it explicitly unsigned and unnotarized. Signing, clean consumer-machine
+checks and long-idle/current-harness qualification are separate milestones.
+
+Reuse the existing foundation workflow for the exact release archives, publish
+only after its gates pass, and then verify anonymous downloads and installed
+execution. Alpha installs and updates select an explicit version; unqualified
+latest continues to mean stable. No update-channel service or package-manager
+dependency is added. Published bytes stay immutable. A new alpha number carries
+any correction. The workflow and release notes are committed with the source.
