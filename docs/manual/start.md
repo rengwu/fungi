@@ -11,15 +11,15 @@ on the system webview; see `fungi help html` for boundaries.
 
 ## Common starting points
 
-| Task | Read |
+| Command | Purpose |
 | --- | --- |
-| Try a complete input → interface → response flow | `fungi help examples` |
-| Build or adapt any HTML interface | `fungi help html` |
-| Return to an agent without polling | `fungi help delivery` |
-| Use the small built-in JSON form | `fungi help form` |
-| Run a native helper | `fungi help helper` |
-| Find commands, flags, storage and exit codes | `fungi help cli` |
-| Install, update or diagnose a missing runtime | `fungi help installation` |
+| `fungi help examples` | Try a complete input → interface → response flow |
+| `fungi help html` | Build or adapt any HTML interface |
+| `fungi help delivery` | Return to an agent without polling |
+| `fungi help form` | Use the small built-in JSON form |
+| `fungi help helper` | Run a native helper |
+| `fungi help cli` | Find commands, flags, storage and exit codes |
+| `fungi help installation` | Install, update or diagnose a missing runtime |
 
 These are starting points, not a catalogue of allowed workflows. Compose the
 interface around the user's task. Keep frequent interactions inside the page;
@@ -36,7 +36,7 @@ collect once on notification. For `manual`, ask the user to say “done,” end 
 turn, then collect once. Use `wait` only with a host that keeps one call pending
 or automatically delivers its completion. Never poll `collect`.
 
-All `help` topics work offline, even without a renderer. The same Markdown is
+All `help` topics work offline, even without a renderer. The source Markdown is
 in `docs/manual/` in the package. `describe TOPIC` gives compact JSON; its
 `reference` argument array opens the corresponding full reference.
 

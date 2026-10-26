@@ -30,7 +30,15 @@ async function discovery(version){
   const base=path.join(installation,'versions',version);
   const index=await run(['describe']);
   for(const topic of index.documentation.topics){
-    assert.equal(await invoke(['help',topic]),await readFile(path.join(base,'docs/manual',topic+'.md'),'utf8'));
+    const help=await invoke(['help',topic]);
+    const markdown=await readFile(path.join(base,'docs/manual',topic+'.md'),'utf8');
+    assert.ok(help.startsWith(markdown.split('\n')[0].replace(/^# /,'')+'\n'));
+    assert.doesNotMatch(help,/^#{1,6} |^\| |^```/m);
+    for(const [index,block] of markdown.split('```').entries()){
+      if(index%2===0)continue;
+      const code=block.slice(block.indexOf('\n')+1).replace(/\n$/,'');
+      for(const line of code.split('\n'))assert.ok(help.includes('  '+line+'\n'),'help changed an example line');
+    }
   }
   const result=await run(['describe','examples']);
   assert.equal(result.capability.items.length,4);

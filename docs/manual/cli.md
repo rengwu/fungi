@@ -19,7 +19,7 @@ fungi prune
 `SOURCE` is a local HTML file or a `.json` built-in form. `--exec` selects a
 trusted executable instead; arguments after `--` go directly to it, without
 a shell. `--input` reads JSON. Paths are resolved at launch. `SESSION` is the
-exact 32-character ID in a receipt. `version` is an alias for `--version`. `help`/`--help` return offline Markdown; other public commands emit
+exact 32-character ID in a receipt. `version` is an alias for `--version`. `help`/`--help` return formatted plain text for terminals; other public commands emit
 JSON on stdout. `describe` returns protocol 1 metadata and reference routes;
 `describe examples` locates adjacent example files from any working directory.
 An unavailable example has `available:false` and no launch `argv`.

@@ -708,3 +708,20 @@ retains a Failed aggregate because one Mac media probe failed, despite subsequen
 hosted and repeated local passes. Its cause remains unconfirmed and the release
 notes disclose it. The actual Mac helper deployment target is macOS 26.0, now
 explicit in the release documentation; older Mac qualification is still open.
+
+
+## Terminal help and one-line installation on 2026-10-26
+
+The user requested that future installation examples be a single copy-paste
+line, then showed the installed CLI printing raw Markdown and requested proper
+terminal formatting. Keep one Markdown manual for offline reading and format
+its existing syntax as plain terminal text: headings without markup, aligned
+command/contract columns, wrapped prose and intact code examples. `describe`
+remains JSON. Do not add a pager, terminal dependency or separate documentation
+source. Preserve long installation commands as single physical lines.
+
+README, manual and release instructions now use one-line install examples for
+shell and PowerShell; the release-maintenance recipe records this requirement.
+Current-shell PATH is included for shell installs, while persistent shell
+configuration remains explicit. Publish the CLI formatting change in alpha.2;
+existing published archives and their tags remain unchanged.

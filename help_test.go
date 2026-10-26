@@ -21,9 +21,26 @@ func TestOfflineHelpAndDiscovery(t *testing.T) {
 	}
 	for _, topic := range manualTopics() {
 		got, err := invoke("help", topic)
-		want, _ := manual.ReadFile("docs/manual/" + topic + ".md")
-		if err != nil || string(got) != string(want) {
+		body, _ := manual.ReadFile("docs/manual/" + topic + ".md")
+		title := strings.TrimPrefix(strings.SplitN(string(body), "\n", 2)[0], "# ")
+		if err != nil || !strings.HasPrefix(string(got), title+"\n") {
 			t.Fatalf("offline help %s: %v\n%s", topic, err, got)
+		}
+		if strings.Contains(string(got), "```") || strings.Contains(string(got), "\n| ") || strings.Contains(string(got), "\n## ") {
+			t.Fatalf("raw Markdown in help %s: %s", topic, got)
+		}
+		// Commands, JSON and source code remain copyable, including long lines
+		// and shell operators. Do not compare to the formatter's own output.
+		for n, block := range strings.Split(string(body), "```") {
+			if n%2 == 0 {
+				continue
+			}
+			_, code, _ := strings.Cut(block, "\n")
+			for _, line := range strings.Split(strings.TrimSuffix(code, "\n"), "\n") {
+				if !strings.Contains(string(got), "  "+line+"\n") {
+					t.Fatalf("help %s lost example line %q", topic, line)
+				}
+			}
 		}
 	}
 	for _, args := range [][]string{nil, {"--help"}, {"help"}} {

@@ -26,7 +26,7 @@ To create a managed installation from a downloaded release archive:
 
 The default stable command is `~/.fungi/bin/fungi` (`fungi.exe` on Windows).
 Add its directory to PATH if needed. Managed installations support
-`fungi update --version v0.1.0-alpha.1`, `fungi rollback` and `fungi prune`. Use
+`fungi update --version v0.1.0-alpha.2`, `fungi rollback` and `fungi prune`. Use
 the new release's exact version for alpha updates; plain `fungi update` selects
 stable releases only (none published yet). Read
 `fungi describe installation` for details. Keep session data outside the

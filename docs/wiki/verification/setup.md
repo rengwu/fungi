@@ -185,7 +185,8 @@ adjacent docs/renderer or PATH tools. For actual packages, use two unique releas
 versions, then `node scripts/install-smoke.mjs ARCHIVE_A ARCHIVE_B`. Its discovery
 checks run through the stable launcher before update, after update and after
 rollback, under a path with spaces, unrelated working directory and empty child
-PATH. Each help output must match its installed Markdown, and each example's
+PATH. Each help output must preserve its installed manual's title and code
+examples while formatting prose/tables for the terminal; each example's
 absolute launch paths must select the active version.
 
 For native reply verification, run the installed CLI's `describe examples`,

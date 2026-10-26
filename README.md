@@ -3,8 +3,8 @@
 A small Go session engine with a Wails window for skill-authored human interaction.
 Skills bring ordinary HTML/CSS/JavaScript or a native helper; Fungi owns the
 session, saves responses and returns them to the calling agent without polling.
-The first release is an **unsigned alpha** for early skill authors.
-[Downloads and release notes](https://github.com/rengwu/fungi/releases/tag/v0.1.0-alpha.1).
+Fungi is an **unsigned alpha** for early skill authors.
+[Downloads and release notes](https://github.com/rengwu/fungi/releases/tag/v0.1.0-alpha.2).
 
 Each platform package contains the CLI and a native window helper. It uses
 WKWebView on macOS, WebView2 on Windows and WebKitGTK 4.1 on Linux. End users
@@ -56,19 +56,17 @@ Windows/Linux ARM packages are not included in this alpha.
 Mac or Ubuntu:
 
 ```sh
-curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.1/install.sh | sh -s -- --version v0.1.0-alpha.1
-export PATH="$HOME/.fungi/bin:$PATH"
-fungi doctor
+curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.sh | sh -s -- --version v0.1.0-alpha.2 && export PATH="$HOME/.fungi/bin:$PATH"
 ```
 
 Add that PATH entry to your shell configuration to keep it in new terminals.
 Windows PowerShell:
 
 ```powershell
-Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.1/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"
-& "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.1
-fungi doctor
+Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"; & "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.2
 ```
+
+Run `fungi doctor` to verify the installation.
 
 The shell/PowerShell installers download one OS/CPU package and verify its
 checksum. If the system webview is missing, installation stops with instructions.
@@ -80,7 +78,7 @@ Explicitly opt into setup with `install.sh --setup-runtime` or
 Alpha updates require an explicit published version:
 
 ```sh
-fungi update --version v0.1.0-alpha.1
+fungi update --version v0.1.0-alpha.2
 ```
 
 Use the new version from the release page for subsequent updates. Plain

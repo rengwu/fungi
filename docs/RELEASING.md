@@ -6,7 +6,10 @@ after its checks pass; stable releases are intentionally not automated yet.
 
 1. Write `docs/releases/VERSION.md`, including install commands, changes,
    initial targets and material limitations. Update version-pinned README/manual
-   examples and rebuild the wiki. Commit all release source and notes.
+   examples and rebuild the wiki. Every primary installation example must be
+   one copy-paste line per shell, including current-terminal PATH setup when
+   needed. Keep diagnostic commands separate and preserve long command lines
+   in terminal help. Commit all release source and notes.
 2. Push an annotated alpha tag pointing to that exact commit:
 
    ```sh

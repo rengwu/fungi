@@ -37,7 +37,7 @@ func help(args []string, out io.Writer) error {
 			if err != nil {
 				return err
 			}
-			_, err = out.Write(body)
+			_, err = io.WriteString(out, formatHelp(string(body)))
 			return err
 		}
 	}

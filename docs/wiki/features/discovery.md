@@ -10,7 +10,11 @@ updated: 2026-10-26
 
 `fungi`, `fungi --help` and `fungi help` show a concise capability overview
 followed by common starting points. `fungi help TOPIC` prints the complete
-Fungi-specific reference as Markdown, embedded in the CLI. It needs no network,
+Fungi-specific reference as plain terminal text, formatted from the embedded
+Markdown. Headings and inline formatting markers are removed; two-column
+tables align and prose wraps at 80 columns. Fenced code keeps its contents and
+long commands intact with a small indent. No ANSI sequences or new dependencies
+are needed, including for redirected output. It needs no network,
 renderer, man viewer or adjacent documentation directory. Invalid topics or
 extra arguments produce a JSON error and exit 2.
 
@@ -36,12 +40,13 @@ optional; final result persistence does not depend on it.
 
 1. `go test -run TestOfflineHelpAndDiscovery .` builds a standalone core outside
    the checkout and invokes every help topic from another directory with empty
-   PATH. Expect exact embedded Markdown, working reference routes, explicit
+   PATH. Expect terminal formatting, preserved code examples, working reference routes, explicit
    missing examples and structured invalid-topic errors.
 2. Build two versioned packages and run the existing `scripts/install-smoke.mjs`
    recipe in [setup](../verification/setup.md). It installs under a path with
    spaces, invokes from a different working directory with empty child PATH,
-   compares each help topic with packaged Markdown and checks example paths
+   checks each help title and verbatim example against packaged Markdown, rejects
+   raw heading/table/fence syntax, and checks example paths
    before update, after update and after rollback. The ordinary live UI update
    scenario still exercises session preservation independently.
 3. Use the selected package's `describe examples` reply invocation with manual
