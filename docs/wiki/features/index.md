@@ -1,11 +1,11 @@
 ---
 title: Feature map
-updated: 2026-10-25
+updated: 2026-10-27
 ---
 # Feature map
 
 The Go session engine and Wails renderer provide a development foundation
-for skill-owned interfaces. Expected behavior follows the [accepted scope](../planning.md#accepted-first-milestone-scope);
+for skill-owned interfaces. Expected behavior follows the [accepted scope](../planning.md#current-decisions);
 coverage follows the [verified environments](../platforms.md) and dated
 reports, not the presence of a compiled package.
 

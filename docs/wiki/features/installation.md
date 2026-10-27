@@ -177,8 +177,8 @@ records current package/runtime results and build identities. The older
 Electron-specific observations. Clean-machine security prompts,
 signing/notarization, installer PATH behavior in fresh
 interactive shells, power loss and future protocol/launcher migrations are not
-inferred from a local or hosted success. Full Fungi-native jstack integration
-remains deferred.
+inferred from a local or hosted success. Workflow-skill integration is
+developed separately in `jstack-fungi-test`.
 
 ## Verification history
 

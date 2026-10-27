@@ -1,0 +1,37 @@
+{
+  "consumedAt": "2026-10-26T19:31:03.999162+00:00",
+  "collectionCount": 1,
+  "resumedAfterTurnEnded": true,
+  "outcome": "submitted",
+  "baselineNote": "wails-idle-long-2026-10-27",
+  "submittedNote": "wails-idle-long-2026-10-27",
+  "notePreserved": true,
+  "artifactVerified": true,
+  "artifactMatchesBaseline": true,
+  "startedAt": "2026-10-26T17:22:43.893Z",
+  "finishedAt": "2026-10-26T19:30:31.266Z",
+  "elapsedMilliseconds": 7667373,
+  "monotonicMilliseconds": 7200196,
+  "requestedSeconds": 7200,
+  "durationMet": true,
+  "verified": true,
+  "powerEvents": [
+    {
+      "at": "2026-10-27T01:23:15+08:00",
+      "event": "Sleep"
+    },
+    {
+      "at": "2026-10-27T01:29:10+08:00",
+      "event": "Wake"
+    },
+    {
+      "at": "2026-10-27T01:42:40+08:00",
+      "event": "Sleep"
+    },
+    {
+      "at": "2026-10-27T01:44:37+08:00",
+      "event": "Wake"
+    }
+  ],
+  "notificationState": "accepted"
+}

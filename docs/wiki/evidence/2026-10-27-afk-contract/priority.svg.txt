@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" aria-label="Priority preview"><text x="20" y="40" fill="#865ce6">1. Verify</text><text x="20" y="90" fill="#865ce6">2. Research</text><text x="20" y="140" fill="#865ce6">3. Build</text></svg>

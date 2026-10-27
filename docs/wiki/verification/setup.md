@@ -1,10 +1,10 @@
 ---
 title: Verification setup
-updated: 2026-10-25
+updated: 2026-10-27
 ---
 # Verification setup
 
-Run from `/Users/rengwu/Desktop/Projects/fungi`. Early runs predate Git initialization; current runs record the Git base, dirty source hashes and binary SHA-256.
+Run from the Fungi repository root. Early runs predate Git initialization; current runs record the Git base, dirty source hashes and binary SHA-256.
 
 For the user's Windows checkout, follow the [Windows agent handoff](windows.md).
 It includes the correct branch, source build, actual desktop checks and result
@@ -90,27 +90,64 @@ Inspect `launch.json`, `draft.json`, `result.json`, artifact bytes/hashes and `d
 
 Do not delete a user-modified demo draft. No persistent harness configuration or authentication was changed. Public signing/notarization, clean consumer-machine journeys, physical Windows/Linux Wails input, long sleep/wake cycles and abrupt power-loss behavior remain outside current evidence. Historical results below retain their original renderer/build scope.
 
-## Skill authoring and idle probes
+## Native helper idle probe
 
-The simpler questionnaire lives at `skills/grill-form/assets/form.html`; pass its question JSON through `--input`. Native fixtures and receipts live under `verification-output/skill-proof/`. The `example.json` is explicitly a demonstration, so synthetic test answers are safe there. Never submit test answers into an actual interview.
+`scripts/idle-helper` exercises the native executable protocol without a web
+window. Build it separately:
 
 ```sh
-node --test scripts/grill-form.test.mjs
+mkdir -p verification-output
 go build -o verification-output/idle-helper ./scripts/idle-helper
-/absolute/package/fungi open skills/grill-form/assets/form.html --input skills/grill-form/example.json --delivery manual
 ```
 
-For native recovery: enter a choice/note, select the known reference image, wait for “Draft saved,” close, collect once, and reopen. The initial session must stay `closed`. To test abrupt owner loss, identify the exact `_run SESSION` process in this disposable root before killing it; never terminate by generic Electron/Fungi process name. Collect the interrupted session once, reopen it, and verify the acknowledged draft and image. The submitted result must preserve the image hash.
+Write an input file containing `{"seconds":5,"marker":"unique-test-marker"}`,
+then run the helper with the complete package:
 
-For the Linux core recipe, copy only root Go sources/module, `examples/helper`, `scripts/protocol-fixture` and any selected `scripts/idle-helper` fixture into an isolated directory. The [recorded Docker command](../evidence/2026-10-20-skill-proof/linux-command.json) pins the official Go image, uses an unprivileged user, disables networking and mounts that source read-only. Its disposable container removes itself. The passed run is Linux arm64 under OrbStack; it is not a Linux desktop verification.
+```sh
+/absolute/package/fungi open --exec /absolute/verification-output/idle-helper --input /absolute/idle-input.json --delivery wait
+```
 
-The idle helper takes `--input` JSON with `seconds` (1–86400) and `marker`. It acknowledges a draft, announces readiness, sleeps locally once, then submits timings and a JSON artifact. The five-second smoke check must pass before launching a long run. For a real callback test, run with `--delivery auto` from the intended conversation, preserve the receipt, and end the agent turn. Its one completion notice supplies the exact executable/session/environment for one collection. For other harnesses, use their already documented completion route. Do not wrap the wait in repeated tool calls.
+The helper acknowledges a draft, waits on one local timer, then submits timing
+data and a JSON artifact. Verify the marker, elapsed time and artifact hash.
+The five-second test is bounded; use an appropriate native completion route
+for longer waits. For an exact-caller callback, use `--delivery auto`, preserve
+the receipt and end the turn. Collect once on its completion notice.
 
-The completed two-hour probe is session `622f59b42e05840dd408622f23c8416a`, with state beneath `verification-output/skill-proof/idle-long-sessions`. Its original executable is in `dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z`. Its [result](../evidence/2026-10-20-skill-proof/idle-long-result.json) records one collection after the exact-origin notice, matching timing artifact bytes and exit of the helper/owner. Retain the evidence. For future runs, keep the launched package and helper available until completion; do not suspend the machine without settling timing with its user. Record both the helper's elapsed measurement and the UTC timestamp difference when sleep occurs.
-
-The user manually completed sleep/wake fixture `1897358a56ceff72064a252004170716`, using the same package and `verification-output/skill-proof/sleep-wake-sessions`. Its [baseline](../evidence/2026-10-20-skill-proof/sleep-wake-baseline.json) records the initial note/image and preparation time. After its completion notice, one collection returned the preserved note/image and user's post-wake edit. A minimal [power-log excerpt](../evidence/2026-10-20-skill-proof/sleep-wake-power.log) independently confirms actual sleep/wake within the interval. The [result record](../evidence/2026-10-20-skill-proof/sleep-wake-result.json) retains the callback, data and byte validation. For future repetitions, obtain the user's timing, prepare a fresh fixture, let them sleep/wake and submit, then collect once; inspect only relevant `Sleep`, `Wake` and `DarkWake` event rows since the baseline, excluding scheduled `Wake Requests`. Do not select an answer or submit on the user's behalf.
+The [October 20 skill and idle proof](runs/2026-10-20-skill-proof.md) preserves
+historical questionnaire, native-helper and sleep/wake results. The in-repo
+questionnaire and jstack adapter have been removed; workflow integration now
+lives in `jstack-fungi-test`. Use the current page fixture below for Wails
+idle and sleep/wake checks.
 
 ## Platform foundation checks
+
+### Current Wails idle and sleep/wake fixture
+
+`scripts/fixtures/idle.html` uses only the public four-method page API. Pass
+`{"marker":"unique-test-marker","seconds":5}` for a short smoke check with
+`--delivery wait`. It saves a note and PNG, idles using one timer, submits, then
+closes. Check the returned marker, input preservation, elapsed time and artifact
+hash before scheduling a long run. A bounded driver may hold the five-second
+test call; this does not establish host support for arbitrary human waits.
+
+Use `seconds:7200` and `--delivery auto` for a two-hour callback run. Preserve
+the receipt and end the turn; collect once on its exact-session notification.
+The page has no polling loop, heartbeat or model calls. A `manual` receipt
+requires the documented user cue instead. Do not retry an uncertain notification.
+
+For user-controlled sleep/wake, use `seconds:0`. Confirm the window says its
+draft and PNG are saved before handoff. The user sleeps/wakes the Mac, edits the
+note and submits. Record the exact before/after data and PNG hash. Inspect only
+sleep/wake power-log events within the test interval; without those observations,
+do not claim actual sleep. Do not change power settings or sleep the user's
+machine automatically. Wall-clock and performance-clock timings are both returned;
+neither alone establishes that OS sleep occurred.
+
+Preserve the package, fixture and state directory until every pending session
+is collected. Capture build/source hashes and distinguish current Wails results
+from the historical native-helper and Electron evidence above.
+
+### Core and renderer checks
 
 ```sh
 node --test
@@ -157,6 +194,16 @@ These fixtures verify local release archives and bootstrap downloads, not
 public GitHub release assets, signing or a clean consumer desktop.
 
 ## Wails diagnostics
+
+For window dimensions, run `node scripts/window-smoke.mjs /absolute/package/fungi`
+on a desktop large enough for a 960 × 780 window plus native decorations.
+It opens disposable HTML sessions with default, custom, single-axis and minimum
+sizes, saves their measured viewports, cancels, and reopens them. It also checks
+a width override while preserving height and draft. Each command has a 30-second
+test bound and uses `--delivery wait`; no model callbacks or human polling occur.
+The printed evidence path records results and package identity. Preserve it
+before removing that run's scratch directory. The driver is verified on macOS;
+Windows/Linux execution remains untested.
 
 For standalone helper work, build `./wails` from `renderer/` with tags
 `production` (macOS), `production,wv2runtime.error` (Windows), or

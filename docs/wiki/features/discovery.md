@@ -1,6 +1,6 @@
 ---
 title: Offline documentation and example discovery
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 # Offline documentation and example discovery
 
@@ -8,8 +8,8 @@ updated: 2026-10-26
 
 ## Entry points and expected behaviour
 
-`fungi`, `fungi --help` and `fungi help` show a concise capability overview
-followed by common starting points. `fungi help TOPIC` prints the complete
+`fungi`, `fungi --help` and `fungi help` show a concise capability overview,
+launch commands, completion instructions and reference routes. `fungi help TOPIC` prints the complete
 Fungi-specific reference as plain terminal text, formatted from the embedded
 Markdown. Headings and inline formatting markers are removed; two-column
 tables align and prose wraps at 80 columns. Fenced code keeps its contents and
@@ -23,6 +23,8 @@ topics. `describe TOPIC` includes a `reference` argument array for its full
 manual. `describe examples` reports absolute source/input paths and launch
 arrays relative to the executing package, independent of working directory.
 Missing example files are marked unavailable and have no runnable `argv`.
+Discovery launch examples use `--delivery auto`; they do not assume the host
+can keep a wait call pending. The caller still inspects the returned mode.
 
 Packages include the same `docs/manual/*.md` plus small reply, comparison,
 review and flat-form examples. Managed installs resolve the selected version;
@@ -32,6 +34,9 @@ library manuals remain outside the slim package.
 
 The manual distinguishes skill authoring from execution. It offers complete
 flows without requiring a separate Fungi skill, plugin registry or framework.
+Use neutral technical prose, explicit API contracts and complete examples.
+Reduce repetition while keeping each topic usable without unnecessary help
+calls; preserve lifecycle rules, limits and failure behavior.
 The reply example accepts title/prompt JSON, submits notes, handles cancellation
 and errors, and intentionally saves no draft. Draft recovery in other pages is
 optional; final result persistence does not depend on it.
@@ -60,6 +65,12 @@ beyond sample copying. Separate an independent fresh-agent result from a
 maintainer's own test; do not label one as the other.
 
 ## Verification history
+
+- [2026-10-27 repository cleanup](../verification/runs/2026-10-27-repo-cleanup.md) — removed obsolete skill references and separated current guidance from historical plans.
+
+- [2026-10-27 contract and AFK checks](../verification/runs/2026-10-27-afk-contract.md) — safe discovery defaults, protocol compatibility tests, an unchanged older skill, and completed local idle/sleep-wake delivery checks.
+
+- [2026-10-26 concise help](../verification/runs/2026-10-26-concise-help.md) — all eight topics rewritten and checked through a standalone CLI; commands, examples and delivery contracts preserved.
 
 - [2026-10-26 terminal help](../verification/runs/2026-10-26-terminal-help.md) — plain terminal formatting, intact examples, one-line installation docs and the published alpha.2 checks.
 

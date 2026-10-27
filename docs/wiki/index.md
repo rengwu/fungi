@@ -1,55 +1,72 @@
 ---
 title: Fungi
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 # Fungi
 
-Fungi is a prototype portable interaction engine for skill-driven agents. Skills define workflows; fungi runs their interaction sessions and returns human responses to the originating agent.
+Fungi is a portable interaction engine for skill-driven agents. Go owns
+sessions and durable results; Wails hosts local web interfaces using the OS
+webview. Skills define the workflow and interpretation of human responses.
 
-This wiki records the accepted design, implementation and verification. A Go core and Wails window helper now exist. The latest decision requires no harness setup, with manual fallback on unsupported versions. Native return checks and remaining limits are recorded explicitly.
+The documented public release is the unsigned `v0.1.0-alpha.2`. Current source
+also includes local concise-help and protocol/AFK work. No harness setup is
+required; unsupported automatic-return routes use the manual “done” fallback.
+Workflow-skill development lives in the separate `jstack-fungi-test` project.
 
-Wails is now the default development renderer. Native packages use system
-webviews and preserve the Go core and skill API. The
-[initial assessment](verification/runs/2026-10-25-wails.md) and
-[accepted limits](planning.md#accepted-wails-limits-and-next-milestone-on-2026-10-25)
-explain the change; the [default-package integration](verification/runs/2026-10-25-wails-integration.md)
-now passes its accepted Mac/Windows/Ubuntu scope, including update/rollback
-and explicit Linux runtime setup. The [first public alpha](verification/runs/2026-10-26-release.md) is published;
-clean consumer-machine qualification remains separate.
-The [first end-to-end proof](proposal.md#first-proof) records the original
-Electron/Go scope and automatic-return checks.
+## Current reference
 
-- [Terminal help and one-line installation](verification/runs/2026-10-26-terminal-help.md)
-- [First public alpha distribution](verification/runs/2026-10-26-release.md)
-- [Stale-artifact and Electron cleanup](verification/runs/2026-10-26-cleanup.md)
-- [Requirements and discussion](planning.md)
-- [Documentation interview: offline reference, small examples and creative freedom](journal/2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284.md)
-- [First implementation contract](contract.md)
+- [Current decisions and remaining work](planning.md#current-decisions)
 - [Author a Fungi interface](authoring.md)
+- [Session engine contract](contract.md)
+- [Feature map](features/index.md)
 - [Verified environments and portable distribution](platforms.md)
 - [Command installation and updates](features/installation.md)
-- [Wails integration: default packages, runtime setup and updates](verification/runs/2026-10-25-wails-integration.md)
-- [Wails prototype: rendering fit, size and remaining gaps](verification/runs/2026-10-25-wails.md)
-- [Wails follow-up: simpler requirements, Linux media diagnosis and manual recovery](verification/runs/2026-10-25-wails-followup.md)
-- [Distribution proof and remaining release checks](verification/runs/2026-10-23-distribution.md)
-- [Verified baseline checks and startup diagnostics](verification/runs/2026-10-22-baselines.md)
-- [Windows 11 desktop handoff: desktop passed, symlink-dependent checks unexecuted](verification/runs/windows-2026-10-22-203907.md)
-- [Feature map](features/index.md)
-- [First prototype verification](verification/runs/2026-10-20-first-proof.md)
-- [Current no-setup compatibility verification](verification/runs/2026-10-20-no-setup.md)
-- [Skill authoring, recovery and longer-idle verification](verification/runs/2026-10-20-skill-proof.md)
-- [Renderer flexibility and reliability verification](verification/runs/2026-10-22-platform.md)
-- [Hosted platform checks and remaining failures](verification/runs/2026-10-22-hosted.md)
 - [Verification setup](verification/setup.md)
-- [Windows agent handoff: start here after pulling](verification/windows.md)
-- [Research findings and recommendation](research/index.md)
-- [Proposed small authoring interface](proposal.md)
-- [First interview: submitted answers](journal/2026-10-19-grill-eb02aa23-b51f-42c9-b9c0-8fa331bfb02c.md)
-- [Second interview: submitted answers](journal/2026-10-19-grill-186963ab-2f7b-423c-b40b-97b0afacc6fb.md)
+- [Portable desktop verification](verification/desktop.md)
+- [Windows verification handoff](verification/windows.md)
+
+## Recent verification
+
+- [Repository cleanup and verification instructions](verification/runs/2026-10-27-repo-cleanup.md)
+- [Starting window dimensions](verification/runs/2026-10-27-window-size.md)
+- [Authoring contract and AFK verification](verification/runs/2026-10-27-afk-contract.md)
+- [Concise CLI documentation](verification/runs/2026-10-26-concise-help.md)
+- [Terminal help and alpha.2 installation](verification/runs/2026-10-26-terminal-help.md)
+- [First public alpha distribution](verification/runs/2026-10-26-release.md)
+- [Stale-artifact and Electron cleanup](verification/runs/2026-10-26-cleanup.md)
+- [Wails integration: default packages, runtime setup and updates](verification/runs/2026-10-25-wails-integration.md)
+
+Each report identifies its tested build, scope and remaining gaps. Hosted checks
+and local passes do not qualify clean consumer machines or every harness mode.
+
+## Historical verification
+
+These reports retain their original renderer and environment scope.
+
+- [Wails prototype: rendering fit, size and initial gaps](verification/runs/2026-10-25-wails.md)
+- [Wails follow-up: Linux media and manual recovery](verification/runs/2026-10-25-wails-followup.md)
+- [Electron distribution proof](verification/runs/2026-10-23-distribution.md)
+- [Electron baseline checks and startup diagnostics](verification/runs/2026-10-22-baselines.md)
+- [Windows 11 Electron desktop handoff](verification/runs/windows-2026-10-22-203907.md)
+- [First prototype verification](verification/runs/2026-10-20-first-proof.md)
+- [October 20 no-setup compatibility](verification/runs/2026-10-20-no-setup.md)
+- [Historical skill authoring, recovery and longer-idle proof](verification/runs/2026-10-20-skill-proof.md)
+- [Electron renderer flexibility and reliability](verification/runs/2026-10-22-platform.md)
+- [Electron hosted platform checks](verification/runs/2026-10-22-hosted.md)
+
+## Decision and research history
+
+- [Decision chronology](planning.md#decision-history)
+- [Research findings and dated recommendations](research/index.md)
+- [Original authoring proposal and first-proof plan](proposal.md)
+- [Documentation interview](journal/2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284.md)
+- [First interview](journal/2026-10-19-grill-eb02aa23-b51f-42c9-b9c0-8fa331bfb02c.md)
+- [Second interview](journal/2026-10-19-grill-186963ab-2f7b-423c-b40b-97b0afacc6fb.md)
 - [Third interview: first milestone](journal/2026-10-19-grill-689a37f9-b8c4-4f2a-9e54-282234bc2551.md)
 - [Fourth interview: no-setup delivery](journal/2026-10-20-grill-397cc4f4-31e2-4fd5-a08e-30ee197e3297.md)
 - [Desktop verification arrangements](journal/2026-10-20-grill-desktop-arrangements.md)
-- [Linux distribution decision: submitted answer](journal/2026-10-22-grill-0c10be35-a07a-4a8d-8d5d-39fda5b2e1bc.md)
-- [Windows handoff request: submitted answer](journal/2026-10-22-grill-b8ce5a10-7261-48c1-9d80-ee54e103ec5e.md)
+- [Linux distribution decision](journal/2026-10-22-grill-0c10be35-a07a-4a8d-8d5d-39fda5b2e1bc.md)
+- [Windows handoff request](journal/2026-10-22-grill-b8ce5a10-7261-48c1-9d80-ee54e103ec5e.md)
 
-The project uses jstack's plan, wiki, grill-form, and rule-lean workflows. The wiki builder is development documentation tooling, not a proposed dependency of the delivered fungi binary.
+The project uses jstack's planning and wiki workflows. The wiki builder is
+development documentation tooling and is not shipped in the Fungi package.

@@ -14,6 +14,11 @@ func describe(args []string, w io.Writer) error {
 		return err
 	}
 	items := examples(executable)
+	window := map[string]any{
+		"flags": []string{"--width", "--height"}, "units": "logical pixels",
+		"defaults": map[string]int{"width": 820, "height": 780}, "minimum": 420,
+		"behavior": "Optional 32-bit integers for HTML/JSON windows. Omitted dimensions use defaults; reopen inherits the original values unless overridden. The OS may adjust sizes to fit the display. Not valid with --exec.",
+	}
 	paths := []string{}
 	for _, item := range items {
 		if item.Name != "form" && item.Available {
@@ -23,7 +28,8 @@ func describe(args []string, w io.Writer) error {
 	topics := map[string]any{
 		"examples": map[string]any{"items": items, "guide": "fungi help examples", "note": "Adapt these starting points; they are not a list of allowed workflows. Unavailable examples require a complete package."},
 		"html": map[string]any{
-			"launch": "fungi open ./index.html --delivery wait",
+			"launch": "fungi open ./index.html --delivery auto",
+			"window": window,
 			"bridge": map[string]string{
 				"ready()":                       "Promise<{input,draft,attachments,limits,delivery}>",
 				"saveDraft(data, attachments?)": "Promise<unknown>; ignore the return value; attachments: [{key,name,blob}]. Acknowledged only after saving.",
@@ -42,7 +48,8 @@ func describe(args []string, w io.Writer) error {
 			"platforms":   "fungi help installation: runtime requirements and startup diagnostics. Feature-detect WebGL and codecs; their availability depends on the host.",
 		},
 		"form": map[string]any{
-			"experimental": true, "launch": "fungi open ./form.json --input ./values.json --delivery wait",
+			"experimental": true, "launch": "fungi open ./form.json --input ./values.json --delivery auto",
+			"window": window,
 			"example": map[string]any{"title": "Feedback", "fields": []any{
 				map[string]any{"type": "range", "name": "duration", "label": "Duration", "min": 100, "max": 1000, "value": 300},
 				map[string]any{"type": "textarea", "name": "notes", "label": "Notes"},
@@ -52,7 +59,7 @@ func describe(args []string, w io.Writer) error {
 			"precedence": "saved draft > input by field name > field value > empty",
 		},
 		"helper": map[string]any{
-			"launch":    "fungi open --exec ./helper --delivery wait -- arguments",
+			"launch":    "fungi open --exec ./helper --delivery auto -- arguments",
 			"transport": "NDJSON stdin/stdout; diagnostics only stderr. Launch protocol=1 includes session,input,draft,draftArtifacts,outputDir,limits.",
 			"messages":  []any{map[string]any{"type": "ready"}, map[string]any{"id": "1", "type": "draft", "data": map[string]any{"notes": "draft"}}, map[string]any{"id": "2", "type": "result", "outcome": "submitted", "data": map[string]any{"notes": "done"}}},
 			"ack":       "{id,type:'ack',ok:true,result?} or {id,type:'ack',ok:false,error:{code,message}}. Wait for ack before exit.",

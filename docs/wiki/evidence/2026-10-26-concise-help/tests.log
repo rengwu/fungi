@@ -1,0 +1,8 @@
+=== RUN   TestTerminalHelpFormatting
+--- PASS: TestTerminalHelpFormatting (0.00s)
+=== RUN   TestTerminalHelpWrappingAndLongCommands
+--- PASS: TestTerminalHelpWrappingAndLongCommands (0.00s)
+=== RUN   TestOfflineHelpAndDiscovery
+--- PASS: TestOfflineHelpAndDiscovery (0.24s)
+PASS
+ok  	fungi	1.723s

@@ -1,0 +1,2 @@
+2026-10-27 01:23:15 +0800 Sleep               	Entering Sleep state due to 'Clamshell Sleep':TCPKeepAlive=active Using Batt (Charge:100%) 355 secs  
+2026-10-27 01:29:10 +0800 Wake                	Wake from Deep Idle [CDNVA] : due to smc.sysState.Wake(0x70070000) lid SMC.OutboxNotEmpty/UserActivity Assertion Using BATT (Charge:100%)           

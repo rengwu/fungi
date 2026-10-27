@@ -41,5 +41,5 @@ Ubuntu 22.04/24.04, or `-SetupRuntime` on Windows. Other distributions need
 their own WebKitGTK 4.1 setup instructions. Linux direct media URLs are a known
 limitation; browser storage isolation is best effort and pages have native access.
 
-Documentation, skills, source and verification records:
+Documentation, source and verification records:
 [rengwu/fungi](https://github.com/rengwu/fungi).

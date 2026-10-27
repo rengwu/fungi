@@ -8,7 +8,7 @@ on:
         description: Existing alpha to check (does not publish)
         required: true
         type: string
-        default: v0.1.0-alpha.1
+        default: v0.1.0-alpha.2
       platform:
         description: Hosted platform to check
         type: choice

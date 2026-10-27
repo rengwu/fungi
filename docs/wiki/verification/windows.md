@@ -1,6 +1,6 @@
 ---
 title: Windows agent handoff
-updated: 2026-10-25
+updated: 2026-10-27
 ---
 # Windows agent handoff
 
@@ -25,15 +25,16 @@ page methods, portable distribution and no-harness-setup behavior intact.
 
 ## 1. Get the correct checkout
 
-Run in the Fungi repository using native Windows PowerShell, not WSL. The
-work is on **`foundation-hardening`**, not `main`. Preserve local changes; do
-not reset or clean them to switch branches.
+Run in the Fungi repository using native Windows PowerShell, not WSL. Use
+`main` for the current published-source baseline, or the exact revision under
+test for a change-specific run. Preserve local changes when switching; if
+they prevent checkout, use a separate worktree. Do not reset or clean them.
 
 ```powershell
 git status --short --branch
 git fetch origin
-git switch foundation-hardening
-git pull --ff-only origin foundation-hardening
+git switch main
+git pull --ff-only origin main
 git rev-parse HEAD
 ```
 
@@ -89,9 +90,9 @@ Get-FileHash -Algorithm SHA256 $FungiExe
 Wails is pinned in `renderer/go.mod`. Preserve the printed package path and
 its `BUILD.json`; verify the CLI/helper hashes match `binarySHA256` and
 `rendererSHA256`. The completed package uses Microsoft WebView2 from the OS.
-Run `fungi.exe doctor` to check availability. Never select the newest directory by guessing or use
-a partially built folder. `runtimeVerified: false` in build metadata means
-packaging itself does not certify runtime behavior.
+Run `fungi.exe doctor` to check availability. Never select the newest directory
+by guessing or use a partially built folder. Packaging itself does not certify
+runtime behavior.
 
 ## 3. Run the existing automated checks
 
@@ -189,8 +190,8 @@ git diff --check
 git status --short
 ```
 
-Commit only the intended report/evidence/docs and any justified repair to
-`foundation-hardening`, then push that branch to `rengwu/fungi`. Leave
-unrelated changes alone. Do not commit `dist/`, dependencies or raw session
-directories. Report the result, commit and material gaps to the user. No
-new grill is needed merely to start this already requested verification.
+Keep the report, evidence and any justified repair on the branch used for the
+run. Follow the task's commit/push instructions; this recipe does not select a
+publication branch. Leave unrelated changes alone and exclude `dist/`,
+dependencies and raw session directories. Report the tested revision, result
+and material gaps to the user.

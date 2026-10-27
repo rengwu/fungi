@@ -1,0 +1,26 @@
+{
+  "consumedAt": "2026-10-26T17:40:15.555187+00:00",
+  "collectionCount": 1,
+  "resumedAfterTurnEnded": true,
+  "outcome": "submitted",
+  "baselineNote": "wails-sleep-wake-2026-10-27",
+  "submittedNote": "wails-sleep-wake-2026-10-27\n\n\nedited after sleep",
+  "noteChanged": true,
+  "artifactVerified": true,
+  "artifactMatchesBaseline": true,
+  "startedAt": "2026-10-26T17:22:44.419Z",
+  "finishedAt": "2026-10-26T17:29:22.552Z",
+  "elapsedMilliseconds": 398133,
+  "powerEvents": [
+    {
+      "at": "2026-10-27T01:23:15+08:00",
+      "event": "Sleep"
+    },
+    {
+      "at": "2026-10-27T01:29:10+08:00",
+      "event": "Wake"
+    }
+  ],
+  "sleepWakeConfirmed": true,
+  "verified": true
+}

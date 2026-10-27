@@ -1,0 +1,47 @@
+{
+  "sourceCommit": "a94e3ffd5dd1625cca724f74f8f40b3db5e894e7",
+  "sourceDirty": true,
+  "sourceSHA256": {
+    "main.go": "a773a8df92fd7e6dcefcdf86a062d52993df017ed8e81286384d5c32b4e6f9c4",
+    "store.go": "1b01367778560ffac50e6b05eb05adae6542b6b73ff97e93a03aad981df88044",
+    "owner.go": "8e52264394847cf3f4c2f61758e55c8c0085742bf868e99516d4b916d0e54fc9",
+    "renderer/wails/main.go": "8da81e7076141ef8a55b08defdda85082febb449757aa48b8eed9d6c760858e5",
+    "describe.go": "fc8a51897dd90f63bfdd938a892c53bd594435388d345be0f85b13efcdffef92",
+    "launch_test.go": "a04a51f6f34abf6868c0b448b5eb3ffc0f494d9d253bf3191d7cf89d7b864f79",
+    "scripts/window-smoke.mjs": "d2ffa0453c2f38fb0c385b6a827e85e748c13a4eede5b8329a009cf7400d5522",
+    "docs/manual/cli.md": "27923c1fc42481691525450a1e339af27c829507e3591a46f0a9a43b033fa06b",
+    "docs/manual/html.md": "a7a6a603ac7bc7050d2ce1637e3a70867dc43658481ae6cd0d3d231878eb608e",
+    "docs/manual/form.md": "2d43d3a472f5c9c0b93fde6eb7b3b2f399469df16da84d9d1d52e6c6d3d7243b"
+  },
+  "platform": "27.0",
+  "architecture": "arm64",
+  "checks": {
+    "go vet ./...": "Passed",
+    "go test -race ./...": "Passed (71.450s for fungi)",
+    "nativeWindowCases": 6,
+    "jsonForm": {
+      "outcome": "submitted",
+      "data": {
+        "notes": "Synthetic size check"
+      },
+      "requestedSize": {
+        "width": 900,
+        "height": 600
+      },
+      "screenshotPixels": {
+        "width": 1800,
+        "height": 1264
+      },
+      "note": "Retina screenshot includes native title bar; HTML fixture reports CSS viewport dimensions."
+    }
+  },
+  "cleanup": {
+    "at": "2026-10-27T04:33:57.104832+00:00",
+    "removed": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T04-30-27-270Z",
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/window-smoke-l3pUOV"
+    ],
+    "runningPackageProcesses": 0,
+    "userInstallationChanged": false
+  }
+}

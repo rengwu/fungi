@@ -1,46 +1,48 @@
 # Fungi — local interfaces for agent workflows
 
-Skills supply the interaction; Fungi opens a window, saves the submitted JSON
-and files, and returns them to the calling agent. No Fungi skill, registration,
-UI framework or end-user build tools are required.
+Skills define workflows and interfaces. Fungi opens them, manages sessions,
+and saves JSON responses and file artifacts for the calling agent.
 
-Bring ordinary HTML/CSS/JavaScript and local libraries: forms, live controls,
-custom elements, diagrams, Canvas/SVG, WebGL, workers and WebAssembly. Use a
-native executable helper for OS-specific interaction. Graphics and media depend
-on the system webview; see `fungi help html` for boundaries.
+Use local HTML/CSS/JavaScript and libraries, or a native executable helper.
+Web interfaces support forms, live controls, custom UI, diagrams, Canvas/SVG,
+WebGL, workers and WebAssembly. Graphics and media support depend on the system
+webview.
 
-## Common starting points
-
-| Command | Purpose |
-| --- | --- |
-| `fungi help examples` | Try a complete input → interface → response flow |
-| `fungi help html` | Build or adapt any HTML interface |
-| `fungi help delivery` | Return to an agent without polling |
-| `fungi help form` | Use the small built-in JSON form |
-| `fungi help helper` | Run a native helper |
-| `fungi help cli` | Find commands, flags, storage and exit codes |
-| `fungi help installation` | Install, update or diagnose a missing runtime |
-
-These are starting points, not a catalogue of allowed workflows. Compose the
-interface around the user's task. Keep frequent interactions inside the page;
-the agent receives the finished response.
+## Start
 
 ```sh
-fungi describe                 # machine-readable capabilities and reference routes
-fungi describe examples        # installed paths and executable argument arrays
 fungi open ./ui/index.html --input ./input.json --delivery auto
+fungi describe           # JSON capabilities and reference commands
+fungi describe examples  # Installed example paths and launch arguments
 ```
 
-Inspect the launch receipt's delivery mode. For `callback`, end the turn and
-collect once on notification. For `manual`, ask the user to say “done,” end the
-turn, then collect once. Use `wait` only with a host that keeps one call pending
-or automatically delivers its completion. Never poll `collect`.
+## Completion
 
-All `help` topics work offline, even without a renderer. The source Markdown is
-in `docs/manual/` in the package. `describe TOPIC` gives compact JSON; its
-`reference` argument array opens the corresponding full reference.
+Check the launch receipt: `auto` may fall back to `manual`.
 
-For a consuming skill, keep its methodology, available presentation choices,
-input example, launch instructions and result interpretation together. Read
-Fungi's reference when authoring or changing the integration; executing the
-skill should follow its fixed invocation. See `fungi help examples`.
+| Delivery | Action |
+| --- | --- |
+| `callback` | End the turn; collect once when notified. |
+| `manual` | Ask the user to say “done”; end the turn, then collect once. |
+| `wait` | Use only if the host keeps one call pending or automatically delivers its completion. Read the returned result directly. |
+
+Use the receipt's collection command and environment. Never poll `collect`.
+Check the result's outcome: `submitted`, `cancelled`, `closed` or `failed`.
+Draft saving is optional; submitted results are saved independently.
+
+## Reference
+
+| Command | Reference |
+| --- | --- |
+| `fungi help html` | HTML page API and rendering limits |
+| `fungi help delivery` | Completion, results, attachments and recovery |
+| `fungi help cli` | Commands, arguments, storage and exit codes |
+| `fungi help examples` | Complete workflows to adapt |
+| `fungi help form` | Experimental JSON forms |
+| `fungi help helper` | Native helper protocol |
+| `fungi help installation` | Installation, updates and runtime requirements |
+
+Help works offline without a renderer. The same Markdown ships in `docs/manual/`.
+
+Read the relevant references when authoring or changing a skill integration.
+For an existing integration, follow the skill's invocation instructions.

@@ -10,9 +10,9 @@ import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const {values,positionals}=parseArgs({allowPositionals:true,options:{'allow-unavailable-webgl':{type:'boolean'},'allow-unavailable-local-media':{type:'boolean'},helper:{type:'string'}}});
-assert.ok(positionals.length<=1,'usage: renderer-smoke.mjs [binary] [--helper PATH] [--allow-unavailable-webgl] [--allow-unavailable-local-media]');
+assert.ok(positionals.length===1,'usage: renderer-smoke.mjs BINARY [--helper PATH] [--allow-unavailable-webgl] [--allow-unavailable-local-media]');
 assert.ok(!values['allow-unavailable-local-media']||process.platform==='linux','local-media exception is Linux-only');
-const binary=path.resolve(positionals[0]??path.join(root,'fungi'));
+const binary=path.resolve(positionals[0]);
 const parent=path.join(root,'verification-output');await mkdir(parent,{recursive:true});
 const directory=await mkdtemp(path.join(parent,'renderer-smoke-')),assets=path.join(directory,'assets');
 await mkdir(assets);

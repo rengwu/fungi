@@ -71,6 +71,9 @@ func serveSession(id string, readyOut io.Writer) error {
 		return err
 	}
 	start := map[string]any{"protocol": 1, "session": id, "input": l.Input, "draft": d.Data, "draftArtifacts": d.Artifacts, "source": l.Source, "outputDir": s.path("output"), "limits": limits(), "delivery": publicDelivery(l.Delivery)}
+	if l.Exec == "" {
+		start["width"], start["height"] = l.Width, l.Height
+	}
 	// A helper may exit after writing its result before reading launch input.
 	// Drain stdout even if this write fails; a valid result already in the pipe
 	// still wins. A helper that never reads must not block startup indefinitely.

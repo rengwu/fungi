@@ -1,0 +1,62 @@
+{
+  "sourceCommit": "a94e3ffd5dd1625cca724f74f8f40b3db5e894e7",
+  "sourceDirty": true,
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "go": "go version go1.26.4 darwin/arm64",
+  "cliSHA256": "31fcdd1e2e2cc4660e9214170b506ffba0907aafb6b915ef8327e504780be973",
+  "files": {
+    "docs/manual/cli.md": "f8aa618d8c6e5f16aee033a42007d5420ad617428bf5c1568bc296ae5144c21e",
+    "docs/manual/delivery.md": "2c9efce1b7147441185e130d7b83deb41a6c53e3cc7ac09f34001f75a3e87be9",
+    "docs/manual/examples.md": "8f241dcaf364c82b3d2a732d8a933dab1cf843d1237200d0aefe7308da6e5002",
+    "docs/manual/form.md": "3158612dc59337d79e3f4bcbec9f524124e0239d1300be81e6a46392db08cfcc",
+    "docs/manual/helper.md": "4a5c24527e501657fd19822de8df1270190ced763802243b1ed687a6efd9b29b",
+    "docs/manual/html.md": "d44bf89233ee4367c926a6782ecc5f78c094ce0a5dbd8fe011d717fc0d51b8d2",
+    "docs/manual/installation.md": "1fe876e3042404dcec63165cb3470e6e184548fd8f822fb264a0074beab8ac3e",
+    "docs/manual/start.md": "4b3e9821f421484bf6c5ca9b7fb73bf95978245ac2d2a5ea4f29dfc263bda688",
+    "help_test.go": "2d59750153a6c41ad33e5fdaf8ee8325b25736346f1aa4da397317f959167760",
+    "help.go": "e43895cae0c7acef1570e603a8b26656d53e0f9103221bdde179b1457c2e38ae",
+    "help_format.go": "7c4ee771c619ba5de1456d76100337f79cc2f2d1eb0186e6d9f9c00cdcaaeec6"
+  },
+  "outputs": {
+    "cli": {
+      "lines": 60,
+      "words": 275,
+      "sha256": "c49c95245466653f09503cdb4daa70956ba9fa5f87330118659028b8078265db"
+    },
+    "delivery": {
+      "lines": 63,
+      "words": 362,
+      "sha256": "f86457a7c882b9f604a472798d69ca11bf7770955fdb91a59230a8af34322c93"
+    },
+    "examples": {
+      "lines": 75,
+      "words": 444,
+      "sha256": "f112e0da86e2aa9b5de8fdaf7e8b50ebf2f1483df4d8cd44aec77cd0cb980d54"
+    },
+    "form": {
+      "lines": 34,
+      "words": 180,
+      "sha256": "6c81d5f0f99d8fdc9a9c30ee8764fea564225350fbce4bba3860aff86d6e2994"
+    },
+    "helper": {
+      "lines": 52,
+      "words": 261,
+      "sha256": "3b396e1447507f9a6c3cb52e3446951feaedefe7261d0dc3fdf4eaa3f88cc4f8"
+    },
+    "html": {
+      "lines": 81,
+      "words": 512,
+      "sha256": "f80ed1ca3e7c3c1ebed4452f8fc2edb23b834e4d25ab037697696d4cc8c00e74"
+    },
+    "installation": {
+      "lines": 82,
+      "words": 482,
+      "sha256": "f4d13e51999ef3180fa1e7c29d2d221fdafeb2b937e1083bc5a7d914c0c01ea5"
+    },
+    "start": {
+      "lines": 45,
+      "words": 257,
+      "sha256": "0ce80520bd21329e649365e154931366e8c37c8c262cc8dfbd00388841815475"
+    }
+  }
+}

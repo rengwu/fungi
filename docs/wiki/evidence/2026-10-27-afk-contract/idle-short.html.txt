@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Fungi idle verification</title>
+<style>
+:root{font:17px system-ui;color-scheme:light dark}body{max-width:640px;margin:40px auto;padding:0 24px}
+label{display:block;margin:24px 0 8px}textarea{box-sizing:border-box;width:100%;min-height:100px;font:inherit}
+button{padding:10px 16px;margin:16px 12px 0 0;font:inherit}canvas{display:block;margin:24px 0}#error{color:#d45b5b}
+</style>
+<h1>Fungi idle verification</h1>
+<p id="instructions">Preparing a disposable test…</p>
+<p id="status" role="status"></p>
+<canvas id="picture" width="240" height="80" aria-label="Test image"></canvas>
+<label for="notes">Test note</label><textarea id="notes"></textarea>
+<button id="submit" disabled>Submit test</button><button id="cancel">Cancel</button>
+<p id="error" role="alert"></p>
+<script type="module">
+const status=document.querySelector('#status'),error=document.querySelector('#error');
+try{
+  const ready=await fungi.ready(),input=ready.input;
+  if(!input||typeof input.marker!=='string'||!input.marker||!Number.isInteger(input.seconds)||input.seconds<0||input.seconds>86400)
+    throw new Error('Expected a marker and seconds from 0 (manual) to 86400.');
+  const notes=document.querySelector('#notes'),submit=document.querySelector('#submit'),cancel=document.querySelector('#cancel');
+  const startedAt=new Date().toISOString(),startedMono=performance.now(),events=[];
+  notes.value=ready.draft?.notes??input.marker;
+  const canvas=document.querySelector('#picture'),context=canvas.getContext('2d');
+  context.fillStyle='#5756bf';context.fillRect(0,0,canvas.width,canvas.height);
+  context.fillStyle='white';context.font='20px system-ui';context.fillText('Fungi idle test',16,46);
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+  if(!blob)throw new Error('PNG export failed');
+  const attachments=[{key:'image',name:'idle.png',blob}];
+  const baseline={marker:input.marker,notes:notes.value,startedAt,requestedSeconds:input.seconds};
+  await fungi.saveDraft(baseline,attachments);
+  const draftAcknowledgedAt=new Date().toISOString();
+  document.querySelector('#instructions').textContent=input.seconds
+    ? `Synthetic test: leave this window open. It will submit once after ${input.seconds} seconds, with no model polling.`
+    : 'Sleep and wake the Mac when ready, then edit the test note and submit. This is a disposable verification session.';
+  status.textContent=`Draft and PNG saved at ${draftAcknowledgedAt}.`;
+  const observe=()=>{if(events.length<20)events.push({at:new Date().toISOString(),visibility:document.visibilityState});};
+  document.addEventListener('visibilitychange',observe);
+  let timer,busy=false;
+  function setBusy(value){busy=value;notes.disabled=value;submit.disabled=value;cancel.disabled=value;}
+  async function finish(){
+    if(busy)return;
+    clearTimeout(timer);setBusy(true);error.textContent='';
+    try{
+      const state=await fungi.ready(),finishedAt=new Date().toISOString();
+      const data={...baseline,notes:notes.value,finishedAt,draftAcknowledgedAt,
+        elapsedMilliseconds:Date.parse(finishedAt)-Date.parse(startedAt),
+        monotonicMilliseconds:performance.now()-startedMono,
+        inputPreserved:JSON.stringify(state.input)===JSON.stringify(input),events};
+      await fungi.submit(data,attachments);
+    }catch(e){error.textContent=e.message;status.textContent='Not submitted. Retry with Submit test.';setBusy(false);}
+  }
+  submit.onclick=finish;
+  cancel.onclick=async()=>{
+    if(busy)return;clearTimeout(timer);setBusy(true);
+    try{await fungi.cancel();}catch(e){error.textContent=e.message;setBusy(false);}
+  };
+  setBusy(false);
+  // One local timer. No interval, heartbeat, model call or completion polling.
+  if(input.seconds)timer=setTimeout(finish,input.seconds*1000);
+}catch(e){error.textContent=e.message;status.textContent='Test preparation failed.';}
+</script>
+</html>

@@ -1,10 +1,21 @@
 ---
 title: Research findings and recommendation
-updated: 2026-10-19
+updated: 2026-10-27
 ---
 # Research findings and recommendation
 
-Research date: 2026-10-19. This is a design assessment, not a claim that fungi or any proposed integration has been implemented or verified.
+## Current direction
+
+Fungi uses a Go session engine and Wails system-webview helper. Default-package
+integration is complete; the [integration report](../verification/runs/2026-10-25-wails-integration.md)
+and [platform record](../platforms.md) define its verified scope and limits.
+Use [current decisions](../planning.md#current-decisions) and the
+[authoring guide](../authoring.md) for implementation guidance.
+
+The research below began on October 19, with renderer follow-ups through
+October 25. It preserves the evidence and reasoning at those dates. The early
+Electron recommendation and no-system-runtime policy were subsequently
+superseded by the Wails decisions; candidate lists are not current work plans.
 
 ## Main finding
 
@@ -17,14 +28,14 @@ Keep ordinary HTML/CSS/JavaScript available directly, and provide the equally su
 - [Engine and extension mechanisms](engine.md): process plugins, Go plugins, WebAssembly, storage, and failure boundaries.
 - [Rendering and packaging](rendering.md): system webviews, Wails, niche engines, native toolkits, and the real meaning of one binary.
 - [Bundled renderer follow-up](bundled-renderers.md): revised shortlist, actual Sciter binary inspection, licensing constraints, and the accepted Chromium/Electron fallback.
-- [Renderer adoption and maintenance](renderer-health.md): dated GitHub/API evidence, releases, contributor samples, wrapper health, and the current recommendation.
-- [Reconsidering the bundled renderer](system-renderers.md): October 23–25 system-webview research, followed by the user-authorized Wails prototype; production migration remains open.
+- [Renderer adoption and maintenance](renderer-health.md): October 19 GitHub/API evidence, releases, contributor samples and the historical Electron recommendation.
+- [Reconsidering the bundled renderer](system-renderers.md): October 23–25 system-webview research leading to the completed Wails integration.
 - [Composition and component libraries](components.md): standard controls, forms, drawing, charts, editors, and agent-oriented UI formats.
 - [Pele follow-up](pele.md): user-suggested optional diagram asset, maintenance signals and a bounded local probe.
-- [Agent delivery and waiting](delivery.md): current harness mechanisms, their limits, and the no-model-polling contract.
+- [Agent delivery and waiting](delivery.md): dated harness mechanisms and the no-model-polling rationale; current verified routes are in [delivery](../features/delivery.md).
 - [Proposed small authoring interface](../proposal.md): illustrative commands and a minimal skill-authored UI.
 
-## Recommendations after the first interview
+## Historical recommendations after the first interview
 
 The user chose bundled rendering instead of system webviews, both HTML and JSON authoring in the first release, and a manual “done” fallback. These decisions supersede the initial recommendations to compare Wails/thin webview hosts, defer the JSON path, and consider refusing launch without automatic delivery. [Accepted decisions](../planning.md)
 
@@ -44,7 +55,11 @@ The second round and chat clarifications additionally require an open-source def
 | Delivery | Best-effort supported route, save first, fall back to “done” | Open the interface even when automatic delivery is unavailable; no agent polling |
 | Reliability | Exercise failure cases before expanding components | A beautiful UI with lost or misrouted answers fails the main requirement |
 
-Electron + Go and the first milestone's scope are selected. Exact protocols and APIs remain proposals. Accepted decisions are recorded in [planning](../planning.md); the [first proof](../proposal.md#first-proof) targets macOS and verified automatic return in Codex, Claude Code, OpenCode, Grok, Kimi and Pi.
+At this research checkpoint, Electron + Go and the first milestone's scope
+were selected, and exact APIs remained proposals. The
+[original first-proof plan](../proposal.md#first-proof) targeted macOS and six
+harnesses. Later [decisions](../planning.md#current-decisions) established the
+implemented API, manual fallback policy and Wails distribution.
 
 ## Evidence boundary
 

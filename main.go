@@ -9,6 +9,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -193,7 +194,7 @@ func parseLaunch(args []string) (launch, string, error) {
 			l.Args = append(l.Args, args[i+1:]...)
 			break
 		}
-		if a == "--input" || a == "--exec" || a == "--delivery" {
+		if a == "--input" || a == "--exec" || a == "--delivery" || a == "--width" || a == "--height" {
 			if i+1 >= len(args) {
 				return l, mode, fail("invalid_arguments", "missing value for "+a)
 			}
@@ -205,6 +206,16 @@ func parseLaunch(args []string) (launch, string, error) {
 				l.Exec = args[i]
 			case "--delivery":
 				mode = args[i]
+			case "--width", "--height":
+				value, err := strconv.ParseInt(args[i], 10, 32)
+				if err != nil || value < 420 {
+					return l, mode, fail("invalid_arguments", a+" must be a 32-bit integer of at least 420")
+				}
+				if a == "--width" {
+					l.Width = int(value)
+				} else {
+					l.Height = int(value)
+				}
 			}
 		} else if strings.HasPrefix(a, "-") {
 			return l, mode, fail("invalid_arguments", "unknown option "+a)
@@ -217,7 +228,7 @@ func parseLaunch(args []string) (launch, string, error) {
 	}
 	if args[0] == "reopen" {
 		if len(positionals) != 1 || l.Exec != "" || input != "" || len(l.Args) > 0 {
-			return l, mode, fail("invalid_arguments", "reopen needs one session and optional delivery")
+			return l, mode, fail("invalid_arguments", "reopen needs one session and optional delivery, width or height")
 		}
 		old, err := sessionStore(positionals[0])
 		if err != nil {
@@ -242,6 +253,12 @@ func parseLaunch(args []string) (launch, string, error) {
 		l.Exec = previous.Exec
 		l.Args = previous.Args
 		l.Input = previous.Input
+		if l.Width == 0 {
+			l.Width = previous.Width
+		}
+		if l.Height == 0 {
+			l.Height = previous.Height
+		}
 		l.ReopenedFrom = previous.Session
 	} else {
 		if (l.Exec == "" && len(positionals) != 1) || (l.Exec != "" && len(positionals) != 0) {
@@ -260,6 +277,9 @@ func parseLaunch(args []string) (launch, string, error) {
 		}
 	}
 	if l.Exec != "" {
+		if l.Width != 0 || l.Height != 0 {
+			return l, mode, fail("invalid_arguments", "--width and --height apply to HTML and JSON windows, not --exec helpers")
+		}
 		p, err := exec.LookPath(l.Exec)
 		if err != nil {
 			return l, mode, err

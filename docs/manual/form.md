@@ -1,7 +1,7 @@
 # Experimental flat JSON form
 
-For custom composition use HTML. This small built-in renderer accepts a
-`title` string, optional `context` string and `fields` array:
+Use this renderer for simple forms, or HTML for custom layouts. The schema
+requires a nonempty `title` string and `fields` array; `context` is optional text.
 
 ```json
 {"title":"Timing feedback","context":"Try a duration, then comment.","fields":[
@@ -15,21 +15,26 @@ For custom composition use HTML. This small built-in renderer accepts a
 fungi open ./form.json --input ./values.json --delivery auto
 ```
 
-Each field requires unique nonempty `name` and `type` (`text`, `textarea`,
-`range`, `image`). Optional common fields: `label`, boolean `required`, `value`.
-Names `__proto__`, `constructor` and `prototype` are reserved. Unknown schema
-properties are rejected. Text defaults are strings. Ranges require numeric
-`min < max`; optional positive `step` defaults to 1 and `value` must be within
-bounds. Image defaults must be absent or null.
+Optional `--width` and `--height` flags set the initial window dimensions;
+see `fungi help cli` for defaults and limits.
 
-Initial non-image values use saved draft > input property by name > field
-value > empty (range minimum for ranges). Provide input values of the same
-types. Images come from file selection/paste or restored draft bytes, not a
-path in input. This renderer autosaves; custom HTML controls its own drafts.
+## Fields and values
 
-Submitted `data` maps names to text strings, range numbers and image
-`{"artifact":"FIELD_NAME"}` references (or null). Image artifacts use the
-field name as key. With the example, `data` might be
-`{"duration":250,"notes":"Faster feels better","reference":null}`.
-Launch receipts, completion and error handling are the same as HTML;
-see `fungi help delivery`.
+Fields require a unique nonempty `name` and `type`. Optional properties:
+`label`, boolean `required`, `value`. Names `__proto__`, `constructor` and
+`prototype` are reserved. Unknown schema properties are rejected.
+
+| Type | Values |
+| --- | --- |
+| `text`, `textarea` | String defaults and input |
+| `range` | Numeric `min < max`; positive `step` defaults to 1. Values must be in bounds. |
+| `image` | Default absent or null. Images come from selection, paste or restored drafts, not input paths. |
+
+Initial non-image values use draft > input property > field value > empty
+(range minimum for ranges). Input must match the field type. This renderer
+autosaves; custom HTML manages its own drafts.
+
+Submitted `data` maps names to strings, numbers, or `{"artifact":"FIELD_NAME"}`
+image references (null if absent). Image artifacts use the field name as key.
+Example: `{"duration":250,"notes":"Faster feels better","reference":null}`.
+Completion and errors follow `fungi help delivery`.

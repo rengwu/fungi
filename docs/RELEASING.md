@@ -10,11 +10,13 @@ after its checks pass; stable releases are intentionally not automated yet.
    one copy-paste line per shell, including current-terminal PATH setup when
    needed. Keep diagnostic commands separate and preserve long command lines
    in terminal help. Commit all release source and notes.
-2. Push an annotated alpha tag pointing to that exact commit:
+2. Set `FUNGI_RELEASE_VERSION` to the new, unpublished version from step 1,
+   then push an annotated alpha tag pointing to that exact commit:
 
    ```sh
-   git tag -a v0.1.0-alpha.1 -m 'Fungi v0.1.0-alpha.1'
-   git push origin v0.1.0-alpha.1
+   FUNGI_RELEASE_VERSION=vX.Y.Z-alpha.N
+   git tag -a "$FUNGI_RELEASE_VERSION" -m "Fungi $FUNGI_RELEASE_VERSION"
+   git push origin "$FUNGI_RELEASE_VERSION"
    ```
 
 3. Check the **Publish alpha** run. It reuses the foundation workflow to test
@@ -45,12 +47,18 @@ These releases are unsigned and unnotarized. Clean consumer-machine setup and
 physical desktop qualification are separate from CI. No signing keys, paid
 services, OS policy changes or automatic runtime installs are part of this flow.
 
+Preserve the [protocol 1 authoring contract](manual/html.md#compatibility) across
+releases. The existing core, bridge and native renderer checks cover its behavior;
+update them when adding capabilities. Optional metadata may be added. Changing
+documented names, types or meanings requires a new protocol, not an undocumented
+skill migration. Renderer internals and the experimental form schema are excluded.
+
 To repeat the public-download check on a machine with a ready desktop/runtime:
 
 ```sh
-node scripts/public-release-smoke.mjs v0.1.0-alpha.1
+node scripts/public-release-smoke.mjs v0.1.0-alpha.2
 # On Linux CI or a virtual display:
-xvfb-run -a node scripts/public-release-smoke.mjs v0.1.0-alpha.1
+xvfb-run -a node scripts/public-release-smoke.mjs v0.1.0-alpha.2
 ```
 
 The driver requires Node only for verification; users need neither Node nor Go.
@@ -63,5 +71,5 @@ Manual runs skip validation/build/publication and perform only the public-downlo
 check. For example:
 
 ```sh
-gh workflow run release.yml --ref main -f version=v0.1.0-alpha.1 -f platform=macos-latest
+gh workflow run release.yml --ref main -f version=v0.1.0-alpha.2 -f platform=macos-latest
 ```

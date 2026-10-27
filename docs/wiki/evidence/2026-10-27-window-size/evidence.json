@@ -1,0 +1,211 @@
+{
+  "binary": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T04-30-27-270Z/fungi",
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/window-smoke-l3pUOV",
+  "platform": "darwin",
+  "checks": [
+    {
+      "name": "defaults",
+      "closed": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "cc9212b25cdd4f632ca1af2e0a159edb",
+        "outcome": "cancelled",
+        "artifacts": []
+      },
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "2473f922678b36afbe8d48463c6330f8",
+        "outcome": "submitted",
+        "data": {
+          "initial": {
+            "width": 820,
+            "height": 780,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          },
+          "current": {
+            "width": 820,
+            "height": 780,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          }
+        },
+        "artifacts": []
+      }
+    },
+    {
+      "name": "both",
+      "closed": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "a650ec93be3b440fa32a16817298d190",
+        "outcome": "cancelled",
+        "artifacts": []
+      },
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "3e504d846935d31fea252b97a1b458b3",
+        "outcome": "submitted",
+        "data": {
+          "initial": {
+            "width": 960,
+            "height": 640,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          },
+          "current": {
+            "width": 960,
+            "height": 640,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          }
+        },
+        "artifacts": []
+      }
+    },
+    {
+      "name": "reopen width override",
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "18d44a1b48a9c49d7232b72a19eaa8de",
+        "outcome": "submitted",
+        "data": {
+          "initial": {
+            "width": 960,
+            "height": 640,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          },
+          "current": {
+            "width": 740,
+            "height": 640,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          }
+        },
+        "artifacts": []
+      }
+    },
+    {
+      "name": "width only",
+      "closed": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "546ac2854b6baac0504c174a192a40a4",
+        "outcome": "cancelled",
+        "artifacts": []
+      },
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "96b9d6eefc8674f8bba224dbc8a6c602",
+        "outcome": "submitted",
+        "data": {
+          "initial": {
+            "width": 700,
+            "height": 780,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          },
+          "current": {
+            "width": 700,
+            "height": 780,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          }
+        },
+        "artifacts": []
+      }
+    },
+    {
+      "name": "height only",
+      "closed": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "47870c728bd533d5485761b9e6807aa3",
+        "outcome": "cancelled",
+        "artifacts": []
+      },
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "dff6f06504f59536cc2627e7ff3b67c8",
+        "outcome": "submitted",
+        "data": {
+          "initial": {
+            "width": 820,
+            "height": 600,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          },
+          "current": {
+            "width": 820,
+            "height": 600,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          }
+        },
+        "artifacts": []
+      }
+    },
+    {
+      "name": "minimum",
+      "closed": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "4800719bc0471cd680556ffa02a5c2ff",
+        "outcome": "cancelled",
+        "artifacts": []
+      },
+      "result": {
+        "protocol": 1,
+        "kind": "result",
+        "session": "22b9ab796f857a79ea683209fb1a0228",
+        "outcome": "submitted",
+        "data": {
+          "initial": {
+            "width": 420,
+            "height": 420,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          },
+          "current": {
+            "width": 420,
+            "height": 420,
+            "outerWidth": 0,
+            "outerHeight": 0,
+            "devicePixelRatio": 2
+          }
+        },
+        "artifacts": []
+      }
+    }
+  ],
+  "passed": true,
+  "build": {
+    "format": 2,
+    "version": "0.1.0-dev",
+    "platform": "darwin",
+    "arch": "arm64",
+    "wails": "v2.17.0",
+    "binarySHA256": "4ebe33f0ccd21de47cf9d926671d610c9364603dba81922f086120aa141181f5",
+    "rendererSHA256": "58c78a668d15cfe32cebf49e08eb7ae5f785287f0d6500e16fac083f263b0cf6",
+    "created": "2026-10-27T04-30-27-270Z",
+    "sourceCommit": "a94e3ffd5dd1625cca724f74f8f40b3db5e894e7",
+    "sourceDirty": true
+  }
+}

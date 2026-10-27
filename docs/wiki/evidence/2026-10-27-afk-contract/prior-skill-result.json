@@ -1,0 +1,24 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "6662a098ee4a2b36119cf8f3639a29c3",
+  "outcome": "submitted",
+  "data": {
+    "order": [
+      "Verify",
+      "Research",
+      "Build"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "8c4ecbb743767dcbb9bcb5b487e950b61ad365fd2b7872b8c2d368144fdfd748",
+      "key": "priority",
+      "name": "priority.svg",
+      "mediaType": "image/svg+xml",
+      "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/afk-contract-2026-10-27/manual-sessions/6662a098ee4a2b36119cf8f3639a29c3/artifacts/8c4ecbb743767dcbb9bcb5b487e950b61ad365fd2b7872b8c2d368144fdfd748",
+      "bytes": 253,
+      "sha256": "8c4ecbb743767dcbb9bcb5b487e950b61ad365fd2b7872b8c2d368144fdfd748"
+    }
+  ]
+}

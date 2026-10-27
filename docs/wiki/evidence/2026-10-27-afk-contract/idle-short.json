@@ -1,0 +1,29 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "91db61ea2d3a529b08899d5e12923b15",
+  "outcome": "submitted",
+  "data": {
+    "marker": "wails-idle-short-2026-10-27",
+    "notes": "wails-idle-short-2026-10-27",
+    "startedAt": "2026-10-26T17:13:01.848Z",
+    "requestedSeconds": 5,
+    "finishedAt": "2026-10-26T17:13:07.034Z",
+    "draftAcknowledgedAt": "2026-10-26T17:13:02.032Z",
+    "elapsedMilliseconds": 5186,
+    "monotonicMilliseconds": 5185,
+    "inputPreserved": true,
+    "events": []
+  },
+  "artifacts": [
+    {
+      "id": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+      "key": "image",
+      "name": "idle.png",
+      "mediaType": "image/png",
+      "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/afk-contract-2026-10-27/short-sessions/91db61ea2d3a529b08899d5e12923b15/artifacts/b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+      "bytes": 3278,
+      "sha256": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32"
+    }
+  ]
+}

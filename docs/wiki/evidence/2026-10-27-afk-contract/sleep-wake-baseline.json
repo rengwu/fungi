@@ -1,0 +1,25 @@
+{
+  "session": "f930bce64f4158e7b1d5eb5d40301b54",
+  "draft": {
+    "data": {
+      "marker": "wails-sleep-wake-2026-10-27",
+      "notes": "wails-sleep-wake-2026-10-27",
+      "startedAt": "2026-10-26T17:22:44.419Z",
+      "requestedSeconds": 0
+    },
+    "artifacts": [
+      {
+        "id": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+        "key": "image",
+        "name": "idle.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/afk-contract-2026-10-27/sleep-wake-sessions/f930bce64f4158e7b1d5eb5d40301b54/artifacts/b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+        "bytes": 3278,
+        "sha256": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32"
+      }
+    ]
+  },
+  "exactCallerMatched": true,
+  "fixtureSHA256": "1be2744c13fb70e29f6a0366382d838b4bff27d51714bcaf33844be50884d55b",
+  "preparedForUser": true
+}

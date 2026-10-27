@@ -1,0 +1,52 @@
+Native executable protocol
+
+  fungi open --exec ./my-helper --input ./input.json --delivery auto -- custom-arg
+
+Helpers are trusted programs with ordinary OS access. Use any language that
+supports pipes and files; supply its runtime. Fungi does not install helper
+runtimes or ship a compiler.
+
+Launch and readiness
+
+Use UTF-8 newline-delimited JSON over stdin/stdout. Reserve stdout for protocol
+messages and stderr for diagnostics; flush each message. Fungi sends this launch
+object (abbreviated values):
+
+  {"protocol":1,"session":"…","input":null,"draft":null,"draftArtifacts":[],"source":"","outputDir":"/absolute/output","limits":{"jsonBytes":1048576,"artifactBytes":20971520,"totalArtifactBytes":104857600},"delivery":{"mode":"manual"}}
+
+Reject unsupported protocols. Read launch input, show the interface and emit
+{"type":"ready"} within 25 seconds. No human timeout follows readiness. Keep
+reading acknowledgments while the UI is active: Fungi can stop a helper that
+does not read a protocol message within five seconds.
+
+Drafts and results
+
+Optional draft:
+
+  {"id":"save-1","type":"draft","data":{"notes":"In progress"},"artifacts":[]}
+
+Submission after writing note.txt under outputDir:
+
+  {"id":"finish-1","type":"result","outcome":"submitted","data":{"notes":"Ready"},"artifacts":[{"key":"note","name":"note.txt","path":"note.txt","mediaType":"text/plain"}]}
+
+Other outcomes: cancelled, closed, failed. For failure, include
+error:{"code":"your_code","message":"Useful explanation"}. Each draft/result
+receives an ack with matching id:
+
+  {"id":"save-1","type":"ack","ok":true}
+  {"id":"finish-1","type":"ack","ok":true,"result":{"protocol":1,"kind":"result","session":"…","outcome":"submitted","data":{"notes":"Ready"},"artifacts":[]}}
+
+Successful result acks contain the complete saved result; artifact details are
+omitted above. Failure ack:
+{"id":"save-1","type":"ack","ok":false,"error":{"code":"…","message":"…"}}. Wait
+for acknowledgment before reporting success or exiting. Preserve input for retry
+on failure. Exiting without a terminal result produces failed.
+
+Each draft/result replaces all data and attachments. Artifact paths must be
+relative to and confined within outputDir; keys must be unique and nonempty, and
+names nonempty. Fungi copies bytes into durable storage before acknowledgment.
+To retain a restored draftArtifacts record, copy its absolute saved path's
+contents into the new outputDir and include the file in the next message.
+
+Limits: fungi help html. Result interpretation: fungi help delivery. The source
+repository includes a protocol fixture at examples/helper/main.go.

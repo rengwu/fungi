@@ -24,6 +24,10 @@ and shipped as Markdown. It covers the [four-method page API](docs/manual/html.m
 [native helpers](docs/manual/helper.md), [experimental forms](docs/manual/form.md)
 and [installation](docs/manual/installation.md). No separate Fungi skill is needed.
 
+The [protocol 1 compatibility contract](docs/manual/html.md#compatibility) preserves
+the documented page methods and session messages. Skills own their UI and data
+schemas; renderer internals and the experimental JSON form are outside that promise.
+
 Use ordinary local HTML/CSS/JS and libraries for any interaction the webview
 can render. Skills own the UI and meaning of its data. Draft saving is optional;
 submitted JSON and file artifacts are durable independently. The small
@@ -34,18 +38,6 @@ Inspect the launch receipt: automatic delivery can fall back to manual.
 End the turn and collect once on notification or the user's “done.” Use
 `--delivery wait` only if the host keeps one call pending or automatically
 returns background completion. **Never poll `collect`.**
-
-## Skill example
-
-The repository’s [grill-form skill](skills/grill-form/SKILL.md) adapts jstack's simpler committed questionnaire. It uses ordinary HTML/assets and the existing bridge, with no generator or registration:
-
-```sh
-fungi open skills/grill-form/assets/form.html --input skills/grill-form/example.json
-```
-
-It supports choices, plain notes, offline Markdown/diagrams, acknowledged drafts and one optional image. The current jstack review/editor rework is intentionally outside this example. UI libraries live with the skill; the engine has no questionnaire-specific API.
-
-The separate [rich jstack demo](examples/jstack-grill-form/README.md) adapts the newer generated form, including visual choices, prototype controls, region comments and inline images. The simpler example skill remains available.
 
 ## Install and update
 
@@ -95,7 +87,7 @@ accepted for installation or rollback. See [installation](docs/wiki/features/ins
 
 These alpha binaries are not publisher-signed or notarized. OS security policy
 may block them; the installer does not override it. Clean consumer-machine setup,
-physical Windows/Linux input and long Wails sleep/wake remain unqualified.
+physical Windows/Linux input and broader sleep/wake coverage remain unqualified.
 Linux direct local media has a known limitation; see [platform details](docs/wiki/platforms.md).
 
 ## Develop

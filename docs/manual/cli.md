@@ -4,10 +4,10 @@
 fungi [--help]
 fungi help [start|examples|html|form|helper|delivery|cli|installation]
 fungi describe [html|form|helper|delivery|installation|examples]
-fungi open SOURCE [--input FILE] [--delivery auto|wait|manual]
+fungi open SOURCE [--input FILE] [--delivery auto|wait|manual] [--width N] [--height N]
 fungi open --exec HELPER [--input FILE] [--delivery MODE] -- [ARGS...]
 fungi collect SESSION
-fungi reopen SESSION [--delivery MODE]
+fungi reopen SESSION [--delivery MODE] [--width N] [--height N]
 fungi --version
 fungi doctor
 fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]
@@ -16,33 +16,53 @@ fungi rollback
 fungi prune
 ```
 
-`SOURCE` is a local HTML file or a `.json` built-in form. `--exec` selects a
-trusted executable instead; arguments after `--` go directly to it, without
-a shell. `--input` reads JSON. Paths are resolved at launch. `SESSION` is the
-exact 32-character ID in a receipt. `version` is an alias for `--version`. `help`/`--help` return formatted plain text for terminals; other public commands emit
-JSON on stdout. `describe` returns protocol 1 metadata and reference routes;
-`describe examples` locates adjacent example files from any working directory.
-An unavailable example has `available:false` and no launch `argv`.
+`SOURCE` is local HTML or a built-in `.json` form. `--exec` runs a trusted
+executable with arguments after `--`, without a shell. `--input` reads JSON.
+Paths resolve at launch. `SESSION` is the receipt's exact 32-character ID.
+`version` aliases `--version`.
 
-Exit codes: **0** success (also `pending`, `cancelled`, `closed`); **1** operational
-failure or failed session; **2** invalid input/arguments; **3** specifically
-`doctor` with a missing runtime. Always inspect the JSON kind/outcome. Read
-`fungi help delivery` before choosing a waiting mechanism.
+`--width` and `--height` set the initial HTML/JSON window size in logical pixels.
+Each is optional: defaults are 820 × 780. Values must be 32-bit integers of at
+least 420. The OS may adjust sizes to fit the display. `reopen` inherits the
+original dimensions unless overridden; user resizing is not saved. These flags
+are invalid with `--exec`; native helpers manage their own windows.
+
+Help prints plain terminal text; other public commands emit JSON on stdout.
+`describe` returns protocol 1 capabilities; `describe TOPIC` includes a
+`reference` command. `describe examples` returns absolute package paths and
+launch arrays; missing examples have `available:false` and no `argv`.
+
+## Exit codes
+
+| Code | Meaning |
+| --- | --- |
+| 0 | Success, including `pending`, `cancelled` and `closed` |
+| 1 | Operational failure or failed session |
+| 2 | Invalid input or arguments |
+| 3 | `doctor` detected a missing runtime |
+
+Inspect JSON `kind` and `outcome`. Completion: `fungi help delivery`.
+Updates: `fungi help installation`.
 
 ## Environment and storage
 
 | Variable | Purpose |
 | --- | --- |
-| `FUNGI_STATE_DIR` | Overrides session storage; use a directory outside a managed installation. Receipts preserve its absolute location in `collectEnv`. |
-| `CODEX_THREAD_ID` | Inherited exact conversation ID used by automatic callback detection. Do not fabricate it. |
-| `FUNGI_RENDERER_DIR` | Development override for the directory containing the native helper. Normally omit. |
+| `FUNGI_STATE_DIR` | Session storage override. Keep outside managed installs; receipts preserve its absolute path in `collectEnv`. |
+| `CODEX_THREAD_ID` | Inherited exact conversation ID for callback detection. Do not fabricate. |
+| `FUNGI_RENDERER_DIR` | Development override for the native helper directory. Normally omit. |
 
-Default sessions live under the OS user config directory: `~/Library/Application
-Support/fungi/sessions` on macOS, `%AppData%\fungi\sessions` on Windows, and
-`$XDG_CONFIG_HOME/fungi/sessions` or `~/.config/fungi/sessions` on Linux.
-Each session retains input, drafts, result, artifacts and a worker diagnostic
-log. Collection does not delete them; prune removes eligible installed
-versions, not sessions. Keep files needed by active/recoverable sessions.
+Default session directories:
 
-No background service remains after a completed session. Internal worker
-commands and on-disk control files are not authoring APIs.
+| Platform | Path |
+| --- | --- |
+| macOS | `~/Library/Application Support/fungi/sessions` |
+| Windows | `%AppData%\fungi\sessions` |
+| Linux | `$XDG_CONFIG_HOME/fungi/sessions`, or `~/.config/fungi/sessions` |
+
+Sessions retain input, drafts, results, artifacts and a worker log. `collect`
+preserves them; `prune` removes eligible installed versions. Keep files needed
+by active or recoverable sessions.
+
+No background service remains after completion. Internal worker commands and
+control files are not authoring APIs.

@@ -45,6 +45,10 @@ The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also
 
 ## Verification history
 
+- [2026-10-27 starting window size](../verification/runs/2026-10-27-window-size.md) — original launch dimensions survive reopen; explicit overrides preserve the other dimension and draft. Older size-less records remain valid.
+
+- [2026-10-27 Wails sleep/wake](../verification/runs/2026-10-27-afk-contract.md) — an OS-confirmed 355-second clamshell sleep preserved the native page, input and PNG; the user's post-wake edit returned through the exact-origin callback with one collection.
+
 - [2026-10-25 Wails integration](../verification/runs/2026-10-25-wails-integration.md) — normal packaged launches, native input and recovery, artifact return, and updates with an active UI.
 
 - [2026-10-25 Wails follow-up](../verification/runs/2026-10-25-wails-followup.md) — entire native helper terminated, failure collected once, saved draft restored by explicit reopen; web-content-only crashes remain a separate case.

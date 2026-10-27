@@ -1,10 +1,60 @@
 ---
 title: Requirements and discussion
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 # Requirements and discussion
 
-## Requirements supplied by the user
+## Current decisions
+
+This summary governs current work. The [decision history](#decision-history)
+preserves earlier requirements, proposals and observations in their original
+sequence; later accepted decisions supersede earlier ones.
+
+| Area | Accepted direction |
+| --- | --- |
+| Engine | Go owns sessions, durable responses/artifacts, explicit recovery and exact-caller delivery. Skills own workflow meaning and UI. |
+| Rendering | Wails is the default helper, using WKWebView, WebView2 or WebKitGTK 4.1. Pages are trusted local code; native access, best-effort browser storage isolation and Linux direct-media limits are accepted. |
+| Distribution | One portable OS/CPU package plus optional managed installation/update/rollback. Missing Windows/Ubuntu runtimes require explicit bootstrap opt-in; normal launches never install them. |
+| Authoring | Local HTML/assets or a native helper; the built-in flat JSON form remains experimental. Protocol 1 preserves documented page/session meanings. No plugin SDK, registry or new UI framework is needed. |
+| Completion | No model polling or required harness setup. Use the supported exact-caller callback/native completion route, otherwise manual “done.” Results survive notification failure. |
+| Documentation | The embedded `fungi help` manual is the public reference; `describe` is machine-readable. Keep prose concise, installation commands copyable and examples small and complete. |
+| Workflow integration | jstack/Fungi skills are developed in the sibling `jstack-fungi-test` project. This repo owns the engine, generic examples and its verification. |
+
+The documented public release is `v0.1.0-alpha.2`. Subsequent concise-help and
+local contract/AFK changes are recorded in the working tree and dated reports;
+this cleanup does not publish them. Start with the [authoring guide](authoring.md),
+[session contract](contract.md), [feature map](features/index.md) and
+[platform evidence](platforms.md).
+
+## Remaining work
+
+Clean consumer-machine setup, physical Windows/Linux Wails input,
+signing/notarization, independent fresh-agent authoring and broader
+idle/failure qualification remain outside the completed local scope. The
+[October 27 contract and AFK checks](verification/runs/2026-10-27-afk-contract.md)
+completed their selected short callback, two-hour timer and sleep/wake cases;
+those sessions are no longer pending.
+
+## Repository cleanup on 2026-10-27
+
+The user moved workflow-skill experimentation to `jstack-fungi-test` and
+requested removal of `skills/`. They then approved audit recommendations 1–8:
+remove the orphaned skill test and old jstack adapter, repair current references
+and verification instructions, require an explicit renderer-smoke executable,
+update release examples/defaults and separate current guidance from history.
+The optional research/proposal archive and old `dist/` removal were not selected.
+Historical user decisions and verification evidence remain intact. The
+[cleanup verification](verification/runs/2026-10-27-repo-cleanup.md) records the
+selected checks and their tested build.
+
+## Decision history
+
+The following sections describe the state at each recorded checkpoint.
+“Current,” “next,” “pending” and old launch paths inside this history refer to
+that checkpoint, not today's instructions. Use the summary above for current
+policy and the maintained verification recipes for new runs.
+
+### Requirements supplied by the user
 
 - Provide a reliable, flexible, extensible engine for skill-authored human interaction workflows. The engine is reusable across agents and harnesses.
 - Present information, collect responses and artifacts, and deliver them back to the exact calling agent conversation.
@@ -16,7 +66,7 @@ updated: 2026-10-26
 - Human interaction must not cause repeated model tool calls, status polling, continued token expenditure, or compactions while the user is away. Automatic response delivery is central.
 - Use jstack's wiki, plan, grill-form, and rule-lean workflows for this project. Implementation was authorized on 2026-10-20 by the user’s `work-until-grill` instruction.
 
-## Scope clarifications on 2026-10-19
+### Scope clarifications on 2026-10-19
 
 The user first clarified that the default core should include no UI capabilities: prioritize a reliable and extensible base on which primitive and complex interfaces can be built.
 
@@ -26,7 +76,7 @@ The user requested unusually deep research, including niche implementations, wid
 
 The user subsequently emphasized ease of extensibility and simplicity, explicitly invoking rule-lean. Skill authors must not have to learn a complicated plugin framework to add UI capabilities. Research breadth must not turn into implementation scope.
 
-## Accepted decisions from the first interview
+### Accepted decisions from the first interview
 
 The [submitted answers](journal/2026-10-19-grill-eb02aa23-b51f-42c9-b9c0-8fa331bfb02c.md) establish these decisions:
 
@@ -43,7 +93,7 @@ The user specifically prioritizes running cleanly out of the box over the smalle
 
 During follow-up research, the user explicitly accepted bundling Chromium/Electron as a worst-case browser-renderer fallback. That initially permitted a larger engine without selecting one. The later Electron + Go decision below settles the default; it does not require maintaining two engines in the first release.
 
-## Second interview and subsequent clarifications
+### Second interview and subsequent clarifications
 
 The [second submitted form](journal/2026-10-19-grill-186963ab-2f7b-423c-b40b-97b0afacc6fb.md) selects an open-source renderer for the default distribution. Proprietary renderers may remain optional third-party capabilities, but Sciter and Ultralight no longer qualify for the default.
 
@@ -51,7 +101,7 @@ For packaging, the saved form selects automatic runtime extraction. In chat, whi
 
 The user also requires a substantial established following (including GitHub stars or equivalent evidence) and healthy recent renderer development. No numerical star cutoff was specified. Evaluate adoption, actual releases/fixes, contributor breadth, maintenance policy, and any binding used by fungi separately; a popular upstream engine does not establish the health of its wrapper. [Adoption and maintenance research](research/renderer-health.md)
 
-## Accepted Electron + Go direction
+### Accepted Electron + Go direction
 
 On 2026-10-19, after the adoption and maintenance assessment, the user accepted Electron + Go. Go is the core CLI/session engine; a small Electron companion owns the native window and bundled web renderer. This replaces the earlier Go-owned-window idea while preserving Go ownership of orchestration and agent delivery. The choice favors established browser compatibility and straightforward integration over minimum runtime size.
 
@@ -59,7 +109,7 @@ Use the already accepted portable directory/archive distribution. CEF and other 
 
 The next milestone is the [first end-to-end proof](proposal.md#first-proof): launch, idle without model polling, submit, save, return to the exact caller, and collect. The third interview below settles its scope and close behavior. The initial API was subsequently implemented as a prototype; see the current contract and verification report.
 
-## Accepted first-milestone scope
+### Accepted first-milestone scope
 
 The [third submitted form](journal/2026-10-19-grill-689a37f9-b8c4-4f2a-9e54-282234bc2551.md) settles the following:
 
@@ -77,7 +127,7 @@ HTML and JSON remain equally supported, sharing submission and result handling. 
 
 Read-only inspection confirmed all six commands are installed. Current versions and candidate return mechanisms are recorded in [delivery research](research/delivery.md#first-milestone-harness-inventory). Installation does not establish authentication, callback reliability or live Fungi compatibility. All six are verification targets; any unavailable automatic route remains an explicit gap, with the already accepted manual “done” behavior available rather than model polling.
 
-## Current proposals, not accepted decisions
+### Current proposals, not accepted decisions
 
 - Keep session ownership, lifecycle, extension communication, durable results, and delivery in the engine.
 - Use a small, separable reference renderer for end-to-end testing.
@@ -87,13 +137,13 @@ Read-only inspection confirmed all six commands are installed. Current versions 
 - Use the same rendering bridge for direct HTML and a small JSON component catalog. Catalog composition belongs above the session engine.
 - Identify a supported delivery route before promising automatic resumption; otherwise launch with the accepted “done” fallback. Never substitute repeated model polling for an unavailable callback.
 
-## Contract draft on 2026-10-20
+### Contract draft on 2026-10-20
 
 The [first implementation contract](contract.md) makes launch, waiting, lifecycle, page/helper APIs, artifact persistence and recovery concrete. It proposes four CLI operations, immutable terminal results, new linked sessions when reopening a draft, and one shared commit path for HTML, flat JSON and native helpers. These are engineering recommendations for review; they do not change the accepted milestone scope or establish implementation evidence.
 
 The user's follow-up asks whether more grilling is needed. Current product choices are sufficient to draft this contract. Another targeted interview is useful only if factual work reveals a consequential tradeoff, such as a required harness setup step. Ordinary command naming, internal transport and test-fixture choices do not need another broad questionnaire.
 
-## Remaining implementation questions
+### Remaining implementation questions
 
 1. Which built-in return mechanism works in each installed harness, with exact originating-session routing and no repeated model checks? The fourth interview rules out harness setup; use the explicit manual fallback where native capabilities are insufficient.
 2. Does the draft contract hold up against concrete HTML, flat JSON and native-helper examples, including interrupted submission and exact-session recovery? Refine it from implementation evidence rather than growing a speculative plugin framework.
@@ -101,7 +151,7 @@ The user's follow-up asks whether more grilling is needed. Current product choic
 
 [Research findings](research/index.md) and the [small authoring proposal](proposal.md) reflect these decisions. Electron + Go and the milestone scope are selected; exact APIs remain proposals. The initial prototype now implements these paths; coverage is recorded in the verification report.
 
-## Implementation checkpoint on 2026-10-20
+### Implementation checkpoint on 2026-10-20
 
 The user invoked `work-until-grill`, authorizing implementation and verification of the accepted first milestone. Go now owns detached sessions, immutable results, artifacts, drafts, explicit recovery and return delivery. Electron renders local HTML and flat JSON forms through a four-method bridge. A native Go helper exercises the same protocol. The core uses only the Go standard library.
 
@@ -109,7 +159,7 @@ Evidence changed one internal choice: a loopback listener failed under Codex’s
 
 [The feature map](features/index.md) and [first proof report](verification/runs/2026-10-20-first-proof.md) separate observed behavior from remaining work. Five harnesses returned real Fungi helper results; three-minute waits completed in Claude, Grok and Pi. Kimi lacks a configured credential. Longer AFK behavior and all-six native UI journeys remain unverified. The next consequential question concerns opt-in harness integrations where stock tools cannot wait indefinitely; no persistent integration configuration has been changed.
 
-## No-setup delivery decision on 2026-10-20
+### No-setup delivery decision on 2026-10-20
 
 The [fourth submitted form](journal/2026-10-20-grill-397cc4f4-31e2-4fd5-a08e-30ee197e3297.md) resolves that tradeoff: **require no harness setup; use the manual “done” fallback on unsupported versions.** Do not add a plugin, hook, startup configuration or harness upgrade as a prerequisite for Fungi. Existing built-in completion tools and the already available exact-thread Codex queue remain eligible.
 
@@ -117,13 +167,13 @@ All six installed harnesses remain compatibility targets. For a version or execu
 
 The user also reports completing Kimi sign-in and requests verification to resume. Retry the actual command; do not inspect credentials or assume authentication succeeded merely from the answer. The existing `work-until-grill` authorization continues through implementation, native UI checks and records.
 
-## Native compatibility checkpoint
+### Native compatibility checkpoint
 
 The [no-setup follow-up](verification/runs/2026-10-20-no-setup.md) verifies Kimi 2.2.0 after sign-in, complete native form/image returns in Pi, Grok, Kimi and Claude's bounded headless mode, and OpenCode v1's explicitly resumed manual flow. Launch receipts now include `collectEnv`, verified by the core suite and OpenCode's actual later call. No integration setup is required.
 
 The latest portable build is `dist/fungi-darwin-arm64-2026-10-20T08-12-31-161Z`. Its Codex image session `39fdb74018dd13baae7fbc2883699530` completed the final check: the notice reached its originating conversation after the prior turn ended, and one collection using the supplied argv/environment returned the submitted response and matching image. The bounded macOS no-setup proof is complete. Long AFK and sleep/wake behavior, clean-machine distribution, and Windows/Linux runtime verification remain outside the completed proof. The earlier user-edited demo remains open with its draft preserved.
 
-## Skill authoring and longer waits
+### Skill authoring and longer waits
 
 The user authorized the next work through `work-until-grill`: exercise real skill authoring, longer idle/recovery behavior and portability. They specifically requested the simpler grill-form from yesterday's jstack history while its current version is being reworked. The last committed modification of the relevant assets is `7a7c919` (2026-10-13); those assets are unchanged at yesterday's tip, `32324e47aae7d3ad3f92e6a4aad8966e9451d691`. Use that committed baseline, not the uncommitted editor/review changes.
 
@@ -141,7 +191,7 @@ The sleep/wake fixture, session `1897358a56ceff72064a252004170716`, passed. Its 
 
 The [skill-authoring and longer-idle proof](verification/runs/2026-10-20-skill-proof.md) is now complete for its selected scenarios. All callbacks in this round have been consumed. Additional desktop checks remain deferred by the user's answer; public distribution and arbitrary-duration reliability are not established. The current portable package is `dist/fungi-darwin-arm64-2026-10-20T09-41-25-905Z`.
 
-## Rich questionnaire feedback
+### Rich questionnaire feedback
 
 The user tried the updated jstack presentation in a Fungi window. Its [submitted response](evidence/2026-10-20-rich-grill/user-result.json) returned all six items through one callback and one collection; the [verification report](verification/runs/2026-10-20-rich-grill.md) records the tested build and remaining gaps. Mock choices and placeholder comments are demonstration data.
 
@@ -151,7 +201,7 @@ The user then explicitly confirmed the authoring requirement: agents should foll
 
 The target is question data plus one launch, followed by automatic structured response delivery. Rendering, draft storage, attachment conversion and callback handling should be reusable implementation supplied with the skill/Fungi distribution. An agent should not reconstruct the template adapter or reconcile two collectors for every questionnaire. The skill should describe choices, open feedback, visual comparisons, diagrams, prototype state, region comments and images without requiring agents to read renderer internals. This is a requirement for the eventual integration, not a claim that the current experiment already provides that final authoring experience.
 
-## Foundation work on 2026-10-22
+### Foundation work on 2026-10-22
 
 The user renewed `work-until-grill` to pursue a stable, robust, simple and broadly flexible rendering platform. Continue within the accepted Go/Electron, local-first, no-harness-setup scope. Full jstack authoring integration remains deferred; a small reusable authoring guide and independent example are appropriate foundation work.
 
@@ -186,7 +236,7 @@ explicit supported Linux environments, allowing an optional Linux installation
 path, or deferring Linux UI. The following interview resolves it. Full jstack
 authoring integration remains deferred.
 
-## Linux distribution decision
+### Linux distribution decision
 
 The [submitted answer to question 20](journal/2026-10-22-grill-0c10be35-a07a-4a8d-8d5d-39fda5b2e1bc.md)
 selects **keep no-install; support explicitly verified Linux environments**.
@@ -235,7 +285,7 @@ the next action belongs to the Windows agent after the pull. The original
 receipt and response remain under
 `verification-output/platform-2026-10-22/windows-handoff/` on this Mac.
 
-## Physical Windows handoff on 2026-10-22/23
+### Physical Windows handoff on 2026-10-22/23
 
 The user requested execution of the Windows guide and later asked the agent
 to continue. The [completed handoff record](verification/runs/windows-2026-10-22-203907.md)
@@ -259,7 +309,7 @@ downloaded-archive launch, Windows clipboard, WebGL, automatic agent return,
 sleep/wake or power-loss behavior. The earlier hosted and Mac reports retain
 their original scopes. Full jstack authoring integration remains deferred.
 
-## Command installation and updates on 2026-10-23
+### Command installation and updates on 2026-10-23
 
 The user asks to target a script/command installation for the eventual release,
 with as few dependencies as possible, and easy updates on every platform
@@ -292,7 +342,7 @@ records the proposed delivery flow and acceptance checks. Signing, release
 publication and clean-machine verification remain outstanding. Full jstack
 authoring integration remains deferred.
 
-## Installation implementation on 2026-10-23
+### Installation implementation on 2026-10-23
 
 The user invoked `work-until-grill` for the installation/update milestone and
 asked how to shrink the bundle. The [development implementation](features/installation.md)
@@ -326,7 +376,7 @@ retry or pending callback remains; the next verification action is the same
 Mac job after hosted capacity recovers. This is an external verification
 blocker, not a user design decision or a completed release qualification.
 
-## Renderer decision reopened on 2026-10-23
+### Renderer decision reopened on 2026-10-23
 
 The user identifies bundled Electron as a significant drawback and asks how
 to remove it while preserving cross-platform behavior. The
@@ -343,7 +393,7 @@ browser fallback and restricted support remain choices to resolve; the prior
 no-runtime-install constraint has not been implicitly withdrawn. Existing
 Electron verification remains evidence for its recorded builds only.
 
-## Wails experiment on 2026-10-25
+### Wails experiment on 2026-10-25
 
 The user explicitly selected Wails for a practical fit assessment. A bounded
 Wails v2.17 renderer now runs through the existing native-helper protocol,
@@ -360,7 +410,7 @@ external runtime prerequisites. These must be resolved or explicitly accepted
 before promoting the host. Do not introduce a plugin registry or new skill
 API to compensate for renderer-specific behavior.
 
-## Wails continuation and setup decision (completed)
+### Wails continuation and setup decision (completed)
 
 The user requested `work-until-grill`, with only actual user decisions routed
 to a grill-form. This follow-up initially retained strict storage/native API
@@ -406,7 +456,7 @@ Microsoft/distro sources and reuse installed runtimes. Normal agent-invoked
 UI launches must report missing prerequisites without installing software.
 This accepts a release policy, not installation of anything on this Mac.
 
-## Wails simplicity clarification on 2026-10-25
+### Wails simplicity clarification on 2026-10-25
 
 The user explicitly accepts native access: skill pages are trusted local
 application code, and users choose what they run. Wails' native capabilities
@@ -442,7 +492,7 @@ both Linux targets remain 20/21. Whole-host failure and explicit saved-draft
 reopen passed locally. No new policy decision was needed to accept native
 access, best-effort storage or manual recovery; these are now settled.
 
-## Accepted Wails limits and next milestone on 2026-10-25
+### Accepted Wails limits and next milestone on 2026-10-25
 
 The user accepts the remaining discussed Wails issues for now, including Linux
 media loading. Circumvent them only when the solution respects `rule-lean`;
@@ -474,7 +524,7 @@ signing, publication and physical-machine gaps remain explicit release work.
 This is the recommended next implementation scope, not a claim that the
 integration or release qualification already exists.
 
-## Wails integration completed on 2026-10-25
+### Wails integration completed on 2026-10-25
 
 The user authorized `work-until-grill` on the integration milestone. Normal
 launches now select the Wails helper; native packages contain the CLI, helper,
@@ -506,7 +556,7 @@ integration remains deferred as requested. The system-webview replacement no
 longer needs another renderer-fit spike; the existing four-method interface is
 available for skill-owned UIs under its accepted limits.
 
-## Throwaway interactions and discovery discussion on 2026-10-26
+### Throwaway interactions and discovery discussion on 2026-10-26
 
 The user envisions simple, throwaway interactions and asks why drafts were
 included; this is a request to revisit the rationale, not an instruction to
@@ -555,7 +605,7 @@ Proposed direction, not an accepted implementation change:
 No product behavior, draft policy or implementation scope changes in this
 planning discussion. Acceptance and priority of the discovery work remain open.
 
-## Documentation direction clarified on 2026-10-26
+### Documentation direction clarified on 2026-10-26
 
 The user does not want a required separate Fungi skill. Fungi is infrastructure
 for independently authored skills; requiring the executing agent to read two
@@ -591,7 +641,7 @@ The rich static UI port and any separate validation helper remain hypothetical;
 the existing experimental adapter is not presented as that finished workflow.
 No skill, CLI or runtime code is changed by this discussion.
 
-## Documentation interview completed on 2026-10-26
+### Documentation interview completed on 2026-10-26
 
 The [submitted answers](journal/2026-10-25-grill-e3b1de69-4014-457d-b32b-d23570cce284.md)
 settle questions 23–26. The exact session was collected once after its completion
@@ -634,7 +684,7 @@ Review concrete drafts and discoverability evidence before adding more pages or
 CLI surfaces. Release qualification, session cleanup policy and rich grill-form
 integration remain separate work; they do not block writing these docs.
 
-## Offline documentation implementation on 2026-10-26
+### Offline documentation implementation on 2026-10-26
 
 The user requested work-until-grill after accepting the documentation direction.
 The first implementation keeps ordinary `help` and `describe`: eight focused
@@ -660,7 +710,7 @@ delegation was invoked. Release qualification, cleanup policy and rich grill-for
 remain separate work. No further product decision blocks this documentation
 implementation.
 
-## Stale-artifact cleanup on 2026-10-26
+### Stale-artifact cleanup on 2026-10-26
 
 The user requested clearing stale and unused material after the inventory of
 remaining Electron files. No active project processes or ordinary user install
@@ -682,7 +732,7 @@ cleanup retains only `dist/release-v0.1.0-clean.2/` locally and removes the new
 verification scratch output too; the checkout is about 42 MiB.
 
 
-## Public alpha preparation on 2026-10-26
+### Public alpha preparation on 2026-10-26
 
 After the release-readiness assessment, the user made the repository public
 and authorized preparing published releases and installation URLs. Proceed
@@ -710,7 +760,7 @@ notes disclose it. The actual Mac helper deployment target is macOS 26.0, now
 explicit in the release documentation; older Mac qualification is still open.
 
 
-## Terminal help and one-line installation on 2026-10-26
+### Terminal help and one-line installation on 2026-10-26
 
 The user requested that future installation examples be a single copy-paste
 line, then showed the installed CLI printing raw Markdown and requested proper
@@ -732,3 +782,54 @@ formatted help through installed update/rollback and anonymous public-download
 checks on every supported baseline. [Verification](verification/runs/2026-10-26-terminal-help.md)
 keeps terminal output and exact build evidence. The user's existing installation
 was left for them to update; no published archive was overwritten.
+
+### Concise CLI documentation on 2026-10-26
+
+The user approved rewriting all help topics with neutral technical prose:
+reduce repetition, make instructions direct, and optimize for agent reading
+and fewer tool calls without removing core behavior. Keep complete examples,
+API contracts, delivery/recovery rules, limits and installation requirements.
+Useful repetition within an executable workflow is preferable to forcing
+another reference lookup. The eight embedded/manual topics now follow this
+shape; the terminal formatter and protocol remain unchanged.
+[Local verification](verification/runs/2026-10-26-concise-help.md) records the
+tested source and output. This documentation revision is not yet published.
+
+### Local authoring and AFK qualification on 2026-10-27
+
+The user has no second machine available and requested progress on AFK response
+delivery and a dependable authoring contract first. Clean consumer-machine and
+physical Windows/Linux qualification remain deferred. Make the existing protocol
+1 compatibility promise explicit, preserve its small public API and add focused
+regression coverage; no plugin SDK, schema framework or new help topic is needed.
+Discovery launch examples should use auto delivery rather than assume a host can
+hold a wait call. Existing manual fallback remains supported.
+
+Use the current Wails package for a short idle round trip, exact-conversation
+callback, a two-hour timer and user-controlled sleep/wake. The user has agreed
+to manually sleep/wake this Mac once the saved test window is ready. Never poll
+the user or suspend the machine automatically. Record notification acceptance
+separately from actual agent resumption and collect once per completion cue.
+[Verification](verification/runs/2026-10-27-afk-contract.md) tracks completed and
+pending checks. Independent fresh-agent authoring is not claimed by the
+maintainer-operated compatibility test.
+
+The current Wails/Codex 0.164.0 short callback resumed this conversation after
+turn end. One collection verified the synthetic response and PNG after 10.031
+seconds. The two-hour idle and user-controlled sleep/wake sessions are still
+pending; no status polling is needed.
+
+The sleep/wake callback subsequently resumed the same conversation. One
+collection returned the user's “edited after sleep” addition and the original
+PNG hash. macOS power events independently confirm 355 seconds of clamshell
+sleep followed by wake during the session. Only the two-hour idle result now
+remains pending; the sleeping interval also occurred during that timer.
+
+The two-hour Wails page timer subsequently completed: 7,200.196 seconds on the
+page's performance clock and 7,667.373 seconds of wall time, spanning two
+OS-recorded sleep/wake cycles. Its callback resumed the same conversation;
+one collection verified the original note/input and PNG. All selected local
+contract and AFK checks now pass. Test files were cleaned up after preserving
+evidence; no published release or user installation was changed. Clean-machine,
+physical Windows/Linux and independent fresh-agent authoring checks remain
+outside this completed scope.

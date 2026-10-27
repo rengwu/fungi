@@ -1,23 +1,31 @@
 # HTML page API
 
-Put `index.html` and local assets in a directory. Launch with
-`fungi open ./ui/index.html --input ./input.json`; the input file may live
-elsewhere. No manifest, registration or framework adapter is needed.
+Put the HTML page and local assets in one directory; input JSON may live
+elsewhere. No manifest, registration or framework adapter is required.
+
+```sh
+fungi open ./ui/index.html --input ./input.json --delivery auto
+```
+
+Add `--width 1100 --height 800` to choose the starting window size in logical
+pixels. Each dimension is optional (defaults: 820 × 780; minimum: 420).
+`reopen` reuses the launch size unless overridden. The OS may adjust sizes to
+fit the display; use responsive page layouts. Full flag rules: `fungi help cli`.
 
 ## Four methods on `window.fungi`
 
-| Awaitable method | Contract |
+| Awaitable method | Behavior |
 | --- | --- |
-| `ready()` | Returns `{input, draft, attachments, limits, delivery}`. Input/draft are `null` when absent; restored attachments are `{key,name,blob}`. Repeated calls reuse readiness. |
+| `ready()` | Returns `{input, draft, attachments, limits, delivery}`. Absent input/draft are `null`. Restored attachments are `{key,name,blob}`. Repeated calls reuse readiness. |
 | `saveDraft(data, attachments?)` | Optional. Resolves after saving; ignore its return value. |
-| `submit(data, attachments?)` | Commits a `submitted` result, resolves with the result, then closes the window. |
-| `cancel()` | Commits `cancelled`, resolves with the result, then closes. |
+| `submit(data, attachments?)` | Saves a `submitted` result, resolves with it, then closes the window. |
+| `cancel()` | Saves a `cancelled` result, resolves with it, then closes. |
 
-`data` is any JSON-serializable value; skills define its schema. Each save or
-submit replaces the whole payload and attachment list. Omitted attachments
-mean none, not “keep previous files.” An attachment is `{key,name,blob}` with
-unique nonempty key (up to 200 UTF-8 bytes), nonempty name (up to 255 bytes)
-and a Blob/File; Blob type supplies mediaType.
+`data` is JSON-serializable; the skill defines its schema. Each save or submit
+replaces all data and attachments. Omitted attachments remove previous files
+from the new snapshot. Each attachment is `{key,name,blob}`: a unique nonempty
+key (maximum 200 UTF-8 bytes), nonempty name (255 bytes), and Blob/File.
+The Blob's type supplies `mediaType`.
 
 ```js
 const {input, draft, attachments, limits, delivery} = await fungi.ready();
@@ -28,11 +36,11 @@ await fungi.saveDraft(state, attachments);
 await fungi.submit(state, attachments);
 ```
 
-Mutations execute in invocation order, including Blob encoding. A rejected
-save does not poison later calls. Await calls, show failures, preserve input
-and allow retry. Prevent duplicate clicks and editing during submission.
-Only display “saved” after acknowledgement. The complete reply example has
-error handling and no draft; find it with `fungi describe examples`.
+Mutations execute in invocation order, including Blob encoding; a rejected
+save does not block later calls. Await acknowledgment before showing success.
+On failure, preserve input, show the error and allow retry. Prevent duplicate
+submissions and editing while submitting. For complete error handling, see the
+`reply` page from `fungi describe examples`.
 
 ## Images and other files
 
@@ -44,36 +52,46 @@ await fungi.submit({selection: 'after'}, [
 ]);
 ```
 
-Discover limits through `ready().limits`: `jsonBytes` (currently 1 MiB),
-`artifactBytes` (20 MiB), `totalArtifactBytes` (100 MiB retained in the session).
-Leave room for envelope metadata. Keep binary data in attachments, not base64
-inside JSON. Saving new bytes repeatedly can consume the retained-artifact limit.
+Use `limits` from `await fungi.ready()`: `jsonBytes` (currently 1 MiB), `artifactBytes`
+(20 MiB per file), `totalArtifactBytes` (100 MiB retained per session).
+Allow for JSON envelope metadata. Use attachments for binary data; repeated
+saves of new bytes count toward the retained-artifact limit.
 
-Fungi does not autosave custom pages, DOM state or browser storage. To support
-recovery, explicitly save meaningful state/attachments and restore them from
-`ready()`. A close preserves only acknowledged drafts. Drafts are unnecessary
-for throwaway interactions; final results are durable independently.
+Custom pages do not autosave; Fungi does not capture DOM state or browser storage.
+For recovery, save state and attachments and restore them through `ready()`.
+Only acknowledged drafts survive closing. Drafts are optional; final results
+persist independently.
 
 ## Assets and rendering
 
-Relative assets must stay beneath the entry page's directory, including
-symlink targets. Local modules/dynamic imports, CSS, fonts, custom elements,
-Canvas/SVG/WebGL, workers and WebAssembly are supported routes. Bundle any
-libraries with the skill; no CDN, remote fetch or package installation is
-provided. Build framework bundles ahead of distribution if they need a build.
+Assets, including symlink targets, must stay beneath the entry page's directory.
+Supported features include local modules/dynamic imports, CSS, fonts, custom
+elements, Canvas/SVG/WebGL, workers and WebAssembly. Bundle libraries with the
+skill and prebuild frameworks as needed. Fungi provides no CDN, remote fetch
+or package installation.
 
-The bridge is exposed only to the main page. For untrusted inline previews,
-use `iframe srcdoc` with `sandbox="allow-scripts"` and validate the sending
-frame when using `postMessage`. Skill pages themselves are trusted application
-code with Wails native API access. Asset confinement is not an application sandbox.
+Only the main page receives the bridge. Isolate untrusted previews in
+`iframe srcdoc` with `sandbox="allow-scripts"`; validate the sending frame for
+`postMessage`. Skill pages are trusted code with Wails native API access;
+asset confinement is not an application sandbox.
 
 Browser storage isolation is best effort. Use `sessionStorage` for window-local
-state and Fungi drafts for durable state. Feature-detect graphics/codecs; an
-unavailable WebGL context must not be treated as a successful render. Linux
-WebKitGTK cannot load direct `wails:` media URLs. Fetching a small file to a Blob
-may help, but loads all bytes and does not guarantee codecs or audible playback.
-See `fungi help installation` for supported runtime baselines.
+state and drafts for durable state. Detect graphics/codec support; a missing
+WebGL context is a rendering failure. Linux WebKitGTK cannot load direct `wails:`
+media URLs. A Blob may work for small files but loads all bytes and guarantees
+neither codec support nor audible playback. Runtime baselines:
+`fungi help installation`.
 
-Protocol 1 covers these page methods, CLI receipts/results and helper messages.
-Optional metadata may be added; breaking meanings require a new protocol.
-The built-in form schema is separately experimental.
+## Compatibility
+
+Protocol 1 preserves the documented four page methods, CLI session commands,
+receipts, results and helper messages: their names, types and meanings.
+Optional fields and new capabilities may be added. Ignore unknown metadata;
+check CLI/helper `protocol` and result `kind`/`outcome` before using data.
+Breaking these contracts requires a new protocol. Read advertised limits rather
+than hardcoding them; error messages and help prose are not machine interfaces.
+
+Skills own their input/result schemas, UI and libraries. Wails native APIs,
+internal commands and storage layout are implementation details, outside this
+compatibility promise. Web APIs remain subject to the system webview.
+The built-in JSON form schema remains experimental.

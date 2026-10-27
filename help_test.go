@@ -45,7 +45,7 @@ func TestOfflineHelpAndDiscovery(t *testing.T) {
 	}
 	for _, args := range [][]string{nil, {"--help"}, {"help"}} {
 		got, err := invoke(args...)
-		if err != nil || !strings.Contains(string(got), "Common starting points") {
+		if err != nil || !strings.Contains(string(got), "Completion\n") {
 			t.Fatalf("entry %v: %v\n%s", args, err, got)
 		}
 	}
@@ -62,9 +62,18 @@ func TestOfflineHelpAndDiscovery(t *testing.T) {
 	}
 	for _, topic := range index.Topics {
 		got, err = invoke("describe", topic)
-		var description struct{ Reference []string }
-		if err != nil || json.Unmarshal(got, &description) != nil || len(description.Reference) != 3 {
+		var description struct {
+			Protocol   int
+			Reference  []string
+			Capability struct{ Launch string }
+		}
+		if err != nil || json.Unmarshal(got, &description) != nil || description.Protocol != 1 || len(description.Reference) != 3 {
 			t.Fatalf("describe %s: %v %s", topic, err, got)
+		}
+		if topic == "html" || topic == "form" || topic == "helper" {
+			if !strings.Contains(description.Capability.Launch, "--delivery auto") {
+				t.Fatalf("describe %s assumes host waiting capabilities: %s", topic, got)
+			}
 		}
 		if _, err = invoke(description.Reference[1:]...); err != nil {
 			t.Fatal(err)

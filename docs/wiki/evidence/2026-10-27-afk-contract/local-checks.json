@@ -1,0 +1,120 @@
+{
+  "sourceCommit": "a94e3ffd5dd1625cca724f74f8f40b3db5e894e7",
+  "sourceDirty": true,
+  "platform": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A5368g",
+  "go": "go version go1.26.4 darwin/arm64",
+  "codex": "0.164.0",
+  "sourceFiles": {
+    "describe.go": "cbb0949cd897ef9537a1f55d742de0e6238984c04eabe8fb6aeab049efbf33b5",
+    "help_test.go": "cf6baa4ce6583a0409b85d4d5dd300c6862343a95d8c3cb8f4aea4e23cb0273e",
+    "scripts/bridge.test.mjs": "12ff76ef92e32f467b6126b7e62384066e5a1cb316109d4bd6e529f8755404be",
+    "scripts/fixtures/idle.html": "2c1cae95d5d9308a23363be9dfc0fe7e68d5ed80af75bd45cbfc0fc489a139c8",
+    "renderer/wails/bridge.js": "1be3218153e50e581d2ee91cadb9e6f63e13ba545a257272564a0891f650dc67",
+    "renderer/wails/main.go": "c5259939ed666760577518665fbfe6bc7da82e3428e1362be8354fd084d6b8a4",
+    "docs/manual/cli.md": "f8aa618d8c6e5f16aee033a42007d5420ad617428bf5c1568bc296ae5144c21e",
+    "docs/manual/delivery.md": "64067b996eb6a09a4a26e18f029d747f243ed9a4d70f64960b9ee4313c57f968",
+    "docs/manual/examples.md": "8f241dcaf364c82b3d2a732d8a933dab1cf843d1237200d0aefe7308da6e5002",
+    "docs/manual/form.md": "3158612dc59337d79e3f4bcbec9f524124e0239d1300be81e6a46392db08cfcc",
+    "docs/manual/helper.md": "b9932fc4de74a0c278355511f977ac5e150e955c833d7ba80927f1b0a509219d",
+    "docs/manual/html.md": "f654dc98df45881a5b045ac765d662e122a7091fa3e379e0abb024eecd8f820b",
+    "docs/manual/installation.md": "1fe876e3042404dcec63165cb3470e6e184548fd8f822fb264a0074beab8ac3e",
+    "docs/manual/start.md": "4b3e9821f421484bf6c5ca9b7fb73bf95978245ac2d2a5ea4f29dfc263bda688"
+  },
+  "checks": {
+    "go vet ./...": "Passed",
+    "go test -race ./...": "Passed; 70.264 seconds",
+    "node --test": "Passed; 8 cases",
+    "renderer": "Passed; 21 checks, no exclusions",
+    "idleShort": "Passed; 5.186 seconds",
+    "priorSkill": "Passed; actual native input and one collection"
+  },
+  "callbackShort": {
+    "session": "f484f5719d260079a748467a5fba8418",
+    "exactCallerMatched": true,
+    "notificationState": "accepted",
+    "consumed": true,
+    "collectionCount": 1,
+    "consumedAt": "2026-10-26T17:39:18.699162+00:00",
+    "elapsedMilliseconds": 10031,
+    "artifactVerified": true,
+    "resumedAfterTurnEnded": true
+  },
+  "extendedFixtureSHA256": "1be2744c13fb70e29f6a0366382d838b4bff27d51714bcaf33844be50884d55b",
+  "extendedFixtureChange": "Distinguish the manual sleep/wake heading from the automatic idle heading.",
+  "pending": {},
+  "sleepWake": {
+    "consumedAt": "2026-10-26T17:40:15.555187+00:00",
+    "collectionCount": 1,
+    "resumedAfterTurnEnded": true,
+    "outcome": "submitted",
+    "baselineNote": "wails-sleep-wake-2026-10-27",
+    "submittedNote": "wails-sleep-wake-2026-10-27\n\n\nedited after sleep",
+    "noteChanged": true,
+    "artifactVerified": true,
+    "artifactMatchesBaseline": true,
+    "startedAt": "2026-10-26T17:22:44.419Z",
+    "finishedAt": "2026-10-26T17:29:22.552Z",
+    "elapsedMilliseconds": 398133,
+    "powerEvents": [
+      {
+        "at": "2026-10-27T01:23:15+08:00",
+        "event": "Sleep"
+      },
+      {
+        "at": "2026-10-27T01:29:10+08:00",
+        "event": "Wake"
+      }
+    ],
+    "sleepWakeConfirmed": true,
+    "verified": true
+  },
+  "idleLong": {
+    "consumedAt": "2026-10-26T19:31:03.999162+00:00",
+    "collectionCount": 1,
+    "resumedAfterTurnEnded": true,
+    "outcome": "submitted",
+    "baselineNote": "wails-idle-long-2026-10-27",
+    "submittedNote": "wails-idle-long-2026-10-27",
+    "notePreserved": true,
+    "artifactVerified": true,
+    "artifactMatchesBaseline": true,
+    "startedAt": "2026-10-26T17:22:43.893Z",
+    "finishedAt": "2026-10-26T19:30:31.266Z",
+    "elapsedMilliseconds": 7667373,
+    "monotonicMilliseconds": 7200196,
+    "requestedSeconds": 7200,
+    "durationMet": true,
+    "verified": true,
+    "powerEvents": [
+      {
+        "at": "2026-10-27T01:23:15+08:00",
+        "event": "Sleep"
+      },
+      {
+        "at": "2026-10-27T01:29:10+08:00",
+        "event": "Wake"
+      },
+      {
+        "at": "2026-10-27T01:42:40+08:00",
+        "event": "Sleep"
+      },
+      {
+        "at": "2026-10-27T01:44:37+08:00",
+        "event": "Wake"
+      }
+    ],
+    "notificationState": "accepted"
+  },
+  "testArchiveSHA256": "0a5b87d5d9df1eaa90b94d2407f944e7ca5b8628cc5c238c07ad46d8a1c3a48b",
+  "cleanup": {
+    "at": "2026-10-26T19:33:00.220950+00:00",
+    "noPackageProcessesRunning": true,
+    "removed": [
+      "verification-output/afk-contract-2026-10-27",
+      "verification-output/renderer-smoke-yZXCsk",
+      "dist/release-v0.1.0-local.20261027"
+    ],
+    "evidenceRetained": true,
+    "userInstallationModified": false
+  }
+}

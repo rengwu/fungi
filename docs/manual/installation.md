@@ -1,88 +1,90 @@
 # Installation and runtime
 
-Obtain only the archive matching this machine's OS/CPU and keep its folder
-together: Go CLI, Wails helper, examples, manual and licenses. No Go, Node,
-npm or bundled browser engine is needed by the user. Use `fungi.exe` on Windows.
-Public alpha downloads are at https://github.com/rengwu/fungi/releases.
-They are not publisher-signed or notarized; OS security policy may block them.
-The initial targets are macOS 26+ arm64, Windows x64 and Ubuntu 22.04/24.04 x64.
+Packages target macOS 26+ arm64, Windows x64 and Ubuntu 22.04/24.04 x64.
+Download only your OS/CPU archive from https://github.com/rengwu/fungi/releases.
+Keep the extracted folder intact: CLI, Wails helper, examples, manual and
+licenses. No Go, Node, npm or bundled browser engine is required.
+Use `fungi.exe` on Windows.
 
-`fungi doctor` checks the system webview without a window:
+## Install
 
-| Platform | Runtime |
-| --- | --- |
-| macOS | System WKWebView |
-| Windows | Microsoft WebView2 |
-| Linux | GTK3 and WebKitGTK 4.1; current package baseline Ubuntu 22.04/24.04 |
-
-Doctor exit 3 means a missing runtime; other failures include a missing helper.
-A successful runtime check does not prove desktop/GPU/media availability.
-Normal `open`, `doctor` and `update` never install system software. Repository
-bootstrap scripts offer explicit `install.sh --setup-runtime` on supported
-Ubuntu or `install.ps1 -SetupRuntime` on Windows. Other distributions need
-their own WebKitGTK 4.1 setup. Runtime installation may need network/admin
-access. Missing-runtime setup has been tested in Ubuntu containers; a Windows
-machine actually lacking WebView2 remains a verification gap.
-
-## Bootstrap scripts
-
-Download the matching install.sh or install.ps1 asset from the chosen release.
-For the current alpha:
+Shell:
 
 ```sh
 curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.sh | sh -s -- --version v0.1.0-alpha.2 && export PATH="$HOME/.fungi/bin:$PATH"
 ```
 
+PowerShell:
+
 ```powershell
 Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"; & "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.2
 ```
 
-Downloaded scripts (also in the source checkout) accept:
+Script options (scripts also ship in the source checkout):
 
 ```text
 sh scripts/install.sh [--version vX.Y.Z] [--dir DIRECTORY] [--setup-runtime]
 powershell -File scripts/install.ps1 [-Version vX.Y.Z] [-Directory DIRECTORY] [-SetupRuntime] [-NoPath]
 ```
 
-Omitted version selects the latest stable release. Alphas require an explicit
-version; there is no stable release yet. `FUNGI_INSTALL_DIR` supplies the default target;
-`FUNGI_RELEASE_BASE_URL` overrides the release download base for local testing.
-The shell script needs curl or wget, tar and shasum or sha256sum. PowerShell uses
-Windows built-ins and adds the user PATH unless `-NoPath` is given; the shell
-script prints PATH instructions. They are not extra dependencies for running
-an extracted package. Neither script bypasses OS security or execution policy.
+Alphas require an explicit version. Omitting it selects latest stable; none is
+published yet. `FUNGI_INSTALL_DIR` sets the default destination.
+`FUNGI_RELEASE_BASE_URL` overrides bootstrap downloads for testing, not updates.
+
+The shell installer needs curl or wget, tar, and shasum or sha256sum. It prints
+PATH instructions; the one-liner above also sets PATH for the current terminal.
+PowerShell uses Windows built-ins and updates user and current PATH unless
+`-NoPath` is set. These tools are unnecessary for running an extracted package.
 
 ## Managed updates
 
 ```sh
 fungi install --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
 fungi update --version v0.1.0-alpha.2
-fungi update # latest stable; available after a stable release is published
-fungi update --version vX.Y.Z
+fungi update # latest stable, once published
 fungi update --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
 fungi rollback
 fungi prune
 ```
 
 Install defaults to `~/.fungi`; override with `--dir DIRECTORY`. Add its `bin`
-directory to PATH. Use the stable `bin/fungi` command thereafter. The updater
-verifies a published GitHub release (latest stable or selected version), or an
-explicit local archive/checksum. Checksum input is 64 hexadecimal characters.
-Use the new release's exact version for alpha updates. Checksums detect corrupt
-downloads; they are not a separate publisher signature.
+directory to PATH and use `bin/fungi`. Updates verify a GitHub release or a local
+archive with a 64-character hexadecimal SHA-256 checksum. Checksums detect
+corruption; they are not independent publisher signatures.
 
-Versions are immutable directories. Updates validate the candidate and its
-runtime before activation; existing sessions retain their running version.
-Rollback selects the previous retained release. Prune retains current,
-previous, active and session-referenced versions. Portable folders do not
-self-update; create a managed install for these commands. No background update
-or OS policy changes occur. Keep session state outside the installation.
+Versions are immutable. Updates validate the candidate and runtime before
+activation; existing sessions keep their running version. Rollback selects the
+previous retained release. Prune protects current, previous, active and
+session-referenced versions. Keep session state outside the installation.
+These commands require a managed install; portable folders do not self-update.
+There are no background updates. Only format-2 Wails packages are accepted,
+including for rollback; Electron previews are unsupported.
 
-Only format-2 Wails packages are supported for installation and rollback.
-Electron preview packages are no longer accepted. Physical Windows/Linux desktop input,
-other OS/CPU combinations, signing/notarization and long Wails sleep/wake still
-need release acceptance. Hosted checks are not clean consumer-machine proof.
+## System runtime
 
-For startup failure, read the returned error and worker log location, then run
-`fungi doctor`. A desktop session is required to open a window. Do not change
-host security policy or install runtimes automatically to hide a failure.
+`fungi doctor` checks the webview without opening a window.
+
+| Platform | Runtime |
+| --- | --- |
+| macOS | System WKWebView |
+| Windows | Microsoft WebView2 |
+| Linux | GTK3 and WebKitGTK 4.1 |
+
+Exit 3 means a missing runtime; other failures can indicate a missing helper.
+Normal `open`, `doctor` and `update` never install system software. Request setup
+explicitly with `install.sh --setup-runtime` on supported Ubuntu or
+`install.ps1 -SetupRuntime` on Windows. Setup may require network/admin access.
+Other Linux distributions need their own WebKitGTK 4.1 setup.
+
+On startup failure, read the error and worker log location, then run `fungi doctor`.
+A window requires a desktop session; a successful runtime check does not verify
+desktop, GPU or media support. Do not change security policy or install runtimes
+automatically to hide a failure.
+
+## Alpha limits
+
+Downloads are unsigned and unnotarized; OS policy may block them. Installers do
+not bypass security or execution policy. Ubuntu missing-runtime setup is tested;
+Windows setup on a machine lacking WebView2 remains unverified. Physical
+Windows/Linux input, other OS/CPU combinations and broader sleep/wake coverage still
+need qualification. Hosted checks do not establish clean consumer-machine support.

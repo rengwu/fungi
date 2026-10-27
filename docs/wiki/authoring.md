@@ -1,6 +1,6 @@
 ---
 title: Author a Fungi interface
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 # Author a Fungi interface
 
@@ -21,8 +21,16 @@ interpretation. It should include its prepared UI and repeatable launch/collect
 instructions. Fungi needs no registration, plugin manifest or second procedural
 skill. Libraries remain local to the skill; examples do not limit composition.
 
+The Compatibility section of `fungi help html` defines the protocol 1 promise:
+documented page methods, session commands and message names/types/meanings are
+preserved; additive metadata is allowed. Read advertised limits, ignore unknown
+metadata, and check protocol/kind/outcome before interpreting a response. The
+promise excludes Wails internals, on-disk layout, help prose and the experimental
+flat form schema. It does not require a plugin SDK or a new authoring layer.
+
 The [interface feature](features/interfaces.md) records expected rendering
 behaviour; [discovery](features/discovery.md) records the offline entry points.
 The [platform record](platforms.md) retains build-specific verification and gaps.
-The full rich jstack port remains deferred; its compatibility adapter is not a
-procedure agents should reconstruct per round.
+Workflow skills and jstack integration are developed in the separate
+`jstack-fungi-test` project. This repository maintains the engine, public
+contract and generic examples.

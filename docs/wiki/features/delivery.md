@@ -1,6 +1,6 @@
 ---
 title: Returning to an agent
-updated: 2026-10-20
+updated: 2026-10-27
 ---
 # Returning to an agent
 
@@ -18,6 +18,7 @@ The callback contains the executable, exact session and state-directory environm
 
 | Tested harness | Invocation for a human interaction | Evidence and limits |
 | --- | --- | --- |
+| Codex 0.164.0 | `auto` with the current Wails package | Ten-second submission, user-controlled Mac sleep/wake and a two-hour page timer all resumed the exact conversation after turn end. One collection per notice verified JSON and PNG. The long timer spanned two sleep/wake cycles and 2 h 7 min 47 s of wall time |
 | Codex 0.163.0 | `auto` with inherited exact thread and available queue command | Helper, native-close and packaged form/image callbacks consumed; later native sleep/wake and two-hour helper callbacks also consumed once |
 | Claude Code 2.1.302 | `wait` through native background Bash in a suitable local interactive session | Headless form/image and three-minute completion passed; headless/cloud execution is bounded, so use manual for an unrestricted human wait there |
 | OpenCode 1.18.34 | `manual`; end turn; collect once after “done” | Native image flow passed; ordinary v1 Bash is bounded |
@@ -50,6 +51,8 @@ No OpenCode callback/plugin adapter is required or implemented. A bounded shell 
 The [fourth interview](../planning.md#no-setup-delivery-decision-on-2026-10-20) settled the setup boundary: use built-in capabilities only, with explicit manual fallback on unsupported versions. Do not require an integration or harness upgrade. A short bounded command still does not qualify as an arbitrary human wait.
 
 ## Verification history
+
+- [2026-10-27 contract and AFK checks](../verification/runs/2026-10-27-afk-contract.md) — current Wails package and Codex 0.164.0: short callback, actual sleep/wake and two-hour idle all consumed once without polling.
 
 - [2026-10-20 skill proof](../verification/runs/2026-10-20-skill-proof.md) — native skill return after one macOS sleep/wake cycle and automatic return from a two-hour helper both passed.
 - [2026-10-20 first proof](../verification/runs/2026-10-20-first-proof.md) — versioned probes, failures, corrections and explicit limits.

@@ -1,6 +1,6 @@
 ---
 title: Verified environments and portable distribution
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 # Verified environments and portable distribution
 
@@ -48,6 +48,14 @@ installer/update paths but observed one intermittent Mac media metadata/seek
 assertion failure. Hosted and repeated local follow-ups passed on the same
 archive; the cause remains unconfirmed. Media behavior remains provisional.
 The first Mac archive's actual deployment target is macOS 26.0.
+
+The [current Wails AFK check](verification/runs/2026-10-27-afk-contract.md) now
+passes one OS-confirmed 355-second Mac sleep/wake cycle: the user's post-wake
+edit and original PNG returned through the exact-conversation Codex callback.
+The separate two-hour page timer also passed, spanning two recorded sleep/wake
+cycles and 2 h 7 min 47 s of wall time. Its unchanged note and PNG returned through
+one callback and one collection, without polling. This is bounded Mac evidence,
+not an indefinite or cross-platform sleep/wake guarantee.
 
 ## Accepted limits
 

@@ -32,6 +32,8 @@ type attachment struct {
 type launch struct {
 	Protocol       int             `json:"protocol"`
 	Source         string          `json:"source"`
+	Width          int             `json:"width"`
+	Height         int             `json:"height"`
 	OutputDir      string          `json:"outputDir"`
 	Input          json.RawMessage `json:"input"`
 	Draft          json.RawMessage `json:"draft"`
@@ -241,8 +243,15 @@ func run() error {
 	m := menu.NewMenu()
 	m.Append(menu.AppMenu())
 	m.Append(menu.EditMenu())
+	width, height := b.launch.Width, b.launch.Height
+	if width == 0 {
+		width = 820
+	}
+	if height == 0 {
+		height = 780
+	}
 	return wails.Run(&options.App{
-		Title: "Fungi", Width: 820, Height: 780, MinWidth: 420, MinHeight: 420,
+		Title: "Fungi", Width: width, Height: height, MinWidth: 420, MinHeight: 420,
 		BackgroundColour: options.NewRGB(24, 25, 28), Menu: m,
 		AssetServer: &assetserver.Options{Handler: handler}, Bind: []interface{}{b},
 		Logger: stderrLogger{}, LogLevel: logger.ERROR, LogLevelProduction: logger.ERROR,

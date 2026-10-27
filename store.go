@@ -75,6 +75,8 @@ type launch struct {
 	Protocol     int             `json:"protocol"`
 	Session      string          `json:"session"`
 	Source       string          `json:"source,omitempty"`
+	Width        int             `json:"width,omitempty"`
+	Height       int             `json:"height,omitempty"`
 	Exec         string          `json:"exec,omitempty"`
 	Args         []string        `json:"args,omitempty"`
 	Input        json.RawMessage `json:"input"`

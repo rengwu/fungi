@@ -1,0 +1,60 @@
+CLI reference
+
+  fungi [--help]
+  fungi help [start|examples|html|form|helper|delivery|cli|installation]
+  fungi describe [html|form|helper|delivery|installation|examples]
+  fungi open SOURCE [--input FILE] [--delivery auto|wait|manual]
+  fungi open --exec HELPER [--input FILE] [--delivery MODE] -- [ARGS...]
+  fungi collect SESSION
+  fungi reopen SESSION [--delivery MODE]
+  fungi --version
+  fungi doctor
+  fungi install --archive FILE --sha256 HASH [--dir DIRECTORY]
+  fungi update [--version vX.Y.Z | --archive FILE --sha256 HASH]
+  fungi rollback
+  fungi prune
+
+SOURCE is local HTML or a built-in .json form. --exec runs a trusted executable
+with arguments after --, without a shell. --input reads JSON. Paths resolve at
+launch. SESSION is the receipt's exact 32-character ID. version aliases
+--version.
+
+Help prints plain terminal text; other public commands emit JSON on stdout.
+describe returns protocol 1 capabilities; describe TOPIC includes a reference
+command. describe examples returns absolute package paths and launch arrays;
+missing examples have available:false and no argv.
+
+Exit codes
+
+  Code  Meaning
+  0     Success, including pending, cancelled and closed
+  1     Operational failure or failed session
+  2     Invalid input or arguments
+  3     doctor detected a missing runtime
+
+Inspect JSON kind and outcome. Completion: fungi help delivery. Updates: fungi
+help installation.
+
+Environment and storage
+
+  Variable            Purpose
+  FUNGI_STATE_DIR     Session storage override. Keep outside managed installs;
+                      receipts preserve its absolute path in collectEnv.
+  CODEX_THREAD_ID     Inherited exact conversation ID for callback detection. Do
+                      not fabricate.
+  FUNGI_RENDERER_DIR  Development override for the native helper directory.
+                      Normally omit.
+
+Default session directories:
+
+  Platform  Path
+  macOS     ~/Library/Application Support/fungi/sessions
+  Windows   %AppData%\fungi\sessions
+  Linux     $XDG_CONFIG_HOME/fungi/sessions, or ~/.config/fungi/sessions
+
+Sessions retain input, drafts, results, artifacts and a worker log. collect
+preserves them; prune removes eligible installed versions. Keep files needed by
+active or recoverable sessions.
+
+No background service remains after completion. Internal worker commands and
+control files are not authoring APIs.

@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>Fungi window size verification</title>
+<h1>Window size verification</h1><p>This disposable window closes automatically.</p>
+<script type="module">
+const {draft}=await fungi.ready();
+await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+const size={width:innerWidth,height:innerHeight,outerWidth,outerHeight,devicePixelRatio};
+if(draft) await fungi.submit({initial:draft,current:size});
+else {await fungi.saveDraft(size);await fungi.cancel();}
+</script>
