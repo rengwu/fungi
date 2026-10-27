@@ -147,7 +147,29 @@ Preserve the package, fixture and state directory until every pending session
 is collected. Capture build/source hashes and distinguish current Wails results
 from the historical native-helper and Electron evidence above.
 
-### Core and renderer checks
+### Callback across an intervening chat message
+
+For a callback across an intervening user turn, use the packaged reply example
+and a unique test title/input. Launch once with `--delivery auto`, preserve the
+receipt, and require `delivery.mode: callback`. Ask the user to type a note,
+leave the form open and send another chat message. During the resulting agent
+turn, ask them to submit while a bounded verification command runs. Record that
+command's start/end and the completion notice's arrival. Collect once only on
+the exact-session notice, then verify the note and result identity. No “done”
+message, polling or second waiter should be needed. A host-managed `wait` route
+needs its own test; this callback scenario does not qualify it.
+
+If the human submits before the bounded command starts, record that timing
+instead of claiming overlap. For a separate mid-tool check, launch the existing
+idle page with a five-second timer and callback delivery, then immediately run
+`go test -run '^TestWaitConnectionHasNoHumanTimeout$' -count=1 -v .` in the same
+tool call. Remove caller routing from the Go test's environment. On the callback,
+collect once and compare the page's finish time and original result-file time
+with the command interval; verify the input marker and PNG hash. Report deferred
+delivery after turn end separately from immediate interruption. The
+[completed local run](runs/2026-10-27-interleaved-message.md) records both cases.
+
+### Automated core and renderer checks
 
 ```sh
 node --test

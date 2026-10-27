@@ -1,0 +1,29 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "be6022e979c1438aff95ffa09fc23a57",
+  "outcome": "submitted",
+  "data": {
+    "marker": "interleaved-active-tool-c9be5eb",
+    "notes": "interleaved-active-tool-c9be5eb",
+    "startedAt": "2026-10-27T07:40:17.783Z",
+    "requestedSeconds": 5,
+    "finishedAt": "2026-10-27T07:40:22.844Z",
+    "draftAcknowledgedAt": "2026-10-27T07:40:17.843Z",
+    "elapsedMilliseconds": 5061,
+    "monotonicMilliseconds": 5060,
+    "inputPreserved": true,
+    "events": []
+  },
+  "artifacts": [
+    {
+      "id": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+      "key": "image",
+      "name": "idle.png",
+      "mediaType": "image/png",
+      "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message/active-tool-sessions/be6022e979c1438aff95ffa09fc23a57/artifacts/b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+      "bytes": 3278,
+      "sha256": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32"
+    }
+  ]
+}

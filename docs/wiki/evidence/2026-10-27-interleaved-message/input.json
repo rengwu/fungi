@@ -1,0 +1,4 @@
+{
+  "title": "Fungi \u2014 chat interruption test",
+  "prompt": "Type a short note and leave this form open. Send \u201ccontinue the test\u201d in chat. When the agent asks, click Send while it is working. Do not send \u201cdone\u201d afterward."
+}

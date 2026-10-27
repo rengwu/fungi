@@ -16,6 +16,13 @@ The [accepted requirement](../planning.md) is automatic response delivery withou
 
 The callback contains the executable, exact session and state-directory environment, not user response content. Delivery bookkeeping distinguishes `armed`, `attempting`, `accepted` and `unknown`. A notification failure never erases a committed result. An uncertain attempt is not automatically retried. Acceptance does not prove the originating agent consumed the notice.
 
+The [October 27 local callback test](../verification/runs/2026-10-27-interleaved-message.md)
+returned a human response after an intervening chat message and a separate
+timed response submitted during a running tool call. In both cases the queued
+notice resumed the same conversation after its active turn ended, without
+“done,” polling or restarting a waiter. This observation applies to the tested
+Codex callback route, not to a host-managed `wait` call that the host cancels.
+
 | Tested harness | Invocation for a human interaction | Evidence and limits |
 | --- | --- | --- |
 | Codex 0.164.0 | `auto` with the current Wails package | Ten-second submission, user-controlled Mac sleep/wake and a two-hour page timer all resumed the exact conversation after turn end. One collection per notice verified JSON and PNG. The long timer spanned two sleep/wake cycles and 2 h 7 min 47 s of wall time |
@@ -51,6 +58,8 @@ No OpenCode callback/plugin adapter is required or implemented. A bounded shell 
 The [fourth interview](../planning.md#no-setup-delivery-decision-on-2026-10-20) settled the setup boundary: use built-in capabilities only, with explicit manual fallback on unsupported versions. Do not require an integration or harness upgrade. A short bounded command still does not qualify as an arbitrary human wait.
 
 ## Verification history
+
+- [2026-10-27 intervening chat message](../verification/runs/2026-10-27-interleaved-message.md) — human-message survival and a separate mid-tool submission; both queued callbacks resumed this conversation after turn end without “done.”
 
 - [2026-10-27 contract and AFK checks](../verification/runs/2026-10-27-afk-contract.md) — current Wails package and Codex 0.164.0: short callback, actual sleep/wake and two-hour idle all consumed once without polling.
 

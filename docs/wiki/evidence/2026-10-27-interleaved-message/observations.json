@@ -1,0 +1,230 @@
+{
+  "runId": "2026-10-27-interleaved-message",
+  "phase": "verified",
+  "baseCommit": "c9be5eb8f41bd05043da2b2c3d550f80f57ae123",
+  "sourceDirtyBeforeBuild": false,
+  "sourceStatusBeforeBuild": "",
+  "package": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z",
+  "binary": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z/fungi",
+  "scratch": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message",
+  "stateDir": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message/sessions",
+  "source": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z/examples/reply/index.html",
+  "sourceSHA256": "942a2b6e195658d48723206a27a2fb7c68e5698b3243db021503a9289c63e9e3",
+  "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "codex": "codex-cli 0.164.0",
+  "events": [
+    {
+      "event": "prepared",
+      "at": "2026-10-27T07:07:11.457252+00:00"
+    },
+    {
+      "event": "launch-returned",
+      "startedAt": "2026-10-27T07:09:49.477264+00:00",
+      "at": "2026-10-27T07:09:51.648483+00:00",
+      "delivery": {
+        "mode": "callback",
+        "adapter": "codex",
+        "state": "armed"
+      }
+    },
+    {
+      "event": "intervening-user-message",
+      "text": "continue the test",
+      "recordedAt": "2026-10-27T07:35:24.658453+00:00",
+      "note": "Recorded by the first tool call; the human message and assistant submit cue preceded this timestamp."
+    },
+    {
+      "event": "active-work-started",
+      "at": "2026-10-27T07:35:24.659084+00:00",
+      "argv": [
+        "go",
+        "test",
+        "-race",
+        "-count=1",
+        "./..."
+      ]
+    },
+    {
+      "event": "active-work-finished",
+      "at": "2026-10-27T07:36:35.633533+00:00",
+      "exitCode": 0
+    },
+    {
+      "event": "completion-notice-observed",
+      "at": "2026-10-27T07:37:30.049710+00:00",
+      "session": "f1837b1eb7b0d0777ab64231c5e5682f",
+      "userDoneMessage": false,
+      "agentTurn": "new turn after the active-work turn ended"
+    },
+    {
+      "event": "collected-once",
+      "at": "2026-10-27T07:37:30.071142+00:00",
+      "outcome": "submitted"
+    },
+    {
+      "event": "active-tool-session-opened",
+      "at": "2026-10-27T07:40:17.699052+00:00",
+      "session": "be6022e979c1438aff95ffa09fc23a57"
+    },
+    {
+      "event": "second-active-work-started",
+      "at": "2026-10-27T07:40:17.699402+00:00",
+      "argv": [
+        "go",
+        "test",
+        "-run",
+        "^TestWaitConnectionHasNoHumanTimeout$",
+        "-count=1",
+        "-v",
+        "."
+      ]
+    },
+    {
+      "event": "second-active-work-finished",
+      "at": "2026-10-27T07:40:29.696462+00:00",
+      "exitCode": 0
+    },
+    {
+      "event": "second-completion-notice-observed",
+      "at": "2026-10-27T07:41:15.816780+00:00",
+      "session": "be6022e979c1438aff95ffa09fc23a57",
+      "agentTurn": "new turn after active work and its assistant turn ended",
+      "userDoneMessage": false
+    },
+    {
+      "event": "second-collected-once",
+      "at": "2026-10-27T07:41:15.838484+00:00",
+      "session": "be6022e979c1438aff95ffa09fc23a57",
+      "outcome": "submitted"
+    }
+  ],
+  "receipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "f1837b1eb7b0d0777ab64231c5e5682f",
+    "delivery": {
+      "mode": "callback",
+      "adapter": "codex",
+      "state": "armed"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z/fungi",
+      "collect",
+      "f1837b1eb7b0d0777ab64231c5e5682f"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message/sessions"
+    }
+  },
+  "callerSHA256": "66b83415826f9ff2d710d512d4a7a22e74f8bf8553135c09b7b170d900c0381b",
+  "activeWork": {
+    "argv": [
+      "go",
+      "test",
+      "-race",
+      "-count=1",
+      "./..."
+    ],
+    "startedAt": "2026-10-27T07:35:24.659084+00:00",
+    "finishedAt": "2026-10-27T07:36:35.633533+00:00",
+    "exitCode": 0,
+    "callerRoutingRemovedFromTests": true
+  },
+  "result": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "f1837b1eb7b0d0777ab64231c5e5682f",
+    "outcome": "submitted",
+    "data": {
+      "notes": "hihi this is the short note"
+    },
+    "artifacts": []
+  },
+  "exactCallerMatched": true,
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "accepted"
+  },
+  "firstResultSavedAt": "2026-10-27T07:35:16.603907+00:00",
+  "firstDeliveryRecordedAt": "2026-10-27T07:35:16.970485+00:00",
+  "firstTimingNote": "Result saved before the core-check command began; the callback was consumed in a new turn after the intervening-message turn ended.",
+  "activeToolReceipt": {
+    "protocol": 1,
+    "kind": "opened",
+    "session": "be6022e979c1438aff95ffa09fc23a57",
+    "delivery": {
+      "mode": "callback",
+      "adapter": "codex",
+      "state": "armed"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z/fungi",
+      "collect",
+      "be6022e979c1438aff95ffa09fc23a57"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message/active-tool-sessions"
+    }
+  },
+  "secondActiveWork": {
+    "argv": [
+      "go",
+      "test",
+      "-run",
+      "^TestWaitConnectionHasNoHumanTimeout$",
+      "-count=1",
+      "-v",
+      "."
+    ],
+    "startedAt": "2026-10-27T07:40:17.699402+00:00",
+    "finishedAt": "2026-10-27T07:40:29.696462+00:00",
+    "exitCode": 0,
+    "callerRoutingRemovedFromTests": true
+  },
+  "secondResult": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "be6022e979c1438aff95ffa09fc23a57",
+    "outcome": "submitted",
+    "data": {
+      "marker": "interleaved-active-tool-c9be5eb",
+      "notes": "interleaved-active-tool-c9be5eb",
+      "startedAt": "2026-10-27T07:40:17.783Z",
+      "requestedSeconds": 5,
+      "finishedAt": "2026-10-27T07:40:22.844Z",
+      "draftAcknowledgedAt": "2026-10-27T07:40:17.843Z",
+      "elapsedMilliseconds": 5061,
+      "monotonicMilliseconds": 5060,
+      "inputPreserved": true,
+      "events": []
+    },
+    "artifacts": [
+      {
+        "id": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+        "key": "image",
+        "name": "idle.png",
+        "mediaType": "image/png",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message/active-tool-sessions/be6022e979c1438aff95ffa09fc23a57/artifacts/b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32",
+        "bytes": 3278,
+        "sha256": "b7f36478a9b9f11ce4291aa07fb4dfc99de635c5060cb20339432263180b4b32"
+      }
+    ]
+  },
+  "secondDelivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "accepted"
+  },
+  "secondResultSavedAt": "2026-10-27T07:40:22.858967+00:00",
+  "secondDeliveryRecordedAt": "2026-10-27T07:40:23.072622+00:00",
+  "secondResultSavedDuringActiveWork": true,
+  "secondArtifactVerified": true,
+  "secondExactCallerMatched": true,
+  "retainedState": {
+    "package": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z",
+    "scratch": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message",
+    "reason": "Preserve the original collected sessions, artifacts and executable for inspection; no restart or watcher is running.",
+    "activeMatchingProcesses": []
+  }
+}

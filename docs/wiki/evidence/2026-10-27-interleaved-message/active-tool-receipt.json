@@ -1,0 +1,18 @@
+{
+  "protocol": 1,
+  "kind": "opened",
+  "session": "be6022e979c1438aff95ffa09fc23a57",
+  "delivery": {
+    "mode": "callback",
+    "adapter": "codex",
+    "state": "armed"
+  },
+  "collect": [
+    "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z/fungi",
+    "collect",
+    "be6022e979c1438aff95ffa09fc23a57"
+  ],
+  "collectEnv": {
+    "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message/active-tool-sessions"
+  }
+}

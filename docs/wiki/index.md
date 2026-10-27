@@ -27,6 +27,8 @@ Workflow-skill development lives in the separate `jstack-fungi-test` project.
 
 ## Recent verification
 
+- [Callback across an intervening chat message](verification/runs/2026-10-27-interleaved-message.md)
+
 - [Repository cleanup and verification instructions](verification/runs/2026-10-27-repo-cleanup.md)
 - [Starting window dimensions](verification/runs/2026-10-27-window-size.md)
 - [Authoring contract and AFK verification](verification/runs/2026-10-27-afk-contract.md)

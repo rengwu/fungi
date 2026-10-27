@@ -1,0 +1,4 @@
+=== RUN   TestWaitConnectionHasNoHumanTimeout
+--- PASS: TestWaitConnectionHasNoHumanTimeout (10.07s)
+PASS
+ok  	fungi	11.033s

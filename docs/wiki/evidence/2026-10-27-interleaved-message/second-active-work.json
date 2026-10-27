@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "go",
+    "test",
+    "-run",
+    "^TestWaitConnectionHasNoHumanTimeout$",
+    "-count=1",
+    "-v",
+    "."
+  ],
+  "startedAt": "2026-10-27T07:40:17.699402+00:00",
+  "finishedAt": "2026-10-27T07:40:29.696462+00:00",
+  "exitCode": 0,
+  "callerRoutingRemovedFromTests": true
+}

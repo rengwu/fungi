@@ -1,0 +1,10 @@
+{
+  "protocol": 1,
+  "kind": "result",
+  "session": "f1837b1eb7b0d0777ab64231c5e5682f",
+  "outcome": "submitted",
+  "data": {
+    "notes": "hihi this is the short note"
+  },
+  "artifacts": []
+}

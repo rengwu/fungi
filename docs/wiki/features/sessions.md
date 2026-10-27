@@ -45,6 +45,8 @@ The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also
 
 ## Verification history
 
+- [2026-10-27 intervening chat message](../verification/runs/2026-10-27-interleaved-message.md) — original session returned the human note after another chat message; a separate timed session saved JSON/PNG during active tool work and returned automatically afterward.
+
 - [2026-10-27 starting window size](../verification/runs/2026-10-27-window-size.md) — original launch dimensions survive reopen; explicit overrides preserve the other dimension and draft. Older size-less records remain valid.
 
 - [2026-10-27 Wails sleep/wake](../verification/runs/2026-10-27-afk-contract.md) — an OS-confirmed 355-second clamshell sleep preserved the native page, input and PNG; the user's post-wake edit returned through the exact-origin callback with one collection.

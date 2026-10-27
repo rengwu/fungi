@@ -1,0 +1,21 @@
+{
+  "runId": "2026-10-27-interleaved-message",
+  "phase": "prepared",
+  "baseCommit": "c9be5eb8f41bd05043da2b2c3d550f80f57ae123",
+  "sourceDirtyBeforeBuild": false,
+  "sourceStatusBeforeBuild": "",
+  "package": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z",
+  "binary": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z/fungi",
+  "scratch": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message",
+  "stateDir": "/Users/rengwu/Desktop/Projects/fungi/verification-output/2026-10-27-interleaved-message/sessions",
+  "source": "/Users/rengwu/Desktop/Projects/fungi/dist/fungi-darwin-arm64-2026-10-27T07-07-08-534Z/examples/reply/index.html",
+  "sourceSHA256": "942a2b6e195658d48723206a27a2fb7c68e5698b3243db021503a9289c63e9e3",
+  "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "codex": "codex-cli 0.164.0",
+  "events": [
+    {
+      "event": "prepared",
+      "at": "2026-10-27T07:07:11.457252+00:00"
+    }
+  ]
+}
