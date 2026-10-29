@@ -1,0 +1,164 @@
+{
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk",
+  "platform": "darwin",
+  "arch": "arm64",
+  "archiveA": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.2.0-headless.1/fungi-darwin-arm64.tar.gz",
+  "checksumA": "817ca2a7ab4fa17329b023677466cfddf495049437221c0801e9abc394bfeda5",
+  "archiveB": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.2.0-headless.2/fungi-darwin-arm64.tar.gz",
+  "checksumB": "ed46daf5f4b9471b1ed0844570c16e8215864bcb16c686cb7e3a939c85155035",
+  "requests": [
+    "/download/v0.2.0-headless.1/fungi-darwin-arm64.tar.gz.sha256",
+    "/download/v0.2.0-headless.1/fungi-darwin-arm64.tar.gz"
+  ],
+  "scope": "bootstrap, active external helper, draft/artifact, update and rollback",
+  "childPathEmpty": true,
+  "bootstrap": {
+    "stdout": "{\"action\":\"install\",\"command\":\"/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/install with spaces/bin/fungi\",\"current\":\"v0.2.0-headless.1\",\"kind\":\"installation\",\"previous\":\"\",\"protocol\":2,\"removed\":null,\"warnings\":null}\n",
+    "stderr": "\nFungi is installed. Add this directory to PATH if needed:\n  /Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/install with spaces/bin\nFor alpha updates: fungi update --version vX.Y.Z-alpha.N\n",
+    "elapsedMs": 354
+  },
+  "before": {
+    "kind": "version",
+    "protocol": 2,
+    "version": "v0.2.0-headless.1"
+  },
+  "discoveryBefore": {
+    "version": "v0.2.0-headless.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "helper",
+      "installation",
+      "migration",
+      "start"
+    ]
+  },
+  "receipt": {
+    "protocol": 2,
+    "kind": "opened",
+    "session": "981f9d7810b7e574a9a5bbe6aedf8871",
+    "delivery": {
+      "mode": "manual",
+      "reason": "requested manual delivery; say done, then collect once"
+    },
+    "collect": [
+      "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/install with spaces/bin/fungi",
+      "collect",
+      "981f9d7810b7e574a9a5bbe6aedf8871"
+    ],
+    "collectEnv": {
+      "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/sessions"
+    }
+  },
+  "draft": {
+    "data": {
+      "marker": "fixture"
+    },
+    "artifacts": [
+      {
+        "id": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+        "key": "proof",
+        "name": "proof.txt",
+        "mediaType": "text/plain",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/sessions/981f9d7810b7e574a9a5bbe6aedf8871/artifacts/3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+        "bytes": 24,
+        "sha256": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d"
+      }
+    ]
+  },
+  "update": {
+    "action": "update",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/install with spaces/bin/fungi",
+    "current": "v0.2.0-headless.2",
+    "kind": "installation",
+    "previous": "v0.2.0-headless.1",
+    "protocol": 2,
+    "removed": null,
+    "warnings": null
+  },
+  "after": {
+    "kind": "version",
+    "protocol": 2,
+    "version": "v0.2.0-headless.2"
+  },
+  "discoveryAfter": {
+    "version": "v0.2.0-headless.2",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "helper",
+      "installation",
+      "migration",
+      "start"
+    ]
+  },
+  "engine": {
+    "available": true,
+    "checks": [
+      "atomicStorage",
+      "exclusiveLock"
+    ],
+    "engine": "headless",
+    "kind": "doctor",
+    "protocol": 2,
+    "stateDir": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/sessions"
+  },
+  "manifest": {
+    "format": 3,
+    "protocol": 2,
+    "version": "v0.2.0-headless.2",
+    "platform": "darwin",
+    "arch": "arm64",
+    "binarySHA256": "dda6f57a74fa99ff1d691abc286fcaadbe159f0d2cf695994fc05b34276d455f"
+  },
+  "result": {
+    "protocol": 2,
+    "kind": "result",
+    "session": "981f9d7810b7e574a9a5bbe6aedf8871",
+    "outcome": "submitted",
+    "data": {
+      "input": null,
+      "restoredDraft": null,
+      "notes": {
+        "marker": "fixture"
+      }
+    },
+    "artifacts": [
+      {
+        "id": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+        "key": "proof",
+        "name": "proof.txt",
+        "mediaType": "text/plain",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/sessions/981f9d7810b7e574a9a5bbe6aedf8871/artifacts/3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+        "bytes": 24,
+        "sha256": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "rollback": {
+    "action": "rollback",
+    "command": "/Users/rengwu/Desktop/Projects/fungi/verification-output/install-smoke-PV4fUk/install with spaces/bin/fungi",
+    "current": "v0.2.0-headless.1",
+    "kind": "installation",
+    "previous": "v0.2.0-headless.2",
+    "protocol": 2,
+    "removed": null,
+    "warnings": null
+  },
+  "discoveryRollback": {
+    "version": "v0.2.0-headless.1",
+    "topics": [
+      "cli",
+      "delivery",
+      "examples",
+      "helper",
+      "installation",
+      "migration",
+      "start"
+    ]
+  },
+  "passed": true
+}

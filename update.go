@@ -20,13 +20,12 @@ import (
 const releaseBase = "https://github.com/rengwu/fungi/releases"
 
 type packageManifest struct {
-	Format         int    `json:"format"`
-	Version        string `json:"version"`
-	Platform       string `json:"platform"`
-	Arch           string `json:"arch"`
-	BinarySHA256   string `json:"binarySHA256"`
-	Wails          string `json:"wails,omitempty"`
-	RendererSHA256 string `json:"rendererSHA256,omitempty"`
+	Protocol     int    `json:"protocol"`
+	Format       int    `json:"format"`
+	Version      string `json:"version"`
+	Platform     string `json:"platform"`
+	Arch         string `json:"arch"`
+	BinarySHA256 string `json:"binarySHA256"`
 }
 
 func manageInstallation(args []string, out io.Writer) error {
@@ -248,7 +247,7 @@ func manageInstallation(args []string, out io.Writer) error {
 		}
 	}
 	removed, warnings := pruneVersions(root, state)
-	return emit(out, map[string]any{"protocol": 1, "kind": "installation", "action": action, "current": state.Current, "previous": state.Previous, "command": installedBinary(root), "removed": removed, "warnings": warnings, "reusedRuntimeBytes": 0})
+	return emit(out, map[string]any{"protocol": protocolVersion, "kind": "installation", "action": action, "current": state.Current, "previous": state.Previous, "command": installedBinary(root), "removed": removed, "warnings": warnings})
 }
 
 func snapshotArchive(source, destination string) error {
@@ -294,10 +293,10 @@ func inspectPackage(dir, expected string) (packageManifest, error) {
 	if err != nil {
 		return m, err
 	}
-	if m.Format != 2 {
-		return m, fail("invalid_package", "only Wails package format 2 is supported; use a current Fungi package")
+	if m.Format != 3 {
+		return m, fail("invalid_package", "only engine package format 3 is supported; see fungi help migration")
 	}
-	if !versionPattern.MatchString(m.Version) || (expected != "" && m.Version != expected) || m.Platform != runtime.GOOS || m.Arch != runtime.GOARCH || !validDigest(m.BinarySHA256) {
+	if m.Protocol != protocolVersion || !versionPattern.MatchString(m.Version) || (expected != "" && m.Version != expected) || m.Platform != runtime.GOOS || m.Arch != runtime.GOARCH || !validDigest(m.BinarySHA256) {
 		return m, fail("invalid_package", "release identity, protocol or OS/CPU does not match this machine")
 	}
 	digest, err := fileDigest(filepath.Join(dir, binaryName()))
@@ -306,16 +305,6 @@ func inspectPackage(dir, expected string) (packageManifest, error) {
 	}
 	if digest != m.BinarySHA256 {
 		return m, fail("invalid_package", "release executable SHA-256 differs")
-	}
-	if m.Wails == "" || !validDigest(m.RendererSHA256) {
-		return m, fail("invalid_package", "missing Wails renderer identity")
-	}
-	got, err := fileDigest(filepath.Join(dir, rendererRelativePath()))
-	if err != nil {
-		return m, err
-	}
-	if got != m.RendererSHA256 {
-		return m, fail("invalid_package", "window helper SHA-256 differs")
 	}
 	return m, nil
 }
@@ -333,11 +322,10 @@ func probePackage(dir string, manifest packageManifest) error {
 		Kind     string `json:"kind"`
 		Version  string `json:"version"`
 	}
-	if err = json.Unmarshal(b, &reply); err != nil || reply.Protocol != 1 || reply.Kind != "version" || reply.Version != manifest.Version {
+	if err = json.Unmarshal(b, &reply); err != nil || reply.Protocol != protocolVersion || reply.Kind != "version" || reply.Version != manifest.Version {
 		return fail("release_probe_failed", "new executable does not match release metadata")
 	}
-	_, err = checkRenderer(filepath.Join(dir, rendererRelativePath()))
-	return err
+	return nil
 }
 
 func copyExecutable(source, destination string) error {

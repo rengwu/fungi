@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-var buildVersion = "0.1.0-dev"
+var buildVersion = "0.2.0-dev"
 var versionPattern = regexp.MustCompile(`^v[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*)?$`)
 
 const installFile = "installation.json"
@@ -182,7 +182,7 @@ func pinSessionPackages(l launch, s *store) error {
 	if err != nil {
 		return err
 	}
-	paths := append([]string{l.Source, l.Exec, cwd}, l.Args...)
+	paths := append([]string{l.Exec, cwd}, l.Args...)
 	for _, entry := range entries {
 		if !entry.IsDir() || !versionPattern.MatchString(entry.Name()) {
 			continue

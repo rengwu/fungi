@@ -1,0 +1,127 @@
+{
+  "recordedAt": "2026-10-28T04:48:00.176081+00:00",
+  "sourceCommit": "c79775833840a55fed10bbf8d1a6eef6975701d2",
+  "sourceDirty": true,
+  "buildInputFingerprint": "4e0b440f2c11d694a3588ae3d79524b239d716c88d9db9db6786878a9e251814",
+  "buildInputs": {
+    "describe.go": "9490d956da262a6900bac98d647e4b59c52721774fc0fb982a51e15a7842d2af",
+    "docs/manual/cli.md": "0d6b7f05ff0bc6ee6931690575d4d2384fba4eb030b5e48867fc4ace7212597d",
+    "docs/manual/delivery.md": "14f71b61279e512287cdf0aca47baa0ff8573800ba274b7d947cb88ac3466334",
+    "docs/manual/examples.md": "da9105b0cdb2f8dd6e5e579f1472f172451c74fc83d9caa94a6805dc70e84e5e",
+    "docs/manual/helper.md": "3d806a45c4078b2599350dec0c1f0a8c23ba8c8f4bb8c006c1d7a416215916e7",
+    "docs/manual/installation.md": "9c2aff23e473007a5d9b944984fd9c5afcbc03dd5422eea071fc3453080b63c9",
+    "docs/manual/migration.md": "e1e77804bc83c58794c7024167e1354beae72abb544e065c1e22d58a62f7018c",
+    "docs/manual/start.md": "97f666e284a20bec5a54261b341514b923f97d9d8861e621fd662afe714a85e6",
+    "doctor.go": "001a04f447b38ee6caa01103b03a3a3513c5b99e03b6b19f9f8ac4836f967390",
+    "go.mod": "a241c23e00e4857bd9df822064ef8163de76472ac93f348818bef3a742af739c",
+    "help.go": "0e92674bc3e5c3477259bb0ebd2dc7f2b60c084b9ccf64d933fe56c52113d686",
+    "help_format.go": "7c4ee771c619ba5de1456d76100337f79cc2f2d1eb0186e6d9f9c00cdcaaeec6",
+    "installation.go": "3fa382b9b46badc2a5a6635c796eb26b25fd2f62cf65a3839ef923d2df83c85a",
+    "internal/bundle/archive.go": "98dcd37b14d7c7d0924fb1c4a81abc70d97f214cfaf6b9d90327cf85a24079b7",
+    "lock_unix.go": "3d8de1ebee752fcdd55412a66474c3993a2a6cf7a6ad765f283ae217710dbdb4",
+    "lock_windows.go": "96f19e7dba84640864cc7c4f224de68889813fe5b438f8a263a1df7d8220b652",
+    "main.go": "84ee7d093f2afb8f1c216bc4e4e59f183bf67119c0fdb98ee2d9ff52d7b6c77b",
+    "owner.go": "6d7ca87e21aa10c967bcfd0a024ce211cda408f9a36b3e445b4f97efcbc2e671",
+    "process_unix.go": "9848afc408a55b714055586c5bfd111e39f9d6112b96ae7e681bc0ffc94dd292",
+    "process_windows.go": "23c676f2af31b732a8ff252983f7896f2862374816744c58353a433a7c2851dc",
+    "store.go": "41e5ff11fd268766d93bd876a1ea5b2c3b71456efe15a9b1779e0ca881813295",
+    "sync_unix.go": "265202155789626910c9106109266a60e5a16c83aaf177ef0574e7566ef0086a",
+    "sync_windows.go": "440e4bcf8432067f4afda6c6c2986448be075ea586a5523dd35aa7452f3c5644",
+    "update.go": "acf9fe86e9f8edee927c3cf24064020350183547b4c1a388b300c414698ff1fc"
+  },
+  "environment": {
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "go": "go version go1.26.4 darwin/arm64",
+    "node": "v22.19.0"
+  },
+  "checks": [
+    {
+      "command": "go test -race ./...",
+      "exitCode": 0,
+      "observation": "Core package passed in 59.894s; internal/bundle passed (cached). Includes unlaunchable-helper durable failure regression."
+    },
+    {
+      "command": "go vet ./...",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    {
+      "command": "node --check (all maintained scripts) and sh -n scripts/install.sh",
+      "exitCode": 0
+    }
+  ],
+  "packages": [
+    {
+      "target": "darwin-arm64",
+      "archive": "dist/release-v0.2.0-headless.1/fungi-darwin-arm64.tar.gz",
+      "bytes": 2793878,
+      "sha256": "817ca2a7ab4fa17329b023677466cfddf495049437221c0801e9abc394bfeda5",
+      "files": [
+        "BUILD.json",
+        "README.md",
+        "RELEASE.json",
+        "docs/manual/cli.md",
+        "docs/manual/delivery.md",
+        "docs/manual/examples.md",
+        "docs/manual/helper.md",
+        "docs/manual/installation.md",
+        "docs/manual/migration.md",
+        "docs/manual/start.md",
+        "fungi",
+        "licenses/go/LICENSE"
+      ],
+      "binaryBytes": 6593490
+    },
+    {
+      "target": "linux-amd64",
+      "archive": "dist/release-v0.2.0-headless.1/fungi-linux-amd64.tar.gz",
+      "bytes": 2985636,
+      "sha256": "75149ca7c7d82b4370256e93233642bf5e6b21891e4ec1159a34bf301b68cd3c",
+      "files": [
+        "BUILD.json",
+        "README.md",
+        "RELEASE.json",
+        "docs/manual/cli.md",
+        "docs/manual/delivery.md",
+        "docs/manual/examples.md",
+        "docs/manual/helper.md",
+        "docs/manual/installation.md",
+        "docs/manual/migration.md",
+        "docs/manual/start.md",
+        "fungi",
+        "licenses/go/LICENSE"
+      ],
+      "binaryBytes": 6983842
+    },
+    {
+      "target": "windows-amd64",
+      "archive": "dist/release-v0.2.0-headless.1/fungi-windows-amd64.zip",
+      "bytes": 3064896,
+      "sha256": "e0e896392ebb43e68efa2937f0b7f1f220e305f12aad25382fa4404c04f4d098",
+      "files": [
+        "BUILD.json",
+        "README.md",
+        "RELEASE.json",
+        "docs/manual/cli.md",
+        "docs/manual/delivery.md",
+        "docs/manual/examples.md",
+        "docs/manual/helper.md",
+        "docs/manual/installation.md",
+        "docs/manual/migration.md",
+        "docs/manual/start.md",
+        "fungi.exe",
+        "licenses/go/LICENSE"
+      ],
+      "binaryBytes": 7199232
+    }
+  ],
+  "limits": [
+    "Windows cross-compiled, not executed",
+    "Hosted CI and public publication not run",
+    "No new real end-of-turn callback or long sleep/wake check",
+    "External UI projects and protocol-1 integrations not migrated"
+  ]
+}

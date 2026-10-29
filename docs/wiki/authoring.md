@@ -1,36 +1,39 @@
 ---
-title: Author a Fungi interface
-updated: 2026-10-27
+title: Author a Fungi helper
+updated: 2026-10-28
 ---
-# Author a Fungi interface
+# Author a Fungi helper
 
-The maintained user-facing contract now ships with Fungi. Run `fungi help`
-for capabilities and common starting points, `fungi help html` for the page API,
-and `fungi help delivery` for launch, completion, results and explicit recovery.
-These commands work offline without adjacent docs or a renderer; the same
-Markdown files live in the package's `docs/manual/` directory.
+Other projects provide all UI implementations and runtimes. This repository
+owns the headless session engine, protocol examples and engine verification.
+Workflow-skill integration lives in `fungi-skills`.
 
-`fungi describe` stays machine-readable. Each topic has a `reference` argument
-array; `fungi describe examples` locates the active package's examples from any
-working directory. Copy an example directory before adapting it. The small
-reply flow has no draft; comparison demonstrates PNG return and optional
-recovery. Their full input → launch → response flows are in `fungi help examples`.
+Use `fungi help helper` for the authoritative protocol 2 reference and
+`fungi help examples` for a complete Python standard-library helper. The source
+also includes `examples/helper/main.go`; it exercises the protocol without UI.
 
-A consuming skill owns methodology, UI choices, input schema and result
-interpretation. It should include its prepared UI and repeatable launch/collect
-instructions. Fungi needs no registration, plugin manifest or second procedural
-skill. Libraries remain local to the skill; examples do not limit composition.
+A helper reads one launch object from stdin, initializes itself, and writes
+`{"type":"ready"}` to stdout. It can then send optional draft snapshots and one
+terminal result, waiting for each matching acknowledgment. Use stderr for logs.
+Input and result schemas belong to the helper. Persist binary data by writing
+files under the supplied output directory and sending relative artifact paths.
 
-The Compatibility section of `fungi help html` defines the protocol 1 promise:
-documented page methods, session commands and message names/types/meanings are
-preserved; additive metadata is allowed. Read advertised limits, ignore unknown
-metadata, and check protocol/kind/outcome before interpreting a response. The
-promise excludes Wails internals, on-disk layout, help prose and the experimental
-flat form schema. It does not require a plugin SDK or a new authoring layer.
+```sh
+fungi open --exec /absolute/helper --input /absolute/input.json --delivery auto -- helper-argument
+```
 
-The [interface feature](features/interfaces.md) records expected rendering
-behaviour; [discovery](features/discovery.md) records the offline entry points.
-The [platform record](platforms.md) retains build-specific verification and gaps.
-Workflow skills and jstack integration are developed in the separate
-`jstack-fungi-test` project. This repository maintains the engine, public
-contract and generic examples.
+Use absolute paths for helper assets that must survive working-directory
+changes. Keep the executable and assets available for active sessions and
+explicit reopen. Fungi restores acknowledged drafts and durable attachments;
+helpers implement their own UI state restoration and retries.
+
+Follow the receipt: callback/manual completion permits one collection, while a
+supported host wait returns the result directly. Never poll a human. Distinguish
+submitted, cancelled, closed and failed outcomes before interpreting data.
+
+Direct HTML/JSON launches, the Fungi page bridge and engine window flags were
+removed in protocol 2. See `fungi help migration`. UI projects may provide
+whatever page API and controls they need above the external helper contract.
+
+[Session contract](contract.md) · [External interfaces](features/interfaces.md) ·
+[Verification setup](verification/setup.md)

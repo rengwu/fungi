@@ -9,10 +9,11 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"strconv"
 	"strings"
 	"time"
 )
+
+const protocolVersion = 2
 
 type delivery struct {
 	Mode    string `json:"mode"`
@@ -45,12 +46,9 @@ func run(args []string, out io.Writer) int {
 		return e.code
 	}
 	p := asProblem(err)
-	_ = emit(out, map[string]any{"protocol": 1, "kind": "error", "error": p})
+	_ = emit(out, map[string]any{"protocol": protocolVersion, "kind": "error", "error": p})
 	if strings.HasPrefix(p.Code, "invalid_") {
 		return 2
-	}
-	if len(args) > 0 && args[0] == "doctor" && p.Code == "runtime_missing" {
-		return 3
 	}
 	return 1
 }
@@ -74,20 +72,12 @@ func command(args []string, out io.Writer) error {
 		if len(args) != 1 {
 			return fail("invalid_arguments", "doctor takes no arguments")
 		}
-		name, err := rendererCommand()
-		if err != nil {
-			return err
-		}
-		report, err := checkRenderer(name)
-		if err != nil {
-			return err
-		}
-		return emit(out, report)
+		return doctor(out)
 	case "--version", "version":
 		if len(args) != 1 {
 			return fail("invalid_arguments", "version takes no arguments")
 		}
-		return emit(out, map[string]any{"protocol": 1, "kind": "version", "version": buildVersion})
+		return emit(out, map[string]any{"protocol": protocolVersion, "kind": "version", "version": buildVersion})
 	case "install", "update", "rollback", "prune":
 		return manageInstallation(args, out)
 	case "describe":
@@ -184,21 +174,28 @@ type alreadyPrinted struct{}
 func (*alreadyPrinted) Error() string { return "failed interaction" }
 
 func parseLaunch(args []string) (launch, string, error) {
-	l := launch{Protocol: 1, Session: newID(), Input: json.RawMessage("null")}
-	mode := "auto"
-	input := ""
+	l := launch{Protocol: protocolVersion, Session: newID(), Input: json.RawMessage("null")}
+	mode, input := "auto", ""
 	positionals := []string{}
+	seen := map[string]bool{}
 	for i := 1; i < len(args); i++ {
 		a := args[i]
 		if a == "--" {
+			if args[0] == "reopen" {
+				return l, mode, fail("invalid_arguments", "reopen accepts only a session and optional --delivery")
+			}
 			l.Args = append(l.Args, args[i+1:]...)
 			break
 		}
-		if a == "--input" || a == "--exec" || a == "--delivery" || a == "--width" || a == "--height" {
-			if i+1 >= len(args) {
-				return l, mode, fail("invalid_arguments", "missing value for "+a)
+		if a == "--input" || a == "--exec" || a == "--delivery" {
+			if seen[a] || i+1 >= len(args) {
+				return l, mode, fail("invalid_arguments", "missing or repeated option "+a)
 			}
+			seen[a] = true
 			i++
+			if args[i] == "" {
+				return l, mode, fail("invalid_arguments", "empty value for "+a)
+			}
 			switch a {
 			case "--input":
 				input = args[i]
@@ -206,19 +203,9 @@ func parseLaunch(args []string) (launch, string, error) {
 				l.Exec = args[i]
 			case "--delivery":
 				mode = args[i]
-			case "--width", "--height":
-				value, err := strconv.ParseInt(args[i], 10, 32)
-				if err != nil || value < 420 {
-					return l, mode, fail("invalid_arguments", a+" must be a 32-bit integer of at least 420")
-				}
-				if a == "--width" {
-					l.Width = int(value)
-				} else {
-					l.Height = int(value)
-				}
 			}
 		} else if strings.HasPrefix(a, "-") {
-			return l, mode, fail("invalid_arguments", "unknown option "+a)
+			return l, mode, fail("invalid_arguments", "unknown option "+a+"; Fungi is engine-only; see fungi help migration")
 		} else {
 			positionals = append(positionals, a)
 		}
@@ -227,10 +214,14 @@ func parseLaunch(args []string) (launch, string, error) {
 		return l, mode, fail("invalid_arguments", "delivery must be auto, wait or manual")
 	}
 	if args[0] == "reopen" {
-		if len(positionals) != 1 || l.Exec != "" || input != "" || len(l.Args) > 0 {
-			return l, mode, fail("invalid_arguments", "reopen needs one session and optional delivery, width or height")
+		if len(positionals) != 1 || seen["--exec"] || seen["--input"] {
+			return l, mode, fail("invalid_arguments", "reopen needs one session and optional --delivery")
 		}
 		old, err := sessionStore(positionals[0])
+		if err != nil {
+			return l, mode, err
+		}
+		previous, err := old.readLaunch()
 		if err != nil {
 			return l, mode, err
 		}
@@ -245,30 +236,11 @@ func parseLaunch(args []string) (launch, string, error) {
 		} else if err == nil {
 			return l, mode, fail("cannot_reopen", "active sessions cannot be reopened")
 		}
-		var previous launch
-		if err = readJSON(old.path("launch.json"), &previous); err != nil {
-			return l, mode, err
-		}
-		l.Source = previous.Source
-		l.Exec = previous.Exec
-		l.Args = previous.Args
-		l.Input = previous.Input
-		if l.Width == 0 {
-			l.Width = previous.Width
-		}
-		if l.Height == 0 {
-			l.Height = previous.Height
-		}
+		l.Exec, l.Args, l.Input = previous.Exec, previous.Args, previous.Input
 		l.ReopenedFrom = previous.Session
 	} else {
-		if (l.Exec == "" && len(positionals) != 1) || (l.Exec != "" && len(positionals) != 0) {
-			return l, mode, fail("invalid_arguments", "provide one source OR --exec helper")
-		}
-		if l.Exec == "" {
-			l.Source = positionals[0]
-			if len(l.Args) > 0 {
-				return l, mode, fail("invalid_arguments", "arguments after -- require --exec")
-			}
+		if l.Exec == "" || len(positionals) != 0 {
+			return l, mode, fail("invalid_arguments", "open requires --exec HELPER; UI implementations are supplied by other projects; see fungi help migration")
 		}
 		if input != "" {
 			if err := readJSON(input, &l.Input); err != nil {
@@ -276,43 +248,13 @@ func parseLaunch(args []string) (launch, string, error) {
 			}
 		}
 	}
-	if l.Exec != "" {
-		if l.Width != 0 || l.Height != 0 {
-			return l, mode, fail("invalid_arguments", "--width and --height apply to HTML and JSON windows, not --exec helpers")
-		}
-		p, err := exec.LookPath(l.Exec)
-		if err != nil {
-			return l, mode, err
-		}
-		l.Exec, err = filepath.Abs(p)
-		if err != nil {
-			return l, mode, err
-		}
-	} else {
-		p, err := filepath.Abs(l.Source)
-		if err != nil {
-			return l, mode, err
-		}
-		l.Source = p
-		info, err := os.Stat(p)
-		if err != nil {
-			return l, mode, err
-		}
-		if !info.Mode().IsRegular() {
-			return l, mode, fail("invalid_source", "source must be a file")
-		}
-		if strings.EqualFold(filepath.Ext(p), ".json") {
-			var b json.RawMessage
-			if err = readJSON(p, &b); err != nil {
-				return l, mode, err
-			}
-			if err = validateForm(b); err != nil {
-				return l, mode, err
-			}
-		}
-		if _, err = rendererCommand(); err != nil {
-			return l, mode, err
-		}
+	p, err := exec.LookPath(l.Exec)
+	if err != nil {
+		return l, mode, err
+	}
+	l.Exec, err = filepath.Abs(p)
+	if err != nil {
+		return l, mode, err
 	}
 	l.Delivery = chooseDelivery(mode)
 	return l, mode, nil
@@ -408,7 +350,7 @@ func collect(id string) (any, error) {
 	if err != nil {
 		return nil, err
 	}
-	if _, err = os.Stat(s.path("launch.json")); err != nil {
+	if _, err = s.readLaunch(); err != nil {
 		return nil, err
 	}
 	if r, err := s.readResult(); err == nil {
@@ -427,7 +369,7 @@ func collect(id string) (any, error) {
 		return r, nil
 	}
 	if err != nil {
-		return map[string]any{"protocol": 1, "kind": "pending", "session": id, "instruction": "Do not poll. Await the original tool/callback, or collect once after the user says done."}, nil
+		return map[string]any{"protocol": protocolVersion, "kind": "pending", "session": id, "instruction": "Do not poll. Await the original tool/callback, or collect once after the user says done."}, nil
 	}
 	return nil, fail("session_interrupted", "session owner is unavailable; saved draft can be reopened explicitly")
 }

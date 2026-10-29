@@ -1,86 +1,60 @@
-# Complete flows to adapt
+# Complete helper example
 
-`fungi describe examples` returns absolute `source`, optional `input`, and
-launch `argv` for each available example. Execute arrays as arguments to preserve
-spaces. Paths resolve from the active package, regardless of working directory.
-Core-only builds provide help but report missing examples. Copy an example's
-directory before editing; managed versions are immutable.
+This headless Python example echoes input, saves a draft and returns a text
+artifact. It uses only Python's standard library; Python is a requirement of
+this example, not of Fungi. All human-facing UI belongs to another project.
 
-## 1. Response without drafts
+Save as `helper.py`:
 
-The `reply` HTML page accepts:
+```python
+import json
+import pathlib
+import sys
 
-```json
-{"title":"Transition review","prompt":"Which transition needs adjusting, and how?"}
+launch = json.loads(sys.stdin.readline())
+if launch["protocol"] != 2:
+    raise RuntimeError("Unsupported Fungi protocol")
+
+def send(message):
+    print(json.dumps(message), flush=True)
+
+def persist(message):
+    send(message)
+    ack = json.loads(sys.stdin.readline())
+    if ack.get("id") != message["id"] or not ack.get("ok"):
+        raise RuntimeError(str(ack))
+    return ack
+
+send({"type": "ready"})
+state = launch["draft"] if launch["draft"] is not None else launch["input"]
+persist({"id": "save", "type": "draft", "data": state})
+pathlib.Path(launch["outputDir"], "note.txt").write_text("Example artifact", encoding="utf-8")
+persist({"id": "finish", "type": "result", "outcome": "submitted", "data": state,
+         "artifacts": [{"key": "note", "name": "note.txt", "path": "note.txt",
+                        "mediaType": "text/plain"}]})
 ```
 
-From the package directory (or use discovered absolute paths):
+Launch with an input file containing any JSON:
 
 ```sh
-./fungi open examples/reply/index.html --input examples/reply/input.json --delivery auto
+fungi open --exec python3 --input ./input.json --delivery wait -- /absolute/helper.py
 ```
 
-Use `./fungi.exe` on Windows. The page reads title/prompt from `fungi.ready()`
-and offers notes, Send and Cancel. It awaits `fungi.submit({notes: notes.value})`,
-prevents duplicate submissions and preserves text with a visible error on
-failure. It saves no drafts.
+Use your Python executable's actual name or absolute path (`python.exe` on many
+Windows installations). This example completes immediately; an interactive
+helper should use `auto` unless the host supports a pending human wait.
 
-For a callback receipt, end the turn and await notification. For manual delivery,
-ask the user to say “done” and end the turn. On either cue, execute the receipt's
-`collect` array once with `collectEnv`. Never poll. A submitted answer produces:
+Expect `protocol:2`, `kind:result`, `outcome:submitted`, the original JSON in
+`data`, and a `note` artifact with an absolute saved path and SHA-256. No model
+callback is sent by this `wait` example. For manual/callback sessions, follow
+the receipt and collect once on completion; see `fungi help delivery`.
 
-```json
-{"protocol":1,"kind":"result","session":"…","outcome":"submitted","data":{"notes":"Shorten the opening fade"},"artifacts":[]}
-```
-
-Read `data.notes` only for `submitted`. Cancellation or window close is not
-approval; reopening starts fresh. If the host supports a pending call or
-automatic background completion, `--delivery wait` returns the result directly.
-See `fungi help delivery` for outcomes, artifacts and recovery.
-
-## 2. Canvas comparison returning an image
-
-The `compare` page includes a canvas, divider, preference, notes and two local
-SVG images. Optional input overrides title, context and relative `before`/`after`
-image URLs. Run its discovered `argv`, or from the package:
+The source checkout also includes `examples/helper/main.go`:
 
 ```sh
-./fungi open examples/compare/index.html --delivery auto
+go build -o /tmp/fungi-helper ./examples/helper
+fungi open --exec /tmp/fungi-helper --delivery wait
 ```
 
-Move the divider, choose a preference and submit. The result contains preference,
-divider and notes in `data`, plus a PNG artifact with key `comparison`:
-
-```json
-{"key":"comparison","name":"comparison.png","mediaType":"image/png","path":"/absolute/saved/image","bytes":1234,"sha256":"…","id":"…"}
-```
-
-Inspect the image at the returned path; values above are illustrative.
-Collect as in example 1. This page saves drafts; explicit reopening restores the
-last acknowledged selection. Its adjacent README documents input fields.
-
-## Integrate with a skill
-
-Keep the reusable page with the skill. Its instructions should cover:
-
-1. Methodology: what to show and ask, available controls/visuals, and a meaningful
-   input example.
-
-2. Invocation: write the round's input JSON and execute the following with
-   argument-safe tool calls:
-
-```sh
-fungi open ABSOLUTE_SKILL_UI --input ABSOLUTE_INPUT --delivery auto
-```
-
-3. Completion: follow the receipt's callback or manual route; collect once on
-   notification or “done.” Never poll.
-
-4. Interpretation: check the outcome, interpret `submitted` data using the
-   skill's schema, and inspect image artifacts.
-
-Implement the integration once; agents follow the skill without another Fungi
-skill or per-round adapter. Use `fungi help html` when extending the UI.
-Sliders, drawings, charts and multi-step interactions use the same bridge;
-these examples do not limit possible workflows. Keep frequent interactions
-inside the page; send the agent the finished response.
+These examples exercise the protocol without a UI. UI projects implement the
+same pipe contract and define their own input, response and asset schemas.

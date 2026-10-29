@@ -6,12 +6,10 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"os"
 	"path/filepath"
 	"regexp"
-	"strings"
 )
 
 const (
@@ -74,9 +72,6 @@ type draft struct {
 type launch struct {
 	Protocol     int             `json:"protocol"`
 	Session      string          `json:"session"`
-	Source       string          `json:"source,omitempty"`
-	Width        int             `json:"width,omitempty"`
-	Height       int             `json:"height,omitempty"`
 	Exec         string          `json:"exec,omitempty"`
 	Args         []string        `json:"args,omitempty"`
 	Input        json.RawMessage `json:"input"`
@@ -183,6 +178,19 @@ func atomicBytes(path string, b []byte) error {
 		return err
 	}
 	return syncDir(filepath.Dir(path))
+}
+func (s *store) readLaunch() (launch, error) {
+	var l launch
+	if err := readJSON(s.path("launch.json"), &l); err != nil {
+		return l, err
+	}
+	if l.Protocol != protocolVersion {
+		return l, fail("unsupported_protocol", "session uses another protocol; use its original Fungi executable and state directory; see fungi help migration")
+	}
+	if l.Exec == "" {
+		return l, fail("invalid_session", "session has no executable helper")
+	}
+	return l, nil
 }
 func (s *store) readResult() (*result, error) {
 	var r result
@@ -316,7 +324,7 @@ func (s *store) commit(id string, m message) (*result, error) {
 	if err != nil {
 		return nil, err
 	}
-	r := &result{1, "result", id, m.Outcome, m.Data, arts, m.Error}
+	r := &result{protocolVersion, "result", id, m.Outcome, m.Data, arts, m.Error}
 	// Draft images remain recoverable on close/cancel/failure. Bound the union,
 	// so preserving them cannot silently exceed the advertised session budget.
 	kept := append([]artifact{}, arts...)
@@ -367,61 +375,4 @@ func (s *store) pruneUnreferenced() {
 		return
 	}
 	_ = s.pruneArtifacts(keep)
-}
-func validateForm(b []byte) error {
-	var f struct {
-		Title   string `json:"title"`
-		Context string `json:"context"`
-		Fields  []struct {
-			Type     string          `json:"type"`
-			Name     string          `json:"name"`
-			Label    string          `json:"label"`
-			Value    json.RawMessage `json:"value"`
-			Min      *float64        `json:"min"`
-			Max      *float64        `json:"max"`
-			Step     *float64        `json:"step"`
-			Required bool            `json:"required"`
-		} `json:"fields"`
-	}
-	d := json.NewDecoder(strings.NewReader(string(b)))
-	d.DisallowUnknownFields()
-	if err := d.Decode(&f); err != nil {
-		return fail("invalid_form", err.Error())
-	}
-	if f.Title == "" || f.Fields == nil {
-		return fail("invalid_form", "form needs a title and fields array")
-	}
-	seen := map[string]bool{}
-	for _, field := range f.Fields {
-		if field.Name == "" || seen[field.Name] || field.Name == "__proto__" || field.Name == "constructor" || field.Name == "prototype" {
-			return fail("invalid_form", "field names must be unique, nonempty and not reserved")
-		}
-		seen[field.Name] = true
-		switch field.Type {
-		case "text", "textarea":
-			if len(field.Value) > 0 {
-				var value string
-				if string(field.Value) == "null" || json.Unmarshal(field.Value, &value) != nil {
-					return fail("invalid_form", "text defaults must be strings: "+field.Name)
-				}
-			}
-		case "image":
-			if len(field.Value) > 0 && string(field.Value) != "null" {
-				return fail("invalid_form", "image defaults must be empty; supply image bytes through the page bridge")
-			}
-		case "range":
-			if field.Min == nil || field.Max == nil || *field.Min >= *field.Max || (field.Step != nil && *field.Step <= 0) {
-				return fail("invalid_form", fmt.Sprintf("invalid range: %s", field.Name))
-			}
-			if len(field.Value) > 0 {
-				var value float64
-				if string(field.Value) == "null" || json.Unmarshal(field.Value, &value) != nil || value < *field.Min || value > *field.Max {
-					return fail("invalid_form", "range default must be a number within min/max: "+field.Name)
-				}
-			}
-		default:
-			return fail("invalid_form", "unsupported field type: "+field.Type)
-		}
-	}
-	return nil
 }

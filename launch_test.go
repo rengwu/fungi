@@ -5,86 +5,80 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"reflect"
 	"testing"
 )
 
-func TestWindowDimensions(t *testing.T) {
+func TestHelperLaunchAndReopen(t *testing.T) {
 	root := t.TempDir()
-	helper := filepath.Join(root, rendererRelativePath())
-	if err := os.MkdirAll(filepath.Dir(helper), 0700); err != nil {
-		t.Fatal(err)
-	}
-	if err := copyExecutable(testFixture, helper); err != nil {
-		t.Fatal(err)
-	}
-	t.Setenv("FUNGI_RENDERER_DIR", filepath.Join(root, "renderer"))
 	t.Setenv("FUNGI_STATE_DIR", filepath.Join(root, "sessions"))
-	for name, body := range map[string]string{"index.html": "<!doctype html>", "form.json": `{"title":"Size check","fields":[]}`} {
-		if err := os.WriteFile(filepath.Join(root, name), []byte(body), 0600); err != nil {
-			t.Fatal(err)
-		}
+	input := filepath.Join(root, "input with spaces.json")
+	data := []byte(`{"settings":{"width":900},"items":[true,null,12]}`)
+	if err := os.WriteFile(input, data, 0600); err != nil {
+		t.Fatal(err)
 	}
-	for _, tc := range []struct {
-		name, source  string
-		flags         []string
-		width, height int
-	}{
-		{"defaults", "index.html", nil, 0, 0},
-		{"both", "index.html", []string{"--width", "1100", "--height", "800"}, 1100, 800},
-		{"width only", "index.html", []string{"--width", "700"}, 700, 0},
-		{"height only", "index.html", []string{"--height", "600"}, 0, 600},
-		{"form minimum", "form.json", []string{"--width", "420", "--height", "420"}, 420, 420},
-	} {
-		t.Run(tc.name, func(t *testing.T) {
-			args := append([]string{"open", filepath.Join(root, tc.source), "--delivery", "manual"}, tc.flags...)
-			l, _, err := parseLaunch(args)
-			if err != nil || l.Width != tc.width || l.Height != tc.height {
-				t.Fatalf("launch: %+v (%v)", l, err)
-			}
-			s, _ := sessionStore(l.Session)
-			if err := s.init(l); err != nil {
-				t.Fatal(err)
-			}
-			// An interrupted session is eligible for explicit reopen. Persist and
-			// read the real launch record, including older records without sizes.
-			for _, override := range []bool{false, true} {
-				args := []string{"reopen", l.Session, "--delivery", "manual"}
-				wantWidth := tc.width
-				if override {
-					args = append(args, "--width", "900")
-					wantWidth = 900
-				}
-				reopened, _, err := parseLaunch(args)
-				if err != nil || reopened.Width != wantWidth || reopened.Height != tc.height || reopened.ReopenedFrom != l.Session {
-					t.Fatalf("reopen: %+v (%v)", reopened, err)
-				}
-			}
-		})
+	helperArgs := []string{"page with spaces.html", "--width", "900", "$(literal)"}
+	args := append([]string{"open", "--exec", testHelper, "--input", input, "--delivery", "manual", "--"}, helperArgs...)
+	l, mode, err := parseLaunch(args)
+	if err != nil || mode != "manual" || l.Protocol != 2 || l.Exec != testHelper || !reflect.DeepEqual(l.Args, helperArgs) || !bytes.Equal(l.Input, data) {
+		t.Fatalf("helper launch: %+v (%v)", l, err)
+	}
+	s, _ := sessionStore(l.Session)
+	if err = s.init(l); err != nil {
+		t.Fatal(err)
+	}
+	if err = os.WriteFile(input, []byte(`null`), 0600); err != nil {
+		t.Fatal(err)
+	}
+	reopened, _, err := parseLaunch([]string{"reopen", l.Session, "--delivery", "manual"})
+	if err != nil || reopened.ReopenedFrom != l.Session || reopened.Session == l.Session || !bytes.Equal(reopened.Input, data) || !reflect.DeepEqual(reopened.Args, helperArgs) {
+		t.Fatalf("reopen lost helper arguments or snapshotted input: %+v (%v)", reopened, err)
 	}
 }
 
-func TestInvalidWindowDimensions(t *testing.T) {
+func TestEngineRejectsPresentationCommands(t *testing.T) {
 	root := filepath.Join(t.TempDir(), "sessions")
 	t.Setenv("FUNGI_STATE_DIR", root)
-	for _, flag := range []string{"--width", "--height"} {
-		for _, value := range []string{"0", "-1", "419", "1.5", "wide", "", "2147483648", "999999999999999999999999"} {
-			var out bytes.Buffer
-			code := run([]string{"open", "index.html", flag, value}, &out)
-			if code != 2 || !json.Valid(out.Bytes()) || !bytes.Contains(out.Bytes(), []byte(`"invalid_arguments"`)) {
-				t.Fatalf("%s %q: exit %d %s", flag, value, code, &out)
-			}
-		}
-		for _, args := range [][]string{
-			{"open", "index.html", flag},
-			{"open", "--exec", testHelper, flag, "600", "--delivery", "manual"},
-		} {
-			var out bytes.Buffer
-			if code := run(args, &out); code != 2 {
-				t.Fatalf("%v: exit %d %s", args, code, &out)
-			}
+	for _, args := range [][]string{
+		{"open"}, {"open", "index.html"}, {"open", "form.json"},
+		{"open", "--exec", testHelper, "index.html"},
+		{"open", "--exec", testHelper, "--width", "600"},
+		{"open", "--exec", testHelper, "--height", "600"},
+		{"open", "--exec", ""}, {"open", "--exec"},
+		{"open", "--exec", testHelper, "--exec", testHelper},
+		{"reopen", newID(), "--width", "600"},
+	} {
+		var out bytes.Buffer
+		if code := run(args, &out); code != 2 || !json.Valid(out.Bytes()) {
+			t.Fatalf("%v: exit %d %s", args, code, &out)
 		}
 	}
 	if _, err := os.Stat(root); !os.IsNotExist(err) {
-		t.Fatalf("invalid arguments created session storage: %v", err)
+		t.Fatalf("invalid launch created state: %v", err)
+	}
+}
+
+func TestOtherProtocolSessionsArePreserved(t *testing.T) {
+	t.Setenv("FUNGI_STATE_DIR", t.TempDir())
+	for _, version := range []int{1, 3} {
+		id := newID()
+		s, _ := sessionStore(id)
+		if err := s.init(launch{Protocol: version, Session: id, Exec: testHelper, Input: json.RawMessage(`null`)}); err != nil {
+			t.Fatal(err)
+		}
+		saved := []byte(`{"protocol":1,"kind":"result","outcome":"closed","artifacts":[]}`)
+		if err := os.WriteFile(s.path("result.json"), saved, 0600); err != nil {
+			t.Fatal(err)
+		}
+		for _, action := range []string{"collect", "reopen"} {
+			var out bytes.Buffer
+			if code := run([]string{action, id}, &out); code != 1 || !bytes.Contains(out.Bytes(), []byte("unsupported_protocol")) {
+				t.Fatalf("%s silently accepted protocol %d: %s", action, version, &out)
+			}
+		}
+		got, _ := os.ReadFile(s.path("result.json"))
+		if !bytes.Equal(got, saved) {
+			t.Fatal("incompatible result was modified")
+		}
 	}
 }

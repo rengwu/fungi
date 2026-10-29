@@ -4,6 +4,11 @@ updated: 2026-10-27
 ---
 # Windows agent handoff
 
+> Historical UI verification instructions. The engine-only decision on
+> 2026-10-28 retires this recipe. Use [current engine setup](setup.md) for new
+> checks; preserve this page as context for its original reports.
+
+
 Continue Fungi's physical Windows verification from this checkout. The user
 requested this handoff so an agent on their Windows machine can perform it
 after pulling. No earlier conversation, Mac-local files, or sibling jstack

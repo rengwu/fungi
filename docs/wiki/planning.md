@@ -1,6 +1,6 @@
 ---
 title: Requirements and discussion
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 # Requirements and discussion
 
@@ -13,31 +13,77 @@ sequence; later accepted decisions supersede earlier ones.
 | Area | Accepted direction |
 | --- | --- |
 | Engine | Go owns sessions, durable responses/artifacts, explicit recovery and exact-caller delivery. Skills own workflow meaning and UI. |
-| Rendering | Wails is the default helper, using WKWebView, WebView2 or WebKitGTK 4.1. Pages are trusted local code; native access, best-effort browser storage isolation and Linux direct-media limits are accepted. |
-| Distribution | One portable OS/CPU package plus optional managed installation/update/rollback. Missing Windows/Ubuntu runtimes require explicit bootstrap opt-in; normal launches never install them. |
-| Authoring | Local HTML/assets or a native helper; the built-in flat JSON form remains experimental. Protocol 1 preserves documented page/session meanings. No plugin SDK, registry or new UI framework is needed. |
+| Rendering | No UI implementation is shipped or maintained here. Other projects supply executable helpers and all rendering/assets/runtimes. |
+| Distribution | Engine-only OS/CPU packages (format 3) with a standalone Go executable, embedded manual and optional managed install/update/rollback. |
+| Authoring | External executable helpers over protocol 2 NDJSON. Direct HTML/forms, window flags and page bridge are removed with an explicit migration reference. |
 | Completion | No model polling or required harness setup. Use the supported exact-caller callback/native completion route, otherwise manual “done.” Results survive notification failure. |
 | Documentation | The embedded `fungi help` manual is the public reference; `describe` is machine-readable. Keep prose concise, installation commands copyable and examples small and complete. |
-| Workflow integration | jstack/Fungi skills are developed in the sibling `jstack-fungi-test` project. This repo owns the engine, generic examples and its verification. |
+| Workflow integration | jstack/Fungi skills are developed in the sibling `fungi-skills` project. This repo owns the engine, generic examples and its verification. |
+| Icon | Pixel, Larger screen version: a beige device whose green dot-matrix screen shows a pixel spark, with nothing on the bezel. Files are in `docs/assets/icon/`; see [Project icon](icon.md). |
 
-The documented public release is `v0.1.0-alpha.2`. Subsequent concise-help and
-local contract/AFK changes are recorded in the working tree and dated reports;
-this cleanup does not publish them. Start with the [authoring guide](authoring.md),
-[session contract](contract.md), [feature map](features/index.md) and
-[platform evidence](platforms.md).
+This checkout is the 0.2 development line. Previously published 0.1 alpha
+packages retain their old UI/protocol-1 behavior. No new release is published
+by this change. See the [headless verification](verification/runs/2026-10-28-headless.md),
+[helper authoring guide](authoring.md) and [session contract](contract.md).
+
+## Accepted engine-only scope on 2026-10-28
+
+The user accepted the engine-only recommendation and explicitly assigned all
+UI implementations to other projects. Remove the bundled renderer/forms,
+page bridge and UI-specific packaging/verification. Retain sessions, durable
+responses/artifacts, drafts, explicit recovery and completion delivery. Do not
+create or maintain an optional UI companion in this repository. Generic
+headless helper examples and protocol fixtures remain useful engine evidence.
+
+Protocol 2 makes the withdrawal of protocol-1 page/CLI entry points explicit;
+package format 3 identifies engine distributions. Old session records remain
+untouched and require their original executable. Engine doctor checks storage
+and locking. External helper runtimes remain their providers' responsibility.
+This supersedes the rendering, bundled-UI and runtime-setup decisions below.
+
+## Open discussion: headless engine on 2026-10-28
+
+The user is considering removing Fungi's UI to make it a headless engine-only
+runtime and asked what this would gain. This paragraph records the initial exploration; the accepted scope above
+supersedes its undecided status.
+
+Removing only the experimental JSON form would remove its controls, schema and
+autosave implementation; retaining the Wails HTML host would retain desktop
+rendering dependencies. A fully headless distribution would also separate the
+window host, page bridge, local asset serving and renderer-specific packaging
+from the engine.
+
+Source inspection shows a useful existing boundary: the root Go module uses
+the standard library, packaging builds its CLI with CGO disabled, and executable
+helpers communicate with the session owner through pipes without launching the
+bundled renderer. However, package validation, installation probes, doctor,
+default HTML/JSON launches and documentation still assume a Wails companion.
+
+Expected benefits of an engine-only distribution are simpler installation and
+builds, smaller required packages, independent renderer releases and a narrower
+engine verification scope. Sessions, durable drafts/results/artifacts, explicit
+recovery and completion delivery can remain. UI dependencies and visual testing
+move to whichever package provides the interface; launching the same external
+renderer does not inherently reduce the complete workflow's memory or startup
+cost. Remote browser/desktop transport would still require separate work.
+
+The recommendation under discussion is to extract the existing renderer into
+an optional companion using the existing [session/helper contract](contract.md),
+preserving a reusable HTML bridge for skills. The subsequent acceptance assigns all UI implementations to other projects;
+no companion is maintained here. Protocol 2 makes migration explicit.
 
 ## Remaining work
 
-Clean consumer-machine setup, physical Windows/Linux Wails input,
-signing/notarization, independent fresh-agent authoring and broader
-idle/failure qualification remain outside the completed local scope. The
-[October 27 contract and AFK checks](verification/runs/2026-10-27-afk-contract.md)
-completed their selected short callback, two-hour timer and sleep/wake cases;
-those sessions are no longer pending.
+Publish a separately reviewed engine release after platform qualification.
+Windows runtime execution, hosted CI, signing and clean consumer-machine setup
+must be assessed against engine builds; historical UI checks are not evidence
+for this change. Remote UI transport and external UI-project migrations belong
+to their own scopes. The [headless run](verification/runs/2026-10-28-headless.md)
+records exactly which local checks were exercised.
 
 ## Repository cleanup on 2026-10-27
 
-The user moved workflow-skill experimentation to `jstack-fungi-test` and
+The user moved workflow-skill experimentation to `fungi-skills` and
 requested removal of `skills/`. They then approved audit recommendations 1–8:
 remove the orphaned skill test and old jstack adapter, repair current references
 and verification instructions, require an explicit renderer-smoke executable,

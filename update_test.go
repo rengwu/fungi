@@ -30,22 +30,11 @@ func releaseFixture(t *testing.T, version string) (string, string) {
 			t.Fatal(e)
 		}
 	}
-	helperPath := filepath.Join(dir, rendererRelativePath())
-	if err := os.MkdirAll(filepath.Dir(helperPath), 0700); err != nil {
-		t.Fatal(err)
-	}
-	if err := copyExecutable(testFixture, helperPath); err != nil {
-		t.Fatal(err)
-	}
-	rendererDigest, err := fileDigest(helperPath)
-	if err != nil {
-		t.Fatal(err)
-	}
 	digest, e := fileDigest(filepath.Join(dir, binaryName()))
 	if e != nil {
 		t.Fatal(e)
 	}
-	if e = atomicJSON(filepath.Join(dir, "RELEASE.json"), packageManifest{Format: 2, Version: version, Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: digest, Wails: "test", RendererSHA256: rendererDigest}); e != nil {
+	if e = atomicJSON(filepath.Join(dir, "RELEASE.json"), packageManifest{Protocol: protocolVersion, Format: 3, Version: version, Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: digest}); e != nil {
 		t.Fatal(e)
 	}
 	archive := filepath.Join(t.TempDir(), releaseAssetName())
@@ -98,13 +87,6 @@ func TestManagedInstallUpdateRollbackAndSessions(t *testing.T) {
 	if got := installedCLI(t, entry, state, true, "--version"); !strings.Contains(string(got), "v0.1.0-test.1") {
 		t.Fatal(string(got))
 	}
-	// A runtime failure must not activate a new release or break the CLI.
-	t.Setenv("FUNGI_TEST_RUNTIME_MISSING", "1")
-	installedCLI(t, entry, state, false, "update", "--archive", b, "--sha256", shaB)
-	if got := installedCLI(t, entry, state, true, "--version"); !strings.Contains(string(got), "v0.1.0-test.1") {
-		t.Fatal(string(got))
-	}
-	t.Setenv("FUNGI_TEST_RUNTIME_MISSING", "")
 	gate := filepath.Join(t.TempDir(), "gate")
 	helper := filepath.Join(versionDir(root, "v0.1.0-test.1"), "helper"+strings.TrimPrefix(binaryName(), "fungi"))
 	var receipt opened
@@ -206,15 +188,15 @@ func TestReleaseDownloadFailures(t *testing.T) {
 }
 
 func TestUnsupportedPackageFormatsAreRejected(t *testing.T) {
-	for _, format := range []int{0, 1, 3} {
+	for _, format := range []int{0, 1, 2, 4} {
 		dir := t.TempDir()
-		manifest := packageManifest{Format: format, Version: "v0.1.0-unsupported", Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: strings.Repeat("0", 64)}
+		manifest := packageManifest{Protocol: protocolVersion, Format: format, Version: "v0.1.0-unsupported", Platform: runtime.GOOS, Arch: runtime.GOARCH, BinarySHA256: strings.Repeat("0", 64)}
 		if err := atomicJSON(filepath.Join(dir, "RELEASE.json"), manifest); err != nil {
 			t.Fatal(err)
 		}
 		// Reject before reading or executing any legacy/future package binary.
 		_, err := inspectPackage(dir, manifest.Version)
-		if err == nil || asProblem(err).Code != "invalid_package" || !strings.Contains(err.Error(), "format 2") {
+		if err == nil || asProblem(err).Code != "invalid_package" || !strings.Contains(err.Error(), "format 3") {
 			t.Fatalf("format %d: %v", format, err)
 		}
 	}

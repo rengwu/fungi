@@ -1,0 +1,11 @@
+{
+  "format": 3,
+  "protocol": 2,
+  "version": "v0.2.0-headless.1",
+  "platform": "darwin",
+  "arch": "arm64",
+  "binarySHA256": "d653e788c001d15d8d3648af1cb6141cca4d2ba2dde8b490a6e7d2f431998cb5",
+  "created": "2026-10-28T04-41-47-306Z",
+  "sourceCommit": "c79775833840a55fed10bbf8d1a6eef6975701d2",
+  "sourceDirty": true
+}

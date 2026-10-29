@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -67,10 +66,10 @@ func TestOfflineHelpAndDiscovery(t *testing.T) {
 			Reference  []string
 			Capability struct{ Launch string }
 		}
-		if err != nil || json.Unmarshal(got, &description) != nil || description.Protocol != 1 || len(description.Reference) != 3 {
+		if err != nil || json.Unmarshal(got, &description) != nil || description.Protocol != protocolVersion || len(description.Reference) != 3 {
 			t.Fatalf("describe %s: %v %s", topic, err, got)
 		}
-		if topic == "html" || topic == "form" || topic == "helper" {
+		if topic == "helper" {
 			if !strings.Contains(description.Capability.Launch, "--delivery auto") {
 				t.Fatalf("describe %s assumes host waiting capabilities: %s", topic, got)
 			}
@@ -79,14 +78,11 @@ func TestOfflineHelpAndDiscovery(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	got, err = invoke("describe", "examples")
-	var discovery struct{ Capability struct{ Items []example } }
-	if err != nil || json.Unmarshal(got, &discovery) != nil || len(discovery.Capability.Items) == 0 {
-		t.Fatalf("examples: %v %s", err, got)
-	}
-	for _, item := range discovery.Capability.Items {
-		if item.Available || len(item.Argv) != 0 || !filepath.IsAbs(item.Source) {
-			t.Fatalf("core-only discovery promises an unavailable example: %+v", item)
+	for _, topic := range []string{"html", "form"} {
+		for _, verb := range []string{"help", "describe"} {
+			if output, err := invoke(verb, topic); err == nil || !json.Valid(output) {
+				t.Fatalf("removed capability still advertised: %s %s: %s", verb, topic, output)
+			}
 		}
 	}
 }

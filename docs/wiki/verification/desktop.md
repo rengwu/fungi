@@ -4,6 +4,11 @@ updated: 2026-10-25
 ---
 # Verify a portable desktop build
 
+> Historical UI verification instructions. The engine-only decision on
+> 2026-10-28 retires this recipe. Use [current engine setup](setup.md) for new
+> checks; preserve this page as context for its original reports.
+
+
 Run on the target desktop after copying/extracting the **whole** portable
 Wails package. Go, Node and npm are unnecessary. macOS uses WKWebView;
 Windows needs WebView2 and Linux needs WebKitGTK 4.1. Run `fungi doctor`

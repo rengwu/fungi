@@ -1,12 +1,12 @@
 ---
 title: Sessions, results and recovery
-updated: 2026-10-25
+updated: 2026-10-28
 ---
 # Sessions, results and recovery
 
 **ID: FEAT-sessions**
 
-Fungi owns one interaction and one immutable terminal result per session. This implements the [session contract](../contract.md#result-and-lifecycle) for the accepted first milestone.
+Fungi owns one interaction and one immutable terminal result per session. This implements the [session contract](../contract.md#result-and-lifecycle) under the accepted engine-only scope.
 
 ## Entry points
 
@@ -19,8 +19,8 @@ Use `open`, `collect` and `reopen` in the Go CLI. An executable helper uses `ope
 - Repeated identical submission returns the saved result; conflicting terminal events cannot replace it.
 - Collect is repeatable and non-destructive. A held OS lock identifies a live owner; a saved launch without an owner/result is interrupted.
 - Losing the waiting CLI does not cancel the owner. The worker uses a detached process, ordinary pipes and an OS file lock; there is no local HTTP server.
-- Reopen creates a new linked session and restores the latest acknowledged JSON/image draft.
-- Recovery is user-driven: “done” means collect once, and “open again” means explicit reopen. Neither recovers unsaved edits. If a crashed page leaves its native window/owner active, close the window first. No automatic restart or polling is required.
+- Reopen creates a new linked session and restores the latest acknowledged JSON/artifact draft.
+- Recovery is user-driven: “done” means collect once, and “open again” means explicit reopen. Neither recovers unsaved edits. A helper must report its own close/cancel semantics; recover an interrupted session explicitly. No automatic restart or polling is required.
 - Native helper output is drained before interpreting exit. The helper need not depend on a web renderer.
 - Malformed output or a closed stdout ends the helper protocol and terminates the helper, even if its process would otherwise keep running. Persisted JSON is bounded including its final newline, so acknowledged boundary-sized records remain readable.
 
@@ -41,9 +41,16 @@ Read the returned artifact path. Run `collect` with the exact returned session a
 
 ## Coverage and limitations
 
-The macOS and Linux arm64 race-enabled suites passed. Hosted core execution also passed on Windows and Linux x64; the follow-up report records target-specific failures and repairs. Failure injection covers publication before acknowledgement; the UI separately exercised an actual filesystem permission error. One user-controlled macOS sleep/wake cycle preserved the note and image, accepted a new edit and returned the result. These tests do not establish power-loss or storage-hardware durability. Windows skips directory flushing after flushing and renaming each file; no directory-entry durability across power loss is promised.
+Current engine evidence is recorded in the headless run below. Protocol-1
+sessions require their original executable and are rejected without mutation.
+External helpers remain trusted processes. Power-loss durability and external
+UI behavior are outside the selected engine verification.
+
+Historical protocol-1 observations: the macOS and Linux arm64 race-enabled suites passed. Hosted core execution also passed on Windows and Linux x64; the follow-up report records target-specific failures and repairs. Failure injection covers publication before acknowledgement; the UI separately exercised an actual filesystem permission error. One user-controlled macOS sleep/wake cycle preserved the note and image, accepted a new edit and returned the result. These tests do not establish power-loss or storage-hardware durability. Windows skips directory flushing after flushing and renaming each file; no directory-entry durability across power loss is promised.
 
 ## Verification history
+
+- [Engine-only migration](../verification/runs/2026-10-28-headless.md) — protocol 2; previous reports retain their original build scope.
 
 - [2026-10-27 intervening chat message](../verification/runs/2026-10-27-interleaved-message.md) — original session returned the human note after another chat message; a separate timed session saved JSON/PNG during active tool work and returned automatically afterward.
 

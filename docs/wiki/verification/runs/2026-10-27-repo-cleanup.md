@@ -8,7 +8,7 @@ result: Passed
 **Passed for the selected cleanup, argument-validation and local native checks.**
 Scope: [discovery](../../features/discovery.md) and
 [interfaces](../../features/interfaces.md). The user moved workflow-skill
-experimentation to `jstack-fungi-test`, requested removal of `skills/`, and
+experimentation to `fungi-skills`, requested removal of `skills/`, and
 approved audit items 1–8. Optional research/proposal archiving and removal of
 the existing `dist/release-v0.1.0-clean.2/` were not selected.
 

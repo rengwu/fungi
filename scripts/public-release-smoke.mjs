@@ -1,5 +1,5 @@
 // Verify the actual public installer and updater without GitHub credentials,
-// changing the user's PATH, or installing system runtimes. Use a ready desktop.
+// changing the user's PATH, or installing helper runtimes. No desktop is required.
 import {mkdtemp,mkdir,readFile,writeFile,rm} from 'node:fs/promises';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
@@ -17,7 +17,7 @@ const install=path.join(directory,'install with spaces');
 const env={...process.env,FUNGI_STATE_DIR:path.join(directory,'sessions')};
 for(const key of Object.keys(env))if(['gh_token','github_token','codex_thread_id','fungi_renderer_dir','fungi_release_base_url','fungi_install_dir'].includes(key.toLowerCase()))delete env[key];
 const execute=promisify(execFile);
-const evidence={version,platform:process.platform,arch:process.arch,anonymous:true,persistentPathChanged:false,runtimeSetup:false};
+const evidence={version,platform:process.platform,arch:process.arch,anonymous:true,persistentPathChanged:false};
 try{
   const name=process.platform==='win32'?'install.ps1':'install.sh';
   const url=`https://github.com/rengwu/fungi/releases/download/${version}/${name}`;
@@ -45,11 +45,8 @@ try{
   evidence.doctor=await run(['doctor']);
   evidence.update=await run(['update','--version',version]);
   assert.equal((await run(['--version'])).version,version);
-  evidence.examples=await run(['describe','examples']);
-  assert.ok(evidence.examples.capability.items.every(item=>item.available));
-  const args=[path.join(root,'scripts/renderer-smoke.mjs'),binary];
-  if(process.platform==='linux')args.push('--allow-unavailable-webgl','--allow-unavailable-local-media');
-  evidence.renderer=JSON.parse((await execute(process.execPath,args,{env,timeout:180000,maxBuffer:2**20})).stdout);
+  assert.equal(evidence.identity.protocol,2);assert.equal(evidence.doctor.engine,'headless');
+  evidence.engine=JSON.parse((await execute(process.execPath,[path.join(root,'scripts/engine-smoke.mjs'),binary],{env,timeout:180000,maxBuffer:2**20})).stdout);
   evidence.passed=true;
 }catch(error){evidence.error=error.stack;evidence.stdout=error.stdout;evidence.stderr=error.stderr;throw error;}
 finally{

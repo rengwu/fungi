@@ -1,4 +1,4 @@
-// A tiny native executable implementing the same protocol as the window renderer.
+// A headless protocol example. Other projects supply all user interfaces.
 // Build: go build -o /tmp/fungi-helper ./examples/helper
 package main
 
@@ -23,7 +23,7 @@ func main() {
 	if err := dec.Decode(&launch); err != nil {
 		panic(err)
 	}
-	if launch.Protocol != 1 {
+	if launch.Protocol != 2 {
 		fmt.Fprintln(os.Stderr, "unsupported protocol")
 		os.Exit(1)
 	}

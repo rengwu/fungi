@@ -1,0 +1,166 @@
+{
+  "directory": "/Users/rengwu/Desktop/Projects/fungi/verification-output/engine-smoke-pbNGsz",
+  "sourceBinary": "/Users/rengwu/Desktop/Projects/fungi/dist/release-v0.2.0-headless.1/fungi-darwin-arm64/fungi",
+  "platform": "darwin",
+  "arch": "arm64",
+  "standalone": true,
+  "childPathEmpty": true,
+  "displayRemoved": true,
+  "checks": [
+    "standalone engine and storage/lock doctor",
+    "offline discovery and manuals",
+    "concurrent external helpers, literal JSON, durable artifacts and collection",
+    "manual completion and draft/artifact reopen without changing the original",
+    "removed UI entry points rejected"
+  ],
+  "binarySHA256": "d653e788c001d15d8d3648af1cb6141cca4d2ba2dde8b490a6e7d2f431998cb5",
+  "version": {
+    "kind": "version",
+    "protocol": 2,
+    "version": "v0.2.0-headless.1"
+  },
+  "doctor": {
+    "available": true,
+    "checks": [
+      "atomicStorage",
+      "exclusiveLock"
+    ],
+    "engine": "headless",
+    "kind": "doctor",
+    "protocol": 2,
+    "stateDir": "/Users/rengwu/Desktop/Projects/fungi/verification-output/engine-smoke-pbNGsz/sessions"
+  },
+  "results": [
+    {
+      "protocol": 2,
+      "kind": "result",
+      "session": "27fab5c5ee04d98c9f9a9940674ae19e",
+      "outcome": "submitted",
+      "data": {
+        "input": {
+          "marker": "headless smoke",
+          "nested": {
+            "values": [
+              null,
+              true,
+              1.5
+            ]
+          },
+          "literal": "$(not a command)"
+        },
+        "restoredDraft": null,
+        "notes": {
+          "marker": "headless smoke"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+          "key": "proof",
+          "name": "proof.txt",
+          "mediaType": "text/plain",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/engine-smoke-pbNGsz/sessions/27fab5c5ee04d98c9f9a9940674ae19e/artifacts/3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+          "bytes": 24,
+          "sha256": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d"
+        }
+      ]
+    },
+    {
+      "protocol": 2,
+      "kind": "result",
+      "session": "7fa10db9d5024e12de2f6d27ac9eeeb5",
+      "outcome": "submitted",
+      "data": {
+        "input": {
+          "marker": "headless smoke",
+          "nested": {
+            "values": [
+              null,
+              true,
+              1.5
+            ]
+          },
+          "literal": "$(not a command)"
+        },
+        "restoredDraft": null,
+        "notes": {
+          "marker": "headless smoke"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+          "key": "proof",
+          "name": "proof.txt",
+          "mediaType": "text/plain",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/engine-smoke-pbNGsz/sessions/7fa10db9d5024e12de2f6d27ac9eeeb5/artifacts/3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+          "bytes": 24,
+          "sha256": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "receipt": {
+      "protocol": 2,
+      "kind": "opened",
+      "session": "948e2a0d74945e22bbb76578fc8c9008",
+      "delivery": {
+        "mode": "manual",
+        "reason": "requested manual delivery; say done, then collect once"
+      },
+      "collect": [
+        "/Users/rengwu/Desktop/Projects/fungi/verification-output/engine-smoke-pbNGsz/fungi",
+        "collect",
+        "948e2a0d74945e22bbb76578fc8c9008"
+      ],
+      "collectEnv": {
+        "FUNGI_STATE_DIR": "/Users/rengwu/Desktop/Projects/fungi/verification-output/engine-smoke-pbNGsz/sessions"
+      }
+    },
+    "closed": {
+      "protocol": 2,
+      "kind": "result",
+      "session": "948e2a0d74945e22bbb76578fc8c9008",
+      "outcome": "closed",
+      "artifacts": []
+    },
+    "reopened": {
+      "protocol": 2,
+      "kind": "result",
+      "session": "9c23103614530e6de2db3358ab2c8730",
+      "outcome": "submitted",
+      "data": {
+        "input": {
+          "marker": "headless smoke",
+          "nested": {
+            "values": [
+              null,
+              true,
+              1.5
+            ]
+          },
+          "literal": "$(not a command)"
+        },
+        "restoredDraft": {
+          "marker": "headless smoke"
+        },
+        "notes": {
+          "marker": "headless smoke"
+        }
+      },
+      "artifacts": [
+        {
+          "id": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+          "key": "proof",
+          "name": "proof.txt",
+          "mediaType": "text/plain",
+          "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/engine-smoke-pbNGsz/sessions/9c23103614530e6de2db3358ab2c8730/artifacts/3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d",
+          "bytes": 24,
+          "sha256": "3e28688ea84f11de205b188a1ef0830e13212c0829d3eb60fcc0e6b494c01e5d"
+        }
+      ]
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,11 @@
+{
+  "format": 3,
+  "protocol": 2,
+  "version": "v0.2.0-headless.1",
+  "platform": "windows",
+  "arch": "amd64",
+  "binarySHA256": "38dd4a76de10c50960aae0bf6e43fe6e16cf61aed2f7da5dde96dc91f4f071d5",
+  "created": "2026-10-28T04-45-13-283Z",
+  "sourceCommit": "c79775833840a55fed10bbf8d1a6eef6975701d2",
+  "sourceDirty": true
+}

@@ -8,7 +8,7 @@ on:
         description: Existing alpha to check (does not publish)
         required: true
         type: string
-        default: v0.1.0-alpha.2
+        default: v0.2.0-alpha.1
       platform:
         description: Hosted platform to check
         type: choice
@@ -91,19 +91,11 @@ jobs:
         with:
           node-version: '22.19.0'
           package-manager-cache: false
-      - name: Linux runtime in disposable runner
-        if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-0 xvfb
-      - name: Install anonymously, update from GitHub and exercise the window
+      - name: Install anonymously, update from GitHub and exercise the engine
         shell: bash
         env:
           VERSION: ${{ inputs.version || github.ref_name }}
-        run: |
-          if [[ "$RUNNER_OS" == 'Linux' ]]; then
-            xvfb-run -a node scripts/public-release-smoke.mjs "$VERSION"
-          else
-            node scripts/public-release-smoke.mjs "$VERSION"
-          fi
+        run: node scripts/public-release-smoke.mjs "$VERSION"
       - name: Preserve public-download evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

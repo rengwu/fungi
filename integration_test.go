@@ -135,7 +135,7 @@ func TestInterruptedSessionReopenPreservesOldRecord(t *testing.T) {
 	t.Setenv("FUNGI_STATE_DIR", root)
 	id := newID()
 	s, _ := sessionStore(id)
-	l := launch{Protocol: 1, Session: id, Exec: testHelper, Input: json.RawMessage(`{"seed":3}`), Delivery: delivery{Mode: "manual"}}
+	l := launch{Protocol: protocolVersion, Session: id, Exec: testHelper, Input: json.RawMessage(`{"seed":3}`), Delivery: delivery{Mode: "manual"}}
 	if err := s.init(l); err != nil {
 		t.Fatal(err)
 	}
@@ -237,7 +237,7 @@ func TestHelperExitAndStdoutDrain(t *testing.T) {
 	if err = json.Unmarshal(b, &r); err != nil {
 		t.Fatal("expected one JSON envelope", string(b))
 	}
-	if r.Outcome != "failed" || r.Error == nil || r.Error.Code != "helper_exited" {
+	if r.Outcome != "failed" || r.Error == nil || r.Error.Code != "helper_startup_failed" {
 		t.Fatal("missing failure result", string(b))
 	}
 	// A helper can terminate immediately after emitting its final message.
@@ -248,45 +248,27 @@ func TestHelperExitAndStdoutDrain(t *testing.T) {
 	}
 }
 
-func TestRendererStartupFailureIsSavedAndDiagnosable(t *testing.T) {
+func TestHelperStartupFailureIsSavedAndDiagnosable(t *testing.T) {
 	root := t.TempDir()
-	renderer := filepath.Join(root, "renderer")
-	helper := filepath.Join(root, rendererRelativePath())
-	if err := os.MkdirAll(filepath.Dir(helper), 0700); err != nil {
-		t.Fatal(err)
-	}
-	bytes, err := os.ReadFile(testFixture)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if err = os.WriteFile(helper, bytes, 0700); err != nil {
-		t.Fatal(err)
-	}
-	source := filepath.Join(root, "index.html")
-	if err = os.WriteFile(source, []byte("<!doctype html>"), 0600); err != nil {
-		t.Fatal(err)
-	}
-	t.Setenv("FUNGI_RENDERER_DIR", renderer)
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	state := filepath.Join(root, "sessions")
-	cmd := exec.CommandContext(ctx, testBinary, "open", source, "--delivery", "wait")
-	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+state)
+	cmd := exec.CommandContext(ctx, testBinary, "open", "--exec", testFixture, "--delivery", "wait")
+	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+root)
 	b, err := cmd.Output()
 	var r result
-	if ctx.Err() != nil || err == nil || json.Unmarshal(b, &r) != nil || r.Outcome != "failed" || r.Error == nil || r.Error.Code != "renderer_startup_failed" {
-		t.Fatalf("expected one saved renderer startup failure: %s (%v)", b, err)
+	if ctx.Err() != nil || err == nil || json.Unmarshal(b, &r) != nil || r.Outcome != "failed" || r.Error == nil || r.Error.Code != "helper_startup_failed" {
+		t.Fatalf("expected one saved helper startup failure: %s (%v)", b, err)
 	}
-	log := filepath.Join(state, r.Session, "worker.log")
+	log := filepath.Join(root, r.Session, "worker.log")
 	diagnostics, err := os.ReadFile(log)
 	if err != nil || !strings.Contains(string(diagnostics), "protocol fixture: unknown mode") || !strings.Contains(r.Error.Message, log) {
 		t.Fatalf("startup diagnostics unavailable: %+v, %s (%v)", r.Error, diagnostics, err)
 	}
 	cmd = exec.Command(testBinary, "collect", r.Session)
-	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+state)
+	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+root)
 	again, err := cmd.Output()
 	if err == nil || string(again) != string(b) {
-		t.Fatalf("collection must return the identical failed result: %s (%v)", again, err)
+		t.Fatalf("collection changed failure: %s (%v)", again, err)
 	}
 }
 
@@ -327,5 +309,27 @@ func TestHelperThatDoesNotReadLaunchIsBounded(t *testing.T) {
 	}
 	if ctx.Err() != nil {
 		t.Fatal("helper blocked launch until its own exit")
+	}
+}
+
+func TestUnlaunchableHelperHasDurableFailure(t *testing.T) {
+	root := t.TempDir()
+	helper := filepath.Join(root, "broken-helper"+strings.TrimPrefix(binaryName(), "fungi"))
+	if err := os.WriteFile(helper, []byte("not an executable format"), 0755); err != nil {
+		t.Fatal(err)
+	}
+	state := filepath.Join(root, "sessions")
+	cmd := exec.Command(testBinary, "open", "--exec", helper, "--delivery", "wait")
+	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+state)
+	output, err := cmd.Output()
+	var r result
+	if err == nil || json.Unmarshal(output, &r) != nil || r.Outcome != "failed" || r.Error == nil || r.Error.Code != "helper_startup_failed" {
+		t.Fatalf("unlaunchable helper failure not saved: %s (%v)", output, err)
+	}
+	cmd = exec.Command(testBinary, "collect", r.Session)
+	cmd.Env = append(os.Environ(), "FUNGI_STATE_DIR="+state)
+	again, err := cmd.Output()
+	if err == nil || string(again) != string(output) {
+		t.Fatalf("collected startup failure changed: %s (%v)", again, err)
 	}
 }

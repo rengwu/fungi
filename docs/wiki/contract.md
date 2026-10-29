@@ -1,99 +1,66 @@
 ---
 title: Session engine contract
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 # Session engine contract
 
-This page records the engine's responsibilities and invariants. The maintained
-public API, commands and schemas live in the embedded manual:
-
-| Reference | Scope |
-| --- | --- |
-| `fungi help cli` | Session, discovery and installation commands |
-| `fungi help html` | Four-method page API, limits and protocol 1 compatibility |
-| `fungi help delivery` | Launch receipts, outcomes, artifacts and recovery |
-| `fungi help helper` | Native executable protocol and acknowledgments |
-| `fungi help form` | Experimental flat JSON form schema |
-| `fungi help installation` | Packages, runtimes, updates and rollback |
-
-Use the [authoring guide](authoring.md) and [feature map](features/index.md)
-for entry points and verification recipes. [Current decisions](planning.md#current-decisions)
-establish the scope; dated reports retain their original build boundaries.
+The public protocol 2 reference is embedded in `fungi help helper`, `delivery`,
+`cli`, `installation`, `examples` and `migration`. The [accepted engine-only
+scope](planning.md#accepted-engine-only-scope-on-2026-10-28) assigns all UI
+implementations to other projects.
 
 ## Process ownership
 
-Go owns sessions, persistence and delivery. Each interaction has a detached
-owner process and a private state directory; an OS file lock establishes
-liveness without relying on a reusable PID. Pipes connect the launcher,
-owner and renderer/helper. There is no local HTTP listener or permanent daemon.
-Losing the launcher's waiting connection does not itself cancel the session.
+Each interaction has one detached Go session owner and an external executable
+helper communicating through stdin/stdout. The helper supplies its own runtime;
+Fungi launches it without a shell and removes the caller's CODEX_THREAD_ID from
+its environment. Helpers are trusted native programs, not sandboxed plugins.
 
-Wails supplies the native web window using the OS webview. Skills supply local
-HTML/assets or a trusted executable helper. The small built-in JSON renderer
-uses the same result path. Wails pages and native helpers are trusted local
-application code; browser storage isolation is best effort. Fungi keeps its
-own sessions, drafts, results and artifacts separate.
+The engine serializes helper messages and holds an exclusive session file lock.
+Startup readiness is bounded; no human timeout follows readiness. No shared
+service or renderer remains after a completed interaction.
 
 ## Result and lifecycle
 
-A session has at most one authoritative terminal result: `submitted`,
-`cancelled`, `closed` or `failed`. The owner serializes competing outcomes.
-A committed submission survives window exit and notification failure.
-Identical repeated submissions return the saved receipt; conflicting repeats
-fail without changing the result or sending another completion notice.
+Input is snapshotted at launch. Drafts are optional complete snapshots of JSON
+and attachments. Results distinguish submitted, cancelled, closed and failed.
+Only submission has answer data. Closing an interface must be reported by its
+helper and never implies approval. Each message is acknowledged after durable
+persistence. Identical duplicate terminal results return the committed record;
+a different terminal result is rejected.
 
-Persist referenced artifact bytes before acknowledging a draft or result.
-Failed persistence must not report success or replace previously acknowledged
-state. Each draft/submission supplies its complete data and attachment list.
-Artifact paths are confined to the helper output directory before the owner
-copies them into content-addressed storage. The advertised limits apply before
-success. JSON response data remains opaque to the engine.
-
-Reopening creates a new linked session with the current caller, saved launch
-input and the latest acknowledged draft; the old session remains unchanged.
-An active or submitted session cannot be reopened. Source files must still be
-available. Unsaved UI state and historical copies of source assets are not
-reconstructed. Collection is repeatable and non-destructive; saved sessions
-remain until explicitly removed.
+Artifacts are copied from confined paths under outputDir, hashed and saved
+before acknowledgment. Read advertised size limits. Final responses persist
+independently of drafts. Session storage is separate from managed installations;
+collection is non-destructive and version pruning does not remove session data.
 
 ## Failure and recovery
 
-A helper exit without a terminal result is a failure. If an owner exits
-without a committed result, collection reports an interrupted session and
-leaves recovery explicit. Startup and protocol operations have bounded
-timeouts; ordinary human waiting has no Fungi deadline after readiness.
+A failed helper start or exit before readiness produces a durable
+helper_startup_failed result. Exiting after readiness without a terminal message
+produces helper_exited. Malformed output or blocked protocol writes cannot keep
+the owner indefinitely waiting for a broken helper. Committed results survive
+notification failure and helper exit.
 
-Window close records `closed` and preserves acknowledged drafts. The bridge
-orders save/submit/cancel calls before asynchronous attachment encoding;
-a rejected operation does not prevent a later retry. There is no automatic
-DOM-state capture, heartbeat or restart. A Wails web-content crash may leave
-a blank window alive: close it before explicit collection and reopening.
-See [interface recovery](features/interfaces.md#verification-recipe).
+Explicit reopen creates a new session from original input, helper arguments and
+the last acknowledged draft/artifacts. Active and submitted sessions cannot be
+reopened. Original records remain unchanged. There is no automatic restart or
+remote desktop transport. External helpers/assets must remain available.
 
 ## Delivery boundary
 
-Bind the caller at launch, outside page-controlled data. Use one return route:
-an exact-caller callback, a host-managed pending/background call, or the manual
-“done” fallback. Never infer a destination from the latest conversation or poll
-collection while a person is responding. No harness setup is required.
-
-Keep saved-result state separate from notification state. An armed route is
-not guaranteed delivery; accepted notification is not proof of consumption.
-Do not blindly resend after an ambiguous acknowledgment. Preserve the result
-for exact-session collection regardless of notification outcome. Reopening
-captures the caller anew; it never reuses the old session's callback target.
+Bind the exact caller at launch, outside helper data. Auto uses the supported
+Codex callback or reports manual fallback. A host-managed pending/background
+call may use wait. Manual delivery requires the user's done cue before one
+collection. Never poll while a person responds. Saved result state is separate
+from notification state; accepted notification is not proof of host consumption,
+and ambiguous callbacks are not automatically resent.
 
 ## Verification boundary
 
-[Sessions](features/sessions.md), [interfaces](features/interfaces.md),
-[delivery](features/delivery.md) and [installation](features/installation.md)
-record their expected behavior and executable checks. The
-[platform record](platforms.md) distinguishes current Wails observations from
-historical Electron proofs. The [October 27 contract and AFK run](verification/runs/2026-10-27-afk-contract.md)
-records local protocol, callback, two-hour idle and sleep/wake checks.
-
-These results qualify their tested builds, platforms and harness modes.
-Clean consumer-machine setup, physical Windows/Linux Wails input and broader
-idle/failure behavior remain separate verification work. Protocol 1 preserves
-documented names, types and meanings; the experimental form schema, renderer
-internals and on-disk layout are outside that public compatibility promise.
+The [feature map](features/index.md), [setup](verification/setup.md) and
+[headless run](verification/runs/2026-10-28-headless.md) record exact checks.
+Legacy UI reports remain historical. Protocol 2 explicitly withdraws the old
+page/CLI contract; protocol-1 session data requires its original executable.
+Public message names/types/meanings are stable within protocol 2; helper schemas
+and internal storage layout are outside that promise.

@@ -21,8 +21,8 @@ func serveSession(id string, readyOut io.Writer) error {
 	if err != nil {
 		return err
 	}
-	var l launch
-	if err = readJSON(s.path("launch.json"), &l); err != nil {
+	l, err := s.readLaunch()
+	if err != nil {
 		return err
 	}
 	if _, err = s.readResult(); err == nil {
@@ -35,23 +35,7 @@ func serveSession(id string, readyOut io.Writer) error {
 	}
 	defer unlock()
 	cmd := exec.Command(l.Exec, l.Args...)
-	if l.Exec == "" {
-		p, e := rendererCommand()
-		if e == nil {
-			_, e = checkRenderer(p)
-		}
-		if e != nil {
-			r, saveErr := s.commit(id, message{Outcome: "failed", Error: asProblem(e)})
-			if saveErr != nil {
-				return saveErr
-			}
-			_ = emit(readyOut, r)
-			notifyResult(s, l)
-			return e
-		}
-		cmd = exec.Command(p)
-	}
-	// A renderer/helper does not need the caller routing environment.
+	// Helpers do not need the caller routing environment.
 	cmd.Env = childEnv()
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
@@ -63,6 +47,12 @@ func serveSession(id string, readyOut io.Writer) error {
 	}
 	cmd.Stderr = os.Stderr
 	if err = cmd.Start(); err != nil {
+		r, saveErr := s.commit(id, message{Outcome: "failed", Error: &problem{"helper_startup_failed", "cannot start helper: " + err.Error() + ". Diagnostics: " + s.path("worker.log")}})
+		if saveErr != nil {
+			return saveErr
+		}
+		_ = emit(readyOut, r)
+		notifyResult(s, l)
 		return err
 	}
 	defer cmd.Process.Kill()
@@ -70,10 +60,7 @@ func serveSession(id string, readyOut io.Writer) error {
 	if err != nil {
 		return err
 	}
-	start := map[string]any{"protocol": 1, "session": id, "input": l.Input, "draft": d.Data, "draftArtifacts": d.Artifacts, "source": l.Source, "outputDir": s.path("output"), "limits": limits(), "delivery": publicDelivery(l.Delivery)}
-	if l.Exec == "" {
-		start["width"], start["height"] = l.Width, l.Height
-	}
+	start := map[string]any{"protocol": protocolVersion, "session": id, "input": l.Input, "draft": d.Data, "draftArtifacts": d.Artifacts, "outputDir": s.path("output"), "limits": limits(), "delivery": publicDelivery(l.Delivery)}
 	// A helper may exit after writing its result before reading launch input.
 	// Drain stdout even if this write fails; a valid result already in the pipe
 	// still wins. A helper that never reads must not block startup indefinitely.
@@ -134,7 +121,7 @@ loop:
 					timer.Stop()
 					exe := collectionExecutable()
 					receipt := opened{
-						Protocol: 1, Kind: "opened", Session: id,
+						Protocol: protocolVersion, Kind: "opened", Session: id,
 						Delivery:   publicDelivery(l.Delivery),
 						Collect:    []string{exe, "collect", id},
 						CollectEnv: map[string]string{"FUNGI_STATE_DIR": s.path("..")},
@@ -172,11 +159,11 @@ loop:
 					detail = exitErr.Error()
 				}
 				code := "helper_exited"
-				if l.Exec == "" && !isReady {
-					code = "renderer_startup_failed"
-					detail = "bundled renderer exited before readiness: " + detail +
+				if !isReady {
+					code = "helper_startup_failed"
+					detail = "helper exited before readiness: " + detail +
 						". Diagnostics: " + s.path("worker.log") +
-						". Run fungi doctor to check runtime availability; a desktop session is also required."
+						". Check the helper executable and its own runtime requirements."
 				}
 				err = commit(message{Outcome: "failed", Error: &problem{code, detail}})
 			}

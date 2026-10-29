@@ -1,22 +1,21 @@
 ---
 title: Fungi
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 # Fungi
 
-Fungi is a portable interaction engine for skill-driven agents. Go owns
-sessions and durable results; Wails hosts local web interfaces using the OS
-webview. Skills define the workflow and interpretation of human responses.
+Fungi is a headless session engine for skill-driven agents. Go owns sessions,
+durable drafts/results/artifacts, recovery and completion delivery. Other
+projects supply all interfaces, executable helpers and their runtimes.
 
-The documented public release is the unsigned `v0.1.0-alpha.2`. Current source
-also includes local concise-help and protocol/AFK work. No harness setup is
-required; unsupported automatic-return routes use the manual “done” fallback.
-Workflow-skill development lives in the separate `jstack-fungi-test` project.
+The 0.2 development line uses protocol 2 and engine package format 3. Previously
+published 0.1 alpha releases contain the old UI. No new release is implied by
+local source changes. Workflow-skill work lives in `fungi-skills`.
 
 ## Current reference
 
 - [Current decisions and remaining work](planning.md#current-decisions)
-- [Author a Fungi interface](authoring.md)
+- [Author a Fungi helper](authoring.md)
 - [Session engine contract](contract.md)
 - [Feature map](features/index.md)
 - [Verified environments and portable distribution](platforms.md)
@@ -24,8 +23,11 @@ Workflow-skill development lives in the separate `jstack-fungi-test` project.
 - [Verification setup](verification/setup.md)
 - [Portable desktop verification](verification/desktop.md)
 - [Windows verification handoff](verification/windows.md)
+- [Project icon](icon.md)
 
 ## Recent verification
+
+- [Engine-only distribution and protocol migration](verification/runs/2026-10-28-headless.md)
 
 - [Callback across an intervening chat message](verification/runs/2026-10-27-interleaved-message.md)
 

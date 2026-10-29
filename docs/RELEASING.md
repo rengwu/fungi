@@ -1,17 +1,14 @@
-# Publishing an alpha
+# Publishing an engine alpha
 
 An annotated `vX.Y.Z-alpha.N` tag triggers `.github/workflows/release.yml`.
-Only maintainers should push release tags. The workflow publishes automatically
-after its checks pass; stable releases are intentionally not automated yet.
+Tag publication requires an explicit maintainer request; local implementation
+and verification do not publish a release. The 0.2 engine line uses protocol 2
+and package format 3; existing 0.1 alpha downloads remain historical UI builds.
 
-1. Write `docs/releases/VERSION.md`, including install commands, changes,
-   initial targets and material limitations. Update version-pinned README/manual
-   examples and rebuild the wiki. Every primary installation example must be
-   one copy-paste line per shell, including current-terminal PATH setup when
-   needed. Keep diagnostic commands separate and preserve long command lines
-   in terminal help. Commit all release source and notes.
-2. Set `FUNGI_RELEASE_VERSION` to the new, unpublished version from step 1,
-   then push an annotated alpha tag pointing to that exact commit:
+1. Write `docs/releases/VERSION.md` with changes, migration, install commands,
+   target platforms and observed limitations. Update current version examples,
+   build/check the wiki and commit the reviewed source.
+2. Push an annotated tag only when publication is authorized:
 
    ```sh
    FUNGI_RELEASE_VERSION=vX.Y.Z-alpha.N
@@ -19,57 +16,33 @@ after its checks pass; stable releases are intentionally not automated yet.
    git push origin "$FUNGI_RELEASE_VERSION"
    ```
 
-3. Check the **Publish alpha** run. It reuses the foundation workflow to test
-   the core, bridge, native packages, installer, update/rollback and Linux
-   runtime setup. The exact Ubuntu 22 package must also pass on Ubuntu 24.
-4. Publication selects only Mac arm64, Windows amd64 and the Ubuntu 22-built
-   Linux amd64 archive, with SHA-256 sidecars and both installer scripts.
-   It checks each BUILD.json against the tag's commit and requires clean source.
-   The GitHub CLI uploads all assets before publishing the prerelease. There
-   is no rebuilding between verification and publication.
-5. The remaining jobs anonymously download the published installer, install to
-   a temporary path with spaces, run doctor, fetch the same published version
-   through `fungi update`, discover examples and exercise the real renderer.
-   They do not modify persistent PATH or install runtimes on a user's machine.
-   Preserve their evidence and record the release run in the wiki.
+3. The engine workflow tests Go, packages, offline discovery, helper sessions,
+   artifacts, bootstrap, update and rollback on macOS, Windows and Ubuntu.
+   It also executes the Ubuntu 22-built archive unchanged on Ubuntu 24.
+   No desktop, webview, Xvfb or system package installation is required.
+4. Publication selects Mac arm64, Windows amd64 and Ubuntu 22-built Linux amd64
+   archives, SHA-256 sidecars and installers. BUILD.json must match the tag
+   commit and clean source. The tested bytes are published without rebuilding.
+5. Anonymous public-download jobs install the exact published version, check
+   doctor, update from GitHub and execute external helper sessions. Preserve
+   evidence and record the release result in the wiki.
 
-The release stays a prerelease and is not marked Latest. Bootstrap and updater
-commands must select an alpha explicitly. Their default continues to mean
-latest stable. This avoids introducing an update-channel service or registry.
+Alpha versions must be selected explicitly; the default updater/bootstrap
+version remains latest stable. Never replace a published version's assets or
+move its tag. Unsigned binaries may be subject to host security policy; CI is
+not evidence of signing or clean consumer-machine installation.
 
-Do not overwrite a published version's assets or move its tag: installed
-versions are immutable. A correction needs a new alpha number. If upload fails
-and leaves a draft, inspect it before removing that unpublished draft and
-retrying. If post-publication checks fail, record the failure on the release
-and fix it in the next alpha; do not silently replace the download.
-
-These releases are unsigned and unnotarized. Clean consumer-machine setup and
-physical desktop qualification are separate from CI. No signing keys, paid
-services, OS policy changes or automatic runtime installs are part of this flow.
-
-Preserve the [protocol 1 authoring contract](manual/html.md#compatibility) across
-releases. The existing core, bridge and native renderer checks cover its behavior;
-update them when adding capabilities. Optional metadata may be added. Changing
-documented names, types or meanings requires a new protocol, not an undocumented
-skill migration. Renderer internals and the experimental form schema are excluded.
-
-To repeat the public-download check on a machine with a ready desktop/runtime:
+The scripts are source-controlled maintainer tools requiring Node 22+ and Go
+1.26 for builds. End users need neither. Repeat a published engine check with:
 
 ```sh
-node scripts/public-release-smoke.mjs v0.1.0-alpha.2
-# On Linux CI or a virtual display:
-xvfb-run -a node scripts/public-release-smoke.mjs v0.1.0-alpha.2
+node scripts/public-release-smoke.mjs vX.Y.Z-alpha.N
 ```
 
-The driver requires Node only for verification; users need neither Node nor Go.
-It saves evidence under `verification-output/public-release-*` and deletes its
-temporary installation. It opens synthetic test windows, never user interviews.
+Manual **Publish alpha** runs accept an existing engine version and platform,
+skip publication and run only the download check. Use the matching historical
+checkout when verifying protocol-1 releases.
 
-To check an existing download on a hosted platform with the current verification
-driver, manually run **Publish alpha**, selecting its version and platform.
-Manual runs skip validation/build/publication and perform only the public-download
-check. For example:
-
-```sh
-gh workflow run release.yml --ref main -f version=v0.1.0-alpha.2 -f platform=macos-latest
-```
+Preserve the [protocol 2 contract](manual/helper.md#limits-and-compatibility).
+Optional metadata may be added; changing documented names, types or meanings
+requires a new protocol. Keep session migration explicit and preserve old data.

@@ -13,7 +13,7 @@ import (
 func testStore(t *testing.T) *store {
 	t.Helper()
 	s := &store{dir: filepath.Join(t.TempDir(), newID()), publish: atomicJSON}
-	if err := s.init(launch{Session: filepath.Base(s.dir), Input: json.RawMessage("null")}); err != nil {
+	if err := s.init(launch{Protocol: protocolVersion, Session: filepath.Base(s.dir), Input: json.RawMessage("null")}); err != nil {
 		t.Fatal(err)
 	}
 	return s
@@ -129,7 +129,7 @@ func TestDraftImageSurvivesClose(t *testing.T) {
 		t.Fatal("close lost draft image")
 	}
 }
-func TestMalformedProtocolAndForms(t *testing.T) {
+func TestMalformedProtocol(t *testing.T) {
 	count := 0
 	if err := scanMessages(strings.NewReader("\r\n \t\n{\"type\":\"ready\"}\r\n\n"), func(m message) error {
 		if m.Type != "ready" {
@@ -143,18 +143,6 @@ func TestMalformedProtocolAndForms(t *testing.T) {
 	for _, raw := range []string{`no json`, strings.Repeat("x", maxJSON+1)} {
 		if err := scanMessages(strings.NewReader(raw), func(message) error { return nil }); err == nil {
 			t.Fatal("accepted invalid protocol")
-		}
-	}
-	for _, raw := range []string{
-		`{"title":"a","fields":[{"name":"x","type":"invented"}]}`,
-		`{"title":"a","fields":[{"name":"x","type":"range","min":1,"max":0}]}`,
-		`{"title":"a","fields":[{"name":"x","type":"text"},{"name":"x","type":"text"}]}`,
-		`{"title":"a","unknown":3,"fields":[]}`,
-		`{"title":"a","fields":[{"name":"x","type":"text","value":12}]}`,
-		`{"title":"a","fields":[{"name":"x","type":"range","min":0,"max":10,"value":11}]}`,
-	} {
-		if err := validateForm([]byte(raw)); err == nil {
-			t.Fatal("accepted invalid form", raw)
 		}
 	}
 }

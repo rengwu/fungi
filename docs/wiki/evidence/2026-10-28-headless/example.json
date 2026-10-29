@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "example": "embedded Python helper",
+  "falseInputPreserved": true,
+  "artifactVerified": true,
+  "result": {
+    "protocol": 2,
+    "kind": "result",
+    "session": "06c7c445363971aeef6d795349ce072b",
+    "outcome": "submitted",
+    "data": false,
+    "artifacts": [
+      {
+        "id": "d79433f57306b74330936c2a83cb0bdfc50d589ee2d89da1b61b4ccb789c6d46",
+        "key": "note",
+        "name": "note.txt",
+        "mediaType": "text/plain",
+        "path": "/Users/rengwu/Desktop/Projects/fungi/verification-output/headless-example/sessions/06c7c445363971aeef6d795349ce072b/artifacts/d79433f57306b74330936c2a83cb0bdfc50d589ee2d89da1b61b4ccb789c6d46",
+        "bytes": 16,
+        "sha256": "d79433f57306b74330936c2a83cb0bdfc50d589ee2d89da1b61b4ccb789c6d46"
+      }
+    ]
+  }
+}

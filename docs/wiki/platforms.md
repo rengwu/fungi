@@ -1,31 +1,25 @@
 ---
 title: Verified environments and portable distribution
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 # Verified environments and portable distribution
 
-Current packages contain the Go CLI and a Wails v2.17.0 window helper, with
-one archive per OS/CPU. They contain no Electron, Node or browser engine.
-The system web engine is a runtime prerequisite:
+Current source builds a headless Go engine with CGO disabled, protocol 2 and
+package format 3. All UI implementations belong to other projects. Engine
+packages have no GUI, webview or native renderer dependency. Release targets
+remain Mac arm64, Windows x64 and Linux x64; cross-build support alone is not
+runtime qualification.
 
-| Platform | Engine | Missing-runtime setup |
-| --- | --- | --- |
-| macOS 26+ (first alpha, arm64) | WKWebView supplied by macOS | OS repair/update; no separate runtime installer |
-| Windows | Microsoft WebView2 | Explicit bootstrap `-SetupRuntime`, official signed Microsoft installer |
-| Ubuntu 22.04 / 24.04 | WebKitGTK 4.1 and its runtime dependencies | Explicit bootstrap `--setup-runtime`, official Ubuntu apt packages |
+The [headless run](verification/runs/2026-10-28-headless.md) records current local
+execution, package checks and limitations. Hosted CI, publication, signing and
+consumer-machine installation require new evidence. No 0.2 public release is
+implied. Previous 0.1 alpha archives remain UI packages.
 
-`fungi doctor` checks the package/runtime without opening a window. Ordinary
-launches never install software. Other Linux distributions need compatible
-libraries supplied by their operator; the bootstrap does not guess package
-managers. A graphical desktop session is still required. Runtime availability
-alone does not prove display, GPU, codec or input behavior.
+Everything below records the former Wails/Electron distributions and their
+historical limits. Those renderer requirements and tests no longer govern the
+engine. Use [verification setup](verification/setup.md) for current checks.
 
-The [installation contract](features/installation.md) covers bootstrap,
-updates, rollback and migration from old development previews. The current
-integration passed its accepted scope. The first public distribution is an
-unsigned alpha; signed/notarized consumer downloads remain separate work.
-
-## Current Wails evidence
+## Historical Wails evidence
 
 The [prototype](verification/runs/2026-10-25-wails.md) and
 [follow-up](verification/runs/2026-10-25-wails-followup.md) preserve measured

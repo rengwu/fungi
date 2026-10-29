@@ -4,15 +4,15 @@ import {createServer} from 'node:http';
 import {createReadStream} from 'node:fs';
 import {mkdtemp,mkdir,readFile,writeFile,stat} from 'node:fs/promises';
 import {execFile} from 'node:child_process';
-import {promisify,parseArgs} from 'node:util';
+import {promisify} from 'node:util';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const {values,positionals}=parseArgs({allowPositionals:true,options:{'core-only':{type:'boolean'}}});
-assert.equal(positionals.length,2,'usage: install-smoke.mjs ARCHIVE_A ARCHIVE_B [--core-only]');
+const positionals=process.argv.slice(2);
+assert.equal(positionals.length,2,'usage: install-smoke.mjs ARCHIVE_A ARCHIVE_B');
 const [archiveA,archiveB]=positionals.map(p=>path.resolve(p));
 const versionA=path.basename(path.dirname(archiveA)).replace(/^release-/,''),versionB=path.basename(path.dirname(archiveB)).replace(/^release-/,'');
 const checksumA=(await readFile(archiveA+'.sha256','utf8')).trim().split(/\s+/)[0];
@@ -41,15 +41,9 @@ async function discovery(version){
     }
   }
   const result=await run(['describe','examples']);
-  assert.equal(result.capability.items.length,4);
-  for(const item of result.capability.items){
-    assert.equal(item.available,true);assert.ok(path.isAbsolute(item.source));
-    assert.equal(path.relative(base,item.source).startsWith('..'),false);
-    assert.ok((await stat(item.source)).isFile());
-    assert.deepEqual(item.argv.slice(0,3),[path.join(base,path.basename(binary)),'open',item.source]);
-    if(item.input)JSON.parse(await readFile(item.input,'utf8'));
-  }
-  return {version,topics:index.documentation.topics,examples:result.capability.items};
+  assert.equal(index.protocol,2);assert.equal(index.engine,'headless');
+  assert.equal(result.capability.guide,'fungi help examples');
+  return {version,topics:index.documentation.topics};
 }
 const requests=[];
 const server=createServer(async(req,res)=>{
@@ -61,7 +55,7 @@ const server=createServer(async(req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const bootstrapEnv={...process.env,FUNGI_RELEASE_BASE_URL:`http://127.0.0.1:${server.address().port}`,FUNGI_INSTALL_DIR:installation};
-const evidence={directory,platform:process.platform,arch:process.arch,archiveA,checksumA,archiveB,checksumB,requests,scope:values['core-only']?'bootstrap and version switching; UI omitted':'bootstrap, active Wails session, draft/artifact, update and rollback',childPathEmpty:true};
+const evidence={directory,platform:process.platform,arch:process.arch,archiveA,checksumA,archiveB,checksumB,requests,scope:'bootstrap, active external helper, draft/artifact, update and rollback',childPathEmpty:true};
 async function untilFile(file){
   // A finite automated fixture wait, never an agent-facing wait for a person.
   const deadline=Date.now()+60000;
@@ -84,43 +78,25 @@ try{
   evidence.before=await run(['--version']);assert.equal(evidence.before.version,versionA);
   evidence.discoveryBefore=await discovery(versionA);
   assert.deepEqual(requests,[`/download/${versionA}/${path.basename(archiveA)}.sha256`,`/download/${versionA}/${path.basename(archiveA)}`]);
-  let receipt;
-  if(!values['core-only']){
-    await writeFile(path.join(assets,'index.html'),`<!doctype html><meta charset="utf-8"><title>Fungi update verification</title>
-      <h1>Update verification</h1><p>Synthetic fixture. This window submits after the test updates Fungi.</p>
-      <script type="module">
-      const initial=await fungi.ready();
-      const canvas=document.createElement('canvas');canvas.width=canvas.height=32;document.body.append(canvas);
-      const ctx=canvas.getContext('2d');ctx.fillStyle='#865ce6';ctx.fillRect(0,0,32,32);
-      const blob=await new Promise(resolve=>canvas.toBlob(resolve));
-      const data={notes:'Saved before update',restored:!!initial.draft};
-      await fungi.saveDraft(data,[{key:'canvas',name:'canvas.png',blob}]);
-      const deadline=Date.now()+90000;
-      while(Date.now()<deadline){
-        const response=await fetch('./gate.json',{cache:'no-store'});
-        if(response.ok){const gate=await response.json();if(gate.submit){await fungi.submit({...data,activated:gate.version},[{key:'canvas',name:'canvas.png',blob}]);break;}}
-        await new Promise(resolve=>setTimeout(resolve,50));
-      }
-      </script>`);
-    receipt=await run(['open',path.join(assets,'index.html'),'--delivery','manual']);
-    evidence.receipt=receipt;
-    evidence.draft=await untilFile(path.join(state,receipt.session,'draft.json'));
-    assert.equal(evidence.draft.data.notes,'Saved before update');
-    assert.equal(path.basename(path.dirname(receipt.collect[0])),'bin');
-  }
+  const gate=path.join(assets,'gate');
+  const receipt=await run(['open','--exec',process.execPath,'--delivery','manual','--',path.join(root,'scripts/helper-fixture.mjs'),gate]);
+  evidence.receipt=receipt;
+  evidence.draft=await untilFile(path.join(state,receipt.session,'draft.json'));
+  assert.equal(evidence.draft.data.marker,'fixture');
+  assert.equal(path.basename(path.dirname(receipt.collect[0])),'bin');
   evidence.update=await run(['update','--archive',archiveB,'--sha256',checksumB]);
   evidence.after=await run(['--version']);assert.equal(evidence.after.version,versionB);
   evidence.discoveryAfter=await discovery(versionB);
-  evidence.runtime=await run(['doctor']);assert.equal(evidence.runtime.available,true);
+  evidence.engine=await run(['doctor']);assert.equal(evidence.engine.available,true);
   const manifest=JSON.parse(await readFile(path.join(installation,'versions',versionB,'RELEASE.json'),'utf8'));
-  assert.equal(manifest.format,2);assert.ok(manifest.wails);assert.ok(!manifest.electron);
-  assert.equal(await stat(path.join(installation,'versions',versionB,'renderer','runtime')).then(()=>true,()=>false),false,'package must not bundle a browser engine');
+  assert.equal(manifest.format,3);assert.equal(manifest.protocol,2);assert.ok(!manifest.wails&&!manifest.electron&&!manifest.rendererSHA256);
+  assert.equal(await stat(path.join(installation,'versions',versionB,'renderer')).then(()=>true,()=>false),false,'engine must not contain a renderer');
   evidence.manifest=manifest;
   if(receipt){
-    await writeFile(path.join(assets,'gate.json'),JSON.stringify({submit:true,version:versionB}));
+    await writeFile(gate,'submitted');
     const saved=await untilFile(path.join(state,receipt.session,'result.json'));
     const result=JSON.parse((await promisify(execFile)(receipt.collect[0],receipt.collect.slice(1),{env:{...env,...receipt.collectEnv},timeout:30000})).stdout);
-    assert.deepEqual(result,saved);assert.equal(result.outcome,'submitted');assert.equal(result.data.activated,versionB);
+    assert.deepEqual(result,saved);assert.equal(result.outcome,'submitted');assert.equal(result.data.notes.marker,'fixture');
     const bytes=await readFile(result.artifacts[0].path);assert.equal(createHash('sha256').update(bytes).digest('hex'),result.artifacts[0].sha256);
     evidence.result=result;evidence.artifactVerified=true;
   }
@@ -129,6 +105,7 @@ try{
   evidence.passed=true;
 }catch(error){evidence.passed=false;evidence.error={message:error.message,code:error.code,signal:error.signal,killed:error.killed,stdout:error.stdout,stderr:error.stderr};throw error;}
 finally{
+  await writeFile(path.join(assets,'gate'),'cancelled');
   await new Promise(resolve=>server.close(resolve));
   await writeFile(path.join(directory,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
   console.log(JSON.stringify({evidence:path.join(directory,'evidence.json'),...evidence},null,2));

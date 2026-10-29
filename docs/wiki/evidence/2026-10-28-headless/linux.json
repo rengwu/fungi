@@ -1,0 +1,41 @@
+{
+  "platform": "linux/amd64",
+  "environment": "scratch container, no shell, libc, webview, network or display",
+  "sourceEngineSHA256": "d9c36b291b763dcacc134ccb1a5efce2b84452b54a4dd5ae5d634aced454bac7",
+  "buildLog": "",
+  "doctor": {
+    "available": true,
+    "checks": [
+      "atomicStorage",
+      "exclusiveLock"
+    ],
+    "engine": "headless",
+    "kind": "doctor",
+    "protocol": 2,
+    "stateDir": "/sessions"
+  },
+  "result": {
+    "protocol": 2,
+    "kind": "result",
+    "session": "24ba832d64aff578475433b0713d20da",
+    "outcome": "submitted",
+    "data": {
+      "input": null,
+      "notes": "Native response",
+      "restoredDraft": null
+    },
+    "artifacts": [
+      {
+        "id": "b6b66e296593602b324403680ebe9c53053b51e5495224b0a2dc0f47853f8e74",
+        "key": "note",
+        "name": "note.txt",
+        "mediaType": "text/plain",
+        "path": "/sessions/24ba832d64aff578475433b0713d20da/artifacts/b6b66e296593602b324403680ebe9c53053b51e5495224b0a2dc0f47853f8e74",
+        "bytes": 48,
+        "sha256": "b6b66e296593602b324403680ebe9c53053b51e5495224b0a2dc0f47853f8e74"
+      }
+    ]
+  },
+  "artifactVerified": true,
+  "passed": true
+}

@@ -32,8 +32,8 @@ func run() error {
 	if err := dec.Decode(&launch); err != nil {
 		return err
 	}
-	if launch.Protocol != 1 || launch.Input.Seconds < 1 || launch.Input.Seconds > 86400 || launch.Input.Marker == "" {
-		return fmt.Errorf("expected protocol 1, input seconds 1–86400 and a nonempty marker")
+	if launch.Protocol != 2 || launch.Input.Seconds < 1 || launch.Input.Seconds > 86400 || launch.Input.Marker == "" {
+		return fmt.Errorf("expected protocol 2, input seconds 1–86400 and a nonempty marker")
 	}
 	request := func(value any) error {
 		if err := enc.Encode(value); err != nil {
