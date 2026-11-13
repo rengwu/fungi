@@ -1,0 +1,130 @@
+---
+title: Project-state skill and visual report proposal
+section: Discussions
+updated: 2026-11-02
+status: Proposed
+---
+# Project-state skill and visual report proposal
+
+The proposed `project-state` skill produces a detailed, evidence-backed account of what a project does, how it is built, what is delivered, and what remains unfinished or uncertain. It adds a navigable Fungi report to the full written analysis.
+
+The user requested research and a Fungi visual prototype for this pass, and is comfortable extending Fungi with selected libraries. That establishes the desired direction, not acceptance of a particular package, final skill name, or implementation plan. No new active skill, shared UI module, dependency, or native runtime change was installed by this research. The prototype and its synthetic sessions remain outside the repository.
+
+The [prototype verification record](../verification/runs/2026-11-02-project-state-prototype.md) records the tested versions, retained bundle, screenshots and limitations. The QuineCMS audit from the conversation supplied realistic sample content; this development note does not become its authoritative project status.
+
+## What the skill should deliver
+
+A comprehensive audit should answer these questions, with sources and explicit coverage limits:
+
+| Area | Questions and output |
+| --- | --- |
+| Project boundary | Which repositories, packages, applications, sites and environments constitute the project? Which branch, revision, dirty files and dependency pins were inspected? |
+| Functionality | What can each user or operator do today? Include entry points, prerequisites, workflows, roles, commands, routes, settings, integrations and failure behavior. Nest capabilities where a single category hides substantial behavior. |
+| Specifications | What behavior was accepted or documented? What does the source actually implement? Include schemas, invariants, lifecycle rules, compatibility, constraints and explicit non-goals. Preserve conflicts instead of choosing silently. |
+| Architecture | What are the components, ownership boundaries, data models, build stages, runtime interactions and external dependencies? Distinguish source-derived relationships from observed runtime traffic. |
+| Current work | What is committed, dirty, on a branch, under review, blocked, deferred or awaiting a decision? Inspect recent changes and available issue/PR sources. A changed file alone does not prove active ownership or intent. |
+| Bugs and gaps | Separate reproduced defects, reported defects, suspected defects, missing requirements, unfinished work, documentation drift and missing verification. Give impact, basis and a useful next action. |
+| Verification | Which checks ran, on which revision and environment, and with what result? Keep fresh evidence, historical evidence, maintainer reports, mocks and unavailable checks distinct. |
+| Delivery | Which version is local, committed, remote, released or deployed? Treat missing deployment identity as unknown. Do not transfer a pilot's evidence to newer code automatically. |
+| Change over time | When a trustworthy prior snapshot exists, show actual additions, removals and state changes. Otherwise start a baseline; do not invent progress history. |
+| Next work | Provide a short, reasoned order of work, dependencies and unresolved decisions. Do not invent owners, deadlines, severity, completion percentages or health scores. |
+
+“Full” means systematic coverage of the accessible project surface, not a guarantee of exhaustive defect detection. Include a coverage ledger naming inspected and unavailable sources. Unknown is a valid outcome.
+
+## Proposed workflow
+
+1. **Establish scope.** Read project instructions and existing feature, decision, verification and planning records. Resolve related repositories. Capture revision and working-tree identity before checking behavior. Adapt to non-Git projects and monorepos rather than assuming a single GitHub repository.
+2. **Inventory behavior.** Trace actual entry points through implementation. Reconcile documentation and accepted requirements. Build a detailed capability catalog with explicit constraints and source references.
+3. **Inspect work and contradictions.** Read diffs, relevant history, TODOs, decisions and available issues/PRs. A TODO is a lead, not a confirmed bug. Record contradictory claims and stale documentation.
+4. **Verify proportionately.** Run relevant safe checks and inspect representative live behavior when practical. Follow project verification rules. Separate environment/tool failures from product failures. Do not claim live integrations based on mocked tests.
+5. **Synthesize a snapshot.** Link claims to reusable evidence IDs, revisions, dates and limitations. Keep implementation, verification and delivery independent. Explain what each finding means for the project.
+6. **Present and preserve.** Save a detailed narrative and versioned structured snapshot using the project's existing documentation system. Render a retained, offline Fungi bundle from the same data. Offer optional correction notes and explicit next-work selections.
+
+The audit is read-only with respect to product behavior. It may create its requested reports and evidence; it does not independently authorize fixes, commits, publishing, deployments or messages. Existing authorization from the enclosing task still applies. A closed report, node selection or unsent checkbox is not approval.
+
+## Proposed snapshot contract
+
+A versioned `project-state/v1` JSON document should be the rendering input, with Markdown retaining narrative authority in a wiki project. Generate both from one audit rather than maintaining two independent sets of project facts. Stable IDs link entities, claims, evidence and findings; existing project feature IDs take precedence.
+
+| Record | Important fields |
+| --- | --- |
+| Snapshot | Schema/version, snapshot ID, title, captured time, scope, repositories/build identities, source coverage, optional real baseline ID |
+| Capability | Stable ID, parent/area, user intent, entry points, prerequisites, expected behavior and its basis, observed behavior, constraints, source references |
+| State | Independent implementation state, verification state and delivery state; each with its own basis and timestamp |
+| Evidence | ID, type, source path/URL, revision/content hash, observed time, environment, command/action where relevant, outcome and limitations |
+| Finding | ID, kind, affected capabilities, description, impact, evidence IDs, established or reported status, dependencies and suggested follow-up |
+| Architecture | Typed components and edges, explanatory labels, source/evidence references, declared vs inferred vs observed relationship basis |
+| Activity | Actual dated events and their source; unknown dates remain absent |
+| Comparison | Previous/current IDs and attributable changes; no synthetic trends |
+
+Uncertainty should be described in words with its basis, rather than reduced to a numerical confidence score. A capability can be implemented locally, pass automated tests, and still have no deployed proof.
+
+## Visual report
+
+The prototype has seven views:
+
+| View | Useful visualization and interaction |
+| --- | --- |
+| Overview | Concrete counts, concise assessment, scope and delivery table, an interactive inventory chart |
+| Capabilities | Searchable, sortable inventory; detail dialog for behavior, constraints and source |
+| Architecture | Selectable dependency map with pan/zoom, keyboard component selector, relationship table, and a separate entity diagram |
+| Work and gaps | Categorized findings, source details and a timeline of actual changes |
+| Evidence | Fresh vs historical vs reported vs unknown evidence, with limitations beside each claim |
+| Libraries | Comparison of visualization and UI candidates, measured prototype assets, direct primary-source links |
+| Skill proposal | Audit workflow diagram, responsibilities, quality rules, optional feedback and next-work choices |
+
+A reusable report should choose views from available data. A dependency graph is useful for relationships; a searchable table is better for hundreds of precise capability records. Use heatmaps only when both axes and status meanings are defined. Use a Gantt chart only when real dates and dependencies exist. Do not add decorative charts to imply precision the audit does not have.
+
+Every visualization needs a text/table alternative and evidence drill-down. Preserve status labels, keyboard access, focus restoration, reduced motion, theme compatibility, empty states and errors. A Canvas graph's accessible inspector and relationship list are part of the component, not optional documentation.
+
+## Library research and recommendation
+
+Research checked official documentation and registry metadata on 2026-11-02. Versions identify the researched snapshot; they are not promises about future latest releases. The two downloaded prototype libraries were verified against registry integrity values and retained with their licenses. See the [vendor manifest](../evidence/2026-11-02-project-state/vendor-manifest.json).
+
+| Candidate | Recommendation | Fit and trade-off |
+| --- | --- | --- |
+| **Pele** | Reuse existing Fungi UI renderer | Already bundled locally at 1.6.0. Suitable for flow, sequence, entity and other authored explanatory diagrams. Upstream 1.13.0 advertises a broad Mermaid-compatible surface; compatibility must be checked against the bundled version, not assumed from current docs. [API](https://pele.run/api), [compatibility](https://pele.run/compatibility). |
+| **Apache ECharts 6.1.0** | Add a shared chart capability | Strong fit for bars, time series, heatmaps, treemaps and interactive drill-down. Choose SVG initially for moderate report charts; Canvas remains available for larger workloads. Modular builds can limit shipped chart types. ARIA/decal support helps but does not provide complete keyboard access. Apache-2.0. [Features](https://echarts.apache.org/en/feature.html), [renderers](https://echarts.apache.org/handbook/en/best-practices/canvas-vs-svg/), [imports](https://echarts.apache.org/handbook/en/basics/import/), [accessibility](https://echarts.apache.org/handbook/en/best-practices/aria/). |
+| **Cytoscape.js 3.34.4** | Optional graph capability | Framework-independent graph exploration, layouts and graph operations. Good for dependency and ownership maps when selection/filtering adds value beyond a diagram. Keep a keyboard node selector and edge table alongside Canvas. MIT. [Documentation](https://js.cytoscape.org/). |
+| **Observable Plot 0.6.17** | Alternative chart stack | Concise, exploratory SVG plots with pointer/tip interactions and ARIA support. Attractive for statistical views; avoid shipping it alongside ECharts without a specific uncovered need. Browser builds include D3-related dependencies. ISC. [Getting started](https://observablehq.github.io/plot/getting-started), [interactions](https://observablehq.github.io/plot/features/interactions), [accessibility](https://observablehq.github.io/plot/features/accessibility). |
+| **Native table + Fungi UI controls** | First implementation | Existing themes and ordinary semantic HTML cover modest inventories without another dependency. The prototype implements search, filtering and sorting this way. Add a grid when measured report size or interaction requirements justify it. |
+| **Tabulator 6.7.1** | First grid candidate when needed | Ready-made sorting, filtering, grouping/tree data and virtual rendering reduce implementation work for large inventories. Requires a theme adapter and accessibility checks for the selected mode. MIT. [Documentation](https://www.tabulator.info/docs/), [accessibility](https://www.tabulator.info/docs/6.x/accessibility/), [license](https://www.tabulator.info/docs/6.x/license/). |
+| **TanStack Table 9.3.1** | Alternative for a fully custom table | Framework-neutral core and vanilla integration offer control, but the project owns more markup, interaction and accessibility work. Review current-version integration requirements rather than assuming older v8 recipes apply. MIT. [Vanilla guide](https://tanstack.com/table/latest/docs/framework/vanilla/quick-start), [installation](https://tanstack.com/table/latest/docs/installation). |
+| **React Flow 12.12.0** | Defer unless the report becomes an editor | Strong custom node/edge interfaces with keyboard support. Introduces React and suits editable diagrams more than the current read-only report. MIT. [Overview](https://reactflow.dev/learn), [accessibility](https://reactflow.dev/learn/advanced-use/accessibility). |
+| **ELK.js 0.12.1** | Optional later layout engine | Handles demanding directed layouts, ports and compound graphs. It computes layouts rather than rendering a UI. Consider when a measured layout problem warrants the extra asset/worker integration. Registry SPDX: EPL-2.0 OR GPL-3.0-or-later. [Repository and license](https://github.com/kieler/elkjs). |
+| **Web Awesome 3.14.0** | Select individual missing controls only | Web components can supply a tree, drawer or split panel without adopting React. Local distribution is supported. Its data grid/chart family is Pro; Core being MIT does not make every component free. Existing Fungi themes and controls remain the default. [Docs and distribution](https://webawesome.com/docs/), [Core/Pro terms](https://webawesome.com/support/). |
+| **Radix Primitives** | Defer unless React is adopted | Useful accessible, unstyled React primitives. It is not a direct replacement for the existing vanilla component kit. [Introduction](https://www.radix-ui.com/primitives/docs/overview/introduction). |
+| **Chart.js** | Viable narrower alternative | Straightforward common charts, but Canvas content needs author-provided accessible alternatives. ECharts covers more of this report's desired visual vocabulary. [Accessibility](https://www.chartjs.org/docs/latest/general/accessibility.html). |
+| **Vega / Vega-Lite** | Revisit for a declarative analytics product | Powerful specification-based visualization, with multiple runtime pieces. Default Vega expression execution uses code generation; an interpreter offers a CSP-compatible path with trade-offs. This is extra integration scope for the initial audit report. [Embedding](https://vega.github.io/vega-lite/usage/embed.html), [interpreter](https://vega.github.io/vega/usage/interpreter/). |
+
+The recommended initial combination is **Pele + ECharts + existing Fungi UI**, with **Cytoscape as an optional graph pack**. Keep Tabulator available as a later, needs-driven choice. Avoid shipping multiple competing chart/UI frameworks simply because each is capable.
+
+The prototype uses the complete ECharts browser file (1,121,883 bytes raw; 370,016 gzip) and Cytoscape browser file (435,649 bytes raw; 137,356 gzip). These are measured files, not total application size or startup benchmarks. The local host reads bundled assets; gzip values estimate distribution size. A production chart pack should evaluate a prebuilt subset and lazy loading.
+
+## Fungi integration boundary
+
+The installed Fungi v0.1.0-alpha.2, protocol 1, already supports local modules, CSS/fonts, SVG, Canvas, WebGL, workers and WebAssembly through its documented HTML interface. Its `ready`, `saveDraft`, `submit` and `cancel` methods are sufficient for this report's session behavior. Local assets must stay under the entry directory. The prototype rendered ECharts SVG, Cytoscape Canvas and Pele SVG inside the actual macOS native host.
+
+The current source checkout of the separate Fungi application may describe a different protocol than the installed executable. Treat installed help and a probe of the actual target host as the compatibility boundary.
+
+Proposed ownership follows the existing stack contract in `references/stack-contract.md`:
+
+- **`project-state`** owns inspection, classification, snapshot schema, view composition, interpretation of feedback and project records. It reuses existing `feature-map`, `verify-change` and `maintain-verification` records without replacing their responsibilities.
+- **`fungi-ui`** owns reusable chart/graph/table/detail adapters, theme integration, accessible alternatives and selected local vendor assets. Adapters accept constrained data/configuration and evidence callbacks. Do not accept arbitrary executable formatter strings in report JSON.
+- **`fungi`** owns availability, windows, assets, sessions, drafts and completion. No native change was needed for the tested libraries. Extend the native application only for a demonstrated missing capability.
+
+A proposed package can contain a lean `SKILL.md`, linked audit and schema references, a prepared report template, an assembler and a snapshot validator. Routine use should produce JSON and invoke the assembler, not require the agent to write a new dashboard or install dependencies for every audit.
+
+Optional capability packs should be included only when requested by the report and loaded when needed. The present assembler copies the entire shared assets directory; merely adding large libraries there would increase every workflow's bundle. Capability selection therefore needs an assembly change if adopted. The research prototype keeps its extra libraries in its own assets and loads both eagerly for simplicity.
+
+Preserve license notices, pin versions, verify package integrity during development, and test malformed/empty data, renderer failure and incompatible versions. Keep evidence inline with copyable source paths when filesystem opening is unavailable; an undocumented native file-reveal API is not required.
+
+## Proposed implementation order
+
+1. Define the audit contract, coverage ledger and independent state fields; validate it against projects with different repository and deployment structures.
+2. Implement the prepared report with existing controls, Pele and one ECharts adapter. Produce narrative + structured snapshot + retained Fungi presentation from the same audit.
+3. Add the optional Cytoscape map with accessible inspector and relationship table; package optional assets without enlarging every Fungi workflow.
+4. Verify real browser/native interactions, feedback recovery, narrow layouts, themes, data validation and offline behavior. Measure realistic large inventories before choosing a grid or additional layout engine.
+5. Add baseline comparison only once stable entity IDs and an actual previous snapshot are available.
+
+Open design choices are the final name, default audit depth and storage convention for projects without existing records. These do not prevent the completed research prototype and are not treated as user decisions by silence.

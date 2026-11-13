@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-02",
+  "kind": "project-state-research-handoff",
+  "destination": "Fungi development wiki",
+  "purpose": "Preserve prior findings and selected prototype evidence for another model; no implementation or new runtime verification",
+  "sourceResearch": "jstack/docs/wiki/discussions/2026-11-02-project-state.md",
+  "sourceVerification": "jstack/docs/wiki/verification/runs/2026-11-02-project-state-prototype.md",
+  "fungiSourceRevision": "ee4c72b125fc5c2b33449bc3b866ae8e155c2569",
+  "testedHost": {
+    "version": "v0.1.0-alpha.2",
+    "protocol": 1
+  },
+  "currentSourceContract": {
+    "developmentLine": "0.2",
+    "protocol": 2,
+    "packageFormat": 3,
+    "rendering": "external helper owned by another project"
+  },
+  "retainedBundle": {
+    "directory": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ",
+    "html": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/report.html",
+    "theme": "classic",
+    "input": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/input.json"
+  },
+  "copies": [
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/browser-result.json",
+      "copy": "browser-result.json",
+      "sha256": "fb05cb8fb168993ec901ebfdc894e821259479fce1a7d1f59a881ee4da0cd3c2"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/native-result.json",
+      "copy": "native-result.json",
+      "sha256": "7376665c4512535290eecaf2cef19b392177d22ebd0eb0202b014af50b0ce193"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/vendor-manifest.json",
+      "copy": "vendor-manifest.json",
+      "sha256": "f7c206f716ce1593d3cb3bd88b0f74fcff5062aaef983dcd9d120efa1c05b364"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/manifest.json",
+      "copy": "manifest.json",
+      "sha256": "90e4d7fd99ef96a5d82a0ec62ba07121e1175ae22e20fa9be4abc12e30dd2079"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/validation.json",
+      "copy": "validation.json",
+      "sha256": "eeb53a5e01d7c4156e549b7d56d088a55739204e98af5c54415add2736eefbd1"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/browser-driver.txt",
+      "copy": "browser-driver.txt",
+      "sha256": "eef2218e2b658f549aafe0ccf3b7f47f570f7c9f5c7718cf0565fc95264ee9da"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/native-driver.txt",
+      "copy": "native-driver.txt",
+      "sha256": "f4fee416bdaa1ae0c47fb42d105e887158c20a00531b01c3de385163738fbd13"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/overview-wide.png",
+      "copy": "overview-wide.png",
+      "sha256": "64f8266de33553565242ca0120ccb6992993f89fe3fe0469b2895622a448aced"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/architecture-overview.png",
+      "copy": "architecture-overview.png",
+      "sha256": "bc65b4486ca4c55c948d409ff73cb38c0206960de9d58da4cf1f3549ff4398b5"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/evidence/2026-11-02-project-state/proposal-narrow.png",
+      "copy": "proposal-narrow.png",
+      "sha256": "45032c87db8d4b2cb39472ea6b7ecda09028c36e21a6b71a7e6eb9fbf569c4ee"
+    },
+    {
+      "source": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/report.html",
+      "copy": "report.html.txt",
+      "bundlePath": "report.html",
+      "sha256": "665e573bbca39bf9285c995e7afe6acdedf46e2972b8f2331e1c0bf9bf940b9b"
+    },
+    {
+      "source": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/workflow/assets/report.mjs",
+      "copy": "report.mjs.txt",
+      "bundlePath": "workflow/assets/report.mjs",
+      "sha256": "4d5ca3914d114d5899fe09caf0b045410197abd1cc7bde8ae7949ddd4b574e87"
+    },
+    {
+      "source": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/workflow/assets/report.css",
+      "copy": "report.css.txt",
+      "bundlePath": "workflow/assets/report.css",
+      "sha256": "51343531fed5e163754dc63bb8d0836f9da320eead1fa38d01a74a10961a0bc1"
+    },
+    {
+      "source": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/workflow/assets/data.mjs",
+      "copy": "data.mjs.txt",
+      "bundlePath": "workflow/assets/data.mjs",
+      "sha256": "b7fe871f8ee1f3d2c0ebd7644c57b75c713406bb2a6a83ccf6599b30cbec7dbd"
+    },
+    {
+      "source": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/input.json",
+      "copy": "input.json.txt",
+      "bundlePath": "input.json",
+      "sha256": "964d1d2b5c29020da1b4d606f4c3dabb4b9ed5d0fc7402f1a8d2c27b4c61b054"
+    },
+    {
+      "source": "/Users/rengwu/Desktop/Projects/jstack/docs/wiki/discussions/2026-11-02-project-state.md",
+      "copy": "original-jstack-proposal.txt",
+      "sha256": "2e97b73ebe0bbfbe7fbb7cb3032d1329163da24451d80cf2e30a29b7cda3875c"
+    }
+  ],
+  "limits": [
+    "Evidence is copied from the completed research run, not rerun for this handoff.",
+    "Saved authored source requires matching Fungi UI assets and pinned vendors to reconstruct a bundle.",
+    "Temporary original bundle locations may not survive system cleanup.",
+    "Protocol-1 page API evidence does not verify protocol-2 helper integration."
+  ]
+}

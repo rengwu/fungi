@@ -1,0 +1,346 @@
+{
+  "capturedAt": "2026-11-01T17:13:50.592Z",
+  "localDate": "2026-11-02",
+  "timezone": "Asia/Kuala_Lumpur",
+  "project": "jstack",
+  "scope": "Research and disposable prototype only; no active skill or shared runtime implementation",
+  "revision": "73a44f88c494a72c1ef0e0b2c9b06953644d740d",
+  "workingTree": [
+    "M .codex-plugin/plugin.json",
+    " M docs/wiki/features/fungi-workflows.md",
+    " M docs/wiki/index.md",
+    " M docs/wiki/verification/setup.md",
+    " M scripts/native-smoke.mjs",
+    " M scripts/show-outcome-native-smoke.mjs",
+    " M scripts/ui-browser-smoke.mjs",
+    " M skills/fungi-ui/assets/notes.mjs",
+    " M skills/fungi-ui/assets/preview.mjs",
+    " M skills/fungi-ui/assets/rich-content.mjs",
+    " M skills/fungi-ui/assets/ui.css",
+    " M skills/fungi-ui/references/components.md",
+    " M skills/grill-form/assets/model.mjs",
+    " M skills/grill-form/references/authoring.md",
+    " M skills/show-outcome/assets/outcome.mjs",
+    " M skills/show-outcome/references/authoring.md",
+    "?? docs/wiki/discussions/2026-10-30-external-links.md",
+    "?? docs/wiki/discussions/2026-10-30-image-notes.md",
+    "?? docs/wiki/discussions/2026-11-02-project-state.md",
+    "?? docs/wiki/evidence/2026-10-30-external-links/",
+    "?? docs/wiki/evidence/2026-10-30-image-notes/",
+    "?? docs/wiki/evidence/2026-11-02-project-state/",
+    "?? docs/wiki/verification/runs/2026-10-30-external-links.md",
+    "?? docs/wiki/verification/runs/2026-10-30-image-notes.md",
+    "?? scripts/external-links-browser-smoke.mjs",
+    "?? scripts/external-links-native-smoke.mjs",
+    "?? scripts/external-links.test.mjs",
+    "?? skills/fungi-ui/assets/external-links.mjs",
+    "?? skills/fungi-ui/assets/host.mjs"
+  ],
+  "node": "v22.19.0",
+  "platform": {
+    "type": "Darwin",
+    "release": "27.0.0",
+    "arch": "arm64"
+  },
+  "chrome": "Google Chrome 156.0.8078.74",
+  "fungi": {
+    "binary": "/Users/rengwu/.fungi/bin/fungi",
+    "sha256": "6b9e60866ff93d216bde63cbbabc93eb2340674298826fbb3aebab0c21530a29",
+    "version": {
+      "kind": "version",
+      "protocol": 1,
+      "version": "v0.1.0-alpha.2"
+    }
+  },
+  "prototypeSource": "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/jstack-project-state-gtGW5Y",
+  "bundle": {
+    "directory": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ",
+    "html": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/report.html",
+    "theme": "classic",
+    "input": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/input.json"
+  },
+  "bundleFiles": [
+    {
+      "path": "fungi-ui/assets/comments.mjs",
+      "bytes": 3991,
+      "sha256": "b0730ff8bdbe4fb813d5ce763d3310f7803445407954f6c967da07edbeaa0308"
+    },
+    {
+      "path": "fungi-ui/assets/controls.mjs",
+      "bytes": 2231,
+      "sha256": "1c5eb462fed86a39e6e66a4dfbbc70f3ca71195950061293aab814e63265a914"
+    },
+    {
+      "path": "fungi-ui/assets/dom.mjs",
+      "bytes": 309,
+      "sha256": "57d6ab5d319e04b70d0d9fe131e3a51a1e2e6f63f5b741bb85632e90061db331"
+    },
+    {
+      "path": "fungi-ui/assets/external-links.mjs",
+      "bytes": 4019,
+      "sha256": "146d7a77c194c5f27ab469c5796da17377add3a77389c77ce0dbcb9455c4f4e3"
+    },
+    {
+      "path": "fungi-ui/assets/feedback.mjs",
+      "bytes": 2347,
+      "sha256": "20dc23d8a36c01e3416b6e9416b605aa8d9f7570216454d929ac3034bddc31c0"
+    },
+    {
+      "path": "fungi-ui/assets/files.mjs",
+      "bytes": 542,
+      "sha256": "281446b10752ce44dca38782f0f2d50a5aa6f35bfbd973a8e98d4d3c078cf729"
+    },
+    {
+      "path": "fungi-ui/assets/fonts.css",
+      "bytes": 4318,
+      "sha256": "d7fb19cda31494139731ca4ea43cd8cc9230b66c02561827173cd9ff4b9cd0b5"
+    },
+    {
+      "path": "fungi-ui/assets/gallery.mjs",
+      "bytes": 5710,
+      "sha256": "92d2f84ae841a0a9099b7eb802caf3201b82f716c228fbbf882bb723246448da"
+    },
+    {
+      "path": "fungi-ui/assets/host.mjs",
+      "bytes": 924,
+      "sha256": "5c08799ef2b7a6b3c1248c33fd380e9453dac34b91b30aa5182531531a25c109"
+    },
+    {
+      "path": "fungi-ui/assets/notes.mjs",
+      "bytes": 13762,
+      "sha256": "75e7a42a209d4568809d06745e7739b018aee408cd1d526768a57432a3a632e3"
+    },
+    {
+      "path": "fungi-ui/assets/preview.mjs",
+      "bytes": 10552,
+      "sha256": "b0f8f6a944f658326b48bc07d6a834c7469942607e4a0f250fb3fb8f741db608"
+    },
+    {
+      "path": "fungi-ui/assets/regions.mjs",
+      "bytes": 565,
+      "sha256": "6287136f4335679a4cfb8447c90aee0c18947a57600b0202deca59db973848c0"
+    },
+    {
+      "path": "fungi-ui/assets/rich-content.mjs",
+      "bytes": 5323,
+      "sha256": "3ec50075d107c80ddc3cb817a11d049082fbb4fc1c3b73a556993de22869784e"
+    },
+    {
+      "path": "fungi-ui/assets/themes/paper-dark.css",
+      "bytes": 825,
+      "sha256": "2e44dba4ffd24d4b5a9c8554abc8c7f127b4966a08644949b3c25474912e6c5c"
+    },
+    {
+      "path": "fungi-ui/assets/themes/paper.css",
+      "bytes": 4116,
+      "sha256": "d0b6885e3bc8dbbab342d7a48b7c63ce7a3c59f8a35fa0f6a47c1af221b5e512"
+    },
+    {
+      "path": "fungi-ui/assets/ui.css",
+      "bytes": 15184,
+      "sha256": "372b931f8e0a07468463fbb8a850baa2832949b30370441cf0ba2abf5153cf4f"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/README.md",
+      "bytes": 2194,
+      "sha256": "d15c091587066d3f9b23ad83eaf2a7b3418b4f8053300cc6ce2326c2e70692ca"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/dompurify-LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/dompurify-LICENSE-MPL",
+      "bytes": 16726,
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-LICENSE",
+      "bytes": 5299,
+      "sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-400-italic.woff2",
+      "bytes": 16448,
+      "sha256": "0840095faae86403735a8c04014b72cb29e7923646b222b360b7e8252932e4e3"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-400-normal.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-500-normal.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-600-normal.woff2",
+      "bytes": 15620,
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-ext-400-italic.woff2",
+      "bytes": 14524,
+      "sha256": "1b07eee6df7d26b31864581c2365131d384077605e0b63ae67c4a0a64363a6de"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-ext-400-normal.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-ext-500-normal.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-mono-latin-ext-600-normal.woff2",
+      "bytes": 14328,
+      "sha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-sans-LICENSE",
+      "bytes": 4429,
+      "sha256": "d0283623ef57e722fd0eb688a8041589670c608ab780cd3612d06ba6f153d3fd"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-sans-latin-ext-wght-italic.woff2",
+      "bytes": 33900,
+      "sha256": "bf44b77cc751203b2f0ce95c048a9d8f984313f84b58106c7c4410ca50314016"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-sans-latin-ext-wght-normal.woff2",
+      "bytes": 30964,
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-sans-latin-wght-italic.woff2",
+      "bytes": 50184,
+      "sha256": "4363757d2695c7633f98472855849f7c30528eba869d7968ee35b58c87cf14c1"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/fonts/ibm-plex-sans-latin-wght-normal.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/marked-LICENSE",
+      "bytes": 2942,
+      "sha256": "8e3a3f82f59a60958f56ca08f445647c32a4733dc7ca6c2c46f6eb898471ab9c"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/marked.js",
+      "bytes": 47225,
+      "sha256": "f424dcb508fdf93e0137a970cfce8f3207ea2e3f37eca5f7556a52875683632a"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/pele-LICENSE",
+      "bytes": 1934,
+      "sha256": "311bccc30de6f7b9cbfb64232bb0c911ccb2191abe316550813ae25b2c7925b9"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/pele.js",
+      "bytes": 682005,
+      "sha256": "b82d1bcd435302779a945e1e0f4a54ea56fb26e010ce3f2122f4216fcfc095d7"
+    },
+    {
+      "path": "fungi-ui/assets/vendor/purify.js",
+      "bytes": 28885,
+      "sha256": "2c90a9b46d6463f26038a29b686e82bc91de01fdac9d5229e7cfe3b360134ea2"
+    },
+    {
+      "path": "input.json",
+      "bytes": 82,
+      "sha256": "964d1d2b5c29020da1b4d606f4c3dabb4b9ed5d0fc7402f1a8d2c27b4c61b054"
+    },
+    {
+      "path": "report.html",
+      "bytes": 2132,
+      "sha256": "665e573bbca39bf9285c995e7afe6acdedf46e2972b8f2331e1c0bf9bf940b9b"
+    },
+    {
+      "path": "workflow/assets/data.mjs",
+      "bytes": 17853,
+      "sha256": "b7fe871f8ee1f3d2c0ebd7644c57b75c713406bb2a6a83ccf6599b30cbec7dbd"
+    },
+    {
+      "path": "workflow/assets/report.css",
+      "bytes": 9520,
+      "sha256": "51343531fed5e163754dc63bb8d0836f9da320eead1fa38d01a74a10961a0bc1"
+    },
+    {
+      "path": "workflow/assets/report.html",
+      "bytes": 2132,
+      "sha256": "665e573bbca39bf9285c995e7afe6acdedf46e2972b8f2331e1c0bf9bf940b9b"
+    },
+    {
+      "path": "workflow/assets/report.mjs",
+      "bytes": 26593,
+      "sha256": "4d5ca3914d114d5899fe09caf0b045410197abd1cc7bde8ae7949ddd4b574e87"
+    },
+    {
+      "path": "workflow/assets/vendor/cytoscape/LICENSE",
+      "bytes": 1082,
+      "sha256": "eb319c6e6f233607f71e8e2f450391751883cfc0eeb3ca7ef574c13d1d9c2203"
+    },
+    {
+      "path": "workflow/assets/vendor/cytoscape/license-update.mjs",
+      "bytes": 1416,
+      "sha256": "4a5a644717fc90d678e8fbbc537a08452d0566726710eef47b196abd6363e635"
+    },
+    {
+      "path": "workflow/assets/vendor/cytoscape.min.js",
+      "bytes": 435649,
+      "sha256": "081591ab735b2b6a3b31a3c60f8f3a3e2fee8c92939e0c7820ad1208571b6cd8"
+    },
+    {
+      "path": "workflow/assets/vendor/echarts/LICENSE",
+      "bytes": 11990,
+      "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a"
+    },
+    {
+      "path": "workflow/assets/vendor/echarts/NOTICE",
+      "bytes": 168,
+      "sha256": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016"
+    },
+    {
+      "path": "workflow/assets/vendor/echarts/licenses/LICENSE-d3",
+      "bytes": 1475,
+      "sha256": "e1211892da0b0e0585b7aebe8f98c1274fba15bafe47fa1f4ee8a7a502c06304"
+    },
+    {
+      "path": "workflow/assets/vendor/echarts.min.js",
+      "bytes": 1121883,
+      "sha256": "b66b25aeb4df84e33199dc21694014d336d222cbd9deb0e5a7c14bd6aa0d0fd0"
+    }
+  ],
+  "drivers": [
+    {
+      "file": "browser-probe.mjs",
+      "sha256": "eef2218e2b658f549aafe0ccf3b7f47f570f7c9f5c7718cf0565fc95264ee9da"
+    },
+    {
+      "file": "native-probe.mjs",
+      "sha256": "f4fee416bdaa1ae0c47fb42d105e887158c20a00531b01c3de385163738fbd13"
+    }
+  ],
+  "visualReview": {
+    "method": "Inspected generated browser screenshots and actual Fungi window through native desktop screenshot/AX tools",
+    "views": [
+      "overview-wide",
+      "architecture-overview",
+      "architecture-wide",
+      "proposal-narrow",
+      "native overview"
+    ],
+    "result": "Readable rendering; no page overflow in exercised narrow views",
+    "limitations": [
+      "Not a screen-reader audit",
+      "Other platforms not exercised",
+      "Large graphs and inventories not benchmarked",
+      "Native Resource Timing returned no entries; network-request evidence comes from browser interception and bundled file inspection"
+    ]
+  }
+}

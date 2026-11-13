@@ -1,0 +1,26 @@
+[
+  {
+    "name": "echarts",
+    "version": "6.1.0",
+    "license": "Apache-2.0",
+    "registry": "https://registry.npmjs.org/echarts/6.1.0",
+    "tarball": "https://registry.npmjs.org/echarts/-/echarts-6.1.0.tgz",
+    "integrity": "sha512-q0yaFPggC9FUdsWH4blavRWFmxdrIodbkoKNAjJudAI6CA9gNPxHtV2RcZNEepZVlk4yvBYkOkbk6HIVpIyHZA==",
+    "file": "echarts.min.js",
+    "rawBytes": 1121883,
+    "gzipBytes": 370016,
+    "sha256": "b66b25aeb4df84e33199dc21694014d336d222cbd9deb0e5a7c14bd6aa0d0fd0"
+  },
+  {
+    "name": "cytoscape",
+    "version": "3.34.4",
+    "license": "MIT",
+    "registry": "https://registry.npmjs.org/cytoscape/3.34.4",
+    "tarball": "https://registry.npmjs.org/cytoscape/-/cytoscape-3.34.4.tgz",
+    "integrity": "sha512-msY99tMY8iWTg+sIPGfSqDcPNOt4xcj+v/K/7qUFaCUxxlqnMkUYLBjRUzn9W5CU/R2hrmtJa5+UtovrEM2ctg==",
+    "file": "cytoscape.min.js",
+    "rawBytes": 435649,
+    "gzipBytes": 137356,
+    "sha256": "081591ab735b2b6a3b31a3c60f8f3a3e2fee8c92939e0c7820ad1208571b6cd8"
+  }
+]

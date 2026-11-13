@@ -1,21 +1,26 @@
 ---
 title: Research findings and recommendation
-updated: 2026-10-27
+updated: 2026-11-02
 ---
 # Research findings and recommendation
 
 ## Current direction
 
-Fungi uses a Go session engine and Wails system-webview helper. Default-package
-integration is complete; the [integration report](../verification/runs/2026-10-25-wails-integration.md)
-and [platform record](../platforms.md) define its verified scope and limits.
-Use [current decisions](../planning.md#current-decisions) and the
-[authoring guide](../authoring.md) for implementation guidance.
+Fungi's current 0.2 development line is a headless Go session engine using
+protocol 2. Other projects own all UI implementations and runtimes. Use
+[current decisions](../planning.md#current-decisions) and the
+[helper authoring guide](../authoring.md) for implementation guidance.
 
-The research below began on October 19, with renderer follow-ups through
+The [project-state visualization handoff](project-state-visualizations.md)
+adds dated library research, a working report prototype and preserved evidence.
+Its native checks used the installed protocol-1 Wails app; they do not establish
+protocol-2 helper integration or restore a renderer to this repository.
+
+The earlier research began on October 19, with renderer follow-ups through
 October 25. It preserves the evidence and reasoning at those dates. The early
-Electron recommendation and no-system-runtime policy were subsequently
-superseded by the Wails decisions; candidate lists are not current work plans.
+Electron recommendation and no-system-runtime policy were superseded by Wails,
+then the October 28 engine-only decision moved all rendering to other projects.
+Historical candidate lists are not current work plans.
 
 ## Main finding
 
@@ -25,6 +30,7 @@ Keep ordinary HTML/CSS/JavaScript available directly, and provide the equally su
 
 ## Research map
 
+- [Project-state visualizations and skill handoff](project-state-visualizations.md): November 2 audit-skill proposal, visualization/UI library selection, prototype assets, verification limits and next steps.
 - [Engine and extension mechanisms](engine.md): process plugins, Go plugins, WebAssembly, storage, and failure boundaries.
 - [Rendering and packaging](rendering.md): system webviews, Wails, niche engines, native toolkits, and the real meaning of one binary.
 - [Bundled renderer follow-up](bundled-renderers.md): revised shortlist, actual Sciter binary inspection, licensing constraints, and the accepted Chromium/Electron fallback.

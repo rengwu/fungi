@@ -1,0 +1,77 @@
+{
+  "kind": "project-state-native-probe",
+  "timestamp": "2026-11-01T17:12:18.627Z",
+  "bundle": {
+    "directory": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-native-bundle-AtvcYR",
+    "html": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-native-bundle-AtvcYR/report.html",
+    "theme": "classic",
+    "input": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-native-bundle-AtvcYR/input.json"
+  },
+  "fixtureRoot": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-native-lIH0zC",
+  "version": {
+    "kind": "version",
+    "protocol": 1,
+    "version": "v0.1.0-alpha.2"
+  },
+  "response": {
+    "protocol": 1,
+    "kind": "result",
+    "session": "3622abe065d5392860e6a29c92264227",
+    "outcome": "submitted",
+    "data": {
+      "fixture": "project-state-native-probe/v1",
+      "result": "Passed",
+      "checks": [
+        {
+          "name": "ECharts SVG renders in native Fungi",
+          "passed": true
+        },
+        {
+          "name": "All 14 capabilities render",
+          "passed": true
+        },
+        {
+          "name": "Native modal opens",
+          "passed": true
+        },
+        {
+          "name": "Cytoscape Canvas renders in native Fungi",
+          "passed": true
+        },
+        {
+          "name": "Pele content model renders in native Fungi",
+          "passed": true
+        },
+        {
+          "name": "Native graph selector updates detail",
+          "passed": true
+        },
+        {
+          "name": "Pele audit workflow renders",
+          "passed": true
+        },
+        {
+          "name": "Feedback draft saves in native Fungi",
+          "passed": true
+        },
+        {
+          "name": "No off-origin entries in available Resource Timing data",
+          "passed": true
+        },
+        {
+          "name": "No runtime errors",
+          "passed": true
+        }
+      ],
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) wails.io",
+      "viewport": {
+        "width": 820,
+        "height": 780
+      },
+      "resources": [],
+      "errors": []
+    },
+    "artifacts": []
+  },
+  "result": "Passed"
+}

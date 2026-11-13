@@ -1,0 +1,67 @@
+import {createServer} from 'node:http';
+import {spawn} from 'node:child_process';
+import {readFile,writeFile,mkdtemp,mkdir} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+const root=process.cwd(),bundle=JSON.parse(await readFile('bundle.json','utf8'));
+const evidence={kind:'project-state-browser-probe',timestamp:new Date().toISOString(),bundle,checks:[],errors:[],externalRequests:[],screenshots:[]};
+const check=(name,condition,detail)=>{evidence.checks.push({name,passed:!!condition,detail});assert.ok(condition,name+' '+JSON.stringify(detail));};
+const mime={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.woff2':'font/woff2','.svg':'image/svg+xml','.png':'image/png'};
+const server=createServer(async(req,res)=>{try{const rel=decodeURIComponent(new URL(req.url,'http://localhost').pathname),file=path.resolve(bundle.directory,'.'+rel);if(!file.startsWith(bundle.directory+'/'))throw Error('Invalid path');res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');res.end(await readFile(file));}catch{res.statusCode=404;res.end('Not found');}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const origin='http://127.0.0.1:'+server.address().port;
+const profile=await mkdtemp(path.join(tmpdir(),'project-state-chrome-'));
+const chrome=spawn('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',['--headless=new','--remote-debugging-port=0','--user-data-dir='+profile,'--no-first-run','--no-default-browser-check','--disable-background-networking','--disable-extensions','--disable-sync','about:blank'],{stdio:'ignore'});
+let ws;let commandId=0;const pending=new Map();
+try{
+ let port;for(let i=0;i<100;i++){try{port=(await readFile(path.join(profile,'DevToolsActivePort'),'utf8')).split('\n')[0];break;}catch{await new Promise(r=>setTimeout(r,100));}}if(!port)throw Error('Chrome start timeout');
+ const target=await (await fetch('http://127.0.0.1:'+port+'/json/new?about:blank',{method:'PUT'})).json();
+ ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise((r,j)=>{ws.onopen=r;ws.onerror=j;});
+ const cdp=(method,params={})=>new Promise((resolve,reject)=>{const id=++commandId;pending.set(id,{resolve,reject});ws.send(JSON.stringify({id,method,params}));});
+ ws.onmessage=e=>{const msg=JSON.parse(e.data);if(msg.id){const p=pending.get(msg.id);pending.delete(msg.id);msg.error?p.reject(Error(JSON.stringify(msg.error))):p.resolve(msg.result);}else if(msg.method==='Runtime.exceptionThrown'){evidence.errors.push(msg.params.exceptionDetails);}else if(msg.method==='Fetch.requestPaused'){const {requestId,request}=msg.params;const local=request.url.startsWith(origin+'/')||request.url.startsWith('data:')||request.url.startsWith('blob:');if(!local)evidence.externalRequests.push(request.url);void cdp(local?'Fetch.continueRequest':'Fetch.failRequest',local?{requestId}:{requestId,errorReason:'BlockedByClient'});}};
+ await cdp('Page.enable');await cdp('Runtime.enable');await cdp('Fetch.enable',{patterns:[{urlPattern:'*'}]});
+ const evaluate=async expression=>{const r=await cdp('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||r.exceptionDetails.text);return r.result.value;};
+ const until=async expression=>{for(let i=0;i<100;i++){if(await evaluate(expression))return;await new Promise(r=>setTimeout(r,50));}throw Error('Timed out: '+expression+' '+await evaluate('document.querySelector("#fatal")?.textContent'));};
+ await cdp('Page.addScriptToEvaluateOnNewDocument',{source:`window.fixtureCalls={drafts:[],submissions:[]};window.fungi={ready:async()=>({input:{},draft:null,attachments:[],limits:{jsonBytes:1048576,artifactBytes:20971520,totalArtifactBytes:104857600}}),saveDraft:async(data,attachments)=>{window.fixtureCalls.drafts.push({data,attachments});},submit:async(data,attachments)=>{window.fixtureCalls.submissions.push({data,attachments});},cancel:async()=>{window.fixtureCalls.cancelled=true;}};`});
+ await cdp('Emulation.setDeviceMetricsOverride',{width:1280,height:960,deviceScaleFactor:1,mobile:false});
+ await cdp('Page.navigate',{url:origin+'/report.html'});await until('document.body.dataset.ready==="true"');
+ const screenshot=async name=>{const data=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});const file=path.join(root,'evidence',name+'.png');await mkdir(path.dirname(file),{recursive:true});await writeFile(file,Buffer.from(data.data,'base64'));evidence.screenshots.push(file);};
+ check('Overview chart renders as SVG',await evaluate('!!document.querySelector("#library-chart svg")'));
+ check('Overview has no horizontal page overflow',await evaluate('document.documentElement.scrollWidth<=innerWidth'));
+ await screenshot('overview-wide');
+ const navigate=async id=>{await evaluate('document.querySelector(\'[data-view="'+id+'"]\').click()');await until('window.reportState.section==="'+id+'"');};
+ await navigate('features');
+ check('Complete inventory renders 14 capabilities',await evaluate('document.querySelector("#feature-count").textContent==="14 of 14"'));
+ await evaluate('document.querySelector("#feature-search").value="language";document.querySelector("#feature-search").dispatchEvent(new Event("input"))');
+ check('Search filters capabilities',await evaluate('document.querySelector("#feature-count").textContent!=="14 of 14" && !!document.querySelector("[data-source]")'),await evaluate('document.querySelector("#feature-count").textContent'));
+ await evaluate('document.querySelector("[data-source]").click()');check('Evidence opens in modal dialog',await evaluate('document.querySelector("#detail").open && !!document.querySelector(".detail-path").textContent'));
+ await screenshot('feature-evidence');await evaluate('document.querySelector("#detail-close").click()');
+ await evaluate('document.querySelector("#feature-search").value="unmatchable123";document.querySelector("#feature-search").dispatchEvent(new Event("input"))');check('No-match state is explicit',await evaluate('document.querySelector("#feature-count").textContent==="0 of 14" && !!document.querySelector(".empty")'));
+ await evaluate('document.querySelector("#feature-search").value="";document.querySelector("#feature-search").dispatchEvent(new Event("input"));document.querySelector("#sort-name").click()');
+ check('Sort direction changes',await evaluate('document.querySelector("#sort-name").textContent.includes("↓")'));
+ await navigate('architecture');await until('!!document.querySelector("#architecture-graph canvas") && !!document.querySelector(".diagram svg")');
+ check('Architecture canvas and model SVG render',true);await screenshot('architecture-overview');
+ await evaluate('document.querySelector("#node-select").value="r2";document.querySelector("#node-select").dispatchEvent(new Event("change"))');
+ check('Keyboard-friendly node selector changes evidence',await evaluate('document.querySelector("#graph-info").textContent.includes("R2")'));
+ await screenshot('architecture-wide');
+ await navigate('work');check('Five categorized findings render',await evaluate('document.querySelectorAll(".issue").length===5'));
+ await navigate('evidence');check('Evidence view distinguishes unknowns',await evaluate('document.querySelector("#view").textContent.includes("Unknown")'));
+ await navigate('research');check('Research offers primary source links',await evaluate('document.querySelectorAll("#view a[href^=https]").length>=10'));
+ await screenshot('libraries-wide');
+ await navigate('proposal');await until('!!document.querySelector(".diagram svg")');check('Workflow diagram renders',true);
+ await evaluate('document.querySelector("#next-graph").click();document.querySelector(".notes-editor").textContent="Synthetic fixture feedback";document.querySelector(".notes-editor").dispatchEvent(new InputEvent("input",{bubbles:true}))');
+ await until('window.fixtureCalls.drafts.length>0');check('Feedback auto-saves through public page API',await evaluate('window.fixtureCalls.drafts.at(-1).data.feedback.notes.includes("Synthetic fixture")'));
+ const narrow=[];
+ await cdp('Emulation.setDeviceMetricsOverride',{width:420,height:900,deviceScaleFactor:1,mobile:false});
+ for(const id of ['overview','features','architecture','work','evidence','research','proposal']){await navigate(id);await new Promise(r=>setTimeout(r,150));narrow.push({id,width:await evaluate('document.documentElement.scrollWidth'),viewport:420});}
+ check('All seven views fit a 420px window',narrow.every(x=>x.width<=420),narrow);
+ await screenshot('proposal-narrow');
+ await cdp('Emulation.setDeviceMetricsOverride',{width:1280,height:960,deviceScaleFactor:1,mobile:false});
+ const themes=[];for(const theme of ['paper','paper-dark','classic']){await evaluate('document.querySelector("#theme").value="'+theme+'";document.querySelector("#theme").dispatchEvent(new Event("change"))');await navigate('overview');themes.push({theme,chart:await evaluate('!!document.querySelector("#library-chart svg")')});}
+ check('Chart renders across bundled themes',themes.every(x=>x.chart),themes);
+ check('No remote runtime asset requests',evidence.externalRequests.length===0,evidence.externalRequests);
+ check('No uncaught page exceptions',evidence.errors.length===0,evidence.errors);
+ evidence.result='Passed';
+}catch(error){evidence.result='Failed';evidence.error=error.stack;process.exitCode=1;}
+finally{ws?.close();chrome.kill();await new Promise(r=>server.close(r));await writeFile('browser-result.json',JSON.stringify(evidence,null,2));console.log(JSON.stringify({result:evidence.result,checks:evidence.checks,evidence:path.join(root,'browser-result.json'),error:evidence.error}));}

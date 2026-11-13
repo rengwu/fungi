@@ -1,0 +1,40 @@
+import {assemble} from '/Users/rengwu/Desktop/Projects/jstack/skills/fungi-ui/scripts/assemble.mjs';
+import {readFile,writeFile,mkdtemp} from 'node:fs/promises';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+const root=process.cwd(),fixtureRoot=await mkdtemp(path.join(tmpdir(),'project-state-native-'));
+const env={...process.env,FUNGI_STATE_DIR:path.join(fixtureRoot,'sessions')};delete env.CODEX_THREAD_ID;
+const run=async args=>JSON.parse((await promisify(execFile)('/Users/rengwu/.fungi/bin/fungi',args,{env,timeout:45000,maxBuffer:4*1024*1024})).stdout);
+const bundle=await assemble({assets:root+'/assets',entry:'report.html',input:root+'/input.json',prefix:'project-state-native-bundle-'});
+const fixture=String.raw`
+const results=[];const check=(name,value)=>{results.push({name,passed:!!value});if(!value)throw Error(name);};
+const until=async fn=>{const deadline=Date.now()+10000;while(Date.now()<deadline){if(fn())return;await new Promise(r=>setTimeout(r,40));}throw Error('Fixture timed out: '+document.querySelector('#fatal')?.textContent);};
+const errors=[];window.addEventListener('error',e=>errors.push(e.message));window.addEventListener('unhandledrejection',e=>errors.push(String(e.reason)));
+try{
+ await fungi.ready();await until(()=>document.body.dataset.ready==='true');
+ check('ECharts SVG renders in native Fungi',!!document.querySelector('#library-chart svg'));
+ document.querySelector('[data-view=features]').click();check('All 14 capabilities render',document.querySelector('#feature-count').textContent==='14 of 14');
+ document.querySelector('[data-source]').click();check('Native modal opens',document.querySelector('#detail').open);document.querySelector('#detail-close').click();
+ document.querySelector('[data-view=architecture]').click();await until(()=>document.querySelector('#architecture-graph canvas')&&document.querySelector('.diagram svg'));
+ check('Cytoscape Canvas renders in native Fungi',!!document.querySelector('#architecture-graph canvas'));
+ check('Pele content model renders in native Fungi',!!document.querySelector('.diagram svg'));
+ document.querySelector('#node-select').value='r2';document.querySelector('#node-select').dispatchEvent(new Event('change'));
+ check('Native graph selector updates detail',document.querySelector('#graph-info').textContent.includes('R2'));
+ document.querySelector('[data-view=proposal]').click();await until(()=>document.querySelector('.diagram svg'));check('Pele audit workflow renders',true);
+ document.querySelector('#next-graph').click();const notes=document.querySelector('.notes-editor');notes.textContent='Synthetic native prototype check';notes.dispatchEvent(new InputEvent('input',{bubbles:true}));
+ await until(()=>document.querySelector('.draft-message')?.textContent.includes('saved')||document.querySelector('#draft-message')?.textContent.includes('saved'));
+ check('Feedback draft saves in native Fungi',true);
+ const resources=performance.getEntriesByType('resource').map(x=>x.name);check('No off-origin entries in available Resource Timing data',resources.every(x=>x.startsWith(location.origin+'/')||x.startsWith('data:')||x.startsWith('blob:')));
+ check('No runtime errors',errors.length===0);
+ await fungi.submit({fixture:'project-state-native-probe/v1',result:'Passed',checks:results,userAgent:navigator.userAgent,viewport:{width:innerWidth,height:innerHeight},resources,errors});
+}catch(error){await fungi.submit({fixture:'project-state-native-probe/v1',result:'Failed',checks:results,error:error.stack,errors});}
+`;
+await writeFile(bundle.html,(await readFile(bundle.html,'utf8')).replace('</body>','<script type="module" src="fixture.mjs"></script></body>'));
+await writeFile(path.join(bundle.directory,'fixture.mjs'),fixture);
+const record={kind:'project-state-native-probe',timestamp:new Date().toISOString(),bundle,fixtureRoot,version:await run(['version'])};
+try{record.response=await run(['open',bundle.html,'--input',bundle.input,'--delivery','wait']);assert.equal(record.response.protocol,1);assert.equal(record.response.outcome,'submitted');assert.equal(record.response.data.result,'Passed',JSON.stringify(record.response.data));record.result='Passed';}
+catch(e){record.result='Failed';record.error=e.stack;process.exitCode=1;}
+await writeFile('native-result.json',JSON.stringify(record,null,2));console.log(JSON.stringify(record));

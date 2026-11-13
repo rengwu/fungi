@@ -1,0 +1,149 @@
+{
+  "kind": "project-state-browser-probe",
+  "timestamp": "2026-11-01T17:12:18.612Z",
+  "bundle": {
+    "directory": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ",
+    "html": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/report.html",
+    "theme": "classic",
+    "input": "/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/project-state-preview-KxIdqJ/input.json"
+  },
+  "checks": [
+    {
+      "name": "Overview chart renders as SVG",
+      "passed": true
+    },
+    {
+      "name": "Overview has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "Complete inventory renders 14 capabilities",
+      "passed": true
+    },
+    {
+      "name": "Search filters capabilities",
+      "passed": true,
+      "detail": "2 of 14"
+    },
+    {
+      "name": "Evidence opens in modal dialog",
+      "passed": true
+    },
+    {
+      "name": "No-match state is explicit",
+      "passed": true
+    },
+    {
+      "name": "Sort direction changes",
+      "passed": true
+    },
+    {
+      "name": "Architecture canvas and model SVG render",
+      "passed": true
+    },
+    {
+      "name": "Keyboard-friendly node selector changes evidence",
+      "passed": true
+    },
+    {
+      "name": "Five categorized findings render",
+      "passed": true
+    },
+    {
+      "name": "Evidence view distinguishes unknowns",
+      "passed": true
+    },
+    {
+      "name": "Research offers primary source links",
+      "passed": true
+    },
+    {
+      "name": "Workflow diagram renders",
+      "passed": true
+    },
+    {
+      "name": "Feedback auto-saves through public page API",
+      "passed": true
+    },
+    {
+      "name": "All seven views fit a 420px window",
+      "passed": true,
+      "detail": [
+        {
+          "id": "overview",
+          "width": 405,
+          "viewport": 420
+        },
+        {
+          "id": "features",
+          "width": 405,
+          "viewport": 420
+        },
+        {
+          "id": "architecture",
+          "width": 405,
+          "viewport": 420
+        },
+        {
+          "id": "work",
+          "width": 405,
+          "viewport": 420
+        },
+        {
+          "id": "evidence",
+          "width": 405,
+          "viewport": 420
+        },
+        {
+          "id": "research",
+          "width": 405,
+          "viewport": 420
+        },
+        {
+          "id": "proposal",
+          "width": 405,
+          "viewport": 420
+        }
+      ]
+    },
+    {
+      "name": "Chart renders across bundled themes",
+      "passed": true,
+      "detail": [
+        {
+          "theme": "paper",
+          "chart": true
+        },
+        {
+          "theme": "paper-dark",
+          "chart": true
+        },
+        {
+          "theme": "classic",
+          "chart": true
+        }
+      ]
+    },
+    {
+      "name": "No remote runtime asset requests",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "No uncaught page exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/jstack-project-state-gtGW5Y/evidence/overview-wide.png",
+    "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/jstack-project-state-gtGW5Y/evidence/feature-evidence.png",
+    "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/jstack-project-state-gtGW5Y/evidence/architecture-overview.png",
+    "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/jstack-project-state-gtGW5Y/evidence/architecture-wide.png",
+    "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/jstack-project-state-gtGW5Y/evidence/libraries-wide.png",
+    "/private/var/folders/00/h_k67s0j5dq0qvg6ylqysk2w0000gn/T/jstack-project-state-gtGW5Y/evidence/proposal-narrow.png"
+  ],
+  "result": "Passed"
+}

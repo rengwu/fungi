@@ -1,6 +1,6 @@
 ---
 title: Fungi
-updated: 2026-10-28
+updated: 2026-11-02
 ---
 # Fungi
 
@@ -60,6 +60,7 @@ These reports retain their original renderer and environment scope.
 
 ## Decision and research history
 
+- [Project-state visualizations and skill handoff](research/project-state-visualizations.md) — library recommendations, tested prototype, preserved evidence and continuation steps; distinguishes the legacy UI proof from the current headless engine.
 - [Decision chronology](planning.md#decision-history)
 - [Research findings and dated recommendations](research/index.md)
 - [Original authoring proposal and first-proof plan](proposal.md)
