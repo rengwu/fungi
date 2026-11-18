@@ -27,13 +27,22 @@ frames. Chromium and WebKit render the master identically. The 1024px PNG is a
 headless Chromium screenshot with a transparent background, for example
 `headless_shell --headless --default-background-color=00000000
 --window-size=1024,1024 --screenshot=fungi-1024.png file://$PWD/fungi.svg`;
-the smaller sizes are `sips -z` downscales of it. The executable embeds
-only `docs/manual/*.md` and packages copy only `docs/manual` and
-`docs/PORTABLE.md`, so these files ship in neither.
+the smaller sizes are `sips -z` downscales of it. The headless 0.2 executable
+embeds only `docs/manual/*.md`. Its packages copy only `docs/manual` and
+`docs/PORTABLE.md` from the documentation tree.
 
 `fungi-mac.svg` places the same art on the macOS icon grid (824px on a 1024
 canvas) with a soft shadow. The README floats it right of the introduction at
 34% width, like chartr's README, and clears it before the first code block.
+
+## Desktop release
+
+The macOS desktop renderer ships this artwork as `Fungi.icns` starting with
+[v0.1.0-alpha.3](https://github.com/rengwu/fungi/releases/tag/v0.1.0-alpha.3).
+Updating a temporary alpha.2 installation from GitHub and opening a Fungi
+window confirmed that macOS reports the ghost as the running app's icon.
+The [release checks](https://github.com/rengwu/fungi/actions/runs/44383046669)
+also verify the icon in the installed bundle after installation, update and rollback.
 
 ## Open questions
 
