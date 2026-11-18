@@ -4,123 +4,109 @@
     <clipPath id="fsq">
       <rect width="1024" height="1024" rx="230"/>
     </clipPath>
-    <filter id="fglow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="19"/>
-    </filter>
-    <filter id="fbloom" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="70"/>
-    </filter>
-    <filter id="fsoft" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2"/>
-    </filter>
-    <linearGradient id="fbg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#EDEAE3"/>
-      <stop offset="1" stop-color="#CDC8BE"/>
-    </linearGradient>
-    <linearGradient id="frim" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#fff" stop-opacity=".7"/>
-      <stop offset=".3" stop-color="#fff" stop-opacity="0"/>
-      <stop offset=".8" stop-color="#000" stop-opacity="0"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".18"/>
-    </linearGradient>
-    <linearGradient id="ffr" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#141518"/>
-      <stop offset="1" stop-color="#2C2E33"/>
-    </linearGradient>
-    <radialGradient id="fscr" cx="50%" cy="46%" r="62%">
-      <stop offset="0" stop-color="#10291A"/>
-      <stop offset="1" stop-color="#06120B"/>
-    </radialGradient>
-    <linearGradient id="fins" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#000" stop-opacity=".55"/>
-      <stop offset=".07" stop-color="#000" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="fglass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#fff" stop-opacity=".13"/>
-      <stop offset=".42" stop-color="#fff" stop-opacity=".03"/>
-      <stop offset=".421" stop-color="#fff" stop-opacity="0"/>
-    </linearGradient>
-    <pattern id="fgrid" x="166.2" y="166.2" width="53.83" height="53.83" patternUnits="userSpaceOnUse">
-      <rect width="45.6" height="45.6" rx="8.2" fill="#163822"/>
-    </pattern>
-    <g id="fon">
-      <rect x="489.2" y="166.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="220.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="273.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="273.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="273.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="327.7" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="327.7" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="327.7" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="381.5" y="381.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="381.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="381.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="381.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="596.9" y="381.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="273.9" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="327.7" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="381.5" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="596.9" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="650.7" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="704.5" y="435.4" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="166.2" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="220.0" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="273.9" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="327.7" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="381.5" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="596.9" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="650.7" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="704.5" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="758.3" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="812.2" y="489.2" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="273.9" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="327.7" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="381.5" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="596.9" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="650.7" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="704.5" y="543.0" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="381.5" y="596.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="596.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="596.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="596.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="596.9" y="596.9" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="650.7" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="650.7" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="650.7" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="435.4" y="704.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="704.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="543.0" y="704.5" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="758.3" width="45.6" height="45.6" rx="8.2"/>
-      <rect x="489.2" y="812.2" width="45.6" height="45.6" rx="8.2"/>
-    </g>
-    <clipPath id="fsc">
-      <rect x="116" y="116" width="792" height="792" rx="114"/>
+    <clipPath id="fback">
+      <rect width="1024" height="858"/>
     </clipPath>
+    <clipPath id="ffront">
+      <rect y="858" width="1024" height="166"/>
+    </clipPath>
+    <filter id="fb120" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="120"/>
+    </filter>
+    <filter id="fb44" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="44"/>
+    </filter>
+    <filter id="fb16" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="fb8" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <radialGradient id="fbg" cx="512" cy="520" r="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A1470"/>
+      <stop offset=".34" stop-color="#1E0A40"/>
+      <stop offset=".62" stop-color="#0D0619"/>
+      <stop offset="1" stop-color="#06030B"/>
+    </radialGradient>
+    <linearGradient id="frim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".12"/>
+      <stop offset=".25" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fbody" x1="0" y1="254" x2="0" y2="842" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".4" stop-color="#F4ECFF"/>
+      <stop offset=".72" stop-color="#D9C0F8"/>
+      <stop offset="1" stop-color="#B18BEA"/>
+    </linearGradient>
+    <radialGradient id="fshade" cx="470" cy="420" r="430" gradientUnits="userSpaceOnUse">
+      <stop offset=".55" stop-color="#9B6BE6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#7C48D6" stop-opacity=".5"/>
+    </radialGradient>
+    <linearGradient id="ffade" x1="0" y1="620" x2="0" y2="842" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".58"/>
+    </linearGradient>
+    <mask id="fmask" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <rect width="1024" height="1024" fill="url(#ffade)"/>
+    </mask>
+    <linearGradient id="fneon" x1="270" y1="0" x2="754" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF4FA3"/>
+      <stop offset=".5" stop-color="#B66BFF"/>
+      <stop offset="1" stop-color="#5E86FF"/>
+    </linearGradient>
+    <path id="fghost" d="M320 540C320 382 406 254 512 254C618 254 704 382 704 540L710 812A49.5 30 0 0 1 611 812A49.5 30 0 0 1 512 812A49.5 30 0 0 1 413 812A49.5 30 0 0 1 314 812Z"/>
+    <clipPath id="fgclip">
+      <use href="#fghost"/>
+    </clipPath>
+    <ellipse id="fring" cx="512" cy="858" rx="238" ry="44" fill="none"/>
+    <path id="fstar" d="M0-1Q.13-.13 1 0Q.13 .13 0 1Q-.13 .13-1 0Q-.13-.13 0-1Z"/>
   </defs>
   <g clip-path="url(#fsq)">
     <rect width="1024" height="1024" fill="url(#fbg)"/>
-    <rect x="4" y="4" width="1016" height="1016" rx="226" fill="none" stroke="url(#frim)" stroke-width="8"/>
-    <rect x="92" y="96" width="840" height="840" rx="138" fill="#FFFFFF" opacity=".75" filter="url(#fsoft)"/>
-    <rect x="92" y="89" width="840" height="840" rx="138" fill="#000" opacity=".22" filter="url(#fsoft)"/>
-    <rect x="92" y="92" width="840" height="840" rx="138" fill="url(#ffr)"/>
-    <rect x="116" y="116" width="792" height="792" rx="114" fill="url(#fscr)"/>
-    <g clip-path="url(#fsc)">
-      <rect x="166.2" y="166.2" width="691.6" height="691.6" fill="url(#fgrid)"/>
-      <use href="#fon" fill="#5CFF7A" filter="url(#fbloom)" opacity=".28"/>
-      <use href="#fon" fill="#5CFF7A" filter="url(#fglow)" opacity=".85"/>
-      <use href="#fon" fill="#C4FFCD"/>
-      <rect x="116" y="116" width="792" height="792" fill="url(#fins)"/>
-      <rect x="116" y="116" width="792" height="792" fill="url(#fglass)"/>
+
+    <!-- halo -->
+    <use href="#fghost" fill="#7A38E6" opacity=".68" filter="url(#fb120)"/>
+    <use href="#fghost" fill="#B98AFF" opacity=".6" filter="url(#fb44)"/>
+
+    <!-- portal floor and back of ring -->
+    <ellipse cx="512" cy="858" rx="226" ry="38" fill="#0A0414" opacity=".6" filter="url(#fb16)"/>
+    <g clip-path="url(#fback)">
+      <use href="#fring" stroke="url(#fneon)" stroke-width="26" opacity=".7" filter="url(#fb16)"/>
+      <use href="#fring" stroke="url(#fneon)" stroke-width="8"/>
+      <use href="#fring" stroke="#fff" stroke-opacity=".55" stroke-width="2.5"/>
     </g>
-    <rect x="116.75" y="116.75" width="790.5" height="790.5" rx="114" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="1.5"/>
+
+    <!-- ghost -->
+    <g mask="url(#fmask)">
+      <use href="#fghost" fill="#F2E6FF" opacity=".85" filter="url(#fb8)"/>
+      <use href="#fghost" fill="url(#fbody)"/>
+      <rect width="1024" height="1024" fill="url(#fshade)" clip-path="url(#fgclip)"/>
+    </g>
+
+    <!-- eyes -->
+    <ellipse cx="456" cy="458" rx="29" ry="39" fill="#1C0B30"/>
+    <ellipse cx="568" cy="458" rx="29" ry="39" fill="#1C0B30"/>
+    <circle cx="467" cy="440" r="10" fill="#fff"/>
+    <circle cx="579" cy="440" r="10" fill="#fff"/>
+
+    <!-- front of ring -->
+    <g clip-path="url(#ffront)">
+      <use href="#fring" stroke="url(#fneon)" stroke-width="26" opacity=".7" filter="url(#fb16)"/>
+      <use href="#fring" stroke="url(#fneon)" stroke-width="8"/>
+      <use href="#fring" stroke="#fff" stroke-opacity=".55" stroke-width="2.5"/>
+    </g>
+
+    <!-- sparkles -->
+    <g fill="#E9D9FF" opacity=".8" filter="url(#fb8)">
+      <use href="#fstar" transform="translate(792 306) scale(34)"/>
+      <use href="#fstar" transform="translate(244 410) scale(20)"/>
+    </g>
+    <g fill="#fff">
+      <use href="#fstar" transform="translate(792 306) scale(34)"/>
+      <use href="#fstar" transform="translate(244 410) scale(20)"/>
+      <circle cx="766" cy="694" r="7"/>
+    </g>
+
+    <rect x="4" y="4" width="1016" height="1016" rx="226" fill="none" stroke="url(#frim)" stroke-width="8"/>
   </g>
 </svg>

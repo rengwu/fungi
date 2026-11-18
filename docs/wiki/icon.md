@@ -1,27 +1,33 @@
 ---
 title: Project icon
-updated: 2026-10-28
+updated: 2026-11-19
 ---
 # Project icon
 
 ## Accepted direction
 
-**Pixel**, chosen in round 11, in the **Larger screen** version chosen in
-round 12: a small beige device whose green dot-matrix screen shows a 13×13
-pixel spark. The screen fills 77% of the icon's width, the beige bezel is half
-its round-11 thickness, and nothing sits on the bezel; the speaker dots and
-status light were removed at the user's request.
+**Apparition**, chosen on 2026-11-19 from a reference image the user supplied:
+a glowing white-to-lavender ghost with two dark oval eyes, standing in a
+pink-to-blue neon portal ring on a near-black squircle lit by a violet halo.
+A large four-point sparkle sits upper right, a small one at left and a dot at
+lower right. The ghost's scalloped hem fades so the back of the ring shows
+through it; the front of the ring passes over the hem. It still reads as a
+ghost at 16px.
 
-[icon.museum](https://icon.museum/) is the current visual reference. The icon
-does not depict fungi and need not relate to the name. Previews check it as a
-GitHub avatar, README header and 16px favicon.
+It replaces **Pixel** (rounds 11 and 12), a beige device whose green
+dot-matrix screen showed a pixel spark. The icon does not depict fungi and
+need not relate to the name. Previews check it as a GitHub avatar, README
+header and 16px favicon.
 
 ## Files
 
 `docs/assets/icon/` holds the master `fungi.svg`, PNG exports at 1024, 512,
-256, 128, 64, 32 and 16px, and a `favicon.ico` with 16, 32 and 48px frames.
-Chrome and librsvg render the master identically. Regenerate a PNG with
-`rsvg-convert -w 512 -h 512 fungi.svg -o fungi-512.png`. The executable embeds
+256, 128, 64, 32 and 16px, and a `favicon.ico` with 16, 32 and 48px PNG
+frames. Chromium and WebKit render the master identically. The 1024px PNG is a
+headless Chromium screenshot with a transparent background, for example
+`headless_shell --headless --default-background-color=00000000
+--window-size=1024,1024 --screenshot=fungi-1024.png file://$PWD/fungi.svg`;
+the smaller sizes are `sips -z` downscales of it. The executable embeds
 only `docs/manual/*.md` and packages copy only `docs/manual` and
 `docs/PORTABLE.md`, so these files ship in neither.
 

@@ -19,7 +19,7 @@ sequence; later accepted decisions supersede earlier ones.
 | Completion | No model polling or required harness setup. Use the supported exact-caller callback/native completion route, otherwise manual “done.” Results survive notification failure. |
 | Documentation | The embedded `fungi help` manual is the public reference; `describe` is machine-readable. Keep prose concise, installation commands copyable and examples small and complete. |
 | Workflow integration | jstack/Fungi skills are developed in the sibling `fungi-skills` project. This repo owns the engine, generic examples and its verification. |
-| Icon | Pixel, Larger screen version: a beige device whose green dot-matrix screen shows a pixel spark, with nothing on the bezel. Files are in `docs/assets/icon/`; see [Project icon](icon.md). |
+| Icon | Apparition: a glowing lavender ghost in a neon portal ring on a dark violet squircle, replacing Pixel on 2026-11-19. Files are in `docs/assets/icon/`; see [Project icon](icon.md). |
 
 This checkout is the 0.2 development line. Previously published 0.1 alpha
 packages retain their old UI/protocol-1 behavior. No new release is published
