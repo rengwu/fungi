@@ -28,6 +28,16 @@ const invoke=async args=>(await promisify(execFile)(binary,args,{cwd:directory,e
 const run=async args=>JSON.parse(await invoke(args));
 async function discovery(version){
   const base=path.join(installation,'versions',version);
+  if (process.platform === 'darwin') {
+    const contents = path.join(base, 'renderer', 'Fungi.app', 'Contents');
+    const {stdout} = await promisify(execFile)('/usr/bin/plutil', [
+      '-extract', 'CFBundleIconFile', 'raw', path.join(contents, 'Info.plist')
+    ]);
+    assert.equal(stdout.trim(), 'Fungi.icns');
+    const installedIcon = await readFile(path.join(contents, 'Resources', stdout.trim()));
+    const sourceIcon = await readFile(path.join(root, 'renderer', 'Fungi.icns'));
+    assert.ok(installedIcon.equals(sourceIcon), 'installed bundle must contain the release icon');
+  }
   const index=await run(['describe']);
   for(const topic of index.documentation.topics){
     const help=await invoke(['help',topic]);

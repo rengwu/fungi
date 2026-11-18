@@ -25,9 +25,13 @@ await mkdir(path.dirname(helper),{recursive:true});
 const tags=platform==='linux'?'production,webkit2_41':platform==='win32'?'production,wv2runtime.error':'production';
 execFileSync('go',['build','-tags',tags,'-trimpath','-ldflags','-s -w','-o',helper,'./wails'],{cwd:path.join(root,'renderer'),stdio:'inherit',env:{...process.env,CGO_ENABLED:platform==='win32'?'0':'1'}});
 if(platform==='darwin'){
-  await writeFile(path.join(renderer,'Fungi.app/Contents/Info.plist'),`<?xml version="1.0" encoding="UTF-8"?>
+  const contents = path.join(renderer, 'Fungi.app', 'Contents');
+  const resources = path.join(contents, 'Resources');
+  await mkdir(resources);
+  await cp(path.join(root, 'renderer', 'Fungi.icns'), path.join(resources, 'Fungi.icns'));
+  await writeFile(path.join(contents, 'Info.plist'),`<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0"><dict><key>CFBundleExecutable</key><string>fungi-renderer</string><key>CFBundleIdentifier</key><string>dev.fungi.renderer</string><key>CFBundleName</key><string>Fungi</string><key>CFBundlePackageType</key><string>APPL</string><key>CFBundleShortVersionString</key><string>${version.replace(/^v/,'').split('-')[0]}</string><key>CFBundleVersion</key><string>1</string><key>NSHighResolutionCapable</key><true/></dict></plist>\n`);
+<plist version="1.0"><dict><key>CFBundleExecutable</key><string>fungi-renderer</string><key>CFBundleIconFile</key><string>Fungi.icns</string><key>CFBundleIdentifier</key><string>dev.fungi.renderer</string><key>CFBundleName</key><string>Fungi</string><key>CFBundlePackageType</key><string>APPL</string><key>CFBundleShortVersionString</key><string>${version.replace(/^v/,'').split('-')[0]}</string><key>CFBundleVersion</key><string>1</string><key>NSHighResolutionCapable</key><true/></dict></plist>\n`);
 }
 const modules=execFileSync('go',['list','-m','-f','{{.Path}}|{{.Version}}|{{.Dir}}','all'],{cwd:path.join(root,'renderer'),encoding:'utf8'}).trim().split('\n');
 const wails=modules.find(line=>line.startsWith('github.com/wailsapp/wails/v2|')).split('|')[1];

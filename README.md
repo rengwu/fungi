@@ -4,7 +4,7 @@ A small Go session engine with a Wails window for skill-authored human interacti
 Skills bring ordinary HTML/CSS/JavaScript or a native helper; Fungi owns the
 session, saves responses and returns them to the calling agent without polling.
 Fungi is an **unsigned alpha** for early skill authors.
-[Downloads and release notes](https://github.com/rengwu/fungi/releases/tag/v0.1.0-alpha.2).
+[Downloads and release notes](https://github.com/rengwu/fungi/releases/tag/v0.1.0-alpha.3).
 
 Each platform package contains the CLI and a native window helper. It uses
 WKWebView on macOS, WebView2 on Windows and WebKitGTK 4.1 on Linux. End users
@@ -56,14 +56,14 @@ Windows/Linux ARM packages are not included in this alpha.
 Mac or Ubuntu:
 
 ```sh
-curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.sh | sh -s -- --version v0.1.0-alpha.2 && export PATH="$HOME/.fungi/bin:$PATH"
+curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.3/install.sh | sh -s -- --version v0.1.0-alpha.3 && export PATH="$HOME/.fungi/bin:$PATH"
 ```
 
 Add that PATH entry to your shell configuration to keep it in new terminals.
 Windows PowerShell:
 
 ```powershell
-Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"; & "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.2
+Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.3/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"; & "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.3
 ```
 
 Run `fungi doctor` to verify the installation.
@@ -78,7 +78,7 @@ Explicitly opt into setup with `install.sh --setup-runtime` or
 Alpha updates require an explicit published version:
 
 ```sh
-fungi update --version v0.1.0-alpha.2
+fungi update --version v0.1.0-alpha.3
 ```
 
 Use the new version from the release page for subsequent updates. Plain

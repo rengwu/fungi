@@ -30,11 +30,11 @@ Download the matching install.sh or install.ps1 asset from the chosen release.
 For the current alpha:
 
 ```sh
-curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.sh | sh -s -- --version v0.1.0-alpha.2 && export PATH="$HOME/.fungi/bin:$PATH"
+curl -fsSL https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.3/install.sh | sh -s -- --version v0.1.0-alpha.3 && export PATH="$HOME/.fungi/bin:$PATH"
 ```
 
 ```powershell
-Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.2/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"; & "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.2
+Invoke-WebRequest -UseBasicParsing https://github.com/rengwu/fungi/releases/download/v0.1.0-alpha.3/install.ps1 -OutFile "$env:TEMP/fungi-install.ps1"; & "$env:TEMP/fungi-install.ps1" -Version v0.1.0-alpha.3
 ```
 
 Downloaded scripts (also in the source checkout) accept:
@@ -56,7 +56,7 @@ an extracted package. Neither script bypasses OS security or execution policy.
 
 ```sh
 fungi install --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
-fungi update --version v0.1.0-alpha.2
+fungi update --version v0.1.0-alpha.3
 fungi update # latest stable; available after a stable release is published
 fungi update --version vX.Y.Z
 fungi update --archive PATH_TO_ARCHIVE --sha256 EXPECTED_SHA256
